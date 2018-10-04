@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.Model.Loose", "ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj", "{C1A4477B-5ECE-4EED-81C9-F77C8981290C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationService.Service", "ESFA.DC.ILR.FileValidationService.Service\ESFA.DC.ILR.FileValidationService.Service.csproj", "{F9C7DEE0-1B4F-4141-9CFD-CFDD168DEBD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationService.Service.Tests", "ESFA.DC.ILR.FileValidationService.Service.Tests\ESFA.DC.ILR.FileValidationService.Service.Tests.csproj", "{142748A7-0391-42DE-9127-13207EF9C432}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C1A4477B-5ECE-4EED-81C9-F77C8981290C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1A4477B-5ECE-4EED-81C9-F77C8981290C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1A4477B-5ECE-4EED-81C9-F77C8981290C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C7DEE0-1B4F-4141-9CFD-CFDD168DEBD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C7DEE0-1B4F-4141-9CFD-CFDD168DEBD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C7DEE0-1B4F-4141-9CFD-CFDD168DEBD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C7DEE0-1B4F-4141-9CFD-CFDD168DEBD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{142748A7-0391-42DE-9127-13207EF9C432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142748A7-0391-42DE-9127-13207EF9C432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142748A7-0391-42DE-9127-13207EF9C432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{142748A7-0391-42DE-9127-13207EF9C432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
