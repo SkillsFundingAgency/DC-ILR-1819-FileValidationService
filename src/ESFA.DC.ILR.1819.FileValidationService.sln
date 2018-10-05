@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.Model.Loose", "ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj", "{C1A4477B-5ECE-4EED-81C9-F77C8981290C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.Model.Loose", "ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj", "{C1A4477B-5ECE-4EED-81C9-F77C8981290C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationService.Service", "ESFA.DC.ILR.FileValidationService.Service\ESFA.DC.ILR.FileValidationService.Service.csproj", "{F9C7DEE0-1B4F-4141-9CFD-CFDD168DEBD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.FileValidationService.Service", "ESFA.DC.ILR.FileValidationService.Service\ESFA.DC.ILR.FileValidationService.Service.csproj", "{F9C7DEE0-1B4F-4141-9CFD-CFDD168DEBD7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationService.Service.Tests", "ESFA.DC.ILR.FileValidationService.Service.Tests\ESFA.DC.ILR.FileValidationService.Service.Tests.csproj", "{142748A7-0391-42DE-9127-13207EF9C432}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationService.Service.Interface", "ESFA.DC.ILR.FileValidationService.Service.Interface\ESFA.DC.ILR.FileValidationService.Service.Interface.csproj", "{5972B2D4-2ABE-4445-9369-DB1CF90462B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{142748A7-0391-42DE-9127-13207EF9C432}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{142748A7-0391-42DE-9127-13207EF9C432}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{142748A7-0391-42DE-9127-13207EF9C432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5972B2D4-2ABE-4445-9369-DB1CF90462B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5972B2D4-2ABE-4445-9369-DB1CF90462B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5972B2D4-2ABE-4445-9369-DB1CF90462B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5972B2D4-2ABE-4445-9369-DB1CF90462B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
