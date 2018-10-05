@@ -8,20 +8,20 @@ namespace ESFA.DC.ILR.FileValidationService.Service
     {
         private readonly ILooseMessageProvider _looseMessageProvider;
         private readonly IFileValidationRuleExecutionService _fileValidationRuleExecutionService;
-        private readonly ITightSchemaValidMessageProviderService _tightSchemaValidMessageProviderService;
+        private readonly ITightSchemaValidMessageFilterService _tightSchemaValidMessageFilterService;
         private readonly IMapper<Model.Loose.Message, Model.Message> _mapper;
         private readonly IFileValidationOutputService _fileValidationOutputService;
 
         public FileValidationOrchestrationService(
             ILooseMessageProvider looseMessageProvider,
             IFileValidationRuleExecutionService fileValidationRuleExecutionService,
-            ITightSchemaValidMessageProviderService tightSchemaValidMessageProviderService,
+            ITightSchemaValidMessageFilterService tightSchemaValidMessageFilterService,
             IMapper<Model.Loose.Message, Model.Message> mapper,
             IFileValidationOutputService fileValidationOutputService)
         {
             _looseMessageProvider = looseMessageProvider;
             _fileValidationRuleExecutionService = fileValidationRuleExecutionService;
-            _tightSchemaValidMessageProviderService = tightSchemaValidMessageProviderService;
+            _tightSchemaValidMessageFilterService = tightSchemaValidMessageFilterService;
             _mapper = mapper;
             _fileValidationOutputService = fileValidationOutputService;
         }
@@ -35,7 +35,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             var validationErrors = _fileValidationRuleExecutionService.Execute(looseMessage);
 
             // Filter
-            var validLooseMessage = _tightSchemaValidMessageProviderService.Provide(looseMessage, validationErrors);
+            var validLooseMessage = _tightSchemaValidMessageFilterService.ApplyFilter(looseMessage, validationErrors);
 
             // Map to Tight Schema
             var tightMessage = _mapper.MapTo(looseMessage);
