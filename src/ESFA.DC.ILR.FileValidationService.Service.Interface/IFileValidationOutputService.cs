@@ -5,6 +5,6 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Interface
 {
     public interface IFileValidationOutputService
     {
-        Task Output(Model.Message message, IEnumerable<IValidationError> validationErrors);
+        Task Output(IFileValidationContext fileValidationContext, Model.Message message, IEnumerable<IValidationError> validationErrors);
     }
 }
