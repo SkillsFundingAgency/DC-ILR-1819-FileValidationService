@@ -20,7 +20,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             _fileService = fileService;
         }
 
-        public async Task Output(IFileValidationContext fileValidationContext, Message message, IEnumerable<IValidationError> validationErrors, CancellationToken cancellationToken)
+        public async Task OutputAsync(IFileValidationContext fileValidationContext, Message message, IEnumerable<IValidationError> validationErrors, CancellationToken cancellationToken)
         {
             var ilrFileContent = _xmlSerializationService.Serialize(message);
 

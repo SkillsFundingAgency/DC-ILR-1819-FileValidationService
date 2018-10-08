@@ -19,7 +19,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             _xmlSerializationService = xmlSerializationService;
         }
 
-        public async Task<Message> Provide(IFileValidationContext fileValidationContext, CancellationToken cancellationToken)
+        public async Task<Message> ProvideAsync(IFileValidationContext fileValidationContext, CancellationToken cancellationToken)
         {
             // Load String from File
             var fileContent = await _fileService.ReadStringAsync(fileValidationContext.FileReference, fileValidationContext.Container, cancellationToken);

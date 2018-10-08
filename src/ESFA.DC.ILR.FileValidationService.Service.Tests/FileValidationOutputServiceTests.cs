@@ -35,7 +35,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             xmlSerializationServiceMock.Setup(s => s.Serialize(tightValidMessage)).Returns(ilrFileContent).Verifiable();
             fileServiceMock.Setup(s => s.WriteStringAsync(ilrFileContent, outputFileReference, outputContainer, cancellationToken, null)).Returns(Task.CompletedTask).Verifiable();
 
-            await NewService(xmlSerializationServiceMock.Object, fileServiceMock.Object).Output(fileValidationContextMock.Object, tightValidMessage, validationErrors, cancellationToken);
+            await NewService(xmlSerializationServiceMock.Object, fileServiceMock.Object).OutputAsync(fileValidationContextMock.Object, tightValidMessage, validationErrors, cancellationToken);
 
             xmlSerializationServiceMock.VerifyAll();
             fileServiceMock.VerifyAll();

@@ -31,7 +31,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
         public async Task Validate(IFileValidationContext fileValidationContext, CancellationToken cancellationToken)
         {
             // Get File
-            var looseMessage = await _looseMessageProvider.Provide(fileValidationContext, cancellationToken);
+            var looseMessage = await _looseMessageProvider.ProvideAsync(fileValidationContext, cancellationToken);
             
             // Validation Rules
             var validationErrors = _fileValidationRuleExecutionService.Execute(looseMessage);
@@ -43,7 +43,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             var tightMessage = _mapper.MapTo(validLooseMessage);
             
             // Output Tight Xml File
-            await _fileValidationOutputService.Output(fileValidationContext, tightMessage, validationErrors, cancellationToken);
+            await _fileValidationOutputService.OutputAsync(fileValidationContext, tightMessage, validationErrors, cancellationToken);
         }
     }
 }

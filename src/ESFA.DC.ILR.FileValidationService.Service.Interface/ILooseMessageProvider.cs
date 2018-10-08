@@ -5,6 +5,6 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Interface
 {
     public interface ILooseMessageProvider
     {
-        Task<Model.Loose.Message> Provide(IFileValidationContext fileValidationContext, CancellationToken cancellationToken);
+        Task<Model.Loose.Message> ProvideAsync(IFileValidationContext fileValidationContext, CancellationToken cancellationToken);
     }
 }

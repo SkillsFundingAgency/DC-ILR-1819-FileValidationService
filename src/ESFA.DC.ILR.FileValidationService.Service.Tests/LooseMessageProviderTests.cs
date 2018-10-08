@@ -38,7 +38,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             fileServiceMock.Setup(s => s.ReadStringAsync(fileReference, container, cancellationToken, null)).Returns(Task.FromResult(looseMessageContent)).Verifiable();
             xmlSerializationServiceMock.Setup(s => s.Deserialize<Message>(looseMessageContent)).Returns(looseMessage).Verifiable();
 
-            var providedMessage = await NewProvider(fileServiceMock.Object, xmlSerializationServiceMock.Object).Provide(fileValidationContextMock.Object, cancellationToken);
+            var providedMessage = await NewProvider(fileServiceMock.Object, xmlSerializationServiceMock.Object).ProvideAsync(fileValidationContextMock.Object, cancellationToken);
 
             providedMessage.Should().Be(looseMessage);
 

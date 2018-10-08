@@ -28,11 +28,11 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             var validLooseMessage = new Model.Loose.Message();
             var tightMessage = new Message();
 
-            looseMessageProviderMock.Setup(p => p.Provide(fileValidationContextMock.Object, cancellationToken)).Returns(Task.FromResult(looseMessage)).Verifiable();
+            looseMessageProviderMock.Setup(p => p.ProvideAsync(fileValidationContextMock.Object, cancellationToken)).Returns(Task.FromResult(looseMessage)).Verifiable();
             fileValidationRuleExecutionServiceMock.Setup(s => s.Execute(looseMessage)).Returns(validationErrors).Verifiable();
             tightSchemaValidMessageFilterServiceMock.Setup(s => s.ApplyFilter(looseMessage, validationErrors)).Returns(validLooseMessage).Verifiable();
             mapperMock.Setup(m => m.MapTo(validLooseMessage)).Returns(tightMessage).Verifiable();
-            fileValidationOutputServiceMock.Setup(s => s.Output(fileValidationContextMock.Object, tightMessage, validationErrors, cancellationToken)).Returns(Task.CompletedTask).Verifiable();
+            fileValidationOutputServiceMock.Setup(s => s.OutputAsync(fileValidationContextMock.Object, tightMessage, validationErrors, cancellationToken)).Returns(Task.CompletedTask).Verifiable();
             
             var service = NewService(looseMessageProviderMock.Object, fileValidationRuleExecutionServiceMock.Object, tightSchemaValidMessageFilterServiceMock.Object, mapperMock.Object, fileValidationOutputServiceMock.Object);
 
