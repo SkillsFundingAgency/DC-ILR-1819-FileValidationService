@@ -33,13 +33,13 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             var looseMessage = await _looseMessageProvider.Provide(fileValidationContext);
             
             // Validation Rules
-            var validationErrors = _fileValidationRuleExecutionService.Execute(looseMessage).ToList();
+            var validationErrors = _fileValidationRuleExecutionService.Execute(looseMessage);
 
             // Filter
             var validLooseMessage = _tightSchemaValidMessageFilterService.ApplyFilter(looseMessage, validationErrors);
 
             // Map to Tight Schema
-            var tightMessage = _mapper.MapTo(looseMessage);
+            var tightMessage = _mapper.MapTo(validLooseMessage);
             
             // Output Tight Xml File
             await _fileValidationOutputService.Output(fileValidationContext, tightMessage, validationErrors);
