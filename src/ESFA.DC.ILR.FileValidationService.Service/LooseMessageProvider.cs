@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using ESFA.DC.FileService.Interface;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
@@ -18,10 +19,10 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             _xmlSerializationService = xmlSerializationService;
         }
 
-        public async Task<Message> Provide(IFileValidationContext fileValidationContext)
+        public async Task<Message> Provide(IFileValidationContext fileValidationContext, CancellationToken cancellationToken)
         {
             // Load String from File
-            var fileContent = await _fileService.ReadStringAsync(fileValidationContext.FileReference, fileValidationContext.Container);
+            var fileContent = await _fileService.ReadStringAsync(fileValidationContext.FileReference, fileValidationContext.Container, cancellationToken);
             
             // XSD Validation
 

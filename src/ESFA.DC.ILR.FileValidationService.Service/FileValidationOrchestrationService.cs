@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.Mapping.Interface;
@@ -27,10 +28,10 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             _fileValidationOutputService = fileValidationOutputService;
         }
 
-        public async Task Validate(IFileValidationContext fileValidationContext)
+        public async Task Validate(IFileValidationContext fileValidationContext, CancellationToken cancellationToken)
         {
             // Get File
-            var looseMessage = await _looseMessageProvider.Provide(fileValidationContext);
+            var looseMessage = await _looseMessageProvider.Provide(fileValidationContext, cancellationToken);
             
             // Validation Rules
             var validationErrors = _fileValidationRuleExecutionService.Execute(looseMessage);
@@ -42,7 +43,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             var tightMessage = _mapper.MapTo(validLooseMessage);
             
             // Output Tight Xml File
-            await _fileValidationOutputService.Output(fileValidationContext, tightMessage, validationErrors);
+            await _fileValidationOutputService.Output(fileValidationContext, tightMessage, validationErrors, cancellationToken);
         }
     }
 }

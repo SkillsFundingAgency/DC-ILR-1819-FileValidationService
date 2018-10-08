@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ESFA.DC.FileService;
 using ESFA.DC.FileService.Interface;
@@ -42,7 +43,7 @@ namespace ESFA.DC.ILR.FileValidationService.Console
                 mapper,
                 fileValidationOutputService);
 
-            fileValidationOrchestrationService.Validate(fileValidationContext).Wait();
+            fileValidationOrchestrationService.Validate(fileValidationContext, CancellationToken.None).Wait();
         }
     }
 }

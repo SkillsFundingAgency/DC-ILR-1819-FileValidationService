@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ESFA.DC.FileService.Interface;
 
@@ -7,7 +8,7 @@ namespace ESFA.DC.FileService
 {
     public class FileSystemFileService : IFileService
     {
-        public Task<string> ReadStringAsync(string fileReference, string container = null, Encoding encoding = null)
+        public Task<string> ReadStringAsync(string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null)
         {
             var filePath = container != null ? Path.Combine(container, fileReference) : fileReference;
 
@@ -21,7 +22,7 @@ namespace ESFA.DC.FileService
             throw new System.NotImplementedException();
         }
 
-        public Task WriteStringAsync(string content, string fileReference, string container = null, Encoding encoding = null)
+        public Task WriteStringAsync(string content, string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null)
         {
             var filePath = container != null ? Path.Combine(container, fileReference) : fileReference;
 

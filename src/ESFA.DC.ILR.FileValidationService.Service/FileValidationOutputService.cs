@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using ESFA.DC.FileService.Interface;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
@@ -19,11 +20,11 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             _fileService = fileService;
         }
 
-        public async Task Output(IFileValidationContext fileValidationContext, Message message, IEnumerable<IValidationError> validationErrors)
+        public async Task Output(IFileValidationContext fileValidationContext, Message message, IEnumerable<IValidationError> validationErrors, CancellationToken cancellationToken)
         {
             var ilrFileContent = _xmlSerializationService.Serialize(message);
 
-            await _fileService.WriteStringAsync(ilrFileContent, fileValidationContext.OutputFileReference, fileValidationContext.OutputContainer);
+            await _fileService.WriteStringAsync(ilrFileContent, fileValidationContext.OutputFileReference, fileValidationContext.OutputContainer, cancellationToken);
         }
     }
 }

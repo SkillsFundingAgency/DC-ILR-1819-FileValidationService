@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using ESFA.DC.FileService.Interface;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
@@ -14,6 +15,8 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
         [Fact]
         public async Task Output()
         {
+            var cancellationToken = CancellationToken.None;
+
             var outputFileReference = "OutputFileReference";
             var outputContainer = "OutputContainer";
 
@@ -30,9 +33,9 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             fileValidationContextMock.SetupGet(c => c.OutputContainer).Returns(outputContainer);
 
             xmlSerializationServiceMock.Setup(s => s.Serialize(tightValidMessage)).Returns(ilrFileContent).Verifiable();
-            fileServiceMock.Setup(s => s.WriteStringAsync(ilrFileContent, outputFileReference, outputContainer, null)).Returns(Task.CompletedTask).Verifiable();
+            fileServiceMock.Setup(s => s.WriteStringAsync(ilrFileContent, outputFileReference, outputContainer, cancellationToken, null)).Returns(Task.CompletedTask).Verifiable();
 
-            await NewService(xmlSerializationServiceMock.Object, fileServiceMock.Object).Output(fileValidationContextMock.Object, tightValidMessage, validationErrors);
+            await NewService(xmlSerializationServiceMock.Object, fileServiceMock.Object).Output(fileValidationContextMock.Object, tightValidMessage, validationErrors, cancellationToken);
 
             xmlSerializationServiceMock.VerifyAll();
             fileServiceMock.VerifyAll();
