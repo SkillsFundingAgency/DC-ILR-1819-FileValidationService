@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ESFA.DC.FileService\ESFA.DC.FileService.csproj" />
+    <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Rules\ESFA.DC.ILR.FileValidationService.Rules.csproj" />
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service.Interface\ESFA.DC.ILR.FileValidationService.Service.Interface.csproj" />
     <ProjectReference Include="..\ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj" />
   </ItemGroup>

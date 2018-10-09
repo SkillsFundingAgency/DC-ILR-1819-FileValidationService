@@ -11,9 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.FileValidationService.Service.Interface", "ESFA.DC.ILR.FileValidationService.Service.Interface\ESFA.DC.ILR.FileValidationService.Service.Interface.csproj", "{5972B2D4-2ABE-4445-9369-DB1CF90462B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.FileService", "ESFA.DC.FileService\ESFA.DC.FileService.csproj", "{3BF6A9B5-E596-4857-B224-50FDE6A1E062}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.FileService", "ESFA.DC.FileService\ESFA.DC.FileService.csproj", "{3BF6A9B5-E596-4857-B224-50FDE6A1E062}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationService.Console", "ESFA.DC.ILR.FileValidationService.Console\ESFA.DC.ILR.FileValidationService.Console.csproj", "{49384EC4-DC3D-4BF1-BC9C-E5816D307851}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationService.Rules", "ESFA.DC.ILR.FileValidationService.Rules\ESFA.DC.ILR.FileValidationService.Rules.csproj", "{995F5451-3A7D-4BD6-B018-5555AEDA71F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationService.Rules.Tests", "ESFA.DC.ILR.FileValidationService.Rules.Tests\ESFA.DC.ILR.FileValidationService.Rules.Tests.csproj", "{4AB3836F-77F1-4B1D-84B4-082D31B749C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{49384EC4-DC3D-4BF1-BC9C-E5816D307851}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49384EC4-DC3D-4BF1-BC9C-E5816D307851}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49384EC4-DC3D-4BF1-BC9C-E5816D307851}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995F5451-3A7D-4BD6-B018-5555AEDA71F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995F5451-3A7D-4BD6-B018-5555AEDA71F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995F5451-3A7D-4BD6-B018-5555AEDA71F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995F5451-3A7D-4BD6-B018-5555AEDA71F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AB3836F-77F1-4B1D-84B4-082D31B749C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AB3836F-77F1-4B1D-84B4-082D31B749C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AB3836F-77F1-4B1D-84B4-082D31B749C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AB3836F-77F1-4B1D-84B4-082D31B749C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

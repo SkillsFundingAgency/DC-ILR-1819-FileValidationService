@@ -6,12 +6,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using ESFA.DC.FileService;
 using ESFA.DC.FileService.Interface;
+using ESFA.DC.ILR.FileValidationService.Rules;
 using ESFA.DC.ILR.FileValidationService.Service;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.Model;
 using ESFA.DC.Mapping.Interface;
 using ESFA.DC.Serialization.Interfaces;
 using ESFA.DC.Serialization.Xml;
+using FluentValidation;
 
 namespace ESFA.DC.ILR.FileValidationService.Console
 {
@@ -30,8 +32,13 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             IFileService fileService = new FileSystemFileService();
             IXmlSerializationService xmlSerializationService = new XmlSerializationService();
 
+            IValidationErrorHandler validationErrorHandler = new ValidationErrorHandler();
+            IValidator<Model.Loose.MessageLearner> learnerValidator = new LearnerValidator(validationErrorHandler);
+            IValidator<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamValidator = new LearningDeliveryFamValidator();
+            IValidator<Model.Loose.MessageLearnerLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator(learningDeliveryFamValidator);
+
             ILooseMessageProvider looseMessageProvider = new LooseMessageProvider(fileService, xmlSerializationService);
-            IFileValidationRuleExecutionService fileValidationRuleExecutionService = new FileValidationRuleExecutionService();
+            IFileValidationRuleExecutionService fileValidationRuleExecutionService = new FileValidationRuleExecutionService(learnerValidator, learningDeliveryValidator);
             ITightSchemaValidMessageFilterService tightSchemaValidMessageFilterService = new TightSchemaValidMessageFilterService();
             IMapper<Model.Loose.Message, Message> mapper = new LooseToTightSchemaMapper();
             IFileValidationOutputService fileValidationOutputService = new FileValidationOutputService(xmlSerializationService, fileService);
