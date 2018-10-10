@@ -8,8 +8,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 {
     public class LearnerValidator : AbstractValidator<ILooseLearner>
     {
-        public LearnerValidator()
+        private readonly IValidator<ILooseContactPreference> _contactPreferenceValidator;
+
+        public LearnerValidator(IValidator<ILooseContactPreference> contactPreferenceValidator)
         {
+            _contactPreferenceValidator = contactPreferenceValidator;
+
             RuleFor(l => l.LearnRefNumber).MatchesRegex("^[A-Za-z0-9 ]{1,12}$").WithErrorCode(RuleNames.FD_LearnRefNumber_AP);
             RuleFor(l => l.PrevLearnRefNumber).MatchesRegex("^[A-Za-z0-9 ]{1,12}$").WithErrorCode(RuleNames.FD_PrevLearnRefNumber_AP);
             RuleFor(l => l.FamilyName).MatchesRegex(@"^[^0-9\r\n\t|&quot;]{1,100}$").WithErrorCode(RuleNames.FD_FamilyName_AP);
@@ -27,6 +31,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleFor(l => l.TelNo).MatchesRegex("^[0-9]{1,18}$").WithErrorCode(RuleNames.FD_TelNo_AP);
             RuleFor(l => l.Email).MatchesRegex("^.+@.+$").WithErrorCode(RuleNames.FD_Email_AP);
             RuleFor(l => l.CampId).MatchesRegex("^[A-Za-z0-9]{1,8}$").WithErrorCode(RuleNames.FD_CampId_AP);
+
+            RuleForEach(l => l.ContactPreferences).SetValidator(_contactPreferenceValidator);
         }
     }
 }

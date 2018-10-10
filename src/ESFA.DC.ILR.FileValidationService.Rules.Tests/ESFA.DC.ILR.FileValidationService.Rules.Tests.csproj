@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\AbstractValidatorTests.cs" />
+    <Compile Include="ContactPreferenceValidatorTests.cs" />
     <Compile Include="LearnerValidatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

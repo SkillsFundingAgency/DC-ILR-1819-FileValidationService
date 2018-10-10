@@ -19,5 +19,7 @@
         public const string FD_TelNo_AP = "FD_TelNo_AP";
         public const string FD_Email_AP = "FD_Email_AP";
         public const string FD_CampId_AP = "FD_CampId_AP";
+
+        public const string FD_ContPrefType_AP = "FD_ContPrefType_AP";
     }
 }

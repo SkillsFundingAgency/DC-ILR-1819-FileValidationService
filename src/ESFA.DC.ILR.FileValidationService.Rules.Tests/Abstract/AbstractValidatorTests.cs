@@ -6,11 +6,11 @@ using Moq;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
 {
-    public abstract class AbstractValidationTests<TEntity> where TEntity : class
+    public abstract class AbstractValidatorTests<TEntity> where TEntity : class
     {
-        private readonly IValidator<TEntity> _validator;
+        protected readonly IValidator<TEntity> _validator;
 
-        protected AbstractValidationTests(IValidator<TEntity> validator)
+        protected AbstractValidatorTests(IValidator<TEntity> validator)
         {
             _validator = validator;
         }

@@ -39,5 +39,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         string Email { get; }
 
         string CampId { get; }
+
+        IReadOnlyCollection<ILooseContactPreference> ContactPreferences { get; }
     }
 }

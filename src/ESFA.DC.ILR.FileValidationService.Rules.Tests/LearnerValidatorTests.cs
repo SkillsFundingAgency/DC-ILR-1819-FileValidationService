@@ -1,15 +1,16 @@
 ﻿using System.Text.RegularExpressions;
 using ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract;
 using ESFA.DC.ILR.Model.Loose.Interface;
+using FluentValidation;
 using FluentValidation.TestHelper;
 using Xunit;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
 {
-    public class LearnerValidatorTests : AbstractValidationTests<ILooseLearner>
+    public class LearnerValidatorTests : AbstractValidatorTests<ILooseLearner>
     {
         public LearnerValidatorTests()
-            : base(new LearnerValidator())
+            : base(new LearnerValidator(new ContactPreferenceValidator()))
         {
         }
 
@@ -113,6 +114,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void FD_CampId_AP()
         {
             TestRuleFor(l => l.CampId, "FD_CampId_AP", "Camp1234", "!");
+        }
+
+        [Fact]
+        public void ContactPreference_ChildValidator()
+        {
+            _validator.ShouldHaveChildValidator(l => l.ContactPreferences, typeof(IValidator<ILooseContactPreference>));
         }
     }
 }
