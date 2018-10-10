@@ -3,6 +3,7 @@ using System.Linq;
 using ESFA.DC.ILR.FileValidationService.Rules;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.Model.Loose;
+using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 using FluentValidation.Results;
 using Severity = ESFA.DC.ILR.FileValidationService.Service.Interface.Enum.Severity;
@@ -11,10 +12,10 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 {
     public class FileValidationRuleExecutionService : IFileValidationRuleExecutionService
     {
-        private readonly IValidator<MessageLearner> _learnerValidator;
+        private readonly IValidator<ILooseLearner> _learnerValidator;
         private readonly IValidator<MessageLearnerLearningDelivery> _learningDeliveryValidator;
 
-        public FileValidationRuleExecutionService(IValidator<MessageLearner> learnerValidator, IValidator<MessageLearnerLearningDelivery> learningDeliveryValidator)
+        public FileValidationRuleExecutionService(IValidator<ILooseLearner> learnerValidator, IValidator<MessageLearnerLearningDelivery> learningDeliveryValidator)
         {
             _learnerValidator = learnerValidator;
             _learningDeliveryValidator = learningDeliveryValidator;

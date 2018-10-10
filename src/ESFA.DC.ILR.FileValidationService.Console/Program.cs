@@ -10,6 +10,7 @@ using ESFA.DC.ILR.FileValidationService.Rules;
 using ESFA.DC.ILR.FileValidationService.Service;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.Model;
+using ESFA.DC.ILR.Model.Loose.Interface;
 using ESFA.DC.Mapping.Interface;
 using ESFA.DC.Serialization.Interfaces;
 using ESFA.DC.Serialization.Xml;
@@ -33,7 +34,7 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             IXmlSerializationService xmlSerializationService = new XmlSerializationService();
 
             IValidationErrorHandler validationErrorHandler = new ValidationErrorHandler();
-            IValidator<Model.Loose.MessageLearner> learnerValidator = new LearnerValidator(validationErrorHandler);
+            IValidator<ILooseLearner> learnerValidator = new LearnerValidator(validationErrorHandler);
             IValidator<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamValidator = new LearningDeliveryFamValidator();
             IValidator<Model.Loose.MessageLearnerLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator(learningDeliveryFamValidator);
 

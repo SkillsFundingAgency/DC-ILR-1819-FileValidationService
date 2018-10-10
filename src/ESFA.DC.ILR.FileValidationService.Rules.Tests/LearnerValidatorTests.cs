@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
+using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation.TestHelper;
 using Moq;
 using Xunit;
@@ -13,9 +11,26 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
     public class LearnerValidatorTests
     {
         [Fact]
-        public void Experiment()
+        public void FD_LearnRefNumber_AP_Invalid()
         {
-            var failures = NewValidator().ShouldHaveValidationErrorFor(l => l.LearnRefNumber, null as string);
+            NewValidator().ShouldHaveValidationErrorFor(l => l.LearnRefNumber, MockLearner(l => l.LearnRefNumber, "!")).WithErrorCode("FD_LearnRefNumber_AP");
+        }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("LearnRefNum")]
+        public void FD_LearnRefNumber_AP_Valid(string learnRefNumber)
+        {
+            NewValidator().ShouldNotHaveValidationErrorFor(l => l.LearnRefNumber, MockLearner(l => l.LearnRefNumber, learnRefNumber));
+        }
+
+        private ILooseLearner MockLearner<T>(Expression<Func<ILooseLearner, T>> selector, T value)
+        {
+            var learnerMock = new Mock<ILooseLearner>();
+
+            learnerMock.SetupGet(selector).Returns(value);
+
+            return learnerMock.Object;
         }
 
         private LearnerValidator NewValidator()

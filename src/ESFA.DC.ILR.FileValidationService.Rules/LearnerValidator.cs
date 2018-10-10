@@ -1,19 +1,19 @@
-﻿using ESFA.DC.ILR.FileValidationService.Service.Interface;
+﻿using System.Text.RegularExpressions;
+using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.Model.Loose;
+using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 using FluentValidation.Validators;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules
 {
-    public class LearnerValidator : AbstractValidator<MessageLearner>
+    public class LearnerValidator : AbstractValidator<ILooseLearner>
     {
-        private readonly IValidationErrorHandler _validationErrorHandler;
-
-        public LearnerValidator(IValidationErrorHandler validationErrorHandler)
+        public LearnerValidator()
         {
-            _validationErrorHandler = validationErrorHandler;
+            RuleFor(l => l.LearnRefNumber).Matches("[A-Za-z0-9 ]{1,12}", RegexOptions.Compiled).WithErrorCode("FD_LearnRefNumber_AP");
 
-            RuleFor(l => l.Email).Matches(".+@.+").WithErrorCode("FD_Email_AP");
+            // RuleFor(l => l.Email).Matches(".+@.+").WithErrorCode("FD_Email_AP");
 
             //RuleFor(l => l.LearnRefNumber).NotNull().WithErrorCode("FD_LearnRefNumber_MA")
             //    .WithState(l => new[] {_validationErrorHandler.BuildErrorMessageParameter("Test", l.LearnRefNumber)});
