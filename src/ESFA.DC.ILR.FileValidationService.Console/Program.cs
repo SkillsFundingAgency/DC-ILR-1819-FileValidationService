@@ -34,7 +34,7 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             IXmlSerializationService xmlSerializationService = new XmlSerializationService();
 
             IValidationErrorHandler validationErrorHandler = new ValidationErrorHandler();
-            IValidator<ILooseLearner> learnerValidator = new LearnerValidator(validationErrorHandler);
+            IValidator<ILooseLearner> learnerValidator = new LearnerValidator();
             IValidator<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamValidator = new LearningDeliveryFamValidator();
             IValidator<Model.Loose.MessageLearnerLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator(learningDeliveryFamValidator);
 
