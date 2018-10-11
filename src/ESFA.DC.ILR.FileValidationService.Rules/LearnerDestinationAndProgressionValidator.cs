@@ -7,9 +7,15 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 {
     public class LearnerDestinationAndProgressionValidator : AbstractValidator<ILooseLearnerDestinationAndProgression>
     {
-        public LearnerDestinationAndProgressionValidator()
+        private readonly IValidator<ILooseDPOutcome> _dpOutcomeValidator;
+
+        public LearnerDestinationAndProgressionValidator(IValidator<ILooseDPOutcome> dpOutcomeValidator)
         {
+            _dpOutcomeValidator = dpOutcomeValidator;
+
             RuleFor(ldp => ldp.LearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_DP_LearnRefNumber_AP);
+
+            RuleForEach(ldp => ldp.DPOutcomes).SetValidator(_dpOutcomeValidator);
         }
     }
 }

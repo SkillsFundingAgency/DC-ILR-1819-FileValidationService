@@ -7,6 +7,6 @@ namespace ESFA.DC.ILR.Model.Loose
 {
     public partial class MessageLearnerDestinationandProgression : ILooseLearnerDestinationAndProgression
     {
-
+        public IReadOnlyCollection<ILooseDPOutcome> DPOutcomes => dPOutcomeField;
     }
 }

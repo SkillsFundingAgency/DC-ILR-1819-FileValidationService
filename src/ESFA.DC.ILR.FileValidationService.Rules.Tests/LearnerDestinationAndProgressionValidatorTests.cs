@@ -1,13 +1,17 @@
 ﻿using ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract;
 using ESFA.DC.ILR.Model.Loose.Interface;
+using FluentValidation;
+using Moq;
 using Xunit;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
 {
     public class LearnerDestinationAndProgressionValidatorTests : AbstractValidatorTests<ILooseLearnerDestinationAndProgression>
     {
+        private static readonly IValidator<ILooseDPOutcome> DPOutcomeValidator = new Mock<IValidator<ILooseDPOutcome>>().Object;
+
         public LearnerDestinationAndProgressionValidatorTests()
-            : base(new LearnerDestinationAndProgressionValidator())
+            : base(new LearnerDestinationAndProgressionValidator(DPOutcomeValidator))
         {
         }
 

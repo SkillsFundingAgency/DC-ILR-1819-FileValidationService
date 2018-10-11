@@ -42,5 +42,8 @@
 
         // Learner Destination And Progression
         public const string FD_DP_LearnRefNumber_AP = "FD_DP_LearnRefNumber_AP";
+
+        // DP Outcome
+        public const string FD_DP_OutType_AP = "FD_DP_OutType_AP";
     }
 }
