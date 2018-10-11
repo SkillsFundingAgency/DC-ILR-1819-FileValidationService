@@ -45,5 +45,13 @@
 
         // DP Outcome
         public const string FD_DP_OutType_AP = "FD_DP_OutType_AP";
+
+        // Learning Delivery
+        public const string FD_LearnAimRef_AP = "FD_LearnAimRef_AP";
+        public const string FD_DelLocPostCode_AP = "FD_DelLocPostCode_AP";
+        public const string FD_ConRefNumber_AP = "FD_ConRefNumber_AP";
+        public const string FD_EPAOrgID_AP = "FD_EPAOrgID_AP";
+        public const string FD_OutGrade_AP = "FD_OutGrade_AP";
+        public const string FD_SWSupAimId_AP = "FD_SWSupAimId_AP";
     }
 }

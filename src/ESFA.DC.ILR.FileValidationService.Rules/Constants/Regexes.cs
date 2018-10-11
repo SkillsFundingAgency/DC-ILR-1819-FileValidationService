@@ -11,5 +11,6 @@
         public const string CampId = @"^[A-Za-z0-9]{1,8}$";
         public const string UcasPerId = @"^[0-9]{10}$";
         public const string AgreeId = @"^[A-Za-z0-9]{1,6}$";
+        public const string EpaOrgId = @"^[Ee][Pp][Aa][0-9]{4}$";
     }
 }

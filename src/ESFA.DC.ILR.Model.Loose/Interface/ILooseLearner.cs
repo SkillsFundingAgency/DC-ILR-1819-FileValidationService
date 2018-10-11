@@ -47,5 +47,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         IReadOnlyCollection<ILooseLearnerEmploymentStatus> LearnerEmploymentStatuses { get; }
 
         IReadOnlyCollection<ILooseLearnerHE> LearnerHEs { get; }
+
+        IReadOnlyCollection<ILooseLearningDelivery> LearningDeliveries { get; }
     }
 }

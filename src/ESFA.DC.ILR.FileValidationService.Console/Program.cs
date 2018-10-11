@@ -27,8 +27,7 @@ namespace ESFA.DC.ILR.FileValidationService.Console
 
             IFileService fileService = new FileSystemFileService();
             IXmlSerializationService xmlSerializationService = new XmlSerializationService();
-
-            IValidationErrorHandler validationErrorHandler = new ValidationErrorHandler();
+            
             IValidator<ILooseContactPreference> contactPreferenceValidator = new ContactPreferenceValidator();
             IValidator<ILooseLearnerFAM> learnerFamValidator = new LearnerFamValidator();
             IValidator<ILooseProviderSpecLearnerMonitoring> providerSpecLearnerMonitoringValidator = new ProviderSpecLearnerMonitoringValidator();
@@ -39,9 +38,8 @@ namespace ESFA.DC.ILR.FileValidationService.Console
 
             IValidator<ILooseDPOutcome> dpOutcomeValidator = new DPOutcomeValidator();
             IValidator<ILooseLearnerDestinationAndProgression> learnerDestinationAndProgressionValidator = new LearnerDestinationAndProgressionValidator(dpOutcomeValidator);
-
-            IValidator<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamValidator = new LearningDeliveryFamValidator();
-            IValidator<Model.Loose.MessageLearnerLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator(learningDeliveryFamValidator);
+            
+            IValidator<ILooseLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator();
 
             ILooseMessageProvider looseMessageProvider = new LooseMessageProvider(fileService, xmlSerializationService);
             IFileValidationRuleExecutionService fileValidationRuleExecutionService = new FileValidationRuleExecutionService(learnerValidator, learningDeliveryValidator, learnerDestinationAndProgressionValidator);
