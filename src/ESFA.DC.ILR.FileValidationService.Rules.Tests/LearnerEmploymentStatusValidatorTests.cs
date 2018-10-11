@@ -17,6 +17,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_AgreeId_AP()
+        {
+            TestRuleFor(esm => esm.AgreeId, "FD_Agree_Id", "ABC123", "");
+        }
+
+        [Fact]
         public void EmploymentStatusMonitoring_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(esm => esm.EmploymentStatusMonitorings, typeof(IValidator<ILooseEmploymentStatusMonitoring>));

@@ -31,6 +31,9 @@
         public const string FD_ProvSpecLearnMonOccur_AP = "FD_ProvSpecLearnMonOccur_AP";
         public const string FD_ProvSpecLearnMon_AP = "FD_ProvSpecLearnMon_AP";
 
+        // Learner Employment Status
+        public const string FD_AgreeId_AP = "FD_AgreeId_AP";
+
         // Employment Status Monitoring
         public const string FD_ESMType_AP = "FD_ESMType_AP";
 
