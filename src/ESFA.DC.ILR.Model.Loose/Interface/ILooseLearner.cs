@@ -43,5 +43,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         IReadOnlyCollection<ILooseContactPreference> ContactPreferences { get; }
 
         IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs { get; }
+
+        IReadOnlyCollection<IProviderSpecLearnerMonitoring> ProviderSpecLearnerMonitorings { get; }
     }
 }

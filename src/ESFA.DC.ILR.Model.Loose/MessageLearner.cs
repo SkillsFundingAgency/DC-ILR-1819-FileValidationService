@@ -8,5 +8,7 @@ namespace ESFA.DC.ILR.Model.Loose
         public IReadOnlyCollection<ILooseContactPreference> ContactPreferences => contactPreferenceField;
 
         public IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs => learnerFAMField;
+
+        public IReadOnlyCollection<IProviderSpecLearnerMonitoring> ProviderSpecLearnerMonitorings => providerSpecLearnerMonitoringField;
     }
 }

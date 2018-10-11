@@ -10,18 +10,16 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
     {
         private readonly IValidator<ILooseContactPreference> _contactPreferenceValidator;
         private readonly IValidator<ILooseLearnerFAM> _learnerFamValidator;
+        private readonly IValidator<IProviderSpecLearnerMonitoring> _providerSpecLearnerMonitoring;
 
-        public LearnerValidator(IValidator<ILooseContactPreference> contactPreferenceValidator, IValidator<ILooseLearnerFAM> learnerFamValidator)
+        public LearnerValidator(
+            IValidator<ILooseContactPreference> contactPreferenceValidator,
+            IValidator<ILooseLearnerFAM> learnerFamValidator,
+            IValidator<IProviderSpecLearnerMonitoring> providerSpecLearnerMonitoring)
         {
             _contactPreferenceValidator = contactPreferenceValidator;
             _learnerFamValidator = learnerFamValidator;
-
-            //Any of the following characters
-            //A - Z, a - z, 0 - 9, Space, Full stop, Comma, Semi-colon,
-            //Colon, ~!”@#$%&’()\/*+-<=>?_[]{}^£€
-
-
-            string RestrictedStringRegex = @"^[A-Za-z0-9 .,;:~!""@#$%&'()\/*+-<=>?_[]{}^£€]*$";
+            _providerSpecLearnerMonitoring = providerSpecLearnerMonitoring;
 
             RuleFor(l => l.LearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_LearnRefNumber_AP);
             RuleFor(l => l.PrevLearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_PrevLearnRefNumber_AP);
@@ -43,6 +41,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
             RuleForEach(l => l.ContactPreferences).SetValidator(_contactPreferenceValidator);
             RuleForEach(l => l.LearnerFAMs).SetValidator(_learnerFamValidator);
+            RuleForEach(l => l.ProviderSpecLearnerMonitorings).SetValidator(_providerSpecLearnerMonitoring);
         }
     }
 }

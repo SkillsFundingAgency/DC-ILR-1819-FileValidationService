@@ -26,5 +26,9 @@
 
         // Learner FAM
         public const string FD_LearnFAMType_AP = "FD_LearnFAMType_AP";
+
+        // Provider Spec Learner Monitoring
+        public const string FD_ProvSpecLearnMonOccur_AP = "FD_ProvSpecLearnMonOccur_AP";
+        public const string FD_ProvSpecLearnMon_AP = "FD_ProvSpecLearnMon_AP";
     }
 }

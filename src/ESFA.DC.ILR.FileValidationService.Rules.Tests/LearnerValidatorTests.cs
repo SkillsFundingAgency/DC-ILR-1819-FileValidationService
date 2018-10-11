@@ -11,9 +11,10 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
     {
         private static readonly IValidator<ILooseContactPreference> ContactPreferenceValidator = new Mock<IValidator<ILooseContactPreference>>().Object;
         private static readonly IValidator<ILooseLearnerFAM> LearnerFamValidator = new Mock<IValidator<ILooseLearnerFAM>>().Object;
+        private static readonly IValidator<IProviderSpecLearnerMonitoring> ProviderSpeclearnerMonitor = new Mock<IValidator<IProviderSpecLearnerMonitoring>>().Object;
 
         public LearnerValidatorTests()
-            : base(new LearnerValidator(ContactPreferenceValidator, LearnerFamValidator))
+            : base(new LearnerValidator(ContactPreferenceValidator, LearnerFamValidator, ProviderSpeclearnerMonitor))
         {
         }
 
@@ -129,6 +130,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void LearnerFam_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(l => l.LearnerFAMs, typeof(IValidator<ILooseLearnerFAM>));
+        }
+
+        [Fact]
+        public void ProviderSpecLearnerMonitoring_ChildValidator()
+        {
+            _validator.ShouldHaveChildValidator(l => l.ProviderSpecLearnerMonitorings, typeof(IValidator<IProviderSpecLearnerMonitoring>));
         }
     }
 }
