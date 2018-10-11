@@ -39,5 +39,8 @@
 
         // Learner HE
         public const string FD_UCASPERID_AP = "FD_UCASPERID_AP";
+
+        // Learner Destination And Progression
+        public const string FD_DP_LearnRefNumber_AP = "FD_DP_LearnRefNumber_AP";
     }
 }

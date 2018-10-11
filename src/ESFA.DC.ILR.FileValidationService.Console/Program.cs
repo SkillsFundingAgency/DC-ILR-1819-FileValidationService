@@ -36,11 +36,14 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             IValidator<ILooseLearnerEmploymentStatus> learnerEmploymentStatusValidator = new LearnerEmploymentStatusValidator(employmentStatusMonitoringValidator);
             IValidator<ILooseLearnerHE> learnerHeValidator = new LearnerHEValidator();
             IValidator<ILooseLearner> learnerValidator = new LearnerValidator(contactPreferenceValidator, learnerFamValidator, providerSpecLearnerMonitoringValidator, learnerEmploymentStatusValidator, learnerHeValidator);
+
+            IValidator<ILooseLearnerDestinationAndProgression> learnerDestinationAndProgressionValidator = new LearnerDestinationAndProgressionValidator();
+
             IValidator<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamValidator = new LearningDeliveryFamValidator();
             IValidator<Model.Loose.MessageLearnerLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator(learningDeliveryFamValidator);
 
             ILooseMessageProvider looseMessageProvider = new LooseMessageProvider(fileService, xmlSerializationService);
-            IFileValidationRuleExecutionService fileValidationRuleExecutionService = new FileValidationRuleExecutionService(learnerValidator, learningDeliveryValidator);
+            IFileValidationRuleExecutionService fileValidationRuleExecutionService = new FileValidationRuleExecutionService(learnerValidator, learningDeliveryValidator, learnerDestinationAndProgressionValidator);
             ITightSchemaValidMessageFilterService tightSchemaValidMessageFilterService = new TightSchemaValidMessageFilterService();
             IMapper<Model.Loose.Message, Message> mapper = new LooseToTightSchemaMapper();
             IFileValidationOutputService fileValidationOutputService = new FileValidationOutputService(xmlSerializationService, fileService);

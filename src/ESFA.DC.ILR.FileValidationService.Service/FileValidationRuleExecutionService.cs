@@ -13,11 +13,16 @@ namespace ESFA.DC.ILR.FileValidationService.Service
     {
         private readonly IValidator<ILooseLearner> _learnerValidator;
         private readonly IValidator<MessageLearnerLearningDelivery> _learningDeliveryValidator;
+        private readonly IValidator<ILooseLearnerDestinationAndProgression> _learnerDestinationAndProgressionValidator;
 
-        public FileValidationRuleExecutionService(IValidator<ILooseLearner> learnerValidator, IValidator<MessageLearnerLearningDelivery> learningDeliveryValidator)
+        public FileValidationRuleExecutionService(
+            IValidator<ILooseLearner> learnerValidator,
+            IValidator<MessageLearnerLearningDelivery> learningDeliveryValidator,
+            IValidator<ILooseLearnerDestinationAndProgression> learnerDestinationAndProgressionValidator)
         {
             _learnerValidator = learnerValidator;
             _learningDeliveryValidator = learningDeliveryValidator;
+            _learnerDestinationAndProgressionValidator = learnerDestinationAndProgressionValidator;
         }
 
         public IEnumerable<IValidationError> Execute(Message message)
@@ -40,6 +45,16 @@ namespace ESFA.DC.ILR.FileValidationService.Service
                     }
                 }
             }
+
+            if (message?.LearnerDestinationandProgression != null)
+            {
+                foreach (var learnerDestinationAndProgression in message.LearnerDestinationandProgression)
+                {
+                    var error = _learnerDestinationAndProgressionValidator.Validate(learnerDestinationAndProgression);
+
+                    validationErrors.AddRange(BuildValidationErrorsFromValidationResult(error, learnerDestinationAndProgression.LearnRefNumber));
+                }
+            };
 
             return validationErrors;
         }
