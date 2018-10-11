@@ -41,5 +41,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         string CampId { get; }
 
         IReadOnlyCollection<ILooseContactPreference> ContactPreferences { get; }
+
+        IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs { get; }
     }
 }

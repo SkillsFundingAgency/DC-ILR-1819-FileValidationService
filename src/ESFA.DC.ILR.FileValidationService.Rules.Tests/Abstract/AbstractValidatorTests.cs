@@ -17,7 +17,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
         
         protected void TestRuleFor<T>(Expression<Func<TEntity, T>> selector, string ruleName, T validValue, T invalidValue)
         {
-            _validator.ShouldHaveValidationErrorFor(selector, this.MockEntity(selector, invalidValue)).WithErrorCode(ruleName);
+            _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, invalidValue)).WithErrorCode(ruleName);
 
             _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, validValue));
         }

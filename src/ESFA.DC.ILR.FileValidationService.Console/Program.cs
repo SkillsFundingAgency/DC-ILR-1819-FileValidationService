@@ -35,7 +35,8 @@ namespace ESFA.DC.ILR.FileValidationService.Console
 
             IValidationErrorHandler validationErrorHandler = new ValidationErrorHandler();
             IValidator<ILooseContactPreference> contactPreferenceValidator = new ContactPreferenceValidator();
-            IValidator<ILooseLearner> learnerValidator = new LearnerValidator(contactPreferenceValidator);
+            IValidator<ILooseLearnerFAM> learnerFamValidator = new LearnerFamValidator();
+            IValidator<ILooseLearner> learnerValidator = new LearnerValidator(contactPreferenceValidator, learnerFamValidator);
             IValidator<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamValidator = new LearningDeliveryFamValidator();
             IValidator<Model.Loose.MessageLearnerLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator(learningDeliveryFamValidator);
 

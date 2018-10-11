@@ -1,16 +1,19 @@
-﻿using System.Text.RegularExpressions;
-using ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 using FluentValidation.TestHelper;
+using Moq;
 using Xunit;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
 {
     public class LearnerValidatorTests : AbstractValidatorTests<ILooseLearner>
     {
+        private static readonly IValidator<ILooseContactPreference> ContactPreferenceValidator = new Mock<IValidator<ILooseContactPreference>>().Object;
+        private static readonly IValidator<ILooseLearnerFAM> LearnerFamValidator = new Mock<IValidator<ILooseLearnerFAM>>().Object;
+
         public LearnerValidatorTests()
-            : base(new LearnerValidator(new ContactPreferenceValidator()))
+            : base(new LearnerValidator(ContactPreferenceValidator, LearnerFamValidator))
         {
         }
 
@@ -41,7 +44,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_Sex_AP()
         {
-            TestRuleFor(l => l.Sex, "FD_Sex_AP", "M", @"`");
+            TestRuleFor(l => l.Sex, "FD_Sex_AP", @"\", @"`");
         }
 
         [Fact]
@@ -120,6 +123,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void ContactPreference_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(l => l.ContactPreferences, typeof(IValidator<ILooseContactPreference>));
+        }
+
+        [Fact]
+        public void LearnerFam_ChildValidator()
+        {
+            _validator.ShouldHaveChildValidator(l => l.LearnerFAMs, typeof(IValidator<ILooseLearnerFAM>));
         }
     }
 }

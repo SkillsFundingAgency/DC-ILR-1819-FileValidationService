@@ -5,11 +5,11 @@ using FluentValidation;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules
 {
-    public class ContactPreferenceValidator : AbstractValidator<ILooseContactPreference>
+    public class LearnerFamValidator : AbstractValidator<ILooseLearnerFAM>
     {
-        public ContactPreferenceValidator()
+        public LearnerFamValidator()
         {
-            RuleFor(cp => cp.ContPrefType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ContPrefType_AP);
+            RuleFor(fam => fam.LearnFAMType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_LearnFAMType_AP);
         }
     }
 }

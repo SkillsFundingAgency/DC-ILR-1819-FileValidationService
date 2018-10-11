@@ -6,5 +6,7 @@ namespace ESFA.DC.ILR.Model.Loose
     public partial class MessageLearner : ILooseLearner
     {
         public IReadOnlyCollection<ILooseContactPreference> ContactPreferences => contactPreferenceField;
+
+        public IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs => learnerFAMField;
     }
 }

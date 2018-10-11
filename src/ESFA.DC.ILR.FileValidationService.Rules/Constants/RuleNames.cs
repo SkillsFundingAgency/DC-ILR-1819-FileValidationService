@@ -2,6 +2,7 @@
 {
     public static class RuleNames
     {
+        // Learner
         public const string FD_LearnRefNumber_AP = "FD_LearnRefNumber_AP";
         public const string FD_PrevLearnRefNumber_AP = "FD_PrevLearnRefNumber_AP";
         public const string FD_FamilyName_AP = "FD_FamilyName_AP";
@@ -20,6 +21,10 @@
         public const string FD_Email_AP = "FD_Email_AP";
         public const string FD_CampId_AP = "FD_CampId_AP";
 
+        // Contact Preference
         public const string FD_ContPrefType_AP = "FD_ContPrefType_AP";
+
+        // Learner FAM
+        public const string FD_LearnFAMType_AP = "FD_LearnFAMType_AP";
     }
 }
