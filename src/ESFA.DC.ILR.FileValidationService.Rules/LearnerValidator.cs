@@ -11,18 +11,21 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         private readonly IValidator<ILooseLearnerFAM> _learnerFamValidator;
         private readonly IValidator<ILooseProviderSpecLearnerMonitoring> _providerSpecLearnerMonitoringValidator;
         private readonly IValidator<ILooseLearnerEmploymentStatus> _learnerEmploymentStatusValidator;
+        private readonly IValidator<ILooseLearnerHE> _learnerHeValidator;
 
 
         public LearnerValidator(
             IValidator<ILooseContactPreference> contactPreferenceValidator,
             IValidator<ILooseLearnerFAM> learnerFamValidator,
             IValidator<ILooseProviderSpecLearnerMonitoring> providerSpecLearnerMonitoringValidator,
-            IValidator<ILooseLearnerEmploymentStatus> learnerEmploymentStatusValidator)
+            IValidator<ILooseLearnerEmploymentStatus> learnerEmploymentStatusValidator,
+            IValidator<ILooseLearnerHE> learnerHeValidator)
         {
             _contactPreferenceValidator = contactPreferenceValidator;
             _learnerFamValidator = learnerFamValidator;
             _providerSpecLearnerMonitoringValidator = providerSpecLearnerMonitoringValidator;
             _learnerEmploymentStatusValidator = learnerEmploymentStatusValidator;
+            _learnerHeValidator = learnerHeValidator;
 
             RuleFor(l => l.LearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_LearnRefNumber_AP);
             RuleFor(l => l.PrevLearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_PrevLearnRefNumber_AP);
@@ -46,6 +49,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleForEach(l => l.LearnerFAMs).SetValidator(_learnerFamValidator);
             RuleForEach(l => l.ProviderSpecLearnerMonitorings).SetValidator(_providerSpecLearnerMonitoringValidator);
             RuleForEach(l => l.LearnerEmploymentStatuses).SetValidator(_learnerEmploymentStatusValidator);
+            RuleForEach(l => l.LearnerHEs).SetValidator(_learnerHeValidator);
         }
     }
 }

@@ -9,5 +9,6 @@
         public const string TelephoneNumber = @"^[0-9]{1,18}$";
         public const string EmailAddress = @"^.+@.+$";
         public const string CampId = @"^[A-Za-z0-9]{1,8}$";
+        public const string UcasPerId = @"[0-9]{10}";
     }
 }

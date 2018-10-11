@@ -33,5 +33,8 @@
 
         // Employment Status Monitoring
         public const string FD_ESMType_AP = "FD_ESMType_AP";
+
+        // Learner HE
+        public const string FD_UCASPERID_AP = "FD_UCASPERID_AP";
     }
 }

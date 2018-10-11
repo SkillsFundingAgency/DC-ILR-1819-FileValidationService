@@ -31,8 +31,11 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             IValidationErrorHandler validationErrorHandler = new ValidationErrorHandler();
             IValidator<ILooseContactPreference> contactPreferenceValidator = new ContactPreferenceValidator();
             IValidator<ILooseLearnerFAM> learnerFamValidator = new LearnerFamValidator();
-            IValidator<ILooseProviderSpecLearnerMonitoring> providerSpecLearnerMonitoring = new ProviderSpecLearnerMonitoringValidator();
-            IValidator<ILooseLearner> learnerValidator = new LearnerValidator(contactPreferenceValidator, learnerFamValidator, providerSpecLearnerMonitoring);
+            IValidator<ILooseProviderSpecLearnerMonitoring> providerSpecLearnerMonitoringValidator = new ProviderSpecLearnerMonitoringValidator();
+            IValidator<ILooseEmploymentStatusMonitoring> employmentStatusMonitoringValidator = new EmploymentStatusMonitoringValidator();
+            IValidator<ILooseLearnerEmploymentStatus> learnerEmploymentStatusValidator = new LearnerEmploymentStatusValidator(employmentStatusMonitoringValidator);
+            IValidator<ILooseLearnerHE> learnerHeValidator = new LearnerHEValidator();
+            IValidator<ILooseLearner> learnerValidator = new LearnerValidator(contactPreferenceValidator, learnerFamValidator, providerSpecLearnerMonitoringValidator, learnerEmploymentStatusValidator, learnerHeValidator);
             IValidator<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamValidator = new LearningDeliveryFamValidator();
             IValidator<Model.Loose.MessageLearnerLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator(learningDeliveryFamValidator);
 
