@@ -1,5 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using ESFA.DC.ILR.FileValidationService.Rules.Constants;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using ESFA.DC.ILR.FileValidationService.Rules.Extensions;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
@@ -10,16 +9,20 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
     {
         private readonly IValidator<ILooseContactPreference> _contactPreferenceValidator;
         private readonly IValidator<ILooseLearnerFAM> _learnerFamValidator;
-        private readonly IValidator<IProviderSpecLearnerMonitoring> _providerSpecLearnerMonitoring;
+        private readonly IValidator<ILooseProviderSpecLearnerMonitoring> _providerSpecLearnerMonitoringValidator;
+        private readonly IValidator<ILooseLearnerEmploymentStatus> _learnerEmploymentStatusValidator;
+
 
         public LearnerValidator(
             IValidator<ILooseContactPreference> contactPreferenceValidator,
             IValidator<ILooseLearnerFAM> learnerFamValidator,
-            IValidator<IProviderSpecLearnerMonitoring> providerSpecLearnerMonitoring)
+            IValidator<ILooseProviderSpecLearnerMonitoring> providerSpecLearnerMonitoringValidator,
+            IValidator<ILooseLearnerEmploymentStatus> learnerEmploymentStatusValidator)
         {
             _contactPreferenceValidator = contactPreferenceValidator;
             _learnerFamValidator = learnerFamValidator;
-            _providerSpecLearnerMonitoring = providerSpecLearnerMonitoring;
+            _providerSpecLearnerMonitoringValidator = providerSpecLearnerMonitoringValidator;
+            _learnerEmploymentStatusValidator = learnerEmploymentStatusValidator;
 
             RuleFor(l => l.LearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_LearnRefNumber_AP);
             RuleFor(l => l.PrevLearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_PrevLearnRefNumber_AP);
@@ -41,7 +44,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
             RuleForEach(l => l.ContactPreferences).SetValidator(_contactPreferenceValidator);
             RuleForEach(l => l.LearnerFAMs).SetValidator(_learnerFamValidator);
-            RuleForEach(l => l.ProviderSpecLearnerMonitorings).SetValidator(_providerSpecLearnerMonitoring);
+            RuleForEach(l => l.ProviderSpecLearnerMonitorings).SetValidator(_providerSpecLearnerMonitoringValidator);
+            RuleForEach(l => l.LearnerEmploymentStatuses).SetValidator(_learnerEmploymentStatusValidator);
         }
     }
 }

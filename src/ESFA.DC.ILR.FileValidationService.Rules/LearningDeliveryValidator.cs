@@ -10,10 +10,6 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         public LearningDeliveryValidator(IValidator<MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamValidator)
         {
             _learningDeliveryFamValidator = learningDeliveryFamValidator;
-
-            //RuleFor(ld => ld.LearnAimRef).NotNull().WithErrorCode("LEARN AIM REF NULL");
-
-            //RuleForEach(ld => ld.LearningDeliveryFAM).SetValidator(_learningDeliveryFamValidator);
         }
     }
 }

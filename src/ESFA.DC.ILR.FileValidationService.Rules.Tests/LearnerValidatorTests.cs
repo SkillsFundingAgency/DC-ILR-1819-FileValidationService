@@ -11,10 +11,16 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
     {
         private static readonly IValidator<ILooseContactPreference> ContactPreferenceValidator = new Mock<IValidator<ILooseContactPreference>>().Object;
         private static readonly IValidator<ILooseLearnerFAM> LearnerFamValidator = new Mock<IValidator<ILooseLearnerFAM>>().Object;
-        private static readonly IValidator<IProviderSpecLearnerMonitoring> ProviderSpeclearnerMonitor = new Mock<IValidator<IProviderSpecLearnerMonitoring>>().Object;
+        private static readonly IValidator<ILooseProviderSpecLearnerMonitoring> ProviderSpeclearnerMonitor = new Mock<IValidator<ILooseProviderSpecLearnerMonitoring>>().Object;
+        private static readonly IValidator<ILooseLearnerEmploymentStatus> LearnerEmploymenStatusValidator = new Mock<IValidator<ILooseLearnerEmploymentStatus>>().Object;
 
         public LearnerValidatorTests()
-            : base(new LearnerValidator(ContactPreferenceValidator, LearnerFamValidator, ProviderSpeclearnerMonitor))
+            : base(
+                new LearnerValidator(
+                    ContactPreferenceValidator,
+                    LearnerFamValidator,
+                    ProviderSpeclearnerMonitor,
+                    LearnerEmploymenStatusValidator))
         {
         }
 
@@ -135,7 +141,13 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void ProviderSpecLearnerMonitoring_ChildValidator()
         {
-            _validator.ShouldHaveChildValidator(l => l.ProviderSpecLearnerMonitorings, typeof(IValidator<IProviderSpecLearnerMonitoring>));
+            _validator.ShouldHaveChildValidator(l => l.ProviderSpecLearnerMonitorings, typeof(IValidator<ILooseProviderSpecLearnerMonitoring>));
+        }
+
+        [Fact]
+        public void LearnerEmploymentStatus_ChildValidator()
+        {
+            _validator.ShouldHaveChildValidator(l => l.LearnerEmploymentStatuses, typeof(IValidator<ILooseLearnerEmploymentStatus>));
         }
     }
 }

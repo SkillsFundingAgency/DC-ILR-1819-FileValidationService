@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace ESFA.DC.ILR.Model.Loose.Interface
 {
@@ -44,6 +42,8 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
 
         IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs { get; }
 
-        IReadOnlyCollection<IProviderSpecLearnerMonitoring> ProviderSpecLearnerMonitorings { get; }
+        IReadOnlyCollection<ILooseProviderSpecLearnerMonitoring> ProviderSpecLearnerMonitorings { get; }
+
+        IReadOnlyCollection<ILooseLearnerEmploymentStatus> LearnerEmploymentStatuses { get; }
     }
 }

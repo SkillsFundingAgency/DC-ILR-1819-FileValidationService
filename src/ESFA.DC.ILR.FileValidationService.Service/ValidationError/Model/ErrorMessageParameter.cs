@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ESFA.DC.ILR.FileValidationService.Service.Interface;
+﻿using ESFA.DC.ILR.FileValidationService.Service.Interface;
 
 namespace ESFA.DC.ILR.FileValidationService.Service.ValidationError.Model
 {

@@ -5,7 +5,7 @@ using FluentValidation;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules
 {
-    public class ProviderSpecLearnerMonitoringValidator : AbstractValidator<IProviderSpecLearnerMonitoring>
+    public class ProviderSpecLearnerMonitoringValidator : AbstractValidator<ILooseProviderSpecLearnerMonitoring>
     {
         public ProviderSpecLearnerMonitoringValidator()
         {

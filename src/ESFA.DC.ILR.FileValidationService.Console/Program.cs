@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using ESFA.DC.FileService;
 using ESFA.DC.FileService.Interface;
 using ESFA.DC.ILR.FileValidationService.Rules;
@@ -36,7 +31,7 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             IValidationErrorHandler validationErrorHandler = new ValidationErrorHandler();
             IValidator<ILooseContactPreference> contactPreferenceValidator = new ContactPreferenceValidator();
             IValidator<ILooseLearnerFAM> learnerFamValidator = new LearnerFamValidator();
-            IValidator<IProviderSpecLearnerMonitoring> providerSpecLearnerMonitoring = new ProviderSpecLearnerMonitoringValidator();
+            IValidator<ILooseProviderSpecLearnerMonitoring> providerSpecLearnerMonitoring = new ProviderSpecLearnerMonitoringValidator();
             IValidator<ILooseLearner> learnerValidator = new LearnerValidator(contactPreferenceValidator, learnerFamValidator, providerSpecLearnerMonitoring);
             IValidator<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamValidator = new LearningDeliveryFamValidator();
             IValidator<Model.Loose.MessageLearnerLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator(learningDeliveryFamValidator);

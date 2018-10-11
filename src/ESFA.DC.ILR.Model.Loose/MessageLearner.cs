@@ -9,6 +9,8 @@ namespace ESFA.DC.ILR.Model.Loose
 
         public IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs => learnerFAMField;
 
-        public IReadOnlyCollection<IProviderSpecLearnerMonitoring> ProviderSpecLearnerMonitorings => providerSpecLearnerMonitoringField;
+        public IReadOnlyCollection<ILooseProviderSpecLearnerMonitoring> ProviderSpecLearnerMonitorings => providerSpecLearnerMonitoringField;
+
+        public IReadOnlyCollection<ILooseLearnerEmploymentStatus> LearnerEmploymentStatuses => learnerEmploymentStatusField;
     }
 }

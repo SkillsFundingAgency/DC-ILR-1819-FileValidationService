@@ -4,7 +4,7 @@ using Xunit;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
 {
-    public class ProviderSpecLearnerMonitoringValidatorTests : AbstractValidatorTests<IProviderSpecLearnerMonitoring>
+    public class ProviderSpecLearnerMonitoringValidatorTests : AbstractValidatorTests<ILooseProviderSpecLearnerMonitoring>
     {
         public ProviderSpecLearnerMonitoringValidatorTests()
             : base(new ProviderSpecLearnerMonitoringValidator())

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ESFA.DC.ILR.FileValidationService.Rules.Constants
+﻿namespace ESFA.DC.ILR.FileValidationService.Rules.Constants
 {
     public static class Regexes
     {

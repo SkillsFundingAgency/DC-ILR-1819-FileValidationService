@@ -30,5 +30,8 @@
         // Provider Spec Learner Monitoring
         public const string FD_ProvSpecLearnMonOccur_AP = "FD_ProvSpecLearnMonOccur_AP";
         public const string FD_ProvSpecLearnMon_AP = "FD_ProvSpecLearnMon_AP";
+
+        // Employment Status Monitoring
+        public const string FD_ESMType_AP = "FD_ESMType_AP";
     }
 }
