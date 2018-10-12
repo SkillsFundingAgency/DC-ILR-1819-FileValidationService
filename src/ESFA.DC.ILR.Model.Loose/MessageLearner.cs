@@ -5,6 +5,12 @@ namespace ESFA.DC.ILR.Model.Loose
 {
     public partial class MessageLearner : ILooseLearner
     {
+        public long? ULNNullable => uLNFieldSpecified ? uLNField : default(long?);
+
+        public long? EthnicityNullable => ethnicityFieldSpecified ? ethnicityField : default(long?);
+
+        public long? LLDDHealthProbNullable => lLDDHealthProbFieldSpecified ? lLDDHealthProbField : default(long?);
+
         public IReadOnlyCollection<ILooseContactPreference> ContactPreferences => contactPreferenceField;
 
         public IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs => learnerFAMField;

@@ -129,6 +129,48 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_LearnRefNumber_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(l => l.LearnRefNumber, "FD_LearnRefNumber_MA");
+        }
+
+        [Fact]
+        public void FD_ULN_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(l => l.ULNNullable, "FD_ULN_MA");
+        }
+
+        [Fact]
+        public void FD_Ethnicity_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(l => l.EthnicityNullable, "FD_Ethnicity_MA"); 
+        }
+
+        [Fact]
+        public void FD_Sex_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(l => l.Sex, "FD_Sex_MA");
+        }
+
+        [Fact]
+        public void FD_LLDDHealthProb_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(l => l.LLDDHealthProbNullable, "FD_LLDDHealthProb_MA");
+        }
+
+        [Fact]
+        public void FD_PostcodePrior_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(l => l.PostcodePrior, "FD_PostcodePrior_MA");
+        }
+
+        [Fact]
+        public void FD_Postcode_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(l => l.Postcode, "FD_Postcode_MA");
+        }
+
+        [Fact]
         public void ContactPreference_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(l => l.ContactPreferences, typeof(IValidator<ILooseContactPreference>));

@@ -38,6 +38,12 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
 
         string CampId { get; }
 
+        long? ULNNullable { get; }
+
+        long? EthnicityNullable { get; }
+
+        long? LLDDHealthProbNullable { get; }
+
         IReadOnlyCollection<ILooseContactPreference> ContactPreferences { get; }
 
         IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs { get; }

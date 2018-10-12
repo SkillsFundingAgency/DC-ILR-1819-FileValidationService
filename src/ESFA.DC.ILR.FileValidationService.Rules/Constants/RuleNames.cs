@@ -3,6 +3,7 @@
     public static class RuleNames
     {
         // Learner
+        // Regex
         public const string FD_LearnRefNumber_AP = "FD_LearnRefNumber_AP";
         public const string FD_PrevLearnRefNumber_AP = "FD_PrevLearnRefNumber_AP";
         public const string FD_FamilyName_AP = "FD_FamilyName_AP";
@@ -20,6 +21,14 @@
         public const string FD_TelNo_AP = "FD_TelNo_AP";
         public const string FD_Email_AP = "FD_Email_AP";
         public const string FD_CampId_AP = "FD_CampId_AP";
+        // Mandatory
+        public const string FD_LearnRefNumber_MA = "FD_LearnRefNumber_MA";
+        public const string FD_ULN_MA = "FD_ULN_MA";
+        public const string FD_Ethnicity_MA = "FD_Ethnicity_MA";
+        public const string FD_Sex_MA = "FD_Sex_MA";
+        public const string FD_LLDDHealthProb_MA = "FD_LLDDHealthProb_MA";
+        public const string FD_PostcodePrior_MA = "FD_PostcodePrior_MA";
+        public const string FD_Postcode_MA = "FD_Postcode_MA";
 
         // Contact Preference
         public const string FD_ContPrefType_AP = "FD_ContPrefType_AP";
