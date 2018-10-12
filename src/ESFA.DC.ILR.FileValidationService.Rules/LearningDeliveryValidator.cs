@@ -11,7 +11,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         public LearningDeliveryValidator(
             IValidator<ILooseLearningDeliveryFAM> learningDeliveryFAMValidator,
             IValidator<ILooseAppFinRecord> appFinRecordValidator,
-            IValidator<ILooseProviderSpecDeliveryMonitoring> providerSpecDeliveryMonitoringValidator)
+            IValidator<ILooseProviderSpecDeliveryMonitoring> providerSpecDeliveryMonitoringValidator,
+            IValidator<ILooseLearningDeliveryHE> learningDeliveryHEValidator)
         {
             RuleFor(ld => ld.LearnAimRef).MatchesRestrictedString().WithErrorCode(RuleNames.FD_LearnAimRef_AP);
             RuleFor(ld => ld.DelLocPostCode).MatchesRestrictedString().WithErrorCode(RuleNames.FD_DelLocPostCode_AP);
@@ -23,6 +24,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleForEach(ld => ld.LearningDeliveryFAMs).SetValidator(learningDeliveryFAMValidator);
             RuleForEach(ld => ld.AppFinRecords).SetValidator(appFinRecordValidator);
             RuleForEach(ld => ld.ProviderSpecDeliveryMonitorings).SetValidator(providerSpecDeliveryMonitoringValidator);
+            RuleForEach(ld => ld.LearningDeliveryHEs).SetValidator(learningDeliveryHEValidator);
         }
     }
 }

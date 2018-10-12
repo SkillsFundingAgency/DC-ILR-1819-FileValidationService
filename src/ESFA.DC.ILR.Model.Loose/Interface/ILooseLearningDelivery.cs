@@ -21,5 +21,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         IReadOnlyCollection<ILooseAppFinRecord> AppFinRecords { get; }
 
         IReadOnlyCollection<ILooseProviderSpecDeliveryMonitoring> ProviderSpecDeliveryMonitorings { get; }
+
+        IReadOnlyCollection<ILooseLearningDeliveryHE> LearningDeliveryHEs { get; }
     }
 }

@@ -92,6 +92,7 @@
     <Compile Include="LearnerHEValidatorTests.cs" />
     <Compile Include="LearnerValidatorTests.cs" />
     <Compile Include="LearningDeliveryFAMValidatorTests.cs" />
+    <Compile Include="LearningDeliveryHEValidatorTests.cs" />
     <Compile Include="LearningDeliveryValidatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProviderSpecDeliveryMonitoringValidatorTests.cs" />

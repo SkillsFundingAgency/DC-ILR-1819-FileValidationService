@@ -64,5 +64,13 @@
         // Prov Spec Delivery Monitoring
         public const string FD_ProvSpecDelMonOccur_AP = "FD_ProvSpecDelMonOccur_AP";
         public const string FD_ProvSpecDelMon_AP = "FD_ProvSpecDelMon_AP";
+
+        // Learning Delivery HE
+        public const string FD_NUMHUS_AP = "FD_NUMHUS_AP";
+        public const string FD_SSN_AP = "FD_SSN_AP";
+        public const string FD_QUALENT3_AP = "FD_QUALENT3_AP";
+        public const string FD_UCASAPPID_AP = "FD_UCASAPPID_AP";
+        public const string FD_DOMICILE_AP = "FD_DOMICILE_AP";
+        public const string FD_HEPostCode_AP = "FD_HEPostCode_AP";
     }
 }

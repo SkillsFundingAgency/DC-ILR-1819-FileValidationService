@@ -12,5 +12,6 @@
         public const string UcasPerId = @"^[0-9]{10}$";
         public const string AgreeId = @"^[A-Za-z0-9]{1,6}$";
         public const string EpaOrgId = @"^[Ee][Pp][Aa][0-9]{4}$";
+        public const string UcasAppId = @"^[a-zA-Z]{2}[0-9]{2}$|^[0-9]{9}$";
     }
 }

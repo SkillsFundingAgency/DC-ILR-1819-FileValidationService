@@ -12,9 +12,10 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         private static IValidator<ILooseLearningDeliveryFAM> LearningDeliveryFAMValidator = new Mock<IValidator<ILooseLearningDeliveryFAM>>().Object;
         private static IValidator<ILooseAppFinRecord> AppFinRecordValidator = new Mock<IValidator<ILooseAppFinRecord>>().Object;
         private static IValidator<ILooseProviderSpecDeliveryMonitoring> ProviderSpecDeliveryMonitoringValidator = new Mock<IValidator<ILooseProviderSpecDeliveryMonitoring>>().Object;
+        private static IValidator<ILooseLearningDeliveryHE> LearningDeliveryHEValidator = new Mock<IValidator<ILooseLearningDeliveryHE>>().Object;
 
         public LearningDeliveryValidatorTests()
-            : base(new LearningDeliveryValidator(LearningDeliveryFAMValidator, AppFinRecordValidator, ProviderSpecDeliveryMonitoringValidator))
+            : base(new LearningDeliveryValidator(LearningDeliveryFAMValidator, AppFinRecordValidator, ProviderSpecDeliveryMonitoringValidator, LearningDeliveryHEValidator))
         {
         }
 
@@ -67,9 +68,15 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
-        public void ProviderSpecDeliveryMonitoring()
+        public void ProviderSpecDeliveryMonitoring_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(ld => ld.ProviderSpecDeliveryMonitorings, typeof(IValidator<ILooseProviderSpecDeliveryMonitoring>));
+        }
+
+        [Fact]
+        public void LearningDeliveryHE_ChildValidator()
+        {
+            _validator.ShouldHaveChildValidator(ld => ld.LearningDeliveryHEs, typeof(IValidator<ILooseLearningDeliveryHE>));
         }
     }
 }
