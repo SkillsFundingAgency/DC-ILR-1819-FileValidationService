@@ -17,5 +17,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         string SWSupAimId { get; }
 
         IReadOnlyCollection<ILooseLearningDeliveryFAM> LearningDeliveryFAMs { get; }
+
+        IReadOnlyCollection<ILooseAppFinRecord> AppFinRecords { get; }
     }
 }

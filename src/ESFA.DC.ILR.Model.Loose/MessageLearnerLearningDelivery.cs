@@ -6,5 +6,7 @@ namespace ESFA.DC.ILR.Model.Loose
     public partial class MessageLearnerLearningDelivery : ILooseLearningDelivery
     {
         public IReadOnlyCollection<ILooseLearningDeliveryFAM> LearningDeliveryFAMs => learningDeliveryFAMField;
+
+        public IReadOnlyCollection<ILooseAppFinRecord> AppFinRecords => appFinRecordField;
     }
 }

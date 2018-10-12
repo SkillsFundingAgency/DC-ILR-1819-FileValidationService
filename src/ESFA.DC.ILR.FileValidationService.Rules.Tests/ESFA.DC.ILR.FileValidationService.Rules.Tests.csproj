@@ -82,12 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\AbstractValidatorTests.cs" />
+    <Compile Include="AppFinRecordValidatorTests.cs" />
     <Compile Include="ContactPreferenceValidatorTests.cs" />
     <Compile Include="DPOutcomeValidatorTests.cs" />
     <Compile Include="EmploymentStatusMonitoringValidatorTests.cs" />
     <Compile Include="LearnerDestinationAndProgressionValidatorTests.cs" />
     <Compile Include="LearnerEmploymentStatusValidatorTests.cs" />
-    <Compile Include="LearnerFamValidatorTests.cs" />
+    <Compile Include="LearnerFAMValidatorTests.cs" />
     <Compile Include="LearnerHEValidatorTests.cs" />
     <Compile Include="LearnerValidatorTests.cs" />
     <Compile Include="LearningDeliveryFAMValidatorTests.cs" />

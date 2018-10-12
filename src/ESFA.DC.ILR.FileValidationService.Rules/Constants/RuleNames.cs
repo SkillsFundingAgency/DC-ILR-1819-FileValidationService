@@ -57,5 +57,8 @@
         // Learning Delivery FAM
         public const string FD_LearnDelFAMType_AP = "FD_LearnDelFAMType_AP";
         public const string FD_LearnDelFAMCode_AP = "FD_LearnDelFAMCode_AP";
+
+        // App Fin Record
+        public const string FD_AFinType_AP = "FD_AFinType_AP";
     }
 }

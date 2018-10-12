@@ -10,9 +10,10 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
     public class LearningDeliveryValidatorTests : AbstractValidatorTests<ILooseLearningDelivery>
     {
         private static IValidator<ILooseLearningDeliveryFAM> LearningDeliveryFAMValidator = new Mock<IValidator<ILooseLearningDeliveryFAM>>().Object;
+        private static IValidator<ILooseAppFinRecord> AppFinRecordValidator = new Mock<IValidator<ILooseAppFinRecord>>().Object;
 
         public LearningDeliveryValidatorTests()
-            : base(new LearningDeliveryValidator(LearningDeliveryFAMValidator))
+            : base(new LearningDeliveryValidator(LearningDeliveryFAMValidator, AppFinRecordValidator))
         {
         }
 
@@ -56,6 +57,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void LearningDeliveryFAM_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(ld => ld.LearningDeliveryFAMs, typeof(IValidator<ILooseLearningDeliveryFAM>));
+        }
+
+        [Fact]
+        public void AppFinRecord_ChildValidator()
+        {
+            _validator.ShouldHaveChildValidator(ld => ld.AppFinRecords, typeof(IValidator<ILooseAppFinRecord>));
         }
     }
 }

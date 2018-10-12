@@ -4,9 +4,9 @@ using Xunit;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
 {
-    public class LearnerFamValidatorTests : AbstractValidatorTests<ILooseLearnerFAM>
+    public class LearnerFAMValidatorTests : AbstractValidatorTests<ILooseLearnerFAM>
     {
-        public LearnerFamValidatorTests()
+        public LearnerFAMValidatorTests()
             : base(new LearnerFamValidator())
         {
         }
