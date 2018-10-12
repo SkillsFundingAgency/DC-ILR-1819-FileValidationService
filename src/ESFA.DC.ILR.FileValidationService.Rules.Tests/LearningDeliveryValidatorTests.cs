@@ -1,14 +1,18 @@
 ﻿using ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
+using FluentValidation.TestHelper;
+using Moq;
 using Xunit;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
 {
     public class LearningDeliveryValidatorTests : AbstractValidatorTests<ILooseLearningDelivery>
     {
+        private static IValidator<ILooseLearningDeliveryFAM> LearningDeliveryFAMValidator = new Mock<IValidator<ILooseLearningDeliveryFAM>>().Object;
+
         public LearningDeliveryValidatorTests()
-            : base(new LearningDeliveryValidator())
+            : base(new LearningDeliveryValidator(LearningDeliveryFAMValidator))
         {
         }
 
@@ -46,6 +50,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void FD_SWSupAimId_AP()
         {
             TestRuleFor(ld => ld.SWSupAimId, "FD_SWSupAimId_AP", "SWSupAimId", "`");
+        }
+
+        [Fact]
+        public void LearningDeliveryFAM_ChildValidator()
+        {
+            _validator.ShouldHaveChildValidator(ld => ld.LearningDeliveryFAMs, typeof(IValidator<ILooseLearningDeliveryFAM>));
         }
     }
 }

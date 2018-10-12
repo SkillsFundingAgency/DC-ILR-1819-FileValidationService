@@ -1,13 +1,16 @@
-﻿using ESFA.DC.ILR.Model.Loose;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Constants;
+using ESFA.DC.ILR.FileValidationService.Rules.Extensions;
+using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules
 {
-    public class LearningDeliveryFamValidator : AbstractValidator<MessageLearnerLearningDeliveryLearningDeliveryFAM>
+    public class LearningDeliveryFAMValidator : AbstractValidator<ILooseLearningDeliveryFAM>
     {
-        public LearningDeliveryFamValidator()
+        public LearningDeliveryFAMValidator()
         {
-            //RuleFor(r => r.LearnDelFAMCode).Null().WithErrorCode("App Fin Type not Null");
+            RuleFor(fam => fam.LearnDelFAMCode).MatchesRestrictedString().WithErrorCode(RuleNames.FD_LearnDelFAMCode_AP);
+            RuleFor(fam => fam.LearnDelFAMType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_LearnDelFAMType_AP);
         }
     }
 }

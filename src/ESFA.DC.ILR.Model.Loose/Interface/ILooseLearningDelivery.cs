@@ -1,4 +1,6 @@
-﻿namespace ESFA.DC.ILR.Model.Loose.Interface
+﻿using System.Collections.Generic;
+
+namespace ESFA.DC.ILR.Model.Loose.Interface
 {
     public interface ILooseLearningDelivery
     {
@@ -13,5 +15,7 @@
         string OutGrade { get; }
 
         string SWSupAimId { get; }
+
+        IReadOnlyCollection<ILooseLearningDeliveryFAM> LearningDeliveryFAMs { get; }
     }
 }

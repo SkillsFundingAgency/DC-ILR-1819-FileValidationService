@@ -53,5 +53,9 @@
         public const string FD_EPAOrgID_AP = "FD_EPAOrgID_AP";
         public const string FD_OutGrade_AP = "FD_OutGrade_AP";
         public const string FD_SWSupAimId_AP = "FD_SWSupAimId_AP";
+
+        // Learning Delivery FAM
+        public const string FD_LearnDelFAMType_AP = "FD_LearnDelFAMType_AP";
+        public const string FD_LearnDelFAMCode_AP = "FD_LearnDelFAMCode_AP";
     }
 }
