@@ -94,7 +94,8 @@
     <Compile Include="LearningDeliveryFAMValidatorTests.cs" />
     <Compile Include="LearningDeliveryValidatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProviderSpecLearnerMonitorValidatorTests.cs" />
+    <Compile Include="ProviderSpecDeliveryMonitoringValidatorTests.cs" />
+    <Compile Include="ProviderSpecLearnerMonitoringValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

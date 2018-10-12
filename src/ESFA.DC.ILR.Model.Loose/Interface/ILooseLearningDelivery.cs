@@ -19,5 +19,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         IReadOnlyCollection<ILooseLearningDeliveryFAM> LearningDeliveryFAMs { get; }
 
         IReadOnlyCollection<ILooseAppFinRecord> AppFinRecords { get; }
+
+        IReadOnlyCollection<ILooseProviderSpecDeliveryMonitoring> ProviderSpecDeliveryMonitorings { get; }
     }
 }

@@ -8,5 +8,7 @@ namespace ESFA.DC.ILR.Model.Loose
         public IReadOnlyCollection<ILooseLearningDeliveryFAM> LearningDeliveryFAMs => learningDeliveryFAMField;
 
         public IReadOnlyCollection<ILooseAppFinRecord> AppFinRecords => appFinRecordField;
+
+        public IReadOnlyCollection<ILooseProviderSpecDeliveryMonitoring> ProviderSpecDeliveryMonitorings => providerSpecDeliveryMonitoringField;
     }
 }

@@ -41,7 +41,8 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             
             IValidator<ILooseLearningDeliveryFAM> learningDeliveryFAMValidator = new LearningDeliveryFAMValidator();
             IValidator<ILooseAppFinRecord> appFinRecordValidator = new AppFinRecordValidator();
-            IValidator<ILooseLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator(learningDeliveryFAMValidator, appFinRecordValidator);
+            IValidator<ILooseProviderSpecDeliveryMonitoring> providerSpecDeliveryMonitoring = new ProviderSpecDeliveryMonitoringValidator();
+            IValidator<ILooseLearningDelivery> learningDeliveryValidator = new LearningDeliveryValidator(learningDeliveryFAMValidator, appFinRecordValidator, providerSpecDeliveryMonitoring);
 
             ILooseMessageProvider looseMessageProvider = new LooseMessageProvider(fileService, xmlSerializationService);
             IFileValidationRuleExecutionService fileValidationRuleExecutionService = new FileValidationRuleExecutionService(learnerValidator, learningDeliveryValidator, learnerDestinationAndProgressionValidator);

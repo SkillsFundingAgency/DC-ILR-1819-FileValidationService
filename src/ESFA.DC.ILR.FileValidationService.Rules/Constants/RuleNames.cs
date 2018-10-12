@@ -60,5 +60,9 @@
 
         // App Fin Record
         public const string FD_AFinType_AP = "FD_AFinType_AP";
+
+        // Prov Spec Delivery Monitoring
+        public const string FD_ProvSpecDelMonOccur_AP = "FD_ProvSpecDelMonOccur_AP";
+        public const string FD_ProvSpecDelMon_AP = "FD_ProvSpecDelMon_AP";
     }
 }
