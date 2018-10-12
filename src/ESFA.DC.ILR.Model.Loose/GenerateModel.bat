@@ -1,0 +1,1 @@
+xsd ILR-2018-19.xsd /classes /namespace:"ESFA.DC.ILR.Model.Loose"
