@@ -25,5 +25,7 @@ namespace ESFA.DC.ILR.Model.Loose
         public IReadOnlyCollection<ILooseProviderSpecDeliveryMonitoring> ProviderSpecDeliveryMonitorings => providerSpecDeliveryMonitoringField;
 
         public IReadOnlyCollection<ILooseLearningDeliveryHE> LearningDeliveryHEs => learningDeliveryHEField;
+
+        public IReadOnlyCollection<ILooseLearningDeliveryWorkPlacement> LearningDeliveryWorkPlacements =>learningDeliveryWorkPlacementField;
     }
 }

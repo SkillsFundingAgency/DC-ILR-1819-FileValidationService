@@ -36,5 +36,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         IReadOnlyCollection<ILooseProviderSpecDeliveryMonitoring> ProviderSpecDeliveryMonitorings { get; }
 
         IReadOnlyCollection<ILooseLearningDeliveryHE> LearningDeliveryHEs { get; }
+
+        IReadOnlyCollection<ILooseLearningDeliveryWorkPlacement> LearningDeliveryWorkPlacements { get; }
     }
 }

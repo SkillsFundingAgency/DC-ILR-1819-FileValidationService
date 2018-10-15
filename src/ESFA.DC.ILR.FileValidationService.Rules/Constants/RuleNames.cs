@@ -110,6 +110,12 @@
         public const string FD_LearnDelFAMType_MA = "FD_LearnDelFAMType_MA";
         public const string FD_LearnDelFAMCode_MA = "FD_LearnDelFAMCode_MA";
 
+        // Learning Delivery Work Placement
+        // Mandatory
+        public const string FD_WorkPlaceStartDate_MA = "FD_WorkPlaceStartDate_MA";
+        public const string FD_WorkPlaceHours_MA = "FD_WorkPlaceHours_MA";
+        public const string FD_WorkPlaceMode_MA = "FD_WorkPlaceMode_MA";
+
         // App Fin Record
         public const string FD_AFinType_AP = "FD_AFinType_AP";
 

@@ -12,7 +12,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             IValidator<ILooseLearningDeliveryFAM> learningDeliveryFAMValidator,
             IValidator<ILooseAppFinRecord> appFinRecordValidator,
             IValidator<ILooseProviderSpecDeliveryMonitoring> providerSpecDeliveryMonitoringValidator,
-            IValidator<ILooseLearningDeliveryHE> learningDeliveryHEValidator)
+            IValidator<ILooseLearningDeliveryHE> learningDeliveryHEValidator,
+            IValidator<ILooseLearningDeliveryWorkPlacement> learningDeliveryWorkPlacementValidator)
         {
             RegexRules();
             MandatoryRules();
@@ -21,6 +22,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleForEach(ld => ld.AppFinRecords).SetValidator(appFinRecordValidator);
             RuleForEach(ld => ld.ProviderSpecDeliveryMonitorings).SetValidator(providerSpecDeliveryMonitoringValidator);
             RuleForEach(ld => ld.LearningDeliveryHEs).SetValidator(learningDeliveryHEValidator);
+            RuleForEach(ld => ld.LearningDeliveryWorkPlacements).SetValidator(learningDeliveryWorkPlacementValidator);
         }
 
         private void RegexRules()
