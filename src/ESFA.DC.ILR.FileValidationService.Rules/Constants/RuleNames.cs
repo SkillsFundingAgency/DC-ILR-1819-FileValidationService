@@ -57,7 +57,11 @@
         public const string FD_ProvSpecLearnMon_MA = "FD_ProvSpecLearnMon_MA";
         
         // Learner Employment Status
+        // Regex
         public const string FD_AgreeId_AP = "FD_AgreeId_AP";
+        // Mandatory
+        public const string FD_EmpStat_MA = "FD_EmpStat_MA";
+        public const string FD_DateEmpStatApp_MA = "FD_DateEmpStatApp_MA";
 
         // Employment Status Monitoring
         public const string FD_ESMType_AP = "FD_ESMType_AP";

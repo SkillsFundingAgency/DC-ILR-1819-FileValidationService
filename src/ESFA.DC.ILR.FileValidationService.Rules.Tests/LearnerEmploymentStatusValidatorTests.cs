@@ -23,6 +23,18 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_EmpStat_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(esm => esm.EmpStatNullable, "FD_EmpStat_MA");
+        }
+
+        [Fact]
+        public void FD_DateEmpStatApp_MA()
+        {
+            TestMandatoryDateTimeAttributeRuleFor(esm => esm.DateEmpStatAppNullable, "FD_DateEmpStatApp_MA");
+        }
+
+        [Fact]
         public void EmploymentStatusMonitoring_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(esm => esm.EmploymentStatusMonitorings, typeof(IValidator<ILooseEmploymentStatusMonitoring>));
