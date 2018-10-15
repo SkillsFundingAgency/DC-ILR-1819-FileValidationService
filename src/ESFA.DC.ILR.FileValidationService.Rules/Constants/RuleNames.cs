@@ -64,7 +64,11 @@
         public const string FD_DateEmpStatApp_MA = "FD_DateEmpStatApp_MA";
 
         // Employment Status Monitoring
+        // Regex
         public const string FD_ESMType_AP = "FD_ESMType_AP";
+        // Mandatory
+        public const string FD_ESMType_MA = "FD_ESMType_MA";
+        public const string FD_ESMCode_MA = "FD_ESMCode_MA";
 
         // Learner HE
         public const string FD_UCASPERID_AP = "FD_UCASPERID_AP";
