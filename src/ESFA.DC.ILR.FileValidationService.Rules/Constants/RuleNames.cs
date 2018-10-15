@@ -117,7 +117,13 @@
         public const string FD_WorkPlaceMode_MA = "FD_WorkPlaceMode_MA";
 
         // App Fin Record
+        // Regex
         public const string FD_AFinType_AP = "FD_AFinType_AP";
+        // Mandatory
+        public const string FD_AFinType_MA = "FD_AFinType_MA";
+        public const string FD_AFinCode_MA = "FD_AFinCode_MA";
+        public const string FD_AFinDate_MA = "FD_AFinDate_MA";
+        public const string FD_AFinAmount_MA = "FD_AFinAmount_MA";
 
         // Prov Spec Delivery Monitoring
         public const string FD_ProvSpecDelMonOccur_AP = "FD_ProvSpecDelMonOccur_AP";
