@@ -103,8 +103,12 @@
         public const string FD_CompStatus_MA = "FD_CompStatus_MA";
         
         // Learning Delivery FAM
+        // Regex
         public const string FD_LearnDelFAMType_AP = "FD_LearnDelFAMType_AP";
         public const string FD_LearnDelFAMCode_AP = "FD_LearnDelFAMCode_AP";
+        // Mandatory
+        public const string FD_LearnDelFAMType_MA = "FD_LearnDelFAMType_MA";
+        public const string FD_LearnDelFAMCode_MA = "FD_LearnDelFAMCode_MA";
 
         // App Fin Record
         public const string FD_AFinType_AP = "FD_AFinType_AP";
