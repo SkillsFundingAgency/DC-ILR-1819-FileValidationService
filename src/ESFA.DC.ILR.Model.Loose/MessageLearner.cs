@@ -22,5 +22,7 @@ namespace ESFA.DC.ILR.Model.Loose
         public IReadOnlyCollection<ILooseLearnerHE> LearnerHEs => learnerHEField;
 
         public IReadOnlyCollection<ILooseLearningDelivery> LearningDeliveries => learningDeliveryField;
+
+        public IReadOnlyCollection<ILooseLLDDAndHealthProblem> LLDDAndHealthProblems => lLDDandHealthProblemField;
     }
 }

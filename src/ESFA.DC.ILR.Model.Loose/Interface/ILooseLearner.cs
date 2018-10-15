@@ -55,5 +55,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         IReadOnlyCollection<ILooseLearnerHE> LearnerHEs { get; }
 
         IReadOnlyCollection<ILooseLearningDelivery> LearningDeliveries { get; }
+
+        IReadOnlyCollection<ILooseLLDDAndHealthProblem> LLDDAndHealthProblems { get; }
     }
 }

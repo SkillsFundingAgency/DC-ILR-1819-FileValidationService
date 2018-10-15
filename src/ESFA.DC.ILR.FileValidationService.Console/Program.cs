@@ -34,7 +34,8 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             IValidator<ILooseEmploymentStatusMonitoring> employmentStatusMonitoringValidator = new EmploymentStatusMonitoringValidator();
             IValidator<ILooseLearnerEmploymentStatus> learnerEmploymentStatusValidator = new LearnerEmploymentStatusValidator(employmentStatusMonitoringValidator);
             IValidator<ILooseLearnerHE> learnerHeValidator = new LearnerHEValidator();
-            IValidator<ILooseLearner> learnerValidator = new LearnerValidator(contactPreferenceValidator, learnerFamValidator, providerSpecLearnerMonitoringValidator, learnerEmploymentStatusValidator, learnerHeValidator);
+            IValidator<ILooseLLDDAndHealthProblem> llddAndHealthProblemValidator = new LLDDAndHealthProblemValidator();
+            IValidator<ILooseLearner> learnerValidator = new LearnerValidator(contactPreferenceValidator, learnerFamValidator, providerSpecLearnerMonitoringValidator, learnerEmploymentStatusValidator, learnerHeValidator, llddAndHealthProblemValidator);
 
             IValidator<ILooseDPOutcome> dpOutcomeValidator = new DPOutcomeValidator();
             IValidator<ILooseLearnerDestinationAndProgression> learnerDestinationAndProgressionValidator = new LearnerDestinationAndProgressionValidator(dpOutcomeValidator);

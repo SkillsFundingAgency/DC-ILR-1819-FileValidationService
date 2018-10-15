@@ -14,6 +14,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         private static readonly IValidator<ILooseProviderSpecLearnerMonitoring> ProviderSpeclearnerMonitor = new Mock<IValidator<ILooseProviderSpecLearnerMonitoring>>().Object;
         private static readonly IValidator<ILooseLearnerEmploymentStatus> LearnerEmploymenStatusValidator = new Mock<IValidator<ILooseLearnerEmploymentStatus>>().Object;
         private static readonly IValidator<ILooseLearnerHE> LearnerHEValidator = new Mock<IValidator<ILooseLearnerHE>>().Object;
+        private static readonly IValidator<ILooseLLDDAndHealthProblem> LLDDAndHealthProblemValidator = new Mock<IValidator<ILooseLLDDAndHealthProblem>>().Object;
 
         public LearnerValidatorTests()
             : base(
@@ -22,7 +23,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
                     LearnerFamValidator,
                     ProviderSpeclearnerMonitor,
                     LearnerEmploymenStatusValidator,
-                    LearnerHEValidator))
+                    LearnerHEValidator,
+                    LLDDAndHealthProblemValidator))
         {
         }
 
@@ -198,6 +200,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void LearnerHE_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(l => l.LearnerHEs, typeof(IValidator<ILooseLearnerHE>));
+        }
+
+        [Fact]
+        public void LLDDAndHealthProblem_ChildValidator()
+        {
+            _validator.ShouldHaveChildValidator(l => l.LLDDAndHealthProblems, typeof(IValidator<ILooseLLDDAndHealthProblem>));
         }
     }
 }

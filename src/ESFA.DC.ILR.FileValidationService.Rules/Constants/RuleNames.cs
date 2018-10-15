@@ -37,6 +37,10 @@
         public const string FD_ContPrefType_MA = "FD_ContPrefType_MA";
         public const string FD_ContPrefCode_MA = "FD_ContPrefCode_MA";
 
+        // LLDD and Health Problem
+        // Mandatory
+        public const string FD_LLDDCat_MA = "FD_LLDDCat_MA";
+
         // Learner FAM
         public const string FD_LearnFAMType_AP = "FD_LearnFAMType_AP";
 

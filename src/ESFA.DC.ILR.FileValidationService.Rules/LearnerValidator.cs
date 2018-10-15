@@ -12,7 +12,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             IValidator<ILooseLearnerFAM> learnerFamValidator,
             IValidator<ILooseProviderSpecLearnerMonitoring> providerSpecLearnerMonitoringValidator,
             IValidator<ILooseLearnerEmploymentStatus> learnerEmploymentStatusValidator,
-            IValidator<ILooseLearnerHE> learnerHeValidator)
+            IValidator<ILooseLearnerHE> learnerHeValidator,
+            IValidator<ILooseLLDDAndHealthProblem> llddAndHealthProblemValidator)
         {
             RegexRules();
             MandatoryAttributeRules();
@@ -22,6 +23,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleForEach(l => l.ProviderSpecLearnerMonitorings).SetValidator(providerSpecLearnerMonitoringValidator);
             RuleForEach(l => l.LearnerEmploymentStatuses).SetValidator(learnerEmploymentStatusValidator);
             RuleForEach(l => l.LearnerHEs).SetValidator(learnerHeValidator);
+            RuleForEach(l => l.LLDDAndHealthProblems).SetValidator(llddAndHealthProblemValidator);
         }
 
         private void RegexRules()
