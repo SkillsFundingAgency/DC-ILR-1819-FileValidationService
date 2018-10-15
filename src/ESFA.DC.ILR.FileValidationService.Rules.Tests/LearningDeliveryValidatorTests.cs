@@ -56,6 +56,54 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_LearnAimRef_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(ld => ld.LearnAimRef, "FD_LearnAimRef_MA");
+        }
+
+        [Fact]
+        public void FD_AimType_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(ld => ld.AimTypeNullable, "FD_AimType_MA");
+        }
+
+        [Fact]
+        public void FD_AimSeqNumber_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(ld => ld.AimSeqNumberNullable, "FD_AimSeqNumber_MA");
+        }
+
+        [Fact]
+        public void FD_LearnStartDate_MA()
+        {
+            TestMandatoryDateTimeAttributeRuleFor(ld => ld.LearnStartDateNullable, "FD_LearnStartDate_MA");
+        }
+
+        [Fact]
+        public void FD_LearnPlanEndDate_MA()
+        {
+            TestMandatoryDateTimeAttributeRuleFor(ld => ld.LearnPlanEndDateNullable, "FD_LearnPlanEndDate_MA");
+        }
+
+        [Fact]
+        public void FD_FundModel_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(ld => ld.FundModelNullable, "FD_FundModel_MA");
+        }
+
+        [Fact]
+        public void FD_DelLocPostCode_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(ld => ld.DelLocPostCode, "FD_DelLocPostCode_MA");
+        }
+
+        [Fact]
+        public void FD_CompStatus_MA()
+        {
+             TestMandatoryLongAttributeRuleFor(ld => ld.CompStatusNullable, "FD_CompStatus_MA");
+        }
+
+        [Fact]
         public void LearningDeliveryFAM_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(ld => ld.LearningDeliveryFAMs, typeof(IValidator<ILooseLearningDeliveryFAM>));

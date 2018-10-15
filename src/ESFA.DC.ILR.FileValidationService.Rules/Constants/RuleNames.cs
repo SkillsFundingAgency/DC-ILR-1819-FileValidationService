@@ -74,6 +74,7 @@
         public const string FD_UCASPERID_AP = "FD_UCASPERID_AP";
 
         // Learner HE Financial Support
+        // Mandatory
         public const string FD_FINTYPE_MA = "FD_FINTYPE_MA";
         public const string FD_FINAMOUNT_MA = "FD_FINAMOUNT_MA";
 
@@ -84,13 +85,23 @@
         public const string FD_DP_OutType_AP = "FD_DP_OutType_AP";
 
         // Learning Delivery
+        // Regex
         public const string FD_LearnAimRef_AP = "FD_LearnAimRef_AP";
         public const string FD_DelLocPostCode_AP = "FD_DelLocPostCode_AP";
         public const string FD_ConRefNumber_AP = "FD_ConRefNumber_AP";
         public const string FD_EPAOrgID_AP = "FD_EPAOrgID_AP";
         public const string FD_OutGrade_AP = "FD_OutGrade_AP";
         public const string FD_SWSupAimId_AP = "FD_SWSupAimId_AP";
-
+        // Mandatory
+        public const string FD_LearnAimRef_MA = "FD_LearnAimRef_MA";
+        public const string FD_AimType_MA = "FD_AimType_MA";
+        public const string FD_AimSeqNumber_MA = "FD_AimSeqNumber_MA";
+        public const string FD_LearnStartDate_MA = "FD_LearnStartDate_MA";
+        public const string FD_LearnPlanEndDate_MA = "FD_LearnPlanEndDate_MA";
+        public const string FD_FundModel_MA = "FD_FundModel_MA";
+        public const string FD_DelLocPostCode_MA = "FD_DelLocPostCode_MA";
+        public const string FD_CompStatus_MA = "FD_CompStatus_MA";
+        
         // Learning Delivery FAM
         public const string FD_LearnDelFAMType_AP = "FD_LearnDelFAMType_AP";
         public const string FD_LearnDelFAMCode_AP = "FD_LearnDelFAMCode_AP";

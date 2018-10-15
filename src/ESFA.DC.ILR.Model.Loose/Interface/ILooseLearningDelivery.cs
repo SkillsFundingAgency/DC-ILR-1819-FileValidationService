@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ESFA.DC.ILR.Model.Loose.Interface
 {
@@ -15,6 +16,18 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         string OutGrade { get; }
 
         string SWSupAimId { get; }
+
+        long? AimTypeNullable { get; }
+
+        long? AimSeqNumberNullable { get; }
+
+        long? FundModelNullable { get; }
+
+        long? CompStatusNullable { get; }
+
+        DateTime? LearnStartDateNullable { get; }
+
+        DateTime? LearnPlanEndDateNullable { get; }
 
         IReadOnlyCollection<ILooseLearningDeliveryFAM> LearningDeliveryFAMs { get; }
 
