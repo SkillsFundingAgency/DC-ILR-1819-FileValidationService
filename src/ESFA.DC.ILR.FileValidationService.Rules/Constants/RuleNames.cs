@@ -42,7 +42,11 @@
         public const string FD_LLDDCat_MA = "FD_LLDDCat_MA";
 
         // Learner FAM
+        // Regex
         public const string FD_LearnFAMType_AP = "FD_LearnFAMType_AP";
+        // Mandatory
+        public const string FD_LearnFAMType_MA = "FD_LearnFAMType_MA";
+        public const string FD_LearnFAMCode_MA = "FD_LearnFAMCode_MA";
 
         // Provider Spec Learner Monitoring
         public const string FD_ProvSpecLearnMonOccur_AP = "FD_ProvSpecLearnMonOccur_AP";

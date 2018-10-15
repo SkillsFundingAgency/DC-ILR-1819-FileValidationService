@@ -14,7 +14,19 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_LearnFAMType_AP()
         {
-            TestRuleFor(cp => cp.LearnFAMType, "FD_LearnFAMType_AP", "Learn Fam Type", "`");
+            TestRuleFor(fam => fam.LearnFAMType, "FD_LearnFAMType_AP", "Learn Fam Type", "`");
+        }
+
+        [Fact]
+        public void FD_LearnFAMType_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(fam => fam.LearnFAMType, "FD_LearnFAMType_MA");
+        }
+
+        [Fact]
+        public void FD_LearnFAMCode_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(fam => fam.LearnFAMCodeNullable, "FD_LearnFAMCode_MA");
         }
     }
 }
