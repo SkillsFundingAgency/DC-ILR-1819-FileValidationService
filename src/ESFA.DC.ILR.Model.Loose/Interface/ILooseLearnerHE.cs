@@ -7,5 +7,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
     public interface ILooseLearnerHE
     {
         string UCASPERID { get; }
+
+        IReadOnlyCollection<ILooseLearnerHEFinancialSupport> LearnerHEFinancialSupports { get; }
     }
 }

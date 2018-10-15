@@ -7,9 +7,11 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 {
     public class LearnerHEValidator : AbstractValidator<ILooseLearnerHE>
     {
-        public LearnerHEValidator()
+        public LearnerHEValidator(IValidator<ILooseLearnerHEFinancialSupport> learnerHEFinancialSupportValidator)
         {
             RuleFor(lhe => lhe.UCASPERID).MatchesRegex(Regexes.UcasPerId).WithErrorCode(RuleNames.FD_UCASPERID_AP);
+
+            RuleForEach(lhe => lhe.LearnerHEFinancialSupports).SetValidator(learnerHEFinancialSupportValidator);
         }
     }
 }

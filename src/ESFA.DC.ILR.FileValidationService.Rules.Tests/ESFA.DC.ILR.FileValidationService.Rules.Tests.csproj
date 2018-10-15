@@ -89,6 +89,7 @@
     <Compile Include="LearnerDestinationAndProgressionValidatorTests.cs" />
     <Compile Include="LearnerEmploymentStatusValidatorTests.cs" />
     <Compile Include="LearnerFAMValidatorTests.cs" />
+    <Compile Include="LearnerHEFinancialSupportValidatorTests.cs" />
     <Compile Include="LearnerHEValidatorTests.cs" />
     <Compile Include="LearnerValidatorTests.cs" />
     <Compile Include="LearningDeliveryFAMValidatorTests.cs" />

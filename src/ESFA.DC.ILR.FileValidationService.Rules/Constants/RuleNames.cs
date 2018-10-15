@@ -73,6 +73,10 @@
         // Learner HE
         public const string FD_UCASPERID_AP = "FD_UCASPERID_AP";
 
+        // Learner HE Financial Support
+        public const string FD_FINTYPE_MA = "FD_FINTYPE_MA";
+        public const string FD_FINAMOUNT_MA = "FD_FINAMOUNT_MA";
+
         // Learner Destination And Progression
         public const string FD_DP_LearnRefNumber_AP = "FD_DP_LearnRefNumber_AP";
 
