@@ -49,9 +49,13 @@
         public const string FD_LearnFAMCode_MA = "FD_LearnFAMCode_MA";
 
         // Provider Spec Learner Monitoring
+        // Regex
         public const string FD_ProvSpecLearnMonOccur_AP = "FD_ProvSpecLearnMonOccur_AP";
         public const string FD_ProvSpecLearnMon_AP = "FD_ProvSpecLearnMon_AP";
-
+        // Mandatory
+        public const string FD_ProvSpecLearnMonOccur_MA = "FD_ProvSpecLearnMonOccur_MA";
+        public const string FD_ProvSpecLearnMon_MA = "FD_ProvSpecLearnMon_MA";
+        
         // Learner Employment Status
         public const string FD_AgreeId_AP = "FD_AgreeId_AP";
 

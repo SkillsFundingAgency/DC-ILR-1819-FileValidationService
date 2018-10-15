@@ -22,5 +22,17 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestRuleFor(m => m.ProvSpecLearnMon, "FD_ProvSpecLearnMon_AP", "ProvSpecLearnMon", "`");
         }
+
+        [Fact]
+        public void FD_ProvSpecLearnMonOccur_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(m => m.ProvSpecLearnMonOccur, "FD_ProvSpecLearnMonOccur_MA");
+        }
+
+        [Fact]
+        public void FD_ProvSpecLearnMon_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(m => m.ProvSpecLearnMon, "FD_ProvSpecLearnMon_MA");
+        }
     }
 }
