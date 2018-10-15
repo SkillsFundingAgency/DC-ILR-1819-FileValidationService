@@ -31,7 +31,11 @@
         public const string FD_Postcode_MA = "FD_Postcode_MA";
 
         // Contact Preference
+        // Regex
         public const string FD_ContPrefType_AP = "FD_ContPrefType_AP";
+        // Mandatory
+        public const string FD_ContPrefType_MA = "FD_ContPrefType_MA";
+        public const string FD_ContPrefCode_MA = "FD_ContPrefCode_MA";
 
         // Learner FAM
         public const string FD_LearnFAMType_AP = "FD_LearnFAMType_AP";

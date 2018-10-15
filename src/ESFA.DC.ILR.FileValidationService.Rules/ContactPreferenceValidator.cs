@@ -9,7 +9,19 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
     {
         public ContactPreferenceValidator()
         {
+            RegexRules();
+            MandatoryAttributeRules();
+        }
+
+        private void RegexRules()
+        {
             RuleFor(cp => cp.ContPrefType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ContPrefType_AP);
+        }
+
+        private void MandatoryAttributeRules()
+        {
+            RuleFor(cp => cp.ContPrefType).NotNull().WithErrorCode(RuleNames.FD_ContPrefType_MA);
+            RuleFor(cp => cp.ContPrefCodeNullable).NotNull().WithErrorCode(RuleNames.FD_ContPrefCode_MA);
         }
     }
 }

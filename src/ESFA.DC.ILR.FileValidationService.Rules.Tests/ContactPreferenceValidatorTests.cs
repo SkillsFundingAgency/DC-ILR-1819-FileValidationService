@@ -12,9 +12,21 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
-        public void ContPrefType()
+        public void FD_ContPrefType_AP()
         {
             TestRuleFor(cp => cp.ContPrefType, "FD_ContPrefType_AP", "ContPref", "`");
+        }
+
+        [Fact]
+        public void FD_ContPrefType_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(cp => cp.ContPrefType, "FD_ContPrefType_MA");
+        }
+
+        [Fact]
+        public void FD_ContPrefCode_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(cp => cp.ContPrefCodeNullable, "FD_ContPrefCode_MA");
         }
     }
 }
