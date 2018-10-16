@@ -79,7 +79,11 @@
         public const string FD_FINAMOUNT_MA = "FD_FINAMOUNT_MA";
 
         // Learner Destination And Progression
+        // Regex
         public const string FD_DP_LearnRefNumber_AP = "FD_DP_LearnRefNumber_AP";
+        // Mandatory
+        public const string FD_DP_LearnRefNumber_MA = "FD_DP_LearnRefNumber_MA";
+        public const string FD_DP_ULN_MA = "FD_DP_ULN_MA";
 
         // DP Outcome
         public const string FD_DP_OutType_AP = "FD_DP_OutType_AP";
