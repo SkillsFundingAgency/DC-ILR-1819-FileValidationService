@@ -126,8 +126,12 @@
         public const string FD_AFinAmount_MA = "FD_AFinAmount_MA";
 
         // Prov Spec Delivery Monitoring
+        // Regex
         public const string FD_ProvSpecDelMonOccur_AP = "FD_ProvSpecDelMonOccur_AP";
         public const string FD_ProvSpecDelMon_AP = "FD_ProvSpecDelMon_AP";
+        // Mandatory
+        public const string FD_ProvSpecDelMonOccur_MA = "FD_ProvSpecDelMonOccur_MA";
+        public const string FD_ProvSpecDelMon_MA = "FD_ProvSpecDelMon_MA";
 
         // Learning Delivery HE
         public const string FD_NUMHUS_AP = "FD_NUMHUS_AP";
