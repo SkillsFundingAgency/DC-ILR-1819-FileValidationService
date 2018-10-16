@@ -86,8 +86,14 @@
         public const string FD_DP_ULN_MA = "FD_DP_ULN_MA";
 
         // DP Outcome
+        // Regex
         public const string FD_DP_OutType_AP = "FD_DP_OutType_AP";
-
+        // Mandatory
+        public const string FD_DP_OutType_MA = "FD_DP_OutType_MA";
+        public const string FD_DP_OutCode_MA = "FD_DP_OutCode_MA";
+        public const string FD_DP_OutStartDate_MA = "FD_DP_OutStartDate_MA";
+        public const string FD_DP_OutCollDate_MA = "FD_DP_OutCollDate_MA";
+        
         // Learning Delivery
         // Regex
         public const string FD_LearnAimRef_AP = "FD_LearnAimRef_AP";
