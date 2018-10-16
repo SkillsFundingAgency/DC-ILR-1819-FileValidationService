@@ -12,5 +12,13 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         string UCASAPPID { get; }
         string DOMICILE { get; }
         string HEPostCode { get; }
+
+        long? TYPEYRNullable { get; }
+        long? MODESTUDNullable { get; }
+        long? FUNDLEVNullable { get; }
+        long? FUNDCOMPNullable { get; }
+        long? YEARSTUNullable { get; }
+        long? MSTUFEENullable { get; }
+        long? SPECFEENullable { get; }
     }   
 }

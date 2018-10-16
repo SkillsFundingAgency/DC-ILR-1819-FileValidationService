@@ -134,11 +134,20 @@
         public const string FD_ProvSpecDelMon_MA = "FD_ProvSpecDelMon_MA";
 
         // Learning Delivery HE
+        // Regex
         public const string FD_NUMHUS_AP = "FD_NUMHUS_AP";
         public const string FD_SSN_AP = "FD_SSN_AP";
         public const string FD_QUALENT3_AP = "FD_QUALENT3_AP";
         public const string FD_UCASAPPID_AP = "FD_UCASAPPID_AP";
         public const string FD_DOMICILE_AP = "FD_DOMICILE_AP";
         public const string FD_HEPostCode_AP = "FD_HEPostCode_AP";
+        // Mandatory
+        public const string FD_TYPEYR_MA = "FD_TYPEYR_MA";
+        public const string FD_MODESTUD_MA = "FD_MODESTUD_MA";
+        public const string FD_FUNDLEV_MA = "FD_FUNDLEV_MA";
+        public const string FD_FUNDCOMP_MA = "FD_FUNDCOMP_MA";
+        public const string FD_YEARSTU_MA = "FD_YEARSTU_MA";
+        public const string FD_MSTUFEE_MA = "FD_MSTUFEE_MA";
+        public const string FD_SPECFEE_MA = "FD_SPECFEE_MA";
     }
 }

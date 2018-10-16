@@ -46,5 +46,47 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestRuleFor(he => he.HEPostCode, "FD_HEPostCode_AP", "HEPostCode_AP", "`");
         }
+
+        [Fact]
+        public void FD_TYPEYR_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(fd => fd.TYPEYRNullable, "FD_TYPEYR_MA");
+        }
+
+        [Fact]
+        public void FD_MODESTUD_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(fd => fd.MODESTUDNullable, "FD_MODESTUD_MA");
+        }
+
+        [Fact]
+        public void FD_FUNDLEV_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(fd => fd.FUNDLEVNullable, "FD_FUNDLEV_MA");
+        }
+
+        [Fact]
+        public void FD_FUNDCOMP_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(fd => fd.FUNDCOMPNullable, "FD_FUNDCOMP_MA");
+        }
+
+        [Fact]
+        public void FD_YEARSTU_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(fd => fd.YEARSTUNullable, "FD_YEARSTU_MA");
+        }
+
+        [Fact]
+        public void FD_MSTUFEE_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(fd => fd.MSTUFEENullable, "FD_MSTUFEE_MA");
+        }
+
+        [Fact]
+        public void FD_SPECFEE_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(fd => fd.SPECFEENullable, "FD_SPECFEE_MA");
+        }
     }
 }
