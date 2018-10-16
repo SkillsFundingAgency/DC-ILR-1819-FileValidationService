@@ -14,7 +14,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_AFinType_AP()
         {
-            TestRuleFor(afr => afr.AFinType, "FD_AFinType_AP", "AFinType", "`");
+            TestRegexRuleFor(afr => afr.AFinType, "FD_AFinType_AP", "AFinType", "`");
         }
 
         [Fact]

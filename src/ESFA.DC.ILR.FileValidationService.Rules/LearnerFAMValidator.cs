@@ -15,13 +15,19 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         private void RegexRules()
         {
-            RuleFor(fam => fam.LearnFAMType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_LearnFAMType_AP);
+            RuleSet(RuleSetNames.Regex, () =>
+            {
+                RuleFor(fam => fam.LearnFAMType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_LearnFAMType_AP);
+            });
         }
 
         private void MandatoryAttributeRules()
         {
-            RuleFor(fam => fam.LearnFAMType).NotNull().WithErrorCode(RuleNames.FD_LearnFAMType_MA);
-            RuleFor(fam => fam.LearnFAMCodeNullable).NotNull().WithErrorCode(RuleNames.FD_LearnFAMCode_MA);
+            RuleSet(RuleSetNames.MandatoryAttributes, () =>
+            {
+                RuleFor(fam => fam.LearnFAMType).NotNull().WithErrorCode(RuleNames.FD_LearnFAMType_MA);
+                RuleFor(fam => fam.LearnFAMCodeNullable).NotNull().WithErrorCode(RuleNames.FD_LearnFAMCode_MA);
+            });
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_DP_LearnRefNumber_AP()
         {
-            TestRuleFor(ldp => ldp.LearnRefNumber, "FD_DP_LearnRefNumber_AP", "LearnRefNum", "");
+            TestRegexRuleFor(ldp => ldp.LearnRefNumber, "FD_DP_LearnRefNumber_AP", "LearnRefNum", "");
         }
 
         [Fact]

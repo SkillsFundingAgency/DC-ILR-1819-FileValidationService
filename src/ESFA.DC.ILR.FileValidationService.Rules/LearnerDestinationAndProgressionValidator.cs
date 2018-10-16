@@ -17,13 +17,20 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         public void RegexRules()
         {
-            RuleFor(ldp => ldp.LearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_DP_LearnRefNumber_AP);
+            RuleSet(RuleSetNames.Regex, () =>
+            {
+                RuleFor(ldp => ldp.LearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_DP_LearnRefNumber_AP);
+            });
         }
 
         public void MandatoryAttributeRules()
         {
-            RuleFor(ldp => ldp.LearnRefNumber).NotNull().WithErrorCode(RuleNames.FD_DP_LearnRefNumber_MA);
-            RuleFor(ldp => ldp.ULNNullable).NotNull().WithErrorCode(RuleNames.FD_DP_ULN_MA);
+            RuleSet(RuleSetNames.MandatoryAttributes, () =>
+            {
+                RuleFor(ldp => ldp.LearnRefNumber).NotNull().WithErrorCode(RuleNames.FD_DP_LearnRefNumber_MA);
+                RuleFor(ldp => ldp.ULNNullable).NotNull().WithErrorCode(RuleNames.FD_DP_ULN_MA);
+            });
+            
         }
     }
 }

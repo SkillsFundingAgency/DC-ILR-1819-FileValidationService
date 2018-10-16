@@ -8,7 +8,15 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
     {
         public LLDDAndHealthProblemValidator()
         {
-            RuleFor(p => p.LLDDCatNullable).NotNull().WithErrorCode(RuleNames.FD_LLDDCat_MA);
+            MandatoryRules();
+        }
+
+        private void MandatoryRules()
+        {
+            RuleSet(RuleSetNames.MandatoryAttributes, () =>
+            {
+                RuleFor(p => p.LLDDCatNullable).NotNull().WithErrorCode(RuleNames.FD_LLDDCat_MA);
+            });
         }
     }
 }

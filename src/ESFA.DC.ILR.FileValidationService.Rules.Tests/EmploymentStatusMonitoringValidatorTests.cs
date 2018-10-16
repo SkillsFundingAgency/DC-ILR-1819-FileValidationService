@@ -14,7 +14,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_ESMType_AP()
         {
-            TestRuleFor(esm => esm.ESMType, "FD_ESMType_AP", "ESM Type", "`");
+            TestRegexRuleFor(esm => esm.ESMType, "FD_ESMType_AP", "ESM Type", "`");
         }
 
         [Fact]

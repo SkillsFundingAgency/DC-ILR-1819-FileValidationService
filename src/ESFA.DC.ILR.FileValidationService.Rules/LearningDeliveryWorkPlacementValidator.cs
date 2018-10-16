@@ -13,9 +13,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         private void MandatoryAttributeRules()
         {
-            RuleFor(wp => wp.WorkPlaceStartDateNullable).NotNull().WithErrorCode(RuleNames.FD_WorkPlaceStartDate_MA);
-            RuleFor(wp => wp.WorkPlaceHoursNullable).NotNull().WithErrorCode(RuleNames.FD_WorkPlaceHours_MA);
-            RuleFor(wp => wp.WorkPlaceModeNullable).NotNull().WithErrorCode(RuleNames.FD_WorkPlaceMode_MA);
+            RuleSet(RuleSetNames.MandatoryAttributes, () =>
+            {
+                RuleFor(wp => wp.WorkPlaceStartDateNullable).NotNull().WithErrorCode(RuleNames.FD_WorkPlaceStartDate_MA);
+                RuleFor(wp => wp.WorkPlaceHoursNullable).NotNull().WithErrorCode(RuleNames.FD_WorkPlaceHours_MA);
+                RuleFor(wp => wp.WorkPlaceModeNullable).NotNull().WithErrorCode(RuleNames.FD_WorkPlaceMode_MA);
+            });
         }
     }
 }

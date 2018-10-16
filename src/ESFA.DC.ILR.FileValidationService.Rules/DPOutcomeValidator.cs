@@ -16,15 +16,21 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         private void RegexRules()
         {
-            RuleFor(dpo => dpo.OutType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_DP_OutType_AP);
+            RuleSet(RuleSetNames.Regex, () =>
+            {
+                RuleFor(dpo => dpo.OutType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_DP_OutType_AP);
+            });
         }
 
         private void MandatoryAttributeRules()
         {
-            RuleFor(dpo => dpo.OutType).NotNull().WithErrorCode(RuleNames.FD_DP_OutType_MA);
-            RuleFor(dpo => dpo.OutCodeNullable).NotNull().WithErrorCode(RuleNames.FD_DP_OutCode_MA);
-            RuleFor(dpo => dpo.OutStartDateNullable).NotNull().WithErrorCode(RuleNames.FD_DP_OutStartDate_MA);
-            RuleFor(dpo => dpo.OutCollDateNullable).NotNull().WithErrorCode(RuleNames.FD_DP_OutCollDate_MA);
+            RuleSet(RuleSetNames.MandatoryAttributes, () =>
+            {
+                RuleFor(dpo => dpo.OutType).NotNull().WithErrorCode(RuleNames.FD_DP_OutType_MA);
+                RuleFor(dpo => dpo.OutCodeNullable).NotNull().WithErrorCode(RuleNames.FD_DP_OutCode_MA);
+                RuleFor(dpo => dpo.OutStartDateNullable).NotNull().WithErrorCode(RuleNames.FD_DP_OutStartDate_MA);
+                RuleFor(dpo => dpo.OutCollDateNullable).NotNull().WithErrorCode(RuleNames.FD_DP_OutCollDate_MA);
+            });
         }
     }
 }

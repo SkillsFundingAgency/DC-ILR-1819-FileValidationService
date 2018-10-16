@@ -14,7 +14,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_DP_OutType_AP()
         {
-            TestRuleFor(dpo => dpo.OutType, "FD_DP_OutType_AP", "Out Type", "`");
+            TestRegexRuleFor(dpo => dpo.OutType, "FD_DP_OutType_AP", "Out Type", "`");
         }
 
         [Fact]

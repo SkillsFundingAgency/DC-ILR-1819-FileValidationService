@@ -44,6 +44,22 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
 
         long? LLDDHealthProbNullable { get; }
 
+        long? PrevUKPRNNullable { get; }
+
+        long? PMUKPRNNullable { get; }
+
+        long? PriorAttainNullable { get; }
+
+        long? AccomNullable { get; }
+
+        long? ALSCostNullable { get; }
+
+        long? PlanLearnHoursNullable { get; }
+
+        long? PlanEEPHoursNullable { get; }
+
+        long? OTJHoursNullable { get; }
+        
         IReadOnlyCollection<ILooseContactPreference> ContactPreferences { get; }
 
         IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs { get; }

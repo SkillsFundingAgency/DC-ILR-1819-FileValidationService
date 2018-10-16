@@ -13,8 +13,11 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         private void MandatoryAttributeRules()
         {
-            RuleFor(fs => fs.FINTYPENullable).NotNull().WithErrorCode(RuleNames.FD_FINTYPE_MA);
-            RuleFor(fs => fs.FINAMOUNTNullable).NotNull().WithErrorCode(RuleNames.FD_FINAMOUNT_MA);
+            RuleSet(RuleSetNames.MandatoryAttributes, () =>
+            {
+                RuleFor(fs => fs.FINTYPENullable).NotNull().WithErrorCode(RuleNames.FD_FINTYPE_MA);
+                RuleFor(fs => fs.FINAMOUNTNullable).NotNull().WithErrorCode(RuleNames.FD_FINAMOUNT_MA);
+            });
         }
     }
 }

@@ -29,6 +29,35 @@
         public const string FD_LLDDHealthProb_MA = "FD_LLDDHealthProb_MA";
         public const string FD_PostcodePrior_MA = "FD_PostcodePrior_MA";
         public const string FD_Postcode_MA = "FD_Postcode_MA";
+        // Length
+        public const string FD_LearnRefNumber_AL = "FD_LearnRefNumber_AL";
+        public const string FD_PrevLearnRefNumber_AL = "FD_PrevLearnRefNumber_AL";
+        public const string FD_PrevUKPRN_AL = "FD_PrevUKPRN_AL";
+        public const string FD_PMUKPRN_AL = "FD_PMUKPRN_AL";
+        public const string FD_ULN_AL = "FD_ULN_AL";
+        public const string FD_FamilyName_AL = "FD_FamilyName_AL";
+        public const string FD_GivenNames_AL = "FD_GivenNames_AL";
+        public const string FD_Ethnicity_AL = "FD_Ethnicity_AL";
+        public const string FD_Sex_AL = "FD_Sex_AL";
+        public const string FD_LLDDHealthProb_AL = "FD_LLDDHealthProb_AL";
+        public const string FD_NINumber_AL = "FD_NINumber_AL";
+        public const string FD_PriorAttain_AL = "FD_PriorAttain_AL";
+        public const string FD_Accom_AL = "FD_Accom_AL";
+        public const string FD_ALSCost_AL = "FD_ALSCost_AL";
+        public const string FD_PlanLearnHours_AL = "FD_PlanLearnHours_AL";
+        public const string FD_PlanEEPHours_AL = "FD_PlanEEPHours_AL";
+        public const string FD_MathGrade_AL = "FD_MathGrade_AL";
+        public const string FD_EngGrade_AL = "FD_EngGrade_AL";
+        public const string FD_PostcodePrior_AL = "FD_PostcodePrior_AL";
+        public const string FD_Postcode_AL = "FD_Postcode_AL";
+        public const string FD_CampId_AL = "FD_CampId_AL";
+        public const string FD_OTJHours_AL = "FD_OTJHours_AL";
+        public const string FD_AddLine1_AL = "FD_AddLine1_AL";
+        public const string FD_AddLine2_AL = "FD_AddLine2_AL";
+        public const string FD_AddLine3_AL = "FD_AddLine3_AL";
+        public const string FD_AddLine4_AL = "FD_AddLine4_AL";
+        public const string FD_TelNo_AL = "FD_TelNo_AL";
+        public const string FD_Email_AL = "FD_Email_AL";
 
         // Contact Preference
         // Regex

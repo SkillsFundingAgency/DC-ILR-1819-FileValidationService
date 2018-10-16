@@ -19,13 +19,13 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_ProvSpecDelMonOccur_AP()
         {
-            TestRuleFor(m => m.ProvSpecDelMonOccur, "FD_ProvSpecDelMonOccur_AP", "Prov Spec Del Mon Occur", "`");
+            TestRegexRuleFor(m => m.ProvSpecDelMonOccur, "FD_ProvSpecDelMonOccur_AP", "Prov Spec Del Mon Occur", "`");
         }
 
         [Fact]
         public void FD_ProvSpecDelMon_AP()
         {
-            TestRuleFor(m => m.ProvSpecDelMon, "FD_ProvSpecDelMon_AP", "Prov Spec Del Mon", "`");
+            TestRegexRuleFor(m => m.ProvSpecDelMon, "FD_ProvSpecDelMon_AP", "Prov Spec Del Mon", "`");
         }
 
         [Fact]

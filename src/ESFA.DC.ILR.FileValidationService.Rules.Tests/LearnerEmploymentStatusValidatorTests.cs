@@ -19,7 +19,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_AgreeId_AP()
         {
-            TestRuleFor(esm => esm.AgreeId, "FD_AgreeId_AP", "ABC123", "");
+            TestRegexRuleFor(esm => esm.AgreeId, "FD_AgreeId_AP", "ABC123", "");
         }
 
         [Fact]

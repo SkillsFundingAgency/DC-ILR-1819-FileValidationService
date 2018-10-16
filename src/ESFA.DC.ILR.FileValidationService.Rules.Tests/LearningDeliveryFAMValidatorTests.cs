@@ -14,13 +14,13 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_LearnDelFAMType_AP()
         {
-            TestRuleFor(fam => fam.LearnDelFAMType, "FD_LearnDelFAMType_AP", "Learn Del Fam Type", "`");
+            TestRegexRuleFor(fam => fam.LearnDelFAMType, "FD_LearnDelFAMType_AP", "Learn Del Fam Type", "`");
         }
 
         [Fact]
         public void FD_LearnDelFAMCode_AP()
         {
-            TestRuleFor(fam => fam.LearnDelFAMCode, "FD_LearnDelFAMCode_AP", "Learn Del Fam Code", "`");
+            TestRegexRuleFor(fam => fam.LearnDelFAMCode, "FD_LearnDelFAMCode_AP", "Learn Del Fam Code", "`");
         }
 
         [Fact]

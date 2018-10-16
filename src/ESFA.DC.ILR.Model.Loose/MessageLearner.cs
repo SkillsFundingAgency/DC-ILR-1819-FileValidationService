@@ -11,6 +11,22 @@ namespace ESFA.DC.ILR.Model.Loose
 
         public long? LLDDHealthProbNullable => lLDDHealthProbFieldSpecified ? lLDDHealthProbField : default(long?);
 
+        public long? PrevUKPRNNullable => prevUKPRNFieldSpecified ? prevUKPRNField : default(long?);
+
+        public long? PMUKPRNNullable => pMUKPRNFieldSpecified ? pMUKPRNField : default(long?);
+
+        public long? PriorAttainNullable => priorAttainFieldSpecified ? priorAttainField : default(long?);
+
+        public long? AccomNullable => accomFieldSpecified ? accomField : default(long?);
+
+        public long? ALSCostNullable => aLSCostFieldSpecified ? aLSCostField : default(long?);
+
+        public long? PlanLearnHoursNullable => planLearnHoursFieldSpecified ? planLearnHoursField : default(long?);
+
+        public long? PlanEEPHoursNullable => planEEPHoursFieldSpecified ? planEEPHoursField : default(long?);
+
+        public long? OTJHoursNullable => oTJHoursFieldSpecified ? oTJHoursField : default(long?);
+
         public IReadOnlyCollection<ILooseContactPreference> ContactPreferences => contactPreferenceField;
 
         public IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs => learnerFAMField;
@@ -24,5 +40,6 @@ namespace ESFA.DC.ILR.Model.Loose
         public IReadOnlyCollection<ILooseLearningDelivery> LearningDeliveries => learningDeliveryField;
 
         public IReadOnlyCollection<ILooseLLDDAndHealthProblem> LLDDAndHealthProblems => lLDDandHealthProblemField;
+
     }
 }

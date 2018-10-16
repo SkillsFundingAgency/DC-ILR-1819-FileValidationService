@@ -14,7 +14,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_ContPrefType_AP()
         {
-            TestRuleFor(cp => cp.ContPrefType, "FD_ContPrefType_AP", "ContPref", "`");
+            TestRegexRuleFor(cp => cp.ContPrefType, "FD_ContPrefType_AP", "ContPref", "`");
         }
 
         [Fact]

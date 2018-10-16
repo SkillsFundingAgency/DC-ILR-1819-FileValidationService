@@ -14,7 +14,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_LearnFAMType_AP()
         {
-            TestRuleFor(fam => fam.LearnFAMType, "FD_LearnFAMType_AP", "Learn Fam Type", "`");
+            TestRegexRuleFor(fam => fam.LearnFAMType, "FD_LearnFAMType_AP", "Learn Fam Type", "`");
         }
 
         [Fact]
