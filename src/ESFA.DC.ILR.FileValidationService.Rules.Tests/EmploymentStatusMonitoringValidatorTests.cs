@@ -16,5 +16,17 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestRuleFor(esm => esm.ESMType, "FD_ESMType_AP", "ESM Type", "`");
         }
+
+        [Fact]
+        public void FD_ESMType_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(esm => esm.ESMType, "FD_ESMType_MA");
+        }
+
+        [Fact]
+        public void FD_ESMCode_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(esm => esm.ESMCodeNullable, "FD_ESMCode_MA");
+        }
     }
 }

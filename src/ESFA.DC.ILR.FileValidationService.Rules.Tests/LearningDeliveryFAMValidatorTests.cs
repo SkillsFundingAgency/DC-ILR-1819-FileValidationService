@@ -22,5 +22,17 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestRuleFor(fam => fam.LearnDelFAMCode, "FD_LearnDelFAMCode_AP", "Learn Del Fam Code", "`");
         }
+
+        [Fact]
+        public void FD_LearnDelFAMType_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(ld => ld.LearnDelFAMType, "FD_LearnDelFAMType_MA");
+        }
+
+        [Fact]
+        public void FD_LearnDelFAMCode_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(ld => ld.LearnDelFAMCode, "FD_LearnDelFAMCode_MA");
+        }
     }
 }

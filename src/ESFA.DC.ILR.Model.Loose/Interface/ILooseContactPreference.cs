@@ -3,5 +3,7 @@
     public interface ILooseContactPreference
     {
         string ContPrefType { get; }
+
+        long? ContPrefCodeNullable { get; }
     }
 }

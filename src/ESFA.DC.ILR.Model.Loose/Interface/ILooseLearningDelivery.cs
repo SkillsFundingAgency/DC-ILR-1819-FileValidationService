@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ESFA.DC.ILR.Model.Loose.Interface
 {
@@ -16,6 +17,18 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
 
         string SWSupAimId { get; }
 
+        long? AimTypeNullable { get; }
+
+        long? AimSeqNumberNullable { get; }
+
+        long? FundModelNullable { get; }
+
+        long? CompStatusNullable { get; }
+
+        DateTime? LearnStartDateNullable { get; }
+
+        DateTime? LearnPlanEndDateNullable { get; }
+
         IReadOnlyCollection<ILooseLearningDeliveryFAM> LearningDeliveryFAMs { get; }
 
         IReadOnlyCollection<ILooseAppFinRecord> AppFinRecords { get; }
@@ -23,5 +36,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         IReadOnlyCollection<ILooseProviderSpecDeliveryMonitoring> ProviderSpecDeliveryMonitorings { get; }
 
         IReadOnlyCollection<ILooseLearningDeliveryHE> LearningDeliveryHEs { get; }
+
+        IReadOnlyCollection<ILooseLearningDeliveryWorkPlacement> LearningDeliveryWorkPlacements { get; }
     }
 }

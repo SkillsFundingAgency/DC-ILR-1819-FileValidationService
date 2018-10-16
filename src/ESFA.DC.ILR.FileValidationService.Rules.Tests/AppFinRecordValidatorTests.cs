@@ -16,5 +16,29 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestRuleFor(afr => afr.AFinType, "FD_AFinType_AP", "AFinType", "`");
         }
+
+        [Fact]
+        public void FD_AFinType_MA()
+        {
+            TestMandatoryStringAttributeRuleFor(afr => afr.AFinType, "FD_AFinType_MA");
+        }
+
+        [Fact]
+        public void FD_AFinCode_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(afr => afr.AFinCodeNullable, "FD_AFinCode_MA");
+        }
+
+        [Fact]
+        public void FD_AFinDate_MA()
+        {
+            TestMandatoryDateTimeAttributeRuleFor(afr => afr.AFinDateNullable, "FD_AFinDate_MA");
+        }
+
+        [Fact]
+        public void FD_AFinAmount_MA()
+        {
+            TestMandatoryLongAttributeRuleFor(afr => afr.AFinAmountNullable, "FD_AFinAmount_MA");
+        }
     }
 }

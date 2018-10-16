@@ -9,8 +9,20 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
     {
         public LearningDeliveryFAMValidator()
         {
+            RegexRules();
+            MandatoryAttributeRules();
+        }
+
+        private void RegexRules()
+        {
             RuleFor(fam => fam.LearnDelFAMCode).MatchesRestrictedString().WithErrorCode(RuleNames.FD_LearnDelFAMCode_AP);
             RuleFor(fam => fam.LearnDelFAMType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_LearnDelFAMType_AP);
+        }
+
+        private void MandatoryAttributeRules()
+        {
+            RuleFor(fam => fam.LearnDelFAMCode).NotNull().WithErrorCode(RuleNames.FD_LearnDelFAMCode_MA);
+            RuleFor(fam => fam.LearnDelFAMType).NotNull().WithErrorCode(RuleNames.FD_LearnDelFAMType_MA);
         }
     }
 }

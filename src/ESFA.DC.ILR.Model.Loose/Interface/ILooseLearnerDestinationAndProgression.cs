@@ -6,6 +6,8 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
     {
         string LearnRefNumber { get; }
 
+        long? ULNNullable { get; }
+
         IReadOnlyCollection<ILooseDPOutcome> DPOutcomes { get; }
     }
 }

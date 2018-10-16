@@ -12,7 +12,21 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             IValidator<ILooseLearnerFAM> learnerFamValidator,
             IValidator<ILooseProviderSpecLearnerMonitoring> providerSpecLearnerMonitoringValidator,
             IValidator<ILooseLearnerEmploymentStatus> learnerEmploymentStatusValidator,
-            IValidator<ILooseLearnerHE> learnerHeValidator)
+            IValidator<ILooseLearnerHE> learnerHeValidator,
+            IValidator<ILooseLLDDAndHealthProblem> llddAndHealthProblemValidator)
+        {
+            RegexRules();
+            MandatoryAttributeRules();
+            
+            RuleForEach(l => l.ContactPreferences).SetValidator(contactPreferenceValidator);
+            RuleForEach(l => l.LearnerFAMs).SetValidator(learnerFamValidator);
+            RuleForEach(l => l.ProviderSpecLearnerMonitorings).SetValidator(providerSpecLearnerMonitoringValidator);
+            RuleForEach(l => l.LearnerEmploymentStatuses).SetValidator(learnerEmploymentStatusValidator);
+            RuleForEach(l => l.LearnerHEs).SetValidator(learnerHeValidator);
+            RuleForEach(l => l.LLDDAndHealthProblems).SetValidator(llddAndHealthProblemValidator);
+        }
+
+        private void RegexRules()
         {
             RuleFor(l => l.LearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_LearnRefNumber_AP);
             RuleFor(l => l.PrevLearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_PrevLearnRefNumber_AP);
@@ -31,12 +45,17 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleFor(l => l.TelNo).MatchesRegex(Regexes.TelephoneNumber).WithErrorCode(RuleNames.FD_TelNo_AP);
             RuleFor(l => l.Email).MatchesRegex(Regexes.EmailAddress).WithErrorCode(RuleNames.FD_Email_AP);
             RuleFor(l => l.CampId).MatchesRegex(Regexes.CampId).WithErrorCode(RuleNames.FD_CampId_AP);
+        }
 
-            RuleForEach(l => l.ContactPreferences).SetValidator(contactPreferenceValidator);
-            RuleForEach(l => l.LearnerFAMs).SetValidator(learnerFamValidator);
-            RuleForEach(l => l.ProviderSpecLearnerMonitorings).SetValidator(providerSpecLearnerMonitoringValidator);
-            RuleForEach(l => l.LearnerEmploymentStatuses).SetValidator(learnerEmploymentStatusValidator);
-            RuleForEach(l => l.LearnerHEs).SetValidator(learnerHeValidator);
+        private void MandatoryAttributeRules()
+        {
+            RuleFor(l => l.LearnRefNumber).NotNull().WithErrorCode(RuleNames.FD_LearnRefNumber_MA);
+            RuleFor(l => l.ULNNullable).NotNull().WithErrorCode(RuleNames.FD_ULN_MA);
+            RuleFor(l => l.EthnicityNullable).NotNull().WithErrorCode(RuleNames.FD_Ethnicity_MA);
+            RuleFor(l => l.Sex).NotNull().WithErrorCode(RuleNames.FD_Sex_MA);
+            RuleFor(l => l.LLDDHealthProbNullable).NotNull().WithErrorCode(RuleNames.FD_LLDDHealthProb_MA);
+            RuleFor(l => l.PostcodePrior).NotNull().WithErrorCode(RuleNames.FD_PostcodePrior_MA);
+            RuleFor(l => l.Postcode).NotNull().WithErrorCode(RuleNames.FD_Postcode_MA);
         }
     }
 }

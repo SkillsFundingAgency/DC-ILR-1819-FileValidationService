@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Linq.Expressions;
 using FluentValidation;
 using FluentValidation.TestHelper;
@@ -18,8 +19,25 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
         protected void TestRuleFor<T>(Expression<Func<TEntity, T>> selector, string ruleName, T validValue, T invalidValue)
         {
             _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, invalidValue)).WithErrorCode(ruleName);
-
             _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, validValue));
+        }
+
+        protected void TestMandatoryStringAttributeRuleFor(Expression<Func<TEntity, string>> selector, string ruleName)
+        {
+            _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, null)).WithErrorCode(ruleName);
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, "Not Null"));
+        }
+
+        protected void TestMandatoryLongAttributeRuleFor(Expression<Func<TEntity, long?>> selector, string ruleName)
+        {
+            _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, null)).WithErrorCode(ruleName);
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, 1));
+        }
+
+        protected void TestMandatoryDateTimeAttributeRuleFor(Expression<Func<TEntity, DateTime?>> selector, string ruleName)
+        {
+            _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, null)).WithErrorCode(ruleName);
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, new DateTime(2018, 1, 1)));
         }
 
         protected TEntity MockEntity<T>(Expression<Func<TEntity, T>> selector, T value)
