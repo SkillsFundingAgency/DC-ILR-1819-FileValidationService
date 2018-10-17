@@ -43,5 +43,10 @@
         // Provider Spec Learner Monitoring
         public const string ProvSpecLearnMonOccur = "ProvSpecLearnMonOccur";
         public const string ProvSpecLearnMon = "ProvSpecLearnMon";
+
+        // Learner Employment Status
+        public const string EmpStat = "EmpStat";
+        public const string EmpId = "EmpId";
+        public const string AgreeId = "AgreeId";
     }
 }

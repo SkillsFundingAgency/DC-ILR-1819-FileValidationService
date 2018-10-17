@@ -100,6 +100,10 @@
         // Mandatory
         public const string FD_EmpStat_MA = "FD_EmpStat_MA";
         public const string FD_DateEmpStatApp_MA = "FD_DateEmpStatApp_MA";
+        // Length
+        public const string FD_EmpStat_AL = "FD_EmpStat_AL";
+        public const string FD_EmpId_AL = "FD_EmpId_AL";
+        public const string FD_AgreeId_AL = "FD_AgreeId_AL";
 
         // Employment Status Monitoring
         // Regex

@@ -35,6 +35,24 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_EmpStat_AL()
+        {
+            TestLengthLongRuleFor(esm => esm.EmpStatNullable, "FD_EmpStat_AL", "EmpStat", 1, 2);
+        }
+
+        [Fact]
+        public void FD_EmpId_AL()
+        {
+            TestLengthLongRuleFor(esm => esm.EmpIdNullable, "FD_EmpId_AL", "EmpId", 1, 9);
+        }
+
+        [Fact]
+        public void FD_AgreeId_AL()
+        {
+            TestLengthStringRuleFor(esm => esm.AgreeId, "FD_AgreeId_AL", "AgreeId", 1, 6);
+        }
+
+        [Fact]
         public void EmploymentStatusMonitoring_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(esm => esm.EmploymentStatusMonitorings, typeof(IValidator<ILooseEmploymentStatusMonitoring>));
