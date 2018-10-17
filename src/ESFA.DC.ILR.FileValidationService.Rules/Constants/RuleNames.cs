@@ -90,6 +90,9 @@
         // Mandatory
         public const string FD_ProvSpecLearnMonOccur_MA = "FD_ProvSpecLearnMonOccur_MA";
         public const string FD_ProvSpecLearnMon_MA = "FD_ProvSpecLearnMon_MA";
+        // Length
+        public const string FD_ProvSpecLearnMonOccur_AL = "FD_ProvSpecLearnMonOccur_AL";
+        public const string FD_ProvSpecLearnMon_AL = "FD_ProvSpecLearnMon_AL";
         
         // Learner Employment Status
         // Regex

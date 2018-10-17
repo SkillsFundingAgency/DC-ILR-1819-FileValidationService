@@ -11,6 +11,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RegexRules();
             MandatoryAttributeRules();
+            LengthRules();
         }
 
         private void RegexRules()
@@ -28,6 +29,15 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             {
                 RuleFor(m => m.ProvSpecLearnMonOccur).NotNull().WithErrorCode(RuleNames.FD_ProvSpecLearnMonOccur_MA);
                 RuleFor(m => m.ProvSpecLearnMon).NotNull().WithErrorCode(RuleNames.FD_ProvSpecLearnMon_MA);
+            });
+        }
+
+        private void LengthRules()
+        {
+            RuleSet(RuleSetNames.Length, () =>
+            {
+                RuleFor(m => m.ProvSpecLearnMonOccur).Length(1, 1).WithErrorCode(RuleNames.FD_ProvSpecLearnMonOccur_AL).WithLengthState(PropertyNames.ProvSpecLearnMonOccur);
+                RuleFor(m => m.ProvSpecLearnMon).Length(1, 20).WithErrorCode(RuleNames.FD_ProvSpecLearnMon_AL).WithLengthState(PropertyNames.ProvSpecLearnMon);
             });
         }
     }

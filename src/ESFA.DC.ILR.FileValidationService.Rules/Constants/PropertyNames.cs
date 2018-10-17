@@ -39,5 +39,9 @@
         // Learner FAM
         public const string LearnFAMType = "LearnFAMType";
         public const string LearnFAMCode = "LearnFAMCode";
+
+        // Provider Spec Learner Monitoring
+        public const string ProvSpecLearnMonOccur = "ProvSpecLearnMonOccur";
+        public const string ProvSpecLearnMon = "ProvSpecLearnMon";
     }
 }
