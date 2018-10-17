@@ -31,5 +31,9 @@
         public const string AddLine4 = "AddLine4";
         public const string TelNo = "TelNo";
         public const string Email = "Email";
+
+        // LLDD and Health Problem
+        public const string LLDDCat = "LLDDCat";
+        public const string PrimaryLLDD = "PrimaryLLDD";
     }
 }

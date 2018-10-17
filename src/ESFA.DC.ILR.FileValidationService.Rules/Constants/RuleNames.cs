@@ -69,6 +69,9 @@
         // LLDD and Health Problem
         // Mandatory
         public const string FD_LLDDCat_MA = "FD_LLDDCat_MA";
+        // Length
+        public const string FD_LLDDCat_AL = "FD_LLDDCat_AL";
+        public const string FD_PrimaryLLDD_AL = "FD_PrimaryLLDD_AL";
 
         // Learner FAM
         // Regex
