@@ -79,6 +79,9 @@
         // Mandatory
         public const string FD_LearnFAMType_MA = "FD_LearnFAMType_MA";
         public const string FD_LearnFAMCode_MA = "FD_LearnFAMCode_MA";
+        // Length
+        public const string FD_LearnFAMType_AL = "FD_LearnFAMType_AL";
+        public const string FD_LearnFAMCode_AL = "FD_LearnFAMCode_AL";
 
         // Provider Spec Learner Monitoring
         // Regex

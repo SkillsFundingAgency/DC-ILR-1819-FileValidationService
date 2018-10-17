@@ -35,5 +35,9 @@
         // LLDD and Health Problem
         public const string LLDDCat = "LLDDCat";
         public const string PrimaryLLDD = "PrimaryLLDD";
+
+        // Learner FAM
+        public const string LearnFAMType = "LearnFAMType";
+        public const string LearnFAMCode = "LearnFAMCode";
     }
 }

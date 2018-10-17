@@ -11,6 +11,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RegexRules();
             MandatoryAttributeRules();
+            LengthRules();
         }
 
         private void RegexRules()
@@ -27,6 +28,15 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             {
                 RuleFor(fam => fam.LearnFAMType).NotNull().WithErrorCode(RuleNames.FD_LearnFAMType_MA);
                 RuleFor(fam => fam.LearnFAMCodeNullable).NotNull().WithErrorCode(RuleNames.FD_LearnFAMCode_MA);
+            });
+        }
+
+        private void LengthRules()
+        {
+            RuleSet(RuleSetNames.Length, () =>
+            {
+                RuleFor(fam => fam.LearnFAMType).Length(1, 3).WithErrorCode(RuleNames.FD_LearnFAMType_AL).WithLengthState(PropertyNames.LearnFAMType);
+                RuleFor(fam => fam.LearnFAMCodeNullable).Length(1, 3).WithErrorCode(RuleNames.FD_LearnFAMCode_AL).WithLengthState(PropertyNames.LearnFAMCode);
             });
         }
     }

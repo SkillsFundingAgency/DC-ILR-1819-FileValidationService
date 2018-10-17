@@ -28,5 +28,17 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestMandatoryLongAttributeRuleFor(fam => fam.LearnFAMCodeNullable, "FD_LearnFAMCode_MA");
         }
+
+        [Fact]
+        public void FD_LearnFAMType_AL()
+        {
+            TestLengthStringRuleFor(fam => fam.LearnFAMType, "FD_LearnFAMType_AL", "LearnFAMType", 1, 3);
+        }
+
+        [Fact]
+        public void FD_LearnFAMCode_AL()
+        {
+            TestLengthLongRuleFor(fam => fam.LearnFAMCodeNullable, "FD_LearnFAMCode_AL", "LearnFAMCode", 1, 3);
+        }
     }
 }
