@@ -23,6 +23,18 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_UCASPERID_AL()
+        {
+            TestLengthStringRuleFor(lhe => lhe.UCASPERID, "FD_UCASPERID_AL", "UCASPERID", 1, 10);
+        }
+
+        [Fact]
+        public void FD_TTACCOM_AL()
+        {
+            TestLengthLongRuleFor(lhe => lhe.TTACCOMNullable, "FD_TTACCOM_AL", "TTACCOM", 1, 1);
+        }
+
+        [Fact]
         public void LearnerHEFinancialSupport_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(lhe => lhe.LearnerHEFinancialSupports, typeof(IValidator<ILooseLearnerHEFinancialSupport>));

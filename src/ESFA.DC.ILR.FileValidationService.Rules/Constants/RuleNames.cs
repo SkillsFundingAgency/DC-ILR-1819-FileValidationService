@@ -116,8 +116,12 @@
         public const string FD_ESMCode_AL = "FD_ESMCode_AL";
 
         // Learner HE
+        // Regex
         public const string FD_UCASPERID_AP = "FD_UCASPERID_AP";
-
+        // Length
+        public const string FD_UCASPERID_AL = "FD_UCASPERID_AL";
+        public const string FD_TTACCOM_AL = "FD_TTACCOM_AL";
+        
         // Learner HE Financial Support
         // Mandatory
         public const string FD_FINTYPE_MA = "FD_FINTYPE_MA";

@@ -52,5 +52,9 @@
         // Employment Status Monitoring
         public const string ESMType = "ESMType";
         public const string ESMCode = "ESMCode";
+
+        // Learner HE
+        public const string UCASPERID = "UCASPERID";
+        public const string TTACCOM = "TTACCOM";
     }
 }

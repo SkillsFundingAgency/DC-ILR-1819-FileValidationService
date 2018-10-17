@@ -8,6 +8,8 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
     {
         string UCASPERID { get; }
 
+        long? TTACCOMNullable { get; }
+
         IReadOnlyCollection<ILooseLearnerHEFinancialSupport> LearnerHEFinancialSupports { get; }
     }
 }
