@@ -48,5 +48,9 @@
         public const string EmpStat = "EmpStat";
         public const string EmpId = "EmpId";
         public const string AgreeId = "AgreeId";
+
+        // Employment Status Monitoring
+        public const string ESMType = "ESMType";
+        public const string ESMCode = "ESMCode";
     }
 }

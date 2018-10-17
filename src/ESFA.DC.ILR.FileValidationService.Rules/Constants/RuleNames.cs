@@ -111,6 +111,9 @@
         // Mandatory
         public const string FD_ESMType_MA = "FD_ESMType_MA";
         public const string FD_ESMCode_MA = "FD_ESMCode_MA";
+        // Length
+        public const string FD_ESMType_AL = "FD_ESMType_AL";
+        public const string FD_ESMCode_AL = "FD_ESMCode_AL";
 
         // Learner HE
         public const string FD_UCASPERID_AP = "FD_UCASPERID_AP";

@@ -28,5 +28,17 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestMandatoryLongAttributeRuleFor(esm => esm.ESMCodeNullable, "FD_ESMCode_MA");
         }
+
+        [Fact]
+        public void FD_ESMType_AL()
+        {
+            TestLengthStringRuleFor(esm => esm.ESMType, "FD_ESMType_AL", "ESMType", 1, 3);
+        }
+
+        [Fact]
+        public void FD_ESMCode_AL()
+        {
+            TestLengthLongRuleFor(esm => esm.ESMCodeNullable, "FD_ESMCode_AL", "ESMCode", 1, 2);
+        }
     }
 }
