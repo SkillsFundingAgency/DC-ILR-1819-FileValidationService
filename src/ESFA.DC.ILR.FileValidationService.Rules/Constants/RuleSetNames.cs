@@ -9,5 +9,6 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Constants
         public const string Regex = "Regex";
         public const string MandatoryAttributes = "MandatoryAttributes";
         public const string Length = "Length";
+        public const string Child = "Child";
     }
 }

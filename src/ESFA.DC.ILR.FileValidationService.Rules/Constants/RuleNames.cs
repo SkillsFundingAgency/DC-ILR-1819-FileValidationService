@@ -215,6 +215,10 @@
         public const string FD_AFinCode_MA = "FD_AFinCode_MA";
         public const string FD_AFinDate_MA = "FD_AFinDate_MA";
         public const string FD_AFinAmount_MA = "FD_AFinAmount_MA";
+        // Length
+        public const string FD_AFinType_AL = "FD_AFinType_AL";
+        public const string FD_AFinCode_AL = "FD_AFinCode_AL";
+        public const string FD_AFinAmount_AL = "FD_AFinAmount_AL";
 
         // Prov Spec Delivery Monitoring
         // Regex

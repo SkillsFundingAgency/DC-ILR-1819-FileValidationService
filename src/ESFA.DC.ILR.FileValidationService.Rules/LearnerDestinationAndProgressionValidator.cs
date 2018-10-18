@@ -30,7 +30,6 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
                 RuleFor(ldp => ldp.LearnRefNumber).NotNull().WithErrorCode(RuleNames.FD_DP_LearnRefNumber_MA);
                 RuleFor(ldp => ldp.ULNNullable).NotNull().WithErrorCode(RuleNames.FD_DP_ULN_MA);
             });
-            
         }
     }
 }
