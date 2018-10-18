@@ -193,6 +193,9 @@
         // Mandatory
         public const string FD_LearnDelFAMType_MA = "FD_LearnDelFAMType_MA";
         public const string FD_LearnDelFAMCode_MA = "FD_LearnDelFAMCode_MA";
+        // Length
+        public const string FD_LearnDelFAMType_AL = "FD_LearnDelFAMType_AL";
+        public const string FD_LearnDelFAMCode_AL = "FD_LearnDelFAMCode_AL";
 
         // Learning Delivery Work Placement
         // Mandatory
