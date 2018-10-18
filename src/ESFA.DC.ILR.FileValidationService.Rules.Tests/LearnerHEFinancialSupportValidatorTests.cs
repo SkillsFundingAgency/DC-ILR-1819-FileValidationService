@@ -22,5 +22,17 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestMandatoryLongAttributeRuleFor(fs => fs.FINAMOUNTNullable, "FD_FINAMOUNT_MA");
         }
+
+        [Fact]
+        public void FD_FINTYPE_AL()
+        {
+            TestLengthLongRuleFor(fs => fs.FINTYPENullable, "FD_FINTYPE_AL", "FINTYPE", 1, 1);
+        }
+
+        [Fact]
+        public void FD_FINAMOUNT_AL()
+        {
+            TestLengthLongRuleFor(fs => fs.FINAMOUNTNullable, "FD_FINAMOUNT_AL", "FINAMOUNT", 1, 6);
+        }
     }
 }

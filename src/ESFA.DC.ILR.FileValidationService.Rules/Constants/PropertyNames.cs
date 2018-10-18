@@ -56,5 +56,9 @@
         // Learner HE
         public const string UCASPERID = "UCASPERID";
         public const string TTACCOM = "TTACCOM";
+
+        // Learner HE Financial Support
+        public const string FINTYPE = "FINTYPE";
+        public const string FINAMOUNT = "FINAMOUNT";
     }
 }

@@ -126,6 +126,9 @@
         // Mandatory
         public const string FD_FINTYPE_MA = "FD_FINTYPE_MA";
         public const string FD_FINAMOUNT_MA = "FD_FINAMOUNT_MA";
+        // Length
+        public const string FD_FINTYPE_AL = "FD_FINTYPE_AL";
+        public const string FD_FINAMOUNT_AL = "FD_FINAMOUNT_AL";
 
         // Learner Destination And Progression
         // Regex
