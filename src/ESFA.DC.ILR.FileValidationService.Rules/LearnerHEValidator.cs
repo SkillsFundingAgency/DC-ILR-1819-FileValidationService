@@ -27,8 +27,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RuleSet(RuleSetNames.Length, () =>
                 {
-                    RuleFor(lhe => lhe.UCASPERID).Length(1, 10).WithErrorCode(RuleNames.FD_UCASPERID_AL).WithLengthState(PropertyNames.UCASPERID);
-                    RuleFor(lhe => lhe.TTACCOMNullable).Length(1, 1).WithErrorCode(RuleNames.FD_TTACCOM_AL).WithLengthState(PropertyNames.TTACCOM);
+                    RuleFor(lhe => lhe.UCASPERID).Length(1, 10).WithLengthError(RuleNames.FD_UCASPERID_AL);
+                    RuleFor(lhe => lhe.TTACCOMNullable).Length(1, 1).WithLengthError(RuleNames.FD_TTACCOM_AL);
                 });
         }
     }

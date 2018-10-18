@@ -69,34 +69,34 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RuleSet(RuleSetNames.Length, () =>
             { 
-                RuleFor(l => l.LearnRefNumber).Length(1, 12).WithErrorCode(RuleNames.FD_LearnRefNumber_AL).WithLengthState(PropertyNames.LearnRefNumber);
-                RuleFor(l => l.PrevLearnRefNumber).Length(1, 12).WithErrorCode(RuleNames.FD_PrevLearnRefNumber_AL).WithLengthState(PropertyNames.PrevLearnRefNumber);
-                RuleFor(l => l.PrevUKPRNNullable).Length(1, 8).WithErrorCode(RuleNames.FD_PrevUKPRN_AL).WithLengthState(PropertyNames.PrevUKPRN);
-                RuleFor(l => l.PMUKPRNNullable).Length(1, 8).WithErrorCode(RuleNames.FD_PMUKPRN_AL).WithLengthState(PropertyNames.PMUKPRN);
-                RuleFor(l => l.ULNNullable).Length(1, 10).WithErrorCode(RuleNames.FD_ULN_AL).WithLengthState(PropertyNames.ULN);
-                RuleFor(l => l.FamilyName).Length(1, 100).WithErrorCode(RuleNames.FD_FamilyName_AL).WithLengthState(PropertyNames.FamilyName);
-                RuleFor(l => l.GivenNames).Length(1, 100).WithErrorCode(RuleNames.FD_GivenNames_AL).WithLengthState(PropertyNames.GivenNames);
-                RuleFor(l => l.EthnicityNullable).Length(1, 2).WithErrorCode(RuleNames.FD_Ethnicity_AL).WithLengthState(PropertyNames.Ethnicity);
-                RuleFor(l => l.Sex).Length(1, 1).WithErrorCode(RuleNames.FD_Sex_AL).WithLengthState(PropertyNames.Sex);
-                RuleFor(l => l.LLDDHealthProbNullable).Length(1, 1).WithErrorCode(RuleNames.FD_LLDDHealthProb_AL).WithLengthState(PropertyNames.LLDDHealthProb);
-                RuleFor(l => l.NINumber).Length(1, 9).WithErrorCode(RuleNames.FD_NINumber_AL).WithLengthState(PropertyNames.NINumber);
-                RuleFor(l => l.PriorAttainNullable).Length(1, 2).WithErrorCode(RuleNames.FD_PriorAttain_AL).WithLengthState(PropertyNames.PriorAttain);
-                RuleFor(l => l.AccomNullable).Length(1, 1).WithErrorCode(RuleNames.FD_Accom_AL).WithLengthState(PropertyNames.Accom);
-                RuleFor(l => l.ALSCostNullable).Length(1, 6).WithErrorCode(RuleNames.FD_ALSCost_AL).WithLengthState(PropertyNames.ALSCost);
-                RuleFor(l => l.PlanLearnHoursNullable).Length(1, 4).WithErrorCode(RuleNames.FD_PlanLearnHours_AL).WithLengthState(PropertyNames.PlanLearnHours);
-                RuleFor(l => l.PlanEEPHoursNullable).Length(1, 4).WithErrorCode(RuleNames.FD_PlanEEPHours_AL).WithLengthState(PropertyNames.PlanEEPHours);
-                RuleFor(l => l.MathGrade).Length(1, 4).WithErrorCode(RuleNames.FD_MathGrade_AL).WithLengthState(PropertyNames.MathGrade);
-                RuleFor(l => l.EngGrade).Length(1, 4).WithErrorCode(RuleNames.FD_EngGrade_AL).WithLengthState(PropertyNames.EngGrade);
-                RuleFor(l => l.PostcodePrior).Length(1, 8).WithErrorCode(RuleNames.FD_PostcodePrior_AL).WithLengthState(PropertyNames.PostcodePrior);
-                RuleFor(l => l.Postcode).Length(1, 8).WithErrorCode(RuleNames.FD_Postcode_AL).WithLengthState(PropertyNames.Postcode);
-                RuleFor(l => l.CampId).Length(0, 8).WithErrorCode(RuleNames.FD_CampId_AL).WithLengthState(PropertyNames.CampId);
-                RuleFor(l => l.OTJHoursNullable).Length(0, 4).WithErrorCode(RuleNames.FD_OTJHours_AL).WithLengthState(PropertyNames.OTJHours);
-                RuleFor(l => l.AddLine1).Length(1, 50).WithErrorCode(RuleNames.FD_AddLine1_AL).WithLengthState(PropertyNames.AddLine1);
-                RuleFor(l => l.AddLine2).Length(1, 50).WithErrorCode(RuleNames.FD_AddLine2_AL).WithLengthState(PropertyNames.AddLine2);
-                RuleFor(l => l.AddLine3).Length(1, 50).WithErrorCode(RuleNames.FD_AddLine3_AL).WithLengthState(PropertyNames.AddLine3);
-                RuleFor(l => l.AddLine4).Length(1, 50).WithErrorCode(RuleNames.FD_AddLine4_AL).WithLengthState(PropertyNames.AddLine4);
-                RuleFor(l => l.TelNo).Length(1, 18).WithErrorCode(RuleNames.FD_TelNo_AL).WithLengthState(PropertyNames.TelNo);
-                RuleFor(l => l.Email).Length(1, 100).WithErrorCode(RuleNames.FD_Email_AL).WithLengthState(PropertyNames.Email);
+                RuleFor(l => l.LearnRefNumber).Length(1, 12).WithLengthError(RuleNames.FD_LearnRefNumber_AL);
+                RuleFor(l => l.PrevLearnRefNumber).Length(1, 12).WithLengthError(RuleNames.FD_PrevLearnRefNumber_AL);
+                RuleFor(l => l.PrevUKPRNNullable).Length(1, 8).WithLengthError(RuleNames.FD_PrevUKPRN_AL);
+                RuleFor(l => l.PMUKPRNNullable).Length(1, 8).WithLengthError(RuleNames.FD_PMUKPRN_AL);
+                RuleFor(l => l.ULNNullable).Length(1, 10).WithLengthError(RuleNames.FD_ULN_AL);
+                RuleFor(l => l.FamilyName).Length(1, 100).WithLengthError(RuleNames.FD_FamilyName_AL);
+                RuleFor(l => l.GivenNames).Length(1, 100).WithLengthError(RuleNames.FD_GivenNames_AL);
+                RuleFor(l => l.EthnicityNullable).Length(1, 2).WithLengthError(RuleNames.FD_Ethnicity_AL);
+                RuleFor(l => l.Sex).Length(1, 1).WithLengthError(RuleNames.FD_Sex_AL);
+                RuleFor(l => l.LLDDHealthProbNullable).Length(1, 1).WithLengthError(RuleNames.FD_LLDDHealthProb_AL);
+                RuleFor(l => l.NINumber).Length(1, 9).WithLengthError(RuleNames.FD_NINumber_AL);
+                RuleFor(l => l.PriorAttainNullable).Length(1, 2).WithLengthError(RuleNames.FD_PriorAttain_AL);
+                RuleFor(l => l.AccomNullable).Length(1, 1).WithLengthError(RuleNames.FD_Accom_AL);
+                RuleFor(l => l.ALSCostNullable).Length(1, 6).WithLengthError(RuleNames.FD_ALSCost_AL);
+                RuleFor(l => l.PlanLearnHoursNullable).Length(1, 4).WithLengthError(RuleNames.FD_PlanLearnHours_AL);
+                RuleFor(l => l.PlanEEPHoursNullable).Length(1, 4).WithLengthError(RuleNames.FD_PlanEEPHours_AL);
+                RuleFor(l => l.MathGrade).Length(1, 4).WithLengthError(RuleNames.FD_MathGrade_AL);
+                RuleFor(l => l.EngGrade).Length(1, 4).WithLengthError(RuleNames.FD_EngGrade_AL);
+                RuleFor(l => l.PostcodePrior).Length(1, 8).WithLengthError(RuleNames.FD_PostcodePrior_AL);
+                RuleFor(l => l.Postcode).Length(1, 8).WithLengthError(RuleNames.FD_Postcode_AL);
+                RuleFor(l => l.CampId).Length(0, 8).WithLengthError(RuleNames.FD_CampId_AL);
+                RuleFor(l => l.OTJHoursNullable).Length(0, 4).WithLengthError(RuleNames.FD_OTJHours_AL);
+                RuleFor(l => l.AddLine1).Length(1, 50).WithLengthError(RuleNames.FD_AddLine1_AL);
+                RuleFor(l => l.AddLine2).Length(1, 50).WithLengthError(RuleNames.FD_AddLine2_AL);
+                RuleFor(l => l.AddLine3).Length(1, 50).WithLengthError(RuleNames.FD_AddLine3_AL);
+                RuleFor(l => l.AddLine4).Length(1, 50).WithLengthError(RuleNames.FD_AddLine4_AL);
+                RuleFor(l => l.TelNo).Length(1, 18).WithLengthError(RuleNames.FD_TelNo_AL);
+                RuleFor(l => l.Email).Length(1, 100).WithLengthError(RuleNames.FD_Email_AL);
             });
         }
     }

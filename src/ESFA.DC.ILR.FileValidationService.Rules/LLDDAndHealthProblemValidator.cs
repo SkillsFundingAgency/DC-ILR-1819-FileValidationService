@@ -25,8 +25,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RuleSet(RuleSetNames.Length, () =>
             {
-                RuleFor(p => p.LLDDCatNullable).Length(1, 2).WithErrorCode(RuleNames.FD_LLDDCat_AL).WithLengthState(PropertyNames.LLDDCat);
-                RuleFor(p => p.PrimaryLLDDNullable).Length(1, 1).WithErrorCode(RuleNames.FD_PrimaryLLDD_AL).WithLengthState(PropertyNames.PrimaryLLDD);
+                RuleFor(p => p.LLDDCatNullable).Length(1, 2).WithLengthError(RuleNames.FD_LLDDCat_AL);
+                RuleFor(p => p.PrimaryLLDDNullable).Length(1, 1).WithLengthError(RuleNames.FD_PrimaryLLDD_AL);
             });
         }
     }

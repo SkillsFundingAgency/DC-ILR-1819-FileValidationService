@@ -26,8 +26,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RuleSet(RuleSetNames.Length, () =>
             {
-                RuleFor(fs => fs.FINTYPENullable).Length(1, 1).WithErrorCode(RuleNames.FD_FINTYPE_AL).WithLengthState(PropertyNames.FINTYPE);
-                RuleFor(fs => fs.FINAMOUNTNullable).Length(1, 6).WithErrorCode(RuleNames.FD_FINAMOUNT_AL).WithLengthState(PropertyNames.FINAMOUNT);
+                RuleFor(fs => fs.FINTYPENullable).Length(1, 1).WithLengthError(RuleNames.FD_FINTYPE_AL);
+                RuleFor(fs => fs.FINAMOUNTNullable).Length(1, 6).WithLengthError(RuleNames.FD_FINAMOUNT_AL);
             });
         }
     }

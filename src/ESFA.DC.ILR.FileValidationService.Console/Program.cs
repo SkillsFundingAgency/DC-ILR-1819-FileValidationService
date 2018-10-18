@@ -17,21 +17,21 @@ namespace ESFA.DC.ILR.FileValidationService.Console
     {
         static void Main(string[] args)
         {
-            //IFileValidationContext fileValidationContext = new FileValidationContext()
-            //{
-            //    FileReference = "ILR-99999999-1819-20180626-144401-01.xml",
-            //    Container = "Files",
-            //    OutputFileReference = "ILR-99999999-1819-20180626-144401-02.xml",
-            //    OutputContainer = "Files"
-            //};
-
             IFileValidationContext fileValidationContext = new FileValidationContext()
             {
-                FileReference = "ILR-10003231-1819-20181012-100001-01.xml",
+                FileReference = "ILR-99999999-1819-20180626-144401-01.xml",
                 Container = "Files",
-                OutputFileReference = "ILR-10003231-1819-20181012-100001-02.xml",
+                OutputFileReference = "ILR-99999999-1819-20180626-144401-02.xml",
                 OutputContainer = "Files"
             };
+
+            //IFileValidationContext fileValidationContext = new FileValidationContext()
+            //{
+            //    FileReference = "ILR-10003231-1819-20181012-100001-01.xml",
+            //    Container = "Files",
+            //    OutputFileReference = "ILR-10003231-1819-20181012-100001-02.xml",
+            //    OutputContainer = "Files"
+            //};
 
             IFileService fileService = new FileSystemFileService();
             IXmlSerializationService xmlSerializationService = new XmlSerializationService();

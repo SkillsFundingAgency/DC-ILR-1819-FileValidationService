@@ -36,8 +36,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RuleSet(RuleSetNames.Length, () =>
             {
-                RuleFor(m => m.ProvSpecLearnMonOccur).Length(1, 1).WithErrorCode(RuleNames.FD_ProvSpecLearnMonOccur_AL).WithLengthState(PropertyNames.ProvSpecLearnMonOccur);
-                RuleFor(m => m.ProvSpecLearnMon).Length(1, 20).WithErrorCode(RuleNames.FD_ProvSpecLearnMon_AL).WithLengthState(PropertyNames.ProvSpecLearnMon);
+                RuleFor(m => m.ProvSpecLearnMonOccur).Length(1, 1).WithLengthError(RuleNames.FD_ProvSpecLearnMonOccur_AL);
+                RuleFor(m => m.ProvSpecLearnMon).Length(1, 20).WithLengthError(RuleNames.FD_ProvSpecLearnMon_AL);
             });
         }
     }
