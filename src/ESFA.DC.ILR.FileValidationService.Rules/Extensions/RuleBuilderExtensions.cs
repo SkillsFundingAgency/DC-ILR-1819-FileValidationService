@@ -32,6 +32,13 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Extensions
             });
         }
 
+        public static IRuleBuilderOptions<T, TProperty> WithLengthError<T, TProperty>(this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string ruleName)
+        {
+            return ruleBuilderOptions
+                .WithErrorCode(ruleName)
+                .WithLengthState(ExtractPropertyName(ruleName));
+        }
+
         public static IRuleBuilderOptions<T, TProperty> WithLengthState<T, TProperty>(this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string attributeName)
         {
             return ruleBuilderOptions.WithState((t, p) =>
@@ -40,6 +47,11 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Extensions
                     { attributeName, p?.ToString() },
                     { "Length", p?.ToString().Length.ToString() }
                 });
+        }
+
+        private static string ExtractPropertyName(string ruleName)
+        {
+            return ruleName.Substring(3, ruleName.Length - 6);
         }
     }
 }

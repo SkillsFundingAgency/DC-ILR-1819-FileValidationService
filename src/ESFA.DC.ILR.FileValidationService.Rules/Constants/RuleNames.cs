@@ -163,7 +163,29 @@
         public const string FD_FundModel_MA = "FD_FundModel_MA";
         public const string FD_DelLocPostCode_MA = "FD_DelLocPostCode_MA";
         public const string FD_CompStatus_MA = "FD_CompStatus_MA";
-        
+        // Length
+        public const string FD_LearnAimRef_AL = "FD_LearnAimRef_AL";
+        public const string FD_AimType_AL = "FD_AimType_AL";
+        public const string FD_AimSeqNumber_AL = "FD_AimSeqNumber_AL";
+        public const string FD_FundModel_AL = "FD_FundModel_AL";
+        public const string FD_ProgType_AL = "FD_ProgType_AL";
+        public const string FD_FworkCode_AL = "FD_FworkCode_AL";
+        public const string FD_PwayCode_AL = "FD_PwayCode_AL";
+        public const string FD_StdCode_AL = "FD_StdCode_AL";
+        public const string FD_PartnerUKPRN_AL = "FD_PartnerUKPRN_AL";
+        public const string FD_DelLocPostCode_AL = "FD_DelLocPostCode_AL";
+        public const string FD_AddHours_AL = "FD_AddHours_AL";
+        public const string FD_PriorLearnFundAdj_AL = "FD_PriorLearnFundAdj_AL";
+        public const string FD_OtherFundAdj_AL = "FD_OtherFundAdj_AL";
+        public const string FD_ConRefNumber_AL = "FD_ConRefNumber_AL";
+        public const string FD_EPAOrgID_AL = "FD_EPAOrgID_AL";
+        public const string FD_EmpOutcome_AL = "FD_EmpOutcome_AL";
+        public const string FD_CompStatus_AL = "FD_CompStatus_AL";
+        public const string FD_WithdrawReason_AL = "FD_WithdrawReason_AL";
+        public const string FD_Outcome_AL = "FD_Outcome_AL";
+        public const string FD_OutGrade_AL = "FD_OutGrade_AL";
+        public const string FD_SWSupAimId_AL = "FD_SWSupAimId_AL";
+
         // Learning Delivery FAM
         // Regex
         public const string FD_LearnDelFAMType_AP = "FD_LearnDelFAMType_AP";

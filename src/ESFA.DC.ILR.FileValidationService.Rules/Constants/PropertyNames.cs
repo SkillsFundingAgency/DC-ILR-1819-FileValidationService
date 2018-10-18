@@ -60,5 +60,28 @@
         // Learner HE Financial Support
         public const string FINTYPE = "FINTYPE";
         public const string FINAMOUNT = "FINAMOUNT";
+
+        // Learning Delivery
+        public const string LearnAimRef = "LearnAimRef";
+        public const string AimType = "AimType";
+        public const string AimSeqNumber = "AimSeqNumber";
+        public const string FundModel = "FundModel";
+        public const string ProgType = "ProgType";
+        public const string FworkCode = "FworkCode";
+        public const string PwayCode = "PwayCode";
+        public const string StdCode = "StdCode";
+        public const string PartnerUKPRN = "PartnerUKPRN";
+        public const string DelLocPostCode = "DelLocPostCode";
+        public const string AddHours = "AddHours";
+        public const string PriorLearnFundAdj = "PriorLearnFundAdj";
+        public const string OtherFundAdj = "OtherFundAdj";
+        public const string ConRefNumber = "ConRefNumber";
+        public const string EPAOrgID = "EPAOrgID";
+        public const string EmpOutcome = "EmpOutcome";
+        public const string CompStatus = "CompStatus";
+        public const string WithdrawReason = "WithdrawReason";
+        public const string Outcome = "Outcome";
+        public const string OutGrade = "OutGrade";
+        public const string SWSupAimId = "SWSupAimId";
     }
 }
