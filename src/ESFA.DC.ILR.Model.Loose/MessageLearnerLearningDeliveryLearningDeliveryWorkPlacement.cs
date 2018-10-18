@@ -5,10 +5,12 @@ namespace ESFA.DC.ILR.Model.Loose
 {
     public partial class MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement : ILooseLearningDeliveryWorkPlacement
     {
-        DateTime? ILooseLearningDeliveryWorkPlacement.WorkPlaceStartDateNullable => workPlaceStartDateFieldSpecified ? workPlaceStartDateField : default(DateTime?);
+        public DateTime? WorkPlaceStartDateNullable => workPlaceStartDateFieldSpecified ? workPlaceStartDateField : default(DateTime?);
 
-        long? ILooseLearningDeliveryWorkPlacement.WorkPlaceHoursNullable => workPlaceHoursFieldSpecified ? workPlaceHoursField : default(long?);
+        public long? WorkPlaceHoursNullable => workPlaceHoursFieldSpecified ? workPlaceHoursField : default(long?);
 
-        long? ILooseLearningDeliveryWorkPlacement.WorkPlaceModeNullable => workPlaceModeFieldSpecified ? workPlaceModeField : default(long?);
+        public long? WorkPlaceModeNullable => workPlaceModeFieldSpecified ? workPlaceModeField : default(long?);
+
+        public long? WorkPlaceEmpIdNullable => workPlaceEmpIdFieldSpecified ? workPlaceEmpIdField : default(long?);
     }
 }

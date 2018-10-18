@@ -11,5 +11,7 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         long? WorkPlaceHoursNullable { get; }
 
         long? WorkPlaceModeNullable { get; }
+
+        long? WorkPlaceEmpIdNullable { get; }
     }
 }

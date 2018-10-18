@@ -202,6 +202,10 @@
         public const string FD_WorkPlaceStartDate_MA = "FD_WorkPlaceStartDate_MA";
         public const string FD_WorkPlaceHours_MA = "FD_WorkPlaceHours_MA";
         public const string FD_WorkPlaceMode_MA = "FD_WorkPlaceMode_MA";
+        // Length
+        public const string FD_WorkPlaceHours_AL = "FD_WorkPlaceHours_AL";
+        public const string FD_WorkPlaceMode_AL = "FD_WorkPlaceMode_AL";
+        public const string FD_WorkPlaceEmpId_AL = "FD_WorkPlaceEmpId_AL";
 
         // App Fin Record
         // Regex
