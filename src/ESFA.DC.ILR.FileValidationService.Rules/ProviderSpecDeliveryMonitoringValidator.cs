@@ -1,34 +1,29 @@
-﻿using ESFA.DC.ILR.FileValidationService.Rules.Constants;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Abstract;
+using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using ESFA.DC.ILR.FileValidationService.Rules.Extensions;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules
 {
-    public class ProviderSpecDeliveryMonitoringValidator : AbstractValidator<ILooseProviderSpecDeliveryMonitoring>
+    public class ProviderSpecDeliveryMonitoringValidator : AbstractFileValidationValidator<ILooseProviderSpecDeliveryMonitoring>
     {
-        public ProviderSpecDeliveryMonitoringValidator()
+        public override void RegexRules()
         {
-            RegexRules();
-            MandatoryAttributeRules();
+            RuleFor(m => m.ProvSpecDelMonOccur).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ProvSpecDelMonOccur_AP);
+            RuleFor(m => m.ProvSpecDelMon).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ProvSpecDelMon_AP);
         }
 
-        private void RegexRules()
+        public override void MandatoryAttributeRules()
         {
-            RuleSet(RuleSetNames.Regex, () =>
-            {
-                RuleFor(m => m.ProvSpecDelMonOccur).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ProvSpecDelMonOccur_AP);
-                RuleFor(m => m.ProvSpecDelMon).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ProvSpecDelMon_AP);
-            });
+            RuleFor(m => m.ProvSpecDelMonOccur).NotNull().WithErrorCode(RuleNames.FD_ProvSpecDelMonOccur_MA);
+            RuleFor(m => m.ProvSpecDelMon).NotNull().WithErrorCode(RuleNames.FD_ProvSpecDelMon_MA);
         }
 
-        private void MandatoryAttributeRules()
+        public override void LengthRules()
         {
-            RuleSet(RuleSetNames.MandatoryAttributes, () =>
-            {
-                RuleFor(m => m.ProvSpecDelMonOccur).NotNull().WithErrorCode(RuleNames.FD_ProvSpecDelMonOccur_MA);
-                RuleFor(m => m.ProvSpecDelMon).NotNull().WithErrorCode(RuleNames.FD_ProvSpecDelMon_MA);
-            });
+            RuleFor(m => m.ProvSpecDelMonOccur).Length(1, 1).WithLengthError(RuleNames.FD_ProvSpecDelMonOccur_AL);
+            RuleFor(m => m.ProvSpecDelMon).Length(1, 20).WithLengthError(RuleNames.FD_ProvSpecDelMon_AL);
         }
     }
 }

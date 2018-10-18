@@ -227,6 +227,9 @@
         // Mandatory
         public const string FD_ProvSpecDelMonOccur_MA = "FD_ProvSpecDelMonOccur_MA";
         public const string FD_ProvSpecDelMon_MA = "FD_ProvSpecDelMon_MA";
+        // Length
+        public const string FD_ProvSpecDelMonOccur_AL = "FD_ProvSpecDelMonOccur_AL";
+        public const string FD_ProvSpecDelMon_AL = "FD_ProvSpecDelMon_AL";
 
         // Learning Delivery HE
         // Regex

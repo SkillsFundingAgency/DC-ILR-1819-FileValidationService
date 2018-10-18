@@ -10,12 +10,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Abstract
         protected AbstractFileValidationValidator()
         {
             RuleSet(RuleSetNames.Regex, RegexRules);
-            RuleSet(RuleSetNames.MandatoryAttributes, MandatoryRules);
+            RuleSet(RuleSetNames.MandatoryAttributes, MandatoryAttributeRules);
             RuleSet(RuleSetNames.Length, LengthRules);
             RuleSet(RuleSetNames.Child, ChildValidators);
         }
 
-        public virtual void MandatoryRules()
+        public virtual void MandatoryAttributeRules()
         {
         }
 

@@ -14,7 +14,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleFor(afr => afr.AFinType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_AFinType_AP);
         }
 
-        public override void MandatoryRules()
+        public override void MandatoryAttributeRules()
         {
             RuleFor(afr => afr.AFinType).NotNull().WithErrorCode(RuleNames.FD_AFinType_MA);
             RuleFor(afr => afr.AFinCodeNullable).NotNull().WithErrorCode(RuleNames.FD_AFinCode_MA);

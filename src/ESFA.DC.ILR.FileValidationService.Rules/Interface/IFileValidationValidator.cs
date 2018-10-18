@@ -6,7 +6,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Interface
     {
         void RegexRules();
 
-        void MandatoryRules();
+        void MandatoryAttributeRules();
 
         void LengthRules();
 
