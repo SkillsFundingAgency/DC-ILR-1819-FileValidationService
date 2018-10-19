@@ -132,6 +132,8 @@
         // Length
         public const string FD_UCASPERID_AL = "FD_UCASPERID_AL";
         public const string FD_TTACCOM_AL = "FD_TTACCOM_AL";
+        // Range
+        public const string FD_UCASPERID_AR = "FD_UCASPERID_AR";
         
         // Learner HE Financial Support
         // Mandatory

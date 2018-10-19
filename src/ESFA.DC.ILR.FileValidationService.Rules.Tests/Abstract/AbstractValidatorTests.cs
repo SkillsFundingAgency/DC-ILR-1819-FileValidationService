@@ -129,6 +129,24 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
                 .WithRangeState(ruleName, attributeName, invalidMaximum);
         }
 
+        protected void TestRangeForStringAsLong(Expression<Func<TEntity, string>> selector, string ruleName, string attributeName, long minimum, long maximum)
+        {
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, minimum.ToString()), RangeRuleSetName);
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, maximum.ToString()), RangeRuleSetName);
+
+            var invalidMinimum = (minimum - 1).ToString();
+
+            _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, invalidMinimum), RangeRuleSetName)
+                .WithErrorCode(ruleName)
+                .WithRangeState(ruleName, attributeName, invalidMinimum);
+
+            var invalidMaximum = (maximum + 1).ToString();
+
+            _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, invalidMaximum), RangeRuleSetName)
+                .WithErrorCode(ruleName)
+                .WithRangeState(ruleName, attributeName, invalidMaximum);
+        }
+
         private decimal BuildDecimalOfPrecisionScale(int precision, int scale)
         {
             var stringBuilder = new StringBuilder();

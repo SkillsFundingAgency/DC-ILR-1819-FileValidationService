@@ -35,6 +35,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_UCASPERID_AR()
+        {
+            TestRangeForStringAsLong(lhe => lhe.UCASPERID, "FD_UCASPERID_AR", "UCASPERID", 1, 9999999999);
+        }
+
+        [Fact]
         public void LearnerHEFinancialSupport_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(lhe => lhe.LearnerHEFinancialSupports, typeof(IValidator<ILooseLearnerHEFinancialSupport>));
