@@ -95,22 +95,50 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
                 .WithLengthState(ruleName, attributeName, upperInvalidLong, upperInvalidLength);
         }
 
-        private string BuildStringOfCharOfLength(int length)
+        protected void TestLengthDecimalRuleFor(Expression<Func<TEntity, decimal?>> selector, string ruleName, string attributeName, int precision, int scale)
+        {
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, BuildDecimalOfPrecisionScale(1, 0)), LengthRuleSetName);
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, BuildDecimalOfPrecisionScale(precision, scale)), LengthRuleSetName);
+
+            var precisionIncrementDecimal = BuildDecimalOfPrecisionScale(precision + 1, scale);
+            var scaleIncrementDecimal = BuildDecimalOfPrecisionScale(precision, scale + 1);
+
+            _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, precisionIncrementDecimal), LengthRuleSetName)
+                .WithErrorCode(ruleName)
+                .WithLengthState(ruleName, attributeName, precisionIncrementDecimal, precisionIncrementDecimal.ToString().Length);
+
+            _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, scaleIncrementDecimal), LengthRuleSetName)
+                .WithErrorCode(ruleName)
+                .WithLengthState(ruleName, attributeName, scaleIncrementDecimal, scaleIncrementDecimal.ToString().Length);
+        }
+
+        private decimal BuildDecimalOfPrecisionScale(int precision, int scale)
         {
             var stringBuilder = new StringBuilder();
 
-            stringBuilder.Append('A', length);
+            stringBuilder.Append(BuildStringOfCharOfLength(precision - scale, '1'));
+
+            if (scale > 0)
+            {
+                stringBuilder.Append(".");
+                stringBuilder.Append(BuildStringOfCharOfLength(scale, '1'));
+            }
+
+            return decimal.Parse(stringBuilder.ToString());
+        }
+
+        private string BuildStringOfCharOfLength(int length, char character = 'A')
+        {
+            var stringBuilder = new StringBuilder();
+
+            stringBuilder.Append(character, length);
 
             return stringBuilder.ToString();
         }
 
         private long? BuildLongOfStringLength(int length)
         {
-            var stringBuilder = new StringBuilder();
-
-            stringBuilder.Append('1', length);
-
-            return length == 0 ? null as long? : long.Parse(stringBuilder.ToString());
+            return length == 0 ? null as long? : long.Parse(BuildStringOfCharOfLength(length, '1'));
         }
 
         protected TEntity MockEntity<T>(Expression<Func<TEntity, T>> selector, T value)

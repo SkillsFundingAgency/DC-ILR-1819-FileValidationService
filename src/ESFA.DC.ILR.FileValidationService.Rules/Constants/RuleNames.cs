@@ -247,5 +247,29 @@
         public const string FD_YEARSTU_MA = "FD_YEARSTU_MA";
         public const string FD_MSTUFEE_MA = "FD_MSTUFEE_MA";
         public const string FD_SPECFEE_MA = "FD_SPECFEE_MA";
+        // Length
+        public const string FD_NUMHUS_AL = "FD_NUMHUS_AL";
+        public const string FD_SSN_AL = "FD_SSN_AL";
+        public const string FD_QUALENT3_AL = "FD_QUALENT3_AL";
+        public const string FD_SOC2000_AL = "FD_SOC2000_AL";
+        public const string FD_SEC_AL = "FD_SEC_AL";
+        public const string FD_UCASAPPID_AL = "FD_UCASAPPID_AL";
+        public const string FD_TYPEYR_AL = "FD_TYPEYR_AL";
+        public const string FD_MODESTUD_AL = "FD_MODESTUD_AL";
+        public const string FD_FUNDLEV_AL = "FD_FUNDLEV_AL";
+        public const string FD_FUNDCOMP_AL = "FD_FUNDCOMP_AL";
+        public const string FD_STULOAD_AL = "FD_STULOAD_AL";
+        public const string FD_YEARSTU_AL = "FD_YEARSTU_AL";
+        public const string FD_MSTUFEE_AL = "FD_MSTUFEE_AL";
+        public const string FD_PCOLAB_AL = "FD_PCOLAB_AL";
+        public const string FD_PCFLDCS_AL = "FD_PCFLDCS_AL";
+        public const string FD_PCSLDCS_AL = "FD_PCSLDCS_AL";
+        public const string FD_PCTLDCS_AL = "FD_PCTLDCS_AL";
+        public const string FD_SPECFEE_AL = "FD_SPECFEE_AL";
+        public const string FD_NETFEE_AL = "FD_NETFEE_AL";
+        public const string FD_GROSSFEE_AL = "FD_GROSSFEE_AL";
+        public const string FD_DOMICILE_AL = "FD_DOMICILE_AL";
+        public const string FD_ELQ_AL = "FD_ELQ_AL";
+        public const string FD_HEPostCode_AL = "FD_HEPostCode_AL";
     }
 }

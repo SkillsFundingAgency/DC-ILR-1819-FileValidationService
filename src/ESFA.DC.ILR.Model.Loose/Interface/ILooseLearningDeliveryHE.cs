@@ -20,5 +20,16 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         long? YEARSTUNullable { get; }
         long? MSTUFEENullable { get; }
         long? SPECFEENullable { get; }
+        long? SOC2000Nullable { get; }
+        long? SECNullable { get; }
+        long? NETFEENullable { get; }
+        long? GROSSFEENullable { get; }
+        long? ELQNullable { get;  }
+
+        decimal? STULOADNullable { get; }
+        decimal? PCOLABNullable { get; }
+        decimal? PCFLDCSNullable { get; }
+        decimal? PCSLDCSNullable { get; }
+        decimal? PCTLDCSNullable { get; }
     }   
 }

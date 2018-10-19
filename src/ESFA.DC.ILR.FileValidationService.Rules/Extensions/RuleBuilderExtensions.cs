@@ -32,6 +32,38 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Extensions
             });
         }
 
+        public static IRuleBuilderOptions<T, decimal?> DecimalLength<T>(this IRuleBuilder<T, decimal?> ruleBuilder, int precision, int scale)
+        {
+            return ruleBuilder.Must(p =>
+            {
+                if (!p.HasValue)
+                {
+                    return true;
+                }
+
+                var decimalString = p.ToString();
+
+                if (decimalString.Length > precision + 1)
+                {
+                    return false;
+                }
+
+                var decimalSplit = decimalString.Split('.');
+
+                if (decimalSplit[0].Length > precision - scale)
+                {
+                    return false;
+                }
+
+                if (decimalSplit.Length > 1 && decimalSplit[1].Length > scale)
+                {
+                    return false;
+                }
+
+                return true;
+            });
+        }
+
         public static IRuleBuilderOptions<T, TProperty> WithLengthError<T, TProperty>(this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string ruleName)
         {
             return ruleBuilderOptions
