@@ -1,28 +1,29 @@
-﻿using ESFA.DC.ILR.FileValidationService.Rules.Constants;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Abstract;
+using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using ESFA.DC.ILR.FileValidationService.Rules.Extensions;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules
 {
-    public class ProviderSpecDeliveryMonitoringValidator : AbstractValidator<ILooseProviderSpecDeliveryMonitoring>
+    public class ProviderSpecDeliveryMonitoringValidator : AbstractFileValidationValidator<ILooseProviderSpecDeliveryMonitoring>
     {
-        public ProviderSpecDeliveryMonitoringValidator()
-        {
-            RegexRules();
-            MandatoryAttributeRules();
-        }
-
-        private void RegexRules()
+        public override void RegexRules()
         {
             RuleFor(m => m.ProvSpecDelMonOccur).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ProvSpecDelMonOccur_AP);
             RuleFor(m => m.ProvSpecDelMon).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ProvSpecDelMon_AP);
         }
 
-        private void MandatoryAttributeRules()
+        public override void MandatoryAttributeRules()
         {
             RuleFor(m => m.ProvSpecDelMonOccur).NotNull().WithErrorCode(RuleNames.FD_ProvSpecDelMonOccur_MA);
             RuleFor(m => m.ProvSpecDelMon).NotNull().WithErrorCode(RuleNames.FD_ProvSpecDelMon_MA);
+        }
+
+        public override void LengthRules()
+        {
+            RuleFor(m => m.ProvSpecDelMonOccur).Length(1, 1).WithLengthError(RuleNames.FD_ProvSpecDelMonOccur_AL);
+            RuleFor(m => m.ProvSpecDelMon).Length(1, 20).WithLengthError(RuleNames.FD_ProvSpecDelMon_AL);
         }
     }
 }

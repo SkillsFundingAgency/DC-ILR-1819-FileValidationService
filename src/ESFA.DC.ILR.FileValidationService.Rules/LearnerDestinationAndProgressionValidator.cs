@@ -1,29 +1,33 @@
-﻿using ESFA.DC.ILR.FileValidationService.Rules.Constants;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Abstract;
+using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using ESFA.DC.ILR.FileValidationService.Rules.Extensions;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules
 {
-    public class LearnerDestinationAndProgressionValidator : AbstractValidator<ILooseLearnerDestinationAndProgression>
+    public class LearnerDestinationAndProgressionValidator : AbstractFileValidationValidator<ILooseLearnerDestinationAndProgression>
     {
         public LearnerDestinationAndProgressionValidator(IValidator<ILooseDPOutcome> dpOutcomeValidator)
         {
-            RegexRules();
-            MandatoryAttributeRules();
-
             RuleForEach(ldp => ldp.DPOutcomes).SetValidator(dpOutcomeValidator);
         }
 
-        public void RegexRules()
+        public override void RegexRules()
         {
             RuleFor(ldp => ldp.LearnRefNumber).MatchesRegex(Regexes.LearnRefNumber).WithErrorCode(RuleNames.FD_DP_LearnRefNumber_AP);
         }
 
-        public void MandatoryAttributeRules()
+        public override void MandatoryAttributeRules()
         {
             RuleFor(ldp => ldp.LearnRefNumber).NotNull().WithErrorCode(RuleNames.FD_DP_LearnRefNumber_MA);
             RuleFor(ldp => ldp.ULNNullable).NotNull().WithErrorCode(RuleNames.FD_DP_ULN_MA);
+        }
+
+        public override void LengthRules()
+        {
+            RuleFor(ldp => ldp.LearnRefNumber).Length(1, 12).WithLengthError(RuleNames.FD_DP_LearnRefNumber_AL);
+            RuleFor(ldp => ldp.ULNNullable).Length(1, 10).WithLengthError(RuleNames.FD_DP_ULN_AL);
         }
     }
 }

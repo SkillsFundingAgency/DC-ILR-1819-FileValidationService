@@ -16,5 +16,17 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestMandatoryLongAttributeRuleFor(p => p.LLDDCatNullable, "FD_LLDDCat_MA");
         }
+
+        [Fact]
+        public void FD_LLDDCat_AL()
+        {
+            TestLengthLongRuleFor(p => p.LLDDCatNullable, "FD_LLDDCat_AL", "LLDDCat", 1, 2);
+        }
+
+        [Fact]
+        public void FD_PrimaryLLDD_AL()
+        {
+            TestLengthLongRuleFor(p => p.PrimaryLLDDNullable, "FD_PrimaryLLDD_AL", "PrimaryLLDD", 1, 1);
+        }
     }
 }

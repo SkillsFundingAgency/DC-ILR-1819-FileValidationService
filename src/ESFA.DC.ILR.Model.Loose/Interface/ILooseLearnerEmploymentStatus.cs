@@ -9,6 +9,8 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
 
         long? EmpStatNullable { get; }
 
+        long? EmpIdNullable { get; }
+
         DateTime? DateEmpStatAppNullable { get; }
 
         IReadOnlyCollection<ILooseEmploymentStatusMonitoring> EmploymentStatusMonitorings { get; }

@@ -11,17 +11,33 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RegexRules();
             MandatoryAttributeRules();
+            LengthRules();
         }
 
         private void RegexRules()
         {
-            RuleFor(fam => fam.LearnFAMType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_LearnFAMType_AP);
+            RuleSet(RuleSetNames.Regex, () =>
+            {
+                RuleFor(fam => fam.LearnFAMType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_LearnFAMType_AP);
+            });
         }
 
         private void MandatoryAttributeRules()
         {
-            RuleFor(fam => fam.LearnFAMType).NotNull().WithErrorCode(RuleNames.FD_LearnFAMType_MA);
-            RuleFor(fam => fam.LearnFAMCodeNullable).NotNull().WithErrorCode(RuleNames.FD_LearnFAMCode_MA);
+            RuleSet(RuleSetNames.MandatoryAttributes, () =>
+            {
+                RuleFor(fam => fam.LearnFAMType).NotNull().WithErrorCode(RuleNames.FD_LearnFAMType_MA);
+                RuleFor(fam => fam.LearnFAMCodeNullable).NotNull().WithErrorCode(RuleNames.FD_LearnFAMCode_MA);
+            });
+        }
+
+        private void LengthRules()
+        {
+            RuleSet(RuleSetNames.Length, () =>
+            {
+                RuleFor(fam => fam.LearnFAMType).Length(1, 3).WithLengthError(RuleNames.FD_LearnFAMType_AL);
+                RuleFor(fam => fam.LearnFAMCodeNullable).Length(1, 3).WithLengthError(RuleNames.FD_LearnFAMCode_AL);
+            });
         }
     }
 }

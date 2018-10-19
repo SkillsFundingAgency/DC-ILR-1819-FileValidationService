@@ -12,11 +12,33 @@ namespace ESFA.DC.ILR.Model.Loose
 
         public long? FundModelNullable => fundModelFieldSpecified ? fundModelField : default(long?);
 
+        public long? ProgTypeNullable => progTypeFieldSpecified ? progTypeField : default(long?);
+
+        public long? FworkCodeNullable => fworkCodeFieldSpecified ? fworkCodeField : default(long?);
+
+        public long? PwayCodeNullable => pwayCodeFieldSpecified ? pwayCodeField : default(long?);
+
+        public long? StdCodeNullable => stdCodeFieldSpecified ? stdCodeField : default(long?);
+
         public long? CompStatusNullable => compStatusFieldSpecified ? compStatusField : default(long?);
 
         public DateTime? LearnStartDateNullable => learnStartDateFieldSpecified ? learnStartDateField : default(DateTime?);
 
         public DateTime? LearnPlanEndDateNullable => learnPlanEndDateFieldSpecified ? learnPlanEndDateField : default(DateTime?);
+
+        public long? PartnerUKPRNNullable => partnerUKPRNFieldSpecified ? partnerUKPRNField : default(long?);
+
+        public long? OutcomeNullable => outcomeFieldSpecified ? outcomeField : default(long?);
+
+        public long? AddHoursNullable => addHoursFieldSpecified ? addHoursField : default(long?);
+
+        public long? PriorLearnFundAdjNullable => priorLearnFundAdjFieldSpecified ? priorLearnFundAdjField : default(long?);
+
+        public long? OtherFundAdjNullable => otherFundAdjFieldSpecified ? otherFundAdjField : default(long?);
+
+        public long? EmpOutcomeNullable => empOutcomeFieldSpecified ? empOutcomeField : default(long?);
+
+        public long? WithdrawReasonNullable => withdrawReasonFieldSpecified ? withdrawReasonField : default(long?);
 
         public IReadOnlyCollection<ILooseLearningDeliveryFAM> LearningDeliveryFAMs => learningDeliveryFAMField;
 

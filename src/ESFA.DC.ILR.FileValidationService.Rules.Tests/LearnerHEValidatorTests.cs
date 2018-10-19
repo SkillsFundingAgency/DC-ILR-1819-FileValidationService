@@ -19,7 +19,19 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_UCASPERID_AP()
         {
-            TestRuleFor(lhe => lhe.UCASPERID, "FD_UCASPERID_AP", "1234567890", "A");
+            TestRegexRuleFor(lhe => lhe.UCASPERID, "FD_UCASPERID_AP", "1234567890", "A");
+        }
+
+        [Fact]
+        public void FD_UCASPERID_AL()
+        {
+            TestLengthStringRuleFor(lhe => lhe.UCASPERID, "FD_UCASPERID_AL", "UCASPERID", 1, 10);
+        }
+
+        [Fact]
+        public void FD_TTACCOM_AL()
+        {
+            TestLengthLongRuleFor(lhe => lhe.TTACCOMNullable, "FD_TTACCOM_AL", "TTACCOM", 1, 1);
         }
 
         [Fact]

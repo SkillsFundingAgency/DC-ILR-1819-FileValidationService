@@ -28,5 +28,23 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestMandatoryLongAttributeRuleFor(wp => wp.WorkPlaceModeNullable, "FD_WorkPlaceMode_MA");
         }
+
+        [Fact]
+        public void FD_WorkPlaceHours_AL()
+        {
+            TestLengthLongRuleFor(wp => wp.WorkPlaceHoursNullable, "FD_WorkPlaceHours_AL", "WorkPlaceHours", 1, 4);
+        }
+
+        [Fact]
+        public void FD_WorkPlaceMode_AL()
+        {
+            TestLengthLongRuleFor(wp => wp.WorkPlaceModeNullable, "FD_WorkPlaceMode_AL", "WorkPlaceMode", 1, 1);
+        }
+
+        [Fact]
+        public void FD_WorkPlaceEmpId_AL()
+        {
+            TestLengthLongRuleFor(wp => wp.WorkPlaceEmpIdNullable, "FD_WorkPlaceEmpId_AL", "WorkPlaceEmpId", 1, 9);
+        }
     }
 }

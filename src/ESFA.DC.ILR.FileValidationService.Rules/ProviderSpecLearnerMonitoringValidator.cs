@@ -11,18 +11,34 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RegexRules();
             MandatoryAttributeRules();
+            LengthRules();
         }
 
         private void RegexRules()
         {
-            RuleFor(m => m.ProvSpecLearnMonOccur).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ProvSpecLearnMonOccur_AP);
-            RuleFor(m => m.ProvSpecLearnMon).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ProvSpecLearnMon_AP);
+            RuleSet(RuleSetNames.Regex, () =>
+            {
+                RuleFor(m => m.ProvSpecLearnMonOccur).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ProvSpecLearnMonOccur_AP);
+                RuleFor(m => m.ProvSpecLearnMon).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ProvSpecLearnMon_AP);
+            });
         }
 
         private void MandatoryAttributeRules()
         {
-            RuleFor(m => m.ProvSpecLearnMonOccur).NotNull().WithErrorCode(RuleNames.FD_ProvSpecLearnMonOccur_MA);
-            RuleFor(m => m.ProvSpecLearnMon).NotNull().WithErrorCode(RuleNames.FD_ProvSpecLearnMon_MA);
+            RuleSet(RuleSetNames.MandatoryAttributes, () =>
+            {
+                RuleFor(m => m.ProvSpecLearnMonOccur).NotNull().WithErrorCode(RuleNames.FD_ProvSpecLearnMonOccur_MA);
+                RuleFor(m => m.ProvSpecLearnMon).NotNull().WithErrorCode(RuleNames.FD_ProvSpecLearnMon_MA);
+            });
+        }
+
+        private void LengthRules()
+        {
+            RuleSet(RuleSetNames.Length, () =>
+            {
+                RuleFor(m => m.ProvSpecLearnMonOccur).Length(1, 1).WithLengthError(RuleNames.FD_ProvSpecLearnMonOccur_AL);
+                RuleFor(m => m.ProvSpecLearnMon).Length(1, 20).WithLengthError(RuleNames.FD_ProvSpecLearnMon_AL);
+            });
         }
     }
 }

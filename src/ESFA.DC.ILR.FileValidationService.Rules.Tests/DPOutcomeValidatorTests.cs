@@ -14,7 +14,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_DP_OutType_AP()
         {
-            TestRuleFor(dpo => dpo.OutType, "FD_DP_OutType_AP", "Out Type", "`");
+            TestRegexRuleFor(dpo => dpo.OutType, "FD_DP_OutType_AP", "Out Type", "`");
         }
 
         [Fact]
@@ -39,6 +39,18 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void FD_DP_OutCollDate_MA()
         {
             TestMandatoryDateTimeAttributeRuleFor(dpo => dpo.OutCollDateNullable, "FD_DP_OutCollDate_MA");
+        }
+
+        [Fact]
+        public void FD_DP_OutType_AL()
+        {
+            TestLengthStringRuleFor(dpo => dpo.OutType, "FD_DP_OutType_AL", "OutType", 1, 3);
+        }
+
+        [Fact]
+        public void FD_DP_OutCode_AL()
+        {
+            TestLengthLongRuleFor(dpo => dpo.OutCodeNullable, "FD_DP_OutCode_AL", "OutCode", 1, 3);
         }
     }
 }

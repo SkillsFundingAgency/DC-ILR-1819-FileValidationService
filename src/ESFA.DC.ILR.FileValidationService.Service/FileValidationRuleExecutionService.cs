@@ -29,20 +29,32 @@ namespace ESFA.DC.ILR.FileValidationService.Service
         {
             var validationErrors = new List<IValidationError>();
 
+            int iteration = 0;
+
+            var ruleSet = "*";
+
             if (message?.Learner != null)
             {
                 foreach (var learner in message.Learner)
                 {
-                    var error = _learnerValidator.Validate(learner);
+                    var error = _learnerValidator.Validate(learner, ruleSet: ruleSet);
 
-                    validationErrors.AddRange(BuildValidationErrorsFromValidationResult(error, learner.LearnRefNumber));
+                    if (!error.IsValid)
+                    {
+                        validationErrors.AddRange(BuildValidationErrorsFromValidationResult(error, learner.LearnRefNumber));
+                    }
 
                     foreach (var learningDelivery in learner.LearningDelivery)
                     {
-                        var ldError = _learningDeliveryValidator.Validate(learningDelivery);
+                        var ldError = _learningDeliveryValidator.Validate(learningDelivery, ruleSet: ruleSet);
 
-                        validationErrors.AddRange(BuildValidationErrorsFromValidationResult(ldError, learner.LearnRefNumber, learningDelivery.AimSeqNumber));
+                        if (!ldError.IsValid)
+                        {
+                            validationErrors.AddRange(BuildValidationErrorsFromValidationResult(ldError, learner.LearnRefNumber, learningDelivery.AimSeqNumber));
+                        }
                     }
+
+                    iteration++;
                 }
             }
 
@@ -50,7 +62,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             {
                 foreach (var learnerDestinationAndProgression in message.LearnerDestinationandProgression)
                 {
-                    var error = _learnerDestinationAndProgressionValidator.Validate(learnerDestinationAndProgression);
+                    var error = _learnerDestinationAndProgressionValidator.Validate(learnerDestinationAndProgression, ruleSet: ruleSet);
 
                     validationErrors.AddRange(BuildValidationErrorsFromValidationResult(error, learnerDestinationAndProgression.LearnRefNumber));
                 }

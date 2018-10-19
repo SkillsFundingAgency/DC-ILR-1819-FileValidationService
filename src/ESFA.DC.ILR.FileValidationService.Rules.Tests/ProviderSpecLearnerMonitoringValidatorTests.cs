@@ -14,13 +14,13 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_ProvSpecLearnMonOccur_AP()
         {
-            TestRuleFor(m => m.ProvSpecLearnMonOccur, "FD_ProvSpecLearnMonOccur_AP", "ProvSpecLearnMonOccur", "`");
+            TestRegexRuleFor(m => m.ProvSpecLearnMonOccur, "FD_ProvSpecLearnMonOccur_AP", "ProvSpecLearnMonOccur", "`");
         }
 
         [Fact]
         public void FD_ProvSpecLearnMon_AP()
         {
-            TestRuleFor(m => m.ProvSpecLearnMon, "FD_ProvSpecLearnMon_AP", "ProvSpecLearnMon", "`");
+            TestRegexRuleFor(m => m.ProvSpecLearnMon, "FD_ProvSpecLearnMon_AP", "ProvSpecLearnMon", "`");
         }
 
         [Fact]
@@ -33,6 +33,18 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void FD_ProvSpecLearnMon_MA()
         {
             TestMandatoryStringAttributeRuleFor(m => m.ProvSpecLearnMon, "FD_ProvSpecLearnMon_MA");
+        }
+
+        [Fact]
+        public void FD_ProvSpecLearnMonOccur_AL()
+        {
+            TestLengthStringRuleFor(m => m.ProvSpecLearnMonOccur, "FD_ProvSpecLearnMonOccur_AL", "ProvSpecLearnMonOccur", 1, 1);
+        }
+
+        [Fact]
+        public void FD_ProvSpecLearnMon_AL()
+        {
+            TestLengthStringRuleFor(m => m.ProvSpecLearnMon, "FD_ProvSpecLearnMon_AL", "ProvSpecLearnMon", 1, 20);
         }
     }
 }

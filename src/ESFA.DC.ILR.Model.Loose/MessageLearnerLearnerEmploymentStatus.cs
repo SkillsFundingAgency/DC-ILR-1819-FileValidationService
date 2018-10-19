@@ -8,6 +8,8 @@ namespace ESFA.DC.ILR.Model.Loose
     {
         public long? EmpStatNullable => empStatFieldSpecified ? empStatField : default(long?);
 
+        public long? EmpIdNullable => empIdFieldSpecified ? empIdField : default(long?);
+
         public DateTime? DateEmpStatAppNullable => dateEmpStatAppFieldSpecified ? dateEmpStatAppField : default(DateTime?);
 
         public IReadOnlyCollection<ILooseEmploymentStatusMonitoring> EmploymentStatusMonitorings => employmentStatusMonitoringField;

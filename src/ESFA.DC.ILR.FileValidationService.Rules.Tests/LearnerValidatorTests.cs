@@ -31,103 +31,103 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         [Fact]
         public void FD_LearnRefNumber_AP()
         {
-            TestRuleFor(l => l.LearnRefNumber, "FD_LearnRefNumber_AP", "LearnRefNum", "!");
+            TestRegexRuleFor(l => l.LearnRefNumber, "FD_LearnRefNumber_AP", "LearnRefNum", "!");
         }
 
         [Fact]
         public void FD_PrevLearnRefNumber_AP()
         {
-            TestRuleFor(l => l.PrevLearnRefNumber, "FD_PrevLearnRefNumber_AP", "LearnRefNum", "!");
+            TestRegexRuleFor(l => l.PrevLearnRefNumber, "FD_PrevLearnRefNumber_AP", "LearnRefNum", "!");
         }
 
         [Fact]
         public void FD_FamilyName_AP()
         {
-            TestRuleFor(l => l.FamilyName, "FD_FamilyName_AP", "FamilyName", "");
+            TestRegexRuleFor(l => l.FamilyName, "FD_FamilyName_AP", "FamilyName", "");
         }
 
         [Fact]
         public void FD_GivenNames_AP()
         {
-            TestRuleFor(l => l.GivenNames, "FD_GivenNames_AP", "Given Names", "");
+            TestRegexRuleFor(l => l.GivenNames, "FD_GivenNames_AP", "Given Names", "");
         }
 
         [Fact]
         public void FD_Sex_AP()
         {
-            TestRuleFor(l => l.Sex, "FD_Sex_AP", @"\", @"`");
+            TestRegexRuleFor(l => l.Sex, "FD_Sex_AP", @"\", @"`");
         }
 
         [Fact]
         public void FD_NINumber_AP()
         {
-            TestRuleFor(l => l.NINumber, "FD_NINumber_AP", "NINumber", "`");
+            TestRegexRuleFor(l => l.NINumber, "FD_NINumber_AP", "NINumber", "`");
         }
 
         [Fact]
         public void FD_MathGrade_AP()
         {
-            TestRuleFor(l => l.MathGrade, "FD_MathGrade_AP", "A", "`");
+            TestRegexRuleFor(l => l.MathGrade, "FD_MathGrade_AP", "A", "`");
         }
 
         [Fact]
         public void FD_EngGrade_AP()
         {
-            TestRuleFor(l => l.EngGrade, "FD_EngGrade_AP", "A", "`");
+            TestRegexRuleFor(l => l.EngGrade, "FD_EngGrade_AP", "A", "`");
         }
 
         [Fact]
         public void FD_PostcodePrior_AP()
         {
-            TestRuleFor(l => l.PostcodePrior, "FD_PostcodePrior_AP", "A12 3BC", "`");
+            TestRegexRuleFor(l => l.PostcodePrior, "FD_PostcodePrior_AP", "A12 3BC", "`");
         }
 
         [Fact]
         public void FD_Postcode_AP()
         {
-            TestRuleFor(l => l.Postcode, "FD_Postcode_AP", "A12 3BC", "`");
+            TestRegexRuleFor(l => l.Postcode, "FD_Postcode_AP", "A12 3BC", "`");
         }
 
         [Fact]
         public void FD_AddLine1_AP()
         {
-            TestRuleFor(l => l.AddLine1, "FD_AddLine1_AP", "Address Value", "`");
+            TestRegexRuleFor(l => l.AddLine1, "FD_AddLine1_AP", "Address Value", "`");
         }
 
         [Fact]
         public void FD_AddLine2_AP()
         {
-            TestRuleFor(l => l.AddLine2, "FD_AddLine2_AP", "Address Value", "`");
+            TestRegexRuleFor(l => l.AddLine2, "FD_AddLine2_AP", "Address Value", "`");
         }
 
         [Fact]
         public void FD_AddLine3_AP()
         {
-            TestRuleFor(l => l.AddLine3, "FD_AddLine3_AP", "Address Value", "`");
+            TestRegexRuleFor(l => l.AddLine3, "FD_AddLine3_AP", "Address Value", "`");
         }
 
         [Fact]
         public void FD_AddLine4_AP()
         {
-            TestRuleFor(l => l.AddLine4, "FD_AddLine4_AP", "Address Value", "`");
+            TestRegexRuleFor(l => l.AddLine4, "FD_AddLine4_AP", "Address Value", "`");
         }
 
         [Fact]
         public void FD_TelNo_AP()
         {
-            TestRuleFor(l => l.TelNo, "FD_TelNo_AP", "012345678910", "ABC");
+            TestRegexRuleFor(l => l.TelNo, "FD_TelNo_AP", "012345678910", "ABC");
         }
 
         [Fact]
         public void FD_Email_AP()
         {
-            TestRuleFor(l => l.Email, "FD_Email_AP", "test@test.co.uk", "noAtSign.co.uk");
+            TestRegexRuleFor(l => l.Email, "FD_Email_AP", "test@test.co.uk", "noAtSign.co.uk");
         }
 
         [Fact]
         public void FD_CampId_AP()
         {
-            TestRuleFor(l => l.CampId, "FD_CampId_AP", "Camp1234", "!");
+            TestRegexRuleFor(l => l.CampId, "FD_CampId_AP", "Camp1234", "!");
         }
 
         [Fact]
@@ -170,6 +170,175 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void FD_Postcode_MA()
         {
             TestMandatoryStringAttributeRuleFor(l => l.Postcode, "FD_Postcode_MA");
+        }
+
+        [Fact]
+        public void FD_LearnRefNumber_AL()
+        {
+            TestLengthStringRuleFor(l => l.LearnRefNumber, "FD_LearnRefNumber_AL", "LearnRefNumber", 1, 12);
+        }
+
+        [Fact]
+        public void FD_PrevLearnRefNumber_AL()
+        {
+            TestLengthStringRuleFor(l => l.PrevLearnRefNumber, "FD_PrevLearnRefNumber_AL", "PrevLearnRefNumber", 1, 12);
+        }
+
+        [Fact]
+        public void FD_PrevUKPRN_AL()
+        {
+            TestLengthLongRuleFor(l => l.PrevUKPRNNullable, "FD_PrevUKPRN_AL", "PrevUKPRN", 1, 8);
+        }
+
+        [Fact]
+        public void FD_PMUKPRN_AL()
+        {
+            TestLengthLongRuleFor(l => l.PMUKPRNNullable, "FD_PMUKPRN_AL", "PMUKPRN", 1, 8);
+        }
+
+        [Fact]
+        public void FD_ULN_AL()
+        {
+            TestLengthLongRuleFor(l => l.ULNNullable, "FD_ULN_AL", "ULN", 1, 10);
+        }
+
+        [Fact]
+        public void FD_FamilyName_AL()
+        {
+            TestLengthStringRuleFor(l => l.FamilyName, "FD_FamilyName_AL", "FamilyName", 1, 100);
+        }
+
+        [Fact]
+        public void FD_GivenNames_AL()
+        {
+            TestLengthStringRuleFor(l => l.GivenNames, "FD_GivenNames_AL", "GivenNames", 1, 100);
+        }
+
+        [Fact]
+        public void FD_Ethnicity_AL()
+        {
+            TestLengthLongRuleFor(l => l.EthnicityNullable, "FD_Ethnicity_AL", "Ethnicity" , 1, 2);
+        }
+
+        [Fact]
+        public void FD_Sex_AL()
+        {
+            TestLengthStringRuleFor(l => l.Sex, "FD_Sex_AL", "Sex", 1, 1);
+        }
+
+        [Fact]
+        public void FD_LLDDHealthProb_AL()
+        {
+            TestLengthLongRuleFor(l => l.LLDDHealthProbNullable, "FD_LLDDHealthProb_AL", "LLDDHealthProb", 1, 1);
+        }
+
+        [Fact]
+        public void FD_NINumber_AL()
+        {
+            TestLengthStringRuleFor(l => l.NINumber, "FD_NINumber_AL", "NINumber", 1, 9);
+        }
+
+        [Fact]
+        public void FD_PriorAttain_AL()
+        {
+            TestLengthLongRuleFor(l => l.PriorAttainNullable, "FD_PriorAttain_AL", "PriorAttain", 1, 2);
+        }
+
+        [Fact]
+        public void FD_Accom_AL()
+        {
+            TestLengthLongRuleFor(l => l.AccomNullable, "FD_Accom_AL", "Accom", 1, 1);
+        }
+
+        [Fact]
+        public void FD_ALSCost_AL()
+        {
+            TestLengthLongRuleFor(l => l.ALSCostNullable, "FD_ALSCost_AL", "ALSCost", 1, 6);
+        }
+
+        [Fact]
+        public void FD_PlanLearnHours_AL()
+        {
+            TestLengthLongRuleFor(l => l.PlanLearnHoursNullable, "FD_PlanLearnHours_AL", "PlanLearnHours", 1, 4);
+        }
+
+        [Fact]
+        public void FD_PlanEEPHours_AL()
+        {
+            TestLengthLongRuleFor(l => l.PlanEEPHoursNullable, "FD_PlanEEPHours_AL", "PlanEEPHours", 1, 4);
+        }
+
+        [Fact]
+        public void FD_MathGrade_AL()
+        {
+            TestLengthStringRuleFor(l => l.MathGrade, "FD_MathGrade_AL", "MathGrade", 1, 4);
+        }
+
+        [Fact]
+        public void FD_EngGrade_AL()
+        {
+            TestLengthStringRuleFor(l => l.EngGrade, "FD_EngGrade_AL", "EngGrade", 1, 4);
+        }
+
+        [Fact]
+        public void FD_PostcodePrior_AL()
+        {
+            TestLengthStringRuleFor(l => l.PostcodePrior, "FD_PostcodePrior_AL", "PostcodePrior", 1, 8);
+        }
+
+        [Fact]
+        public void FD_Postcode_AL()
+        {
+            TestLengthStringRuleFor(l => l.Postcode, "FD_Postcode_AL", "Postcode", 1, 8);
+        }
+
+        [Fact]
+        public void FD_CampId_AL()
+        {
+            TestLengthStringRuleFor(l => l.CampId, "FD_CampId_AL", "CampId", 0, 8);
+        }
+
+        [Fact]
+        public void FD_OTJHours_AL()
+        {
+            TestLengthLongRuleFor(l => l.OTJHoursNullable, "FD_OTJHours_AL", "OTJHours", 1, 4);
+        }
+
+        [Fact]
+        public void FD_AddLine1_AL()
+        {
+            TestLengthStringRuleFor(l => l.AddLine1, "FD_AddLine1_AL", "AddLine1", 1, 50);
+        }
+
+        [Fact]
+        public void FD_AddLine2_AL()
+        {
+            TestLengthStringRuleFor(l => l.AddLine2, "FD_AddLine2_AL", "AddLine2", 1, 50);
+        }
+
+        [Fact]
+        public void FD_AddLine3_AL()
+        {
+            TestLengthStringRuleFor(l => l.AddLine3, "FD_AddLine3_AL", "AddLine3", 1, 50);
+        }
+
+        [Fact]
+        public void FD_AddLine4_AL()
+        {
+            TestLengthStringRuleFor(l => l.AddLine4, "FD_AddLine4_AL", "AddLine4", 1, 50);
+        }
+
+        [Fact]
+        public void FD_TelNo_AL()
+        {
+            TestLengthStringRuleFor(l => l.TelNo, "FD_TelNo_AL", "TelNo", 1, 18);
+        }
+
+        [Fact]
+
+        public void FD_Email_AL()
+        {
+            TestLengthStringRuleFor(l => l.Email, "FD_Email_AL", "Email", 1, 100);
         }
 
         [Fact]

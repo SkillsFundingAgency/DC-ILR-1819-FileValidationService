@@ -15,6 +15,8 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
 
         string OutGrade { get; }
 
+        long? OutcomeNullable { get; }
+
         string SWSupAimId { get; }
 
         long? AimTypeNullable { get; }
@@ -23,11 +25,31 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
 
         long? FundModelNullable { get; }
 
+        long? ProgTypeNullable { get; }
+
+        long? FworkCodeNullable { get; }
+
+        long? PwayCodeNullable { get; }
+
+        long? StdCodeNullable { get; }
+
         long? CompStatusNullable { get; }
 
         DateTime? LearnStartDateNullable { get; }
 
         DateTime? LearnPlanEndDateNullable { get; }
+
+        long? PartnerUKPRNNullable { get; }
+
+        long? AddHoursNullable { get; }
+
+        long? PriorLearnFundAdjNullable { get; }
+
+        long? OtherFundAdjNullable { get; }
+
+        long? EmpOutcomeNullable { get; }
+
+        long? WithdrawReasonNullable { get; }
 
         IReadOnlyCollection<ILooseLearningDeliveryFAM> LearningDeliveryFAMs { get; }
 
