@@ -142,6 +142,8 @@
         // Length
         public const string FD_FINTYPE_AL = "FD_FINTYPE_AL";
         public const string FD_FINAMOUNT_AL = "FD_FINAMOUNT_AL";
+        // Range
+        public const string FD_FINAMOUNT_AR = "FD_FINAMOUNT_AR";
 
         // Learner Destination And Progression
         // Regex
