@@ -1,33 +1,28 @@
-﻿using ESFA.DC.ILR.FileValidationService.Rules.Constants;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Abstract;
+using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using ESFA.DC.ILR.FileValidationService.Rules.Extensions;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules
 {
-    public class ContactPreferenceValidator : AbstractValidator<ILooseContactPreference>
+    public class ContactPreferenceValidator : AbstractFileValidationValidator<ILooseContactPreference>
     {
-        public ContactPreferenceValidator()
+        public override void RegexRules()
         {
-            RegexRules();
-            MandatoryAttributeRules();
+            RuleFor(cp => cp.ContPrefType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ContPrefType_AP);
         }
 
-        private void RegexRules()
+        public override void MandatoryAttributeRules()
         {
-            RuleSet(RuleSetNames.Regex, () =>
-            {
-                RuleFor(cp => cp.ContPrefType).MatchesRestrictedString().WithErrorCode(RuleNames.FD_ContPrefType_AP);
-            });
+            RuleFor(cp => cp.ContPrefType).NotNull().WithErrorCode(RuleNames.FD_ContPrefType_MA);
+            RuleFor(cp => cp.ContPrefCodeNullable).NotNull().WithErrorCode(RuleNames.FD_ContPrefCode_MA);
         }
 
-        private void MandatoryAttributeRules()
+        public override void LengthRules()
         {
-            RuleSet(RuleSetNames.MandatoryAttributes, () =>
-            {
-                RuleFor(cp => cp.ContPrefType).NotNull().WithErrorCode(RuleNames.FD_ContPrefType_MA);
-                RuleFor(cp => cp.ContPrefCodeNullable).NotNull().WithErrorCode(RuleNames.FD_ContPrefCode_MA);
-            });
+            RuleFor(cp => cp.ContPrefType).Length(1, 3).WithLengthError(RuleNames.FD_ContPrefType_AL);
+            RuleFor(cp => cp.ContPrefCodeNullable).Length(1, 1).WithLengthError(RuleNames.FD_ContPrefCode_AL);
         }
     }
 }

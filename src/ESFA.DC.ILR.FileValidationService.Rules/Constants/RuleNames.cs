@@ -73,6 +73,9 @@
         // Mandatory
         public const string FD_ContPrefType_MA = "FD_ContPrefType_MA";
         public const string FD_ContPrefCode_MA = "FD_ContPrefCode_MA";
+        // Range
+        public const string FD_ContPrefType_AL = "FD_ContPrefType_AL";
+        public const string FD_ContPrefCode_AL = "FD_ContPrefCode_AL";
 
         // LLDD and Health Problem
         // Mandatory
