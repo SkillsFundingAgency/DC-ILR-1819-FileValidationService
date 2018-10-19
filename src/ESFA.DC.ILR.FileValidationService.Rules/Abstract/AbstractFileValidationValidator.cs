@@ -1,5 +1,4 @@
-﻿using System;
-using ESFA.DC.ILR.FileValidationService.Rules.Constants;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using ESFA.DC.ILR.FileValidationService.Rules.Interface;
 using FluentValidation;
 

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ESFA.DC.ILR.FileValidationService.Rules.Interface
+﻿namespace ESFA.DC.ILR.FileValidationService.Rules.Interface
 {
     public interface IFileValidationValidator
     {

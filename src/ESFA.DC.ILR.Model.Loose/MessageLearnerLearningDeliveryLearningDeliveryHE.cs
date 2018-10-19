@@ -1,5 +1,4 @@
-﻿using System;
-using ESFA.DC.ILR.Model.Loose.Interface;
+﻿using ESFA.DC.ILR.Model.Loose.Interface;
 
 namespace ESFA.DC.ILR.Model.Loose
 {

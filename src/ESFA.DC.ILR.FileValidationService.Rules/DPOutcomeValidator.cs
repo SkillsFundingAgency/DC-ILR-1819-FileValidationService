@@ -1,6 +1,4 @@
-﻿using System.Data;
-using System.Data.Common;
-using ESFA.DC.ILR.FileValidationService.Rules.Abstract;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Abstract;
 using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using ESFA.DC.ILR.FileValidationService.Rules.Extensions;
 using ESFA.DC.ILR.Model.Loose.Interface;
