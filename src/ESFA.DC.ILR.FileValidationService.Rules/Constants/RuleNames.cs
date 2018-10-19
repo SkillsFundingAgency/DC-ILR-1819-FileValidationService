@@ -148,7 +148,10 @@
         public const string FD_DP_OutCode_MA = "FD_DP_OutCode_MA";
         public const string FD_DP_OutStartDate_MA = "FD_DP_OutStartDate_MA";
         public const string FD_DP_OutCollDate_MA = "FD_DP_OutCollDate_MA";
-        
+        // Length
+        public const string FD_DP_OutType_AL = "FD_DP_OutType_AL";
+        public const string FD_DP_OutCode_AL = "FD_DP_OutCode_AL";
+
         // Learning Delivery
         // Regex
         public const string FD_LearnAimRef_AP = "FD_LearnAimRef_AP";
