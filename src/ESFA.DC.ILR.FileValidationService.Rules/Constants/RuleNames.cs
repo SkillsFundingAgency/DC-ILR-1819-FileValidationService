@@ -206,6 +206,12 @@
         public const string FD_Outcome_AL = "FD_Outcome_AL";
         public const string FD_OutGrade_AL = "FD_OutGrade_AL";
         public const string FD_SWSupAimId_AL = "FD_SWSupAimId_AL";
+        // Range
+        public const string FD_AimSeqNumber_AR = "FD_AimSeqNumber_AR";
+        public const string FD_PartnerUKPRN_AR = "FD_PartnerUKPRN_AR";
+        public const string FD_AddHours_AR = "FD_AddHours_AR";
+        public const string FD_PriorLearnFundAdj_AR = "FD_PriorLearnFundAdj_AR";
+        public const string FD_OtherFundAdj_AR = "FD_OtherFundAdj_AR";
 
         // Learning Delivery FAM
         // Regex

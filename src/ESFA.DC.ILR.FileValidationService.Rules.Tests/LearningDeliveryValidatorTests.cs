@@ -231,6 +231,36 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_AimSeqNumber_AR()
+        {
+            TestRangeFor(ld => ld.AimSeqNumberNullable, "FD_AimSeqNumber_AR", "AimSeqNumber", 1, 98);
+        }
+
+        [Fact]
+        public void FD_PartnerUKPRN_AR()
+        {
+            TestRangeFor(ld => ld.PartnerUKPRNNullable, "FD_PartnerUKPRN_AR", "PartnerUKPRN", 10000000, 99999999);
+        }
+
+        [Fact]
+        public void FD_AddHours_AR()
+        {
+            TestRangeFor(ld => ld.AddHoursNullable, "FD_AddHours_AR", "AddHours", 0, 9999);
+        }
+
+        [Fact]
+        public void FD_PriorLearnFundAdj_AR()
+        {
+            TestRangeFor(ld => ld.PriorLearnFundAdjNullable, "FD_PriorLearnFundAdj_AR", "PriorLearnFundAdj", 0, 99);
+        }
+
+        [Fact]
+        public void FD_OtherFundAdj_AR()
+        {
+            TestRangeFor(ld => ld.OtherFundAdjNullable, "FD_OtherFundAdj_AR", "OtherFundAdj", 0, 999);
+        }
+
+        [Fact]
         public void LearningDeliveryFAM_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(ld => ld.LearningDeliveryFAMs, typeof(IValidator<ILooseLearningDeliveryFAM>));
