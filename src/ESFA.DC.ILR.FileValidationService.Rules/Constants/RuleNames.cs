@@ -58,7 +58,15 @@
         public const string FD_AddLine4_AL = "FD_AddLine4_AL";
         public const string FD_TelNo_AL = "FD_TelNo_AL";
         public const string FD_Email_AL = "FD_Email_AL";
-
+        // Range
+        public const string FD_OTJHours_AR = "FD_OTJHours_AR";
+        public const string FD_PrevUKPRN_AR = "FD_PrevUKPRN_AR";
+        public const string FD_PMUKPRN_AR = "FD_PMUKPRN_AR";
+        public const string FD_ULN_AR = "FD_ULN_AR";
+        public const string FD_ALSCost_AR = "FD_ALSCost_AR";
+        public const string FD_PlanLearnHours_AR = "FD_PlanLearnHours_AR";
+        public const string FD_PlanEEPHours_AR = "FD_PlanEEPHours_AR";
+            
         // Contact Preference
         // Regex
         public const string FD_ContPrefType_AP = "FD_ContPrefType_AP";

@@ -342,6 +342,48 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_OTJHours_AR()
+        {
+            TestRangeFor(l => l.OTJHoursNullable, "FD_OTJHours_AR", "OTJHours", 0, 9999);
+        }
+
+        [Fact]
+        public void FD_PrevUKPRN_AR()
+        {
+            TestRangeFor(l => l.PrevUKPRNNullable, "FD_PrevUKPRN_AR", "PrevUKPRN", 10000000, 99999999);
+        }
+
+        [Fact]
+        public void FD_PMUKPRN_AR()
+        {
+            TestRangeFor(l => l.PMUKPRNNullable, "FD_PMUKPRN_AR", "PMUKPRN", 10000000, 99999999);
+        }
+
+        [Fact]
+        public void FD_ULN_AR()
+        {
+            TestRangeFor(l => l.ULNNullable, "FD_ULN_AR", "ULN", 1000000000, 9999999999);
+        }
+
+        [Fact]
+        public void FD_ALSCost_AR()
+        {
+            TestRangeFor(l => l.ALSCostNullable, "FD_ALSCost_AR", "ALSCost", 0, 999999);
+        }
+
+        [Fact]
+        public void FD_PlanLearnHours_AR()
+        {
+            TestRangeFor(l => l.PlanLearnHoursNullable, "FD_PlanLearnHours_AR", "PlanLearnHours", 0, 9999);
+        }
+
+        [Fact]
+        public void FD_PlanEEPHours_AR()
+        {
+            TestRangeFor(l => l.PlanEEPHoursNullable, "FD_PlanEEPHours_AR", "PlanEEPHours", 0, 9999);
+        }
+
+        [Fact]
         public void ContactPreference_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(l => l.ContactPreferences, typeof(IValidator<ILooseContactPreference>));

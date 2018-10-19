@@ -16,5 +16,14 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Extensions
 
             return validationFailures;
         }
+
+        public static IEnumerable<ValidationFailure> WithRangeState(this IEnumerable<ValidationFailure> validationFailures, string ruleName, string attributeName, object property)
+        {
+            var state = validationFailures.First(e => e.ErrorCode == ruleName).CustomState as IDictionary<string, string>;
+
+            state[attributeName].Should().Be(property.ToString());
+
+            return validationFailures;
+        }
     }
 }

@@ -10,13 +10,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
 {
     public abstract class AbstractValidatorTests<TEntity> where TEntity : class
     {
-        private const string Length = "Length";
-
         protected readonly IValidator<TEntity> _validator;
 
-        protected const string MandatoryAttributesRuleSetName = "MandatoryAttributes";
-        protected const string RegexRuleSetName = "Regex";
-        protected const string LengthRuleSetName = "Length";
+        private const string MandatoryAttributesRuleSetName = "MandatoryAttributes";
+        private const string RegexRuleSetName = "Regex";
+        private const string LengthRuleSetName = "Length";
+        private const string RangeRuleSetName = "Range";
 
         protected AbstractValidatorTests(IValidator<TEntity> validator)
         {
@@ -110,6 +109,24 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
             _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, scaleIncrementDecimal), LengthRuleSetName)
                 .WithErrorCode(ruleName)
                 .WithLengthState(ruleName, attributeName, scaleIncrementDecimal, scaleIncrementDecimal.ToString().Length);
+        }
+
+        protected void TestRangeFor(Expression<Func<TEntity, long?>> selector, string ruleName, string attributeName, long minimum, long maximum)
+        {
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, minimum), RangeRuleSetName);
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, maximum), RangeRuleSetName);
+
+            var invalidMinimum = minimum - 1;
+
+            _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, invalidMinimum), RangeRuleSetName)
+                .WithErrorCode(ruleName)
+                .WithRangeState(ruleName, attributeName, invalidMinimum);
+
+            var invalidMaximum = maximum + 1;
+
+            _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, invalidMaximum), RangeRuleSetName)
+                .WithErrorCode(ruleName)
+                .WithRangeState(ruleName, attributeName, invalidMaximum);
         }
 
         private decimal BuildDecimalOfPrecisionScale(int precision, int scale)
