@@ -136,6 +136,9 @@
         // Mandatory
         public const string FD_DP_LearnRefNumber_MA = "FD_DP_LearnRefNumber_MA";
         public const string FD_DP_ULN_MA = "FD_DP_ULN_MA";
+        // Length
+        public const string FD_DP_LearnRefNumber_AL = "FD_DP_LearnRefNumber_AL";
+        public const string FD_DP_ULN_AL = "FD_DP_ULN_AL";
 
         // DP Outcome
         // Regex

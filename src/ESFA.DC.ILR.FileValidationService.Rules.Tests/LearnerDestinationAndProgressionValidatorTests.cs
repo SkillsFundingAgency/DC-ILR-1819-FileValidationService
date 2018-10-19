@@ -35,9 +35,22 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_DP_LearnRefNumber_AL()
+        {
+            TestLengthStringRuleFor(ldp => ldp.LearnRefNumber, "FD_DP_LearnRefNumber_AL", "LearnRefNumber", 1, 12);
+        }
+
+        [Fact]
+        public void FD_DP_ULN_AL()
+        {
+            TestLengthLongRuleFor(ldp => ldp.ULNNullable, "FD_DP_ULN_AL", "ULN", 1, 10);
+        }
+
+        [Fact]
         public void DPOutcome_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(ldp => ldp.DPOutcomes, typeof(IValidator<ILooseDPOutcome>));
         }
+
     }
 }

@@ -83,7 +83,9 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Extensions
 
         private static string ExtractPropertyName(string ruleName)
         {
-            return ruleName.Substring(3, ruleName.Length - 6);
+            var ruleNameSplit = ruleName.Split('_');
+
+            return ruleNameSplit[ruleNameSplit.Length - 2];
         }
     }
 }
