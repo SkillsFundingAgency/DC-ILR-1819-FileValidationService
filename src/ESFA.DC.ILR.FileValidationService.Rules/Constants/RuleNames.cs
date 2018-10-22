@@ -224,6 +224,9 @@
         public const string FD_AddHours_AR = "FD_AddHours_AR";
         public const string FD_PriorLearnFundAdj_AR = "FD_PriorLearnFundAdj_AR";
         public const string FD_OtherFundAdj_AR = "FD_OtherFundAdj_AR";
+        // Entity Occurrences
+        public const string FD_ProviderSpecDeliveryMonitoring_EO = "FD_ProviderSpecDeliveryMonitoring_EO";
+        public const string FD_LearningDeliveryHE_EO = "FD_LearningDeliveryHE_EO";
 
         // Learning Delivery FAM
         // Regex

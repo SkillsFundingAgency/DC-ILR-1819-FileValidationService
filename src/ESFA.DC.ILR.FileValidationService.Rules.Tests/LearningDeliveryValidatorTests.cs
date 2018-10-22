@@ -261,6 +261,18 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_ProviderSpecDeliveryMonitoring_EO()
+        {
+            TestEntityMaximumOccurrenceFor(ld => ld.ProviderSpecDeliveryMonitorings, "FD_ProviderSpecDeliveryMonitoring_EO", "ProviderSpecDeliveryMonitoring", 4);
+        }
+
+        [Fact]
+        public void FD_LearningDeliveryHE_EO()
+        {
+            TestEntityMaximumOccurrenceFor(ld => ld.LearningDeliveryHEs, "FD_LearningDeliveryHE_EO", "LearningDeliveryHE", 1);
+        }
+
+        [Fact]
         public void LearningDeliveryFAM_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(ld => ld.LearningDeliveryFAMs, typeof(IValidator<ILooseLearningDeliveryFAM>));

@@ -77,5 +77,11 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleFor(ld => ld.PriorLearnFundAdjNullable).InclusiveBetween(0, 99).WithRangeError(RuleNames.FD_PriorLearnFundAdj_AR);
             RuleFor(ld => ld.OtherFundAdjNullable).InclusiveBetween(0, 999).WithRangeError(RuleNames.FD_OtherFundAdj_AR);
         }
+
+        public override void EntityOccurenceRules()
+        {
+            RuleFor(ld => ld.ProviderSpecDeliveryMonitorings).CountLessThanOrEqualTo(4).WithEntityOccurrenceError(RuleNames.FD_ProviderSpecDeliveryMonitoring_EO);
+            RuleFor(ld => ld.LearningDeliveryHEs).CountLessThanOrEqualTo(1).WithEntityOccurrenceError(RuleNames.FD_LearningDeliveryHE_EO);
+        }
     }
 }
