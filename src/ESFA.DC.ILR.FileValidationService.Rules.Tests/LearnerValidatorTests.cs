@@ -1,4 +1,6 @@
-﻿using ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract;
+﻿using System;
+using System.Collections.Generic;
+using ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 using FluentValidation.TestHelper;
@@ -381,6 +383,48 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void FD_PlanEEPHours_AR()
         {
             TestRangeFor(l => l.PlanEEPHoursNullable, "FD_PlanEEPHours_AR", "PlanEEPHours", 0, 9999);
+        }
+
+        [Fact]
+        public void FD_ContactPreference_EO()
+        {
+            TestEntityMaximumOccurrenceFor(l => l.ContactPreferences, "FD_ContactPreference_EO", "ContactPreference", 5);
+        }
+
+        [Fact]
+        public void FD_LLDDandHealthProblem_EO()
+        {
+            TestEntityMaximumOccurrenceFor(l => l.LLDDAndHealthProblems, "FD_LLDDandHealthProblem_EO", "LLDDandHealthProblem", 22);
+        }
+
+        [Fact]
+        public void FD_LearnerFAM_EO()
+        {
+            TestEntityMaximumOccurrenceFor(l => l.LearnerFAMs, "FD_LearnerFAM_EO", "LearnerFAM", 17);
+        }
+
+        [Fact]
+        public void FD_ProviderSpecLearnerMonitoring_EO()
+        {
+            TestEntityMaximumOccurrenceFor(l => l.ProviderSpecLearnerMonitorings, "FD_ProviderSpecLearnerMonitoring_EO", "ProviderSpecLearnerMonitoring", 2);
+        }
+
+        [Fact]
+        public void FD_EmploymentStatusMonitoring_EO()
+        {
+            TestEntityMaximumOccurrenceFor(l => l.LearnerEmploymentStatuses, "FD_EmploymentStatusMonitoring_EO", "EmploymentStatusMonitoring", 7);
+        }
+
+        [Fact]
+        public void FD_LearnerHE_EO()
+        {
+            TestEntityMaximumOccurrenceFor(l => l.LearnerHEs, "FD_LearnerHE_EO", "LearnerHE", 1);
+        }
+
+        [Fact]
+        public void FD_LearningDelivery_EO()
+        {
+            TestEntityMinimumOccurrenceFor(l => l.LearningDeliveries, "FD_LearningDelivery_EO", "LearningDeliveries", 1);
         }
 
         [Fact]

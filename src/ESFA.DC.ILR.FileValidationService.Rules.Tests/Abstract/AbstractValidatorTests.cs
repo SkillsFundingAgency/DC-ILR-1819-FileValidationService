@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using ESFA.DC.ILR.FileValidationService.Rules.Tests.Extensions;
@@ -16,6 +17,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
         private const string RegexRuleSetName = "Regex";
         private const string LengthRuleSetName = "Length";
         private const string RangeRuleSetName = "Range";
+        private const string EntityOccurrencesRuleSetName = "EntityOccurrence";
 
         protected AbstractValidatorTests(IValidator<TEntity> validator)
         {
@@ -165,6 +167,45 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
                 .WithRangeState(ruleName, attributeName, invalidMaximum);
         }
 
+        protected void TestEntityMaximumOccurrenceFor<T>(Expression<Func<TEntity, IReadOnlyCollection<T>>> selector, string ruleName, string attributeName, int occurrences)
+            where T : class
+        {
+            var validCollection = MockEntityCollection<T>(occurrences);
+            var validMock = MockEntity(selector, validCollection);
+            
+            _validator.ShouldNotHaveValidationErrorFor(selector, validMock, EntityOccurrencesRuleSetName);
+
+            var invalidCount = occurrences + 1;
+
+            var invalidCollection = MockEntityCollection<T>(invalidCount);
+            var invalidMock = MockEntity(selector, invalidCollection);
+
+            _validator.ShouldHaveValidationErrorFor(selector, invalidMock, EntityOccurrencesRuleSetName)
+                .WithErrorCode(ruleName)
+                .WithEntityOccurrenceState(ruleName, attributeName, invalidCount);
+        }
+
+        protected void TestEntityMinimumOccurrenceFor<T>(Expression<Func<TEntity, IReadOnlyCollection<T>>> selector, string ruleName, string attributeName, int occurrences)
+            where T : class
+        {
+            var validCollection = MockEntityCollection<T>(occurrences);
+            var validMock = MockEntity(selector, validCollection);
+
+            _validator.ShouldNotHaveValidationErrorFor(selector, validMock, EntityOccurrencesRuleSetName);
+            
+            var invalidCount = occurrences - 1;
+
+            if (invalidCount >= 0)
+            {
+                var invalidCollection = MockEntityCollection<T>(invalidCount);
+                var invalidMock = MockEntity(selector, invalidCollection);
+
+                _validator.ShouldHaveValidationErrorFor(selector, invalidMock, EntityOccurrencesRuleSetName)
+                    .WithErrorCode(ruleName)
+                    .WithEntityOccurrenceState(ruleName, attributeName, invalidCount);
+            }
+        }
+
         private decimal BuildDecimalOfPrecisionScale(int precision, int scale)
         {
             var stringBuilder = new StringBuilder();
@@ -201,6 +242,16 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
             learnerMock.SetupGet(selector).Returns(value);
 
             return learnerMock.Object;
+        }
+
+        protected IReadOnlyCollection<T> MockEntityCollection<T>(int occurrences)
+            where T : class
+        {
+            var collectionMock = new Mock<IReadOnlyCollection<T>>();
+
+            collectionMock.Setup(c => c.Count).Returns(occurrences);
+
+            return collectionMock.Object;
         }
     }
 }

@@ -66,7 +66,15 @@
         public const string FD_ALSCost_AR = "FD_ALSCost_AR";
         public const string FD_PlanLearnHours_AR = "FD_PlanLearnHours_AR";
         public const string FD_PlanEEPHours_AR = "FD_PlanEEPHours_AR";
-            
+        // Entity Occurence
+        public const string FD_ContactPreference_EO = "FD_ContactPreference_EO";
+        public const string FD_LLDDandHealthProblem_EO = "FD_LLDDandHealthProblem_EO";
+        public const string FD_LearnerFAM_EO = "FD_LearnerFAM_EO";
+        public const string FD_ProviderSpecLearnerMonitoring_EO = "FD_ProviderSpecLearnerMonitoring_EO";
+        public const string FD_EmploymentStatusMonitoring_EO = "FD_EmploymentStatusMonitoring_EO";
+        public const string FD_LearnerHE_EO = "FD_LearnerHE_EO";
+        public const string FD_LearningDelivery_EO = "FD_LearningDelivery_EO";
+
         // Contact Preference
         // Regex
         public const string FD_ContPrefType_AP = "FD_ContPrefType_AP";
@@ -134,7 +142,9 @@
         public const string FD_TTACCOM_AL = "FD_TTACCOM_AL";
         // Range
         public const string FD_UCASPERID_AR = "FD_UCASPERID_AR";
-        
+        // Entity Occurrences
+        public const string FD_LearnerHEFinancialSupport_EO = "FD_LearnerHEFinancialSupport_EO";
+
         // Learner HE Financial Support
         // Mandatory
         public const string FD_FINTYPE_MA = "FD_FINTYPE_MA";
@@ -156,6 +166,8 @@
         public const string FD_DP_ULN_AL = "FD_DP_ULN_AL";
         // Range
         public const string FD_DP_ULN_AR = "FD_DP_ULN_AR";
+        // Entity Occurrence
+        public const string FD_DP_DPOutcome_EO = "FD_DP_DPOutcome_EO";
 
         // DP Outcome
         // Regex
@@ -214,6 +226,9 @@
         public const string FD_AddHours_AR = "FD_AddHours_AR";
         public const string FD_PriorLearnFundAdj_AR = "FD_PriorLearnFundAdj_AR";
         public const string FD_OtherFundAdj_AR = "FD_OtherFundAdj_AR";
+        // Entity Occurrences
+        public const string FD_ProviderSpecDeliveryMonitoring_EO = "FD_ProviderSpecDeliveryMonitoring_EO";
+        public const string FD_LearningDeliveryHE_EO = "FD_LearningDeliveryHE_EO";
 
         // Learning Delivery FAM
         // Regex

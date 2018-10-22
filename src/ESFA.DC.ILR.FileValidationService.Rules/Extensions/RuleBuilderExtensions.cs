@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using FluentValidation;
@@ -7,6 +8,9 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Extensions
 {
     public static class RuleBuilderExtensions
     {
+        private const string LengthStateKey = "Length";
+        private const string ActualOccurrencesStateKey = "Actual Occurrences";
+
         public static IRuleBuilderOptions<T, string> MatchesRestrictedString<T>(this IRuleBuilder<T, string> ruleBuilder)
         {
             return ruleBuilder.MatchesRegex(Regexes.RestrictedString);
@@ -64,6 +68,16 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Extensions
             });
         }
 
+        public static IRuleBuilderOptions<T, IReadOnlyCollection<TInstance>> CountLessThanOrEqualTo<T, TInstance>(this IRuleBuilder<T, IReadOnlyCollection<TInstance>> ruleBuilder, int count)
+        {
+            return ruleBuilder.Must(e => e == null || e.Count <= count);
+        }
+
+        public static IRuleBuilderOptions<T, IReadOnlyCollection<TInstance>> CountGreaterThanOrEqualTo<T, TInstance>(this IRuleBuilder<T, IReadOnlyCollection<TInstance>> ruleBuilder, int count)
+        {
+            return ruleBuilder.Must(e => e != null && e.Count >= count);
+        }
+
         public static IRuleBuilderOptions<T, TProperty> WithLengthError<T, TProperty>(this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string ruleName)
         {
             return ruleBuilderOptions
@@ -78,23 +92,38 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Extensions
                 .WithRangeState(ExtractPropertyName(ruleName));
         }
 
+        public static IRuleBuilderOptions<T, IReadOnlyCollection<TProperty>> WithEntityOccurrenceError<T, TProperty>(this IRuleBuilderOptions<T, IReadOnlyCollection<TProperty>> ruleBuilderOptions, string ruleName)
+        {
+            return ruleBuilderOptions
+                .WithErrorCode(ruleName)
+                .WithEntityOccurenceState(ExtractPropertyName(ruleName));
+        }
+
         private static IRuleBuilderOptions<T, TProperty> WithLengthState<T, TProperty>(this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string attributeName)
         {
             return ruleBuilderOptions.WithState((t, p) =>
                 new Dictionary<string, string>()
                 {
                     { attributeName, p?.ToString() },
-                    { "Length", p?.ToString().Length.ToString() }
+                    { LengthStateKey, p?.ToString().Length.ToString() }
                 });
         }
 
-        private static IRuleBuilderOptions<T, TProperty> WithRangeState<T, TProperty>(
-            this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string attributeName)
+        private static IRuleBuilderOptions<T, TProperty> WithRangeState<T, TProperty>(this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string attributeName)
         {
             return ruleBuilderOptions.WithState((t, p) =>
                 new Dictionary<string, string>()
                 {
                     { attributeName, p?.ToString() },
+                });
+        }
+
+        private static IRuleBuilderOptions<T, IReadOnlyCollection<TProperty>> WithEntityOccurenceState<T, TProperty>(this IRuleBuilderOptions<T, IReadOnlyCollection<TProperty>> ruleBuilderOptions, string attributeName)
+        {
+            return ruleBuilderOptions.WithState((t, p) =>
+                new Dictionary<string, string>()
+                {
+                    { ActualOccurrencesStateKey, p?.Count.ToString() ?? "0" },
                 });
         }
 

@@ -9,5 +9,7 @@
         void LengthRules();
 
         void RangeRules();
+
+        void EntityOccurenceRules();
     }
 }

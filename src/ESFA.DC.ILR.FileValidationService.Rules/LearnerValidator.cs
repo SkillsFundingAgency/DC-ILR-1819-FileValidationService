@@ -3,6 +3,7 @@ using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using ESFA.DC.ILR.FileValidationService.Rules.Extensions;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
+using RuleNames = ESFA.DC.ILR.FileValidationService.Rules.Constants.RuleNames;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules
 {
@@ -97,6 +98,18 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleFor(l => l.ALSCostNullable).InclusiveBetween(0, 999999).WithRangeError(RuleNames.FD_ALSCost_AR);
             RuleFor(l => l.PlanLearnHoursNullable).InclusiveBetween(0, 9999).WithRangeError(RuleNames.FD_PlanLearnHours_AR);
             RuleFor(l => l.PlanEEPHoursNullable).InclusiveBetween(0, 9999).WithRangeError(RuleNames.FD_PlanEEPHours_AR);
+        }
+
+        public override void EntityOccurenceRules()
+        {
+            RuleFor(l => l.ContactPreferences).CountLessThanOrEqualTo(5).WithEntityOccurrenceError(RuleNames.FD_ContactPreference_EO);
+            RuleFor(l => l.LLDDAndHealthProblems).CountLessThanOrEqualTo(22).WithEntityOccurrenceError(RuleNames.FD_LLDDandHealthProblem_EO);
+            RuleFor(l => l.LearnerFAMs).CountLessThanOrEqualTo(17).WithEntityOccurrenceError(RuleNames.FD_LearnerFAM_EO);
+            RuleFor(l => l.ProviderSpecLearnerMonitorings).CountLessThanOrEqualTo(2).WithEntityOccurrenceError(RuleNames.FD_ProviderSpecLearnerMonitoring_EO);
+            RuleFor(l => l.LearnerEmploymentStatuses).CountLessThanOrEqualTo(7).WithEntityOccurrenceError(RuleNames.FD_EmploymentStatusMonitoring_EO);
+            RuleFor(l => l.LearnerHEs).CountLessThanOrEqualTo(1).WithEntityOccurrenceError(RuleNames.FD_LearnerHE_EO);
+            RuleFor(l => l.LearningDeliveries).CountGreaterThanOrEqualTo(1).WithEntityOccurrenceError(RuleNames.FD_LearningDelivery_EO);
+
         }
     }
 }

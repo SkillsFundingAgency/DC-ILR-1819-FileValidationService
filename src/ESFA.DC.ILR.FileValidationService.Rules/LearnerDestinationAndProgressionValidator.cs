@@ -34,5 +34,10 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RuleFor(ldp => ldp.ULNNullable).InclusiveBetween(1000000000, 9999999999).WithRangeError(RuleNames.FD_DP_ULN_AR);
         }
+
+        public override void EntityOccurenceRules()
+        {
+            RuleFor(ldp => ldp.DPOutcomes).CountGreaterThanOrEqualTo(1).WithEntityOccurrenceError(RuleNames.FD_DP_DPOutcome_EO);
+        }
     }
 }

@@ -41,6 +41,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_LearnerHEFinancialSupport_EO()
+        {
+            TestEntityMaximumOccurrenceFor(lhe => lhe.LearnerHEFinancialSupports, "FD_LearnerHEFinancialSupport_EO", "LearnerHEFinancialSupport", 4);
+        }
+
+        [Fact]
         public void LearnerHEFinancialSupport_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(lhe => lhe.LearnerHEFinancialSupports, typeof(IValidator<ILooseLearnerHEFinancialSupport>));
