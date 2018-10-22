@@ -154,6 +154,8 @@
         // Length
         public const string FD_DP_LearnRefNumber_AL = "FD_DP_LearnRefNumber_AL";
         public const string FD_DP_ULN_AL = "FD_DP_ULN_AL";
+        // Range
+        public const string FD_DP_ULN_AR = "FD_DP_ULN_AR";
 
         // DP Outcome
         // Regex
