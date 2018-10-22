@@ -37,5 +37,10 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
                 return false;
             }).WithRangeError(RuleNames.FD_UCASPERID_AR);
         }
+
+        public override void EntityOccurenceRules()
+        {
+            RuleFor(lhe => lhe.LearnerHEFinancialSupports).CountLessThanOrEqualTo(4).WithEntityOccurrenceError(RuleNames.FD_LearnerHEFinancialSupport_EO);
+        }
     }
 }

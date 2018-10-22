@@ -142,7 +142,9 @@
         public const string FD_TTACCOM_AL = "FD_TTACCOM_AL";
         // Range
         public const string FD_UCASPERID_AR = "FD_UCASPERID_AR";
-        
+        // Entity Occurrences
+        public const string FD_LearnerHEFinancialSupport_EO = "FD_LearnerHEFinancialSupport_EO";
+
         // Learner HE Financial Support
         // Mandatory
         public const string FD_FINTYPE_MA = "FD_FINTYPE_MA";
