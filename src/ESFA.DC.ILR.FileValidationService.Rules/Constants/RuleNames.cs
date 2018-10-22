@@ -248,6 +248,8 @@
         public const string FD_AFinType_AL = "FD_AFinType_AL";
         public const string FD_AFinCode_AL = "FD_AFinCode_AL";
         public const string FD_AFinAmount_AL = "FD_AFinAmount_AL";
+        // Range
+        public const string FD_AFinAmount_AR = "FD_AFinAmount_AR";
 
         // Prov Spec Delivery Monitoring
         // Regex

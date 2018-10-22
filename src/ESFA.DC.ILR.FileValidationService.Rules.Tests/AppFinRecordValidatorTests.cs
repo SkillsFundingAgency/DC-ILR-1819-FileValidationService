@@ -58,5 +58,11 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestLengthLongRuleFor(afr => afr.AFinAmountNullable, "FD_AFinAmount_AL", "AFinAmount", 1, 6);
         }
+
+        [Fact]
+        public void FD_AFinAmount_AR()
+        {
+            TestRangeFor(afr => afr.AFinAmountNullable, "FD_AFinAmount_AR", "AFinAmount", 0, 999999);
+        }
     }
 }
