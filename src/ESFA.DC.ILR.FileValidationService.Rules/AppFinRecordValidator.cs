@@ -27,5 +27,10 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleFor(afr => afr.AFinCodeNullable).Length(1, 2).WithLengthError(RuleNames.FD_AFinCode_AL);
             RuleFor(afr => afr.AFinAmountNullable).Length(1, 6).WithLengthError(RuleNames.FD_AFinAmount_AL);
         }
+
+        public override void RangeRules()
+        {
+            RuleFor(afr => afr.AFinAmountNullable).InclusiveBetween(0, 999999).WithRangeError(RuleNames.FD_AFinAmount_AR);
+        }
     }
 }

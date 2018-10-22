@@ -8,6 +8,6 @@
 
         void LengthRules();
 
-        void ChildValidators();
+        void RangeRules();
     }
 }

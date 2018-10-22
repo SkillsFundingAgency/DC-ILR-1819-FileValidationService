@@ -34,5 +34,11 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestLengthLongRuleFor(fs => fs.FINAMOUNTNullable, "FD_FINAMOUNT_AL", "FINAMOUNT", 1, 6);
         }
+
+        [Fact]
+        public void FD_FINAMOUNT_AR()
+        {
+            TestRangeFor(fs => fs.FINAMOUNTNullable, "FD_FINAMOUNT_AR", "FINAMOUNT", 0, 999999);
+        }
     }
 }

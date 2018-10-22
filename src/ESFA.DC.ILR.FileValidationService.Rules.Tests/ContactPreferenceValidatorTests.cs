@@ -28,5 +28,17 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestMandatoryLongAttributeRuleFor(cp => cp.ContPrefCodeNullable, "FD_ContPrefCode_MA");
         }
+
+        [Fact]
+        public void FD_ContPrefType_AL()
+        { 
+            TestLengthStringRuleFor(cp => cp.ContPrefType, "FD_ContPrefType_AL", "ContPrefType", 1, 3);
+        }
+
+        [Fact]
+        public void FD_ContPrefCode_AL()
+        {
+            TestLengthLongRuleFor(cp => cp.ContPrefCodeNullable, "FD_ContPrefCode_AL", "ContPrefCode", 1, 1);
+        }
     }
 }

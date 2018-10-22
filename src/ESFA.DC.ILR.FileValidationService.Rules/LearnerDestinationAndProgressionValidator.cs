@@ -29,5 +29,10 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleFor(ldp => ldp.LearnRefNumber).Length(1, 12).WithLengthError(RuleNames.FD_DP_LearnRefNumber_AL);
             RuleFor(ldp => ldp.ULNNullable).Length(1, 10).WithLengthError(RuleNames.FD_DP_ULN_AL);
         }
+
+        public override void RangeRules()
+        {
+            RuleFor(ldp => ldp.ULNNullable).InclusiveBetween(1000000000, 9999999999).WithRangeError(RuleNames.FD_DP_ULN_AR);
+        }
     }
 }

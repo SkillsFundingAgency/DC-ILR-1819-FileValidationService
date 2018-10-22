@@ -58,13 +58,24 @@
         public const string FD_AddLine4_AL = "FD_AddLine4_AL";
         public const string FD_TelNo_AL = "FD_TelNo_AL";
         public const string FD_Email_AL = "FD_Email_AL";
-
+        // Range
+        public const string FD_OTJHours_AR = "FD_OTJHours_AR";
+        public const string FD_PrevUKPRN_AR = "FD_PrevUKPRN_AR";
+        public const string FD_PMUKPRN_AR = "FD_PMUKPRN_AR";
+        public const string FD_ULN_AR = "FD_ULN_AR";
+        public const string FD_ALSCost_AR = "FD_ALSCost_AR";
+        public const string FD_PlanLearnHours_AR = "FD_PlanLearnHours_AR";
+        public const string FD_PlanEEPHours_AR = "FD_PlanEEPHours_AR";
+            
         // Contact Preference
         // Regex
         public const string FD_ContPrefType_AP = "FD_ContPrefType_AP";
         // Mandatory
         public const string FD_ContPrefType_MA = "FD_ContPrefType_MA";
         public const string FD_ContPrefCode_MA = "FD_ContPrefCode_MA";
+        // Range
+        public const string FD_ContPrefType_AL = "FD_ContPrefType_AL";
+        public const string FD_ContPrefCode_AL = "FD_ContPrefCode_AL";
 
         // LLDD and Health Problem
         // Mandatory
@@ -121,6 +132,8 @@
         // Length
         public const string FD_UCASPERID_AL = "FD_UCASPERID_AL";
         public const string FD_TTACCOM_AL = "FD_TTACCOM_AL";
+        // Range
+        public const string FD_UCASPERID_AR = "FD_UCASPERID_AR";
         
         // Learner HE Financial Support
         // Mandatory
@@ -129,6 +142,8 @@
         // Length
         public const string FD_FINTYPE_AL = "FD_FINTYPE_AL";
         public const string FD_FINAMOUNT_AL = "FD_FINAMOUNT_AL";
+        // Range
+        public const string FD_FINAMOUNT_AR = "FD_FINAMOUNT_AR";
 
         // Learner Destination And Progression
         // Regex
@@ -139,6 +154,8 @@
         // Length
         public const string FD_DP_LearnRefNumber_AL = "FD_DP_LearnRefNumber_AL";
         public const string FD_DP_ULN_AL = "FD_DP_ULN_AL";
+        // Range
+        public const string FD_DP_ULN_AR = "FD_DP_ULN_AR";
 
         // DP Outcome
         // Regex
@@ -191,6 +208,12 @@
         public const string FD_Outcome_AL = "FD_Outcome_AL";
         public const string FD_OutGrade_AL = "FD_OutGrade_AL";
         public const string FD_SWSupAimId_AL = "FD_SWSupAimId_AL";
+        // Range
+        public const string FD_AimSeqNumber_AR = "FD_AimSeqNumber_AR";
+        public const string FD_PartnerUKPRN_AR = "FD_PartnerUKPRN_AR";
+        public const string FD_AddHours_AR = "FD_AddHours_AR";
+        public const string FD_PriorLearnFundAdj_AR = "FD_PriorLearnFundAdj_AR";
+        public const string FD_OtherFundAdj_AR = "FD_OtherFundAdj_AR";
 
         // Learning Delivery FAM
         // Regex
@@ -212,6 +235,8 @@
         public const string FD_WorkPlaceHours_AL = "FD_WorkPlaceHours_AL";
         public const string FD_WorkPlaceMode_AL = "FD_WorkPlaceMode_AL";
         public const string FD_WorkPlaceEmpId_AL = "FD_WorkPlaceEmpId_AL";
+        // Range
+        public const string FD_WorkPlaceHours_AR = "FD_WorkPlaceHours_AR";
 
         // App Fin Record
         // Regex
@@ -225,6 +250,8 @@
         public const string FD_AFinType_AL = "FD_AFinType_AL";
         public const string FD_AFinCode_AL = "FD_AFinCode_AL";
         public const string FD_AFinAmount_AL = "FD_AFinAmount_AL";
+        // Range
+        public const string FD_AFinAmount_AR = "FD_AFinAmount_AR";
 
         // Prov Spec Delivery Monitoring
         // Regex
@@ -277,5 +304,14 @@
         public const string FD_DOMICILE_AL = "FD_DOMICILE_AL";
         public const string FD_ELQ_AL = "FD_ELQ_AL";
         public const string FD_HEPostCode_AL = "FD_HEPostCode_AL";
+        // Range
+        public const string FD_STULOAD_AR = "FD_STULOAD_AR";
+        public const string FD_YEARSTU_AR = "FD_YEARSTU_AR";
+        public const string FD_PCOLAB_AR = "FD_PCOLAB_AR";
+        public const string FD_PCFLDCS_AR = "FD_PCFLDCS_AR";
+        public const string FD_PCSLDCS_AR = "FD_PCSLDCS_AR";
+        public const string FD_PCTLDCS_AR = "FD_PCTLDCS_AR";
+        public const string FD_NETFEE_AR = "FD_NETFEE_AR";
+        public const string FD_GROSSFEE_AR = "FD_GROSSFEE_AR";
     }
 }

@@ -47,6 +47,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_DP_ULN_AR()
+        {
+            TestRangeFor(ldp => ldp.ULNNullable, "FD_DP_ULN_AR", "ULN", 1000000000, 9999999999);
+        }
+
+        [Fact]
         public void DPOutcome_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(ldp => ldp.DPOutcomes, typeof(IValidator<ILooseDPOutcome>));

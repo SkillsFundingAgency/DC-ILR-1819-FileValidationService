@@ -71,13 +71,30 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Extensions
                 .WithLengthState(ExtractPropertyName(ruleName));
         }
 
-        public static IRuleBuilderOptions<T, TProperty> WithLengthState<T, TProperty>(this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string attributeName)
+        public static IRuleBuilderOptions<T, TProperty> WithRangeError<T, TProperty>(this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string ruleName)
+        {
+            return ruleBuilderOptions
+                .WithErrorCode(ruleName)
+                .WithRangeState(ExtractPropertyName(ruleName));
+        }
+
+        private static IRuleBuilderOptions<T, TProperty> WithLengthState<T, TProperty>(this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string attributeName)
         {
             return ruleBuilderOptions.WithState((t, p) =>
                 new Dictionary<string, string>()
                 {
                     { attributeName, p?.ToString() },
                     { "Length", p?.ToString().Length.ToString() }
+                });
+        }
+
+        private static IRuleBuilderOptions<T, TProperty> WithRangeState<T, TProperty>(
+            this IRuleBuilderOptions<T, TProperty> ruleBuilderOptions, string attributeName)
+        {
+            return ruleBuilderOptions.WithState((t, p) =>
+                new Dictionary<string, string>()
+                {
+                    { attributeName, p?.ToString() },
                 });
         }
 
