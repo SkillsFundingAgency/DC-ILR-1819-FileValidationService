@@ -53,6 +53,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_DP_DPOutcome_EO()
+        {
+            TestEntityMinimumOccurrenceFor(ldp => ldp.DPOutcomes, "FD_DP_DPOutcome_EO", "DPOutcome", 1);
+        }
+
+        [Fact]
         public void DPOutcome_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(ldp => ldp.DPOutcomes, typeof(IValidator<ILooseDPOutcome>));

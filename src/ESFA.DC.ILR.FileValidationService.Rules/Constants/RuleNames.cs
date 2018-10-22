@@ -166,6 +166,8 @@
         public const string FD_DP_ULN_AL = "FD_DP_ULN_AL";
         // Range
         public const string FD_DP_ULN_AR = "FD_DP_ULN_AR";
+        // Entity Occurrence
+        public const string FD_DP_DPOutcome_EO = "FD_DP_DPOutcome_EO";
 
         // DP Outcome
         // Regex
