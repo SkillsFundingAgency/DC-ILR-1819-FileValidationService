@@ -233,6 +233,8 @@
         public const string FD_WorkPlaceHours_AL = "FD_WorkPlaceHours_AL";
         public const string FD_WorkPlaceMode_AL = "FD_WorkPlaceMode_AL";
         public const string FD_WorkPlaceEmpId_AL = "FD_WorkPlaceEmpId_AL";
+        // Range
+        public const string FD_WorkPlaceHours_AR = "FD_WorkPlaceHours_AR";
 
         // App Fin Record
         // Regex

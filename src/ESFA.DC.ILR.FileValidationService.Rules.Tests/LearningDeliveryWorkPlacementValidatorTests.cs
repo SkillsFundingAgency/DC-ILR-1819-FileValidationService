@@ -46,5 +46,11 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestLengthLongRuleFor(wp => wp.WorkPlaceEmpIdNullable, "FD_WorkPlaceEmpId_AL", "WorkPlaceEmpId", 1, 9);
         }
+
+        [Fact]
+        public void FD_WorkPlaceHours_AR()
+        {
+            TestRangeFor(wp => wp.WorkPlaceHoursNullable, "FD_WorkPlaceHours_AR", "WorkPlaceHours", 1, 9999);
+        }
     }
 }
