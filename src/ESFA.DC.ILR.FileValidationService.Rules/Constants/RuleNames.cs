@@ -302,5 +302,14 @@
         public const string FD_DOMICILE_AL = "FD_DOMICILE_AL";
         public const string FD_ELQ_AL = "FD_ELQ_AL";
         public const string FD_HEPostCode_AL = "FD_HEPostCode_AL";
+        // Range
+        public const string FD_STULOAD_AR = "FD_STULOAD_AR";
+        public const string FD_YEARSTU_AR = "FD_YEARSTU_AR";
+        public const string FD_PCOLAB_AR = "FD_PCOLAB_AR";
+        public const string FD_PCFLDCS_AR = "FD_PCFLDCS_AR";
+        public const string FD_PCSLDCS_AR = "FD_PCSLDCS_AR";
+        public const string FD_PCTLDCS_AR = "FD_PCTLDCS_AR";
+        public const string FD_NETFEE_AR = "FD_NETFEE_AR";
+        public const string FD_GROSSFEE_AR = "FD_GROSSFEE_AR";
     }
 }

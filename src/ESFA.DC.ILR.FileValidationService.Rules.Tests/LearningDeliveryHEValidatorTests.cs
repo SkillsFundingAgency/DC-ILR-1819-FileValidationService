@@ -226,5 +226,53 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         {
             TestLengthStringRuleFor(he => he.HEPostCode, "FD_HEPostCode_AL", "HEPostCode", 1, 8);
         }
+
+        [Fact]
+        public void FD_STULOAD_AR()
+        {
+            TestRangeFor(he => he.STULOADNullable, "FD_STULOAD_AR", "STULOAD", 0.1m, 300.0m);
+        }
+
+        [Fact]
+        public void FD_YEARSTU_AR()
+        {
+            TestRangeFor(he => he.YEARSTUNullable, "FD_YEARSTU_AR", "YEARSTU", 1, 98);
+        }
+
+        [Fact]
+        public void FD_PCOLAB_AR()
+        {
+            TestRangeFor(he => he.PCOLABNullable, "FD_PCOLAB_AR", "PCOLAB", 0.1m, 100.0m);
+        }
+
+        [Fact]
+        public void FD_PCFLDCS_AR()
+        {
+            TestRangeFor(he => he.PCFLDCSNullable, "FD_PCFLDCS_AR", "PCFLDCS", 0m, 100.0m);
+        }
+
+        [Fact]
+        public void FD_PCSLDCS_AR()
+        {
+            TestRangeFor(he => he.PCSLDCSNullable, "FD_PCSLDCS_AR", "PCSLDCS", 0m, 100.0m);
+        }
+
+        [Fact]
+        public void FD_PCTLDCS_AR()
+        {
+            TestRangeFor(he => he.PCTLDCSNullable, "FD_PCTLDCS_AR", "PCTLDCS", 0m, 100.0m);
+        }
+
+        [Fact]
+        public void FD_NETFEE_AR()
+        {
+            TestRangeFor(he => he.NETFEENullable, "FD_NETFEE_AR", "NETFEE", 0, 999999);
+        }
+
+        [Fact]
+        public void FD_GROSSFEE_AR()
+        {
+            TestRangeFor(he => he.GROSSFEENullable, "FD_GROSSFEE_AR", "GROSSFEE", 0, 999999);
+        }
     }
 }

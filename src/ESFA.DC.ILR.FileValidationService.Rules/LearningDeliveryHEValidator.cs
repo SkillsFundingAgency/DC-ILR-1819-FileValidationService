@@ -55,5 +55,18 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleFor(he => he.ELQNullable).Length(1, 1).WithLengthError(RuleNames.FD_ELQ_AL);
             RuleFor(he => he.HEPostCode).Length(1, 8).WithLengthError(RuleNames.FD_HEPostCode_AL);
         }
+
+        public override void RangeRules()
+        {
+            RuleFor(he => he.STULOADNullable).InclusiveBetween(0.1m, 300.0m).WithRangeError(RuleNames.FD_STULOAD_AR);
+            RuleFor(he => he.YEARSTUNullable).InclusiveBetween(1, 98).WithRangeError(RuleNames.FD_YEARSTU_AR);
+            RuleFor(he => he.PCOLABNullable).InclusiveBetween(0.1m, 100.0m).WithRangeError(RuleNames.FD_PCOLAB_AR);
+            RuleFor(he => he.PCFLDCSNullable).InclusiveBetween(0m, 100.0m).WithRangeError(RuleNames.FD_PCFLDCS_AR);
+            RuleFor(he => he.PCSLDCSNullable).InclusiveBetween(0m, 100.0m).WithRangeError(RuleNames.FD_PCSLDCS_AR);
+            RuleFor(he => he.PCTLDCSNullable).InclusiveBetween(0m, 100.0m).WithRangeError(RuleNames.FD_PCTLDCS_AR);
+            RuleFor(he => he.NETFEENullable).InclusiveBetween(0, 999999).WithRangeError(RuleNames.FD_NETFEE_AR);
+            RuleFor(he => he.GROSSFEENullable).InclusiveBetween(0, 999999).WithRangeError(RuleNames.FD_GROSSFEE_AR);
+
+        }
     }
 }
