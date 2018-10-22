@@ -6,5 +6,6 @@
         public const string MandatoryAttributes = "MandatoryAttributes";
         public const string Length = "Length";
         public const string Range = "Range";
+        public const string EntityOccurrence = "EntityOccurrence";
     }
 }

@@ -12,6 +12,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Abstract
             RuleSet(RuleSetNames.MandatoryAttributes, MandatoryAttributeRules);
             RuleSet(RuleSetNames.Length, LengthRules);
             RuleSet(RuleSetNames.Range, RangeRules);
+            RuleSet(RuleSetNames.EntityOccurrence, EntityOccurenceRules);
         }
 
         public virtual void MandatoryAttributeRules()
@@ -27,6 +28,10 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Abstract
         }
 
         public virtual void RangeRules()
+        {
+        }
+
+        public virtual void EntityOccurenceRules()
         {
         }
     }

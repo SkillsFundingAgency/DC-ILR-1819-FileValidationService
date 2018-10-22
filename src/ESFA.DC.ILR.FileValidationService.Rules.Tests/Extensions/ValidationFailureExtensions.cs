@@ -25,5 +25,14 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Extensions
 
             return validationFailures;
         }
+
+        public static IEnumerable<ValidationFailure> WithEntityOccurrenceState(this IEnumerable<ValidationFailure> validationFailures, string ruleName, string attributeName, int count)
+        {
+            var state = validationFailures.First(e => e.ErrorCode == ruleName).CustomState as IDictionary<string, string>;
+
+            state["Actual Occurrences"].Should().Be(count.ToString());
+
+            return validationFailures;
+        }
     }
 }

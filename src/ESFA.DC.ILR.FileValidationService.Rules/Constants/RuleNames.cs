@@ -66,7 +66,15 @@
         public const string FD_ALSCost_AR = "FD_ALSCost_AR";
         public const string FD_PlanLearnHours_AR = "FD_PlanLearnHours_AR";
         public const string FD_PlanEEPHours_AR = "FD_PlanEEPHours_AR";
-            
+        // Entity Occurence
+        public const string FD_ContactPreference_EO = "FD_ContactPreference_EO";
+        public const string FD_LLDDandHealthProblem_EO = "FD_LLDDandHealthProblem_EO";
+        public const string FD_LearnerFAM_EO = "FD_LearnerFAM_EO";
+        public const string FD_ProviderSpecLearnerMonitoring_EO = "FD_ProviderSpecLearnerMonitoring_EO";
+        public const string FD_EmploymentStatusMonitoring_EO = "FD_EmploymentStatusMonitoring_EO";
+        public const string FD_LearnerHE_EO = "FD_LearnerHE_EO";
+        public const string FD_LearningDelivery_EO = "FD_LearningDelivery_EO";
+
         // Contact Preference
         // Regex
         public const string FD_ContPrefType_AP = "FD_ContPrefType_AP";
