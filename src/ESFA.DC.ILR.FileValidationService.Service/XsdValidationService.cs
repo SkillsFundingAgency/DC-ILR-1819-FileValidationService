@@ -34,7 +34,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             AssertValidity();
         }
 
-        private void AssertValidity()
+        public void AssertValidity()
         {
             if (!_validationErrorMetadataService.IsSchemaValid(_validationErrorHandler.ValidationErrors))
             {
@@ -42,7 +42,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             }
         }
 
-        private XmlSchemaSet BuildXmlSchemaSet()
+        public XmlSchemaSet BuildXmlSchemaSet()
         {
             var xmlSchemaSet = new XmlSchemaSet()
             {
@@ -57,7 +57,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             return xmlSchemaSet;
         }
 
-        private XmlReaderSettings BuildXmlReaderSettings(XmlSchemaSet xmlSchemaSet)
+        public XmlReaderSettings BuildXmlReaderSettings(XmlSchemaSet xmlSchemaSet)
         {
             var settings = new XmlReaderSettings()
             {
