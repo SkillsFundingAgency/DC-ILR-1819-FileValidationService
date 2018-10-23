@@ -9,10 +9,12 @@ namespace ESFA.DC.FileService.Interface
     {
         Task<string> ReadStringAsync(string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null);
 
-        Task<Stream> OpenStreamAsync(string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null);
+        Task<Stream> OpenReadStreamAsync(string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null);
+
+        Task<Stream> OpenWriteStreamAsync(string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null);
 
         Task WriteStringAsync(string content, string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null);
 
-        Task WriteToStreamAsync();
+        Task WriteFromStreamAsync(Stream stream, string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null);
     }
 }

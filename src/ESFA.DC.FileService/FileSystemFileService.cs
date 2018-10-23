@@ -17,11 +17,18 @@ namespace ESFA.DC.FileService
             return Task.FromResult(fileContent);
         }
 
-        public Task<Stream> OpenStreamAsync(string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null)
+        public Task<Stream> OpenReadStreamAsync(string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null)
         {
             var filePath = container != null ? Path.Combine(container, fileReference) : fileReference;
             
             return Task.FromResult(File.OpenRead(filePath) as Stream);
+        }
+
+        public Task<Stream> OpenWriteStreamAsync(string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null)
+        {
+            var filePath = container != null ? Path.Combine(container, fileReference) : fileReference;
+
+            return Task.FromResult(File.OpenWrite(filePath) as Stream);
         }
 
         public Task WriteStringAsync(string content, string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null)
@@ -40,9 +47,14 @@ namespace ESFA.DC.FileService
             return Task.CompletedTask;
         }
 
-        public Task WriteToStreamAsync()
+        public Task WriteFromStreamAsync(Stream stream, string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null)
         {
-            throw new System.NotImplementedException();
+            var filePath = container != null ? Path.Combine(container, fileReference) : fileReference;
+
+            using (var outputStream = File.OpenWrite(filePath))
+            {
+                return stream.CopyToAsync(outputStream);
+            }
         }
     }
 }

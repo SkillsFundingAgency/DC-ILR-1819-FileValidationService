@@ -23,7 +23,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
         public async Task<Message> ProvideAsync(IFileValidationContext fileValidationContext, CancellationToken cancellationToken)
         {
-            using (var stream = await _fileService.OpenStreamAsync(fileValidationContext.FileReference, fileValidationContext.Container, cancellationToken))
+            using (var stream = await _fileService.OpenReadStreamAsync(fileValidationContext.FileReference, fileValidationContext.Container, cancellationToken))
             {
                 _xsdValidationService.Validate(stream);
 

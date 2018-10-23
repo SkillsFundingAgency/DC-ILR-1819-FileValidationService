@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.Model.Loose;
@@ -53,8 +54,6 @@ namespace ESFA.DC.ILR.FileValidationService.Service
                             validationErrors.AddRange(BuildValidationErrorsFromValidationResult(ldError, learner.LearnRefNumber, learningDelivery.AimSeqNumber));
                         }
                     }
-
-                    iteration++;
                 }
             }
 

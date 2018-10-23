@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Xml.Schema;
 using ESFA.DC.FileService;
@@ -21,6 +22,10 @@ namespace ESFA.DC.ILR.FileValidationService.Console
     {
         static void Main(string[] args)
         {
+            var stopwatch = new Stopwatch();
+
+            stopwatch.Start();
+
             //IFileValidationContext fileValidationContext = new FileValidationContext()
             //{
             //    FileReference = "ILR-99999999-1819-20180626-144401-01.xml",
@@ -80,6 +85,9 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             try
             {
                 fileValidationOrchestrationService.Validate(fileValidationContext, CancellationToken.None).Wait();
+
+                System.Console.WriteLine(stopwatch.Elapsed.TotalSeconds);
+                System.Console.Read();
             }
             catch (AggregateException aggregateException) when (aggregateException.InnerException is XmlSchemaException)
             {
