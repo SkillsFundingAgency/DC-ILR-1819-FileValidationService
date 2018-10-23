@@ -42,9 +42,9 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             xmlSerializationServiceMock.VerifyAll();
         }
 
-        private LooseMessageProvider NewProvider(IFileService fileService = null, IXmlSerializationService xmlSerializationService = null)
+        private LooseMessageProvider NewProvider(IFileService fileService = null, IXmlSerializationService xmlSerializationService = null, IXsdValidationService xsdValidationService = null)
         {
-            return new LooseMessageProvider(fileService, xmlSerializationService);
+            return new LooseMessageProvider(fileService, xmlSerializationService, xsdValidationService);
         }
     }
 }

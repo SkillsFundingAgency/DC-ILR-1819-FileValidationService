@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 using FluentValidation.TestHelper;

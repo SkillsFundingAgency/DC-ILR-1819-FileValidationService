@@ -17,9 +17,11 @@ namespace ESFA.DC.FileService
             return Task.FromResult(fileContent);
         }
 
-        public Task<Stream> OpenStreamAsync()
+        public Task<Stream> OpenStreamAsync(string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null)
         {
-            throw new System.NotImplementedException();
+            var filePath = container != null ? Path.Combine(container, fileReference) : fileReference;
+            
+            return Task.FromResult(File.OpenRead(filePath) as Stream);
         }
 
         public Task WriteStringAsync(string content, string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null)
