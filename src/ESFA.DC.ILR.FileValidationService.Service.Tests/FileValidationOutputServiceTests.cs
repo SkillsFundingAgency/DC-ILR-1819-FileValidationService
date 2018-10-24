@@ -31,7 +31,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             var xmlSerializationServiceMock = new Mock<IXmlSerializationService>();
             var fileServiceMock = new Mock<IFileService>();
 
-            fileServiceMock.Setup(s => s.OpenWriteStreamAsync(outputFileReference, outputContainer, cancellationToken, null)).Returns(Task.FromResult(stream)).Verifiable();
+            fileServiceMock.Setup(s => s.OpenWriteStreamAsync(outputFileReference, outputContainer, cancellationToken)).Returns(Task.FromResult(stream)).Verifiable();
 
             fileValidationContextMock.SetupGet(c => c.OutputFileReference).Returns(outputFileReference);
             fileValidationContextMock.SetupGet(c => c.OutputContainer).Returns(outputContainer);
