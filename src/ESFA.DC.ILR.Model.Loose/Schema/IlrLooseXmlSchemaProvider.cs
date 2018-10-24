@@ -7,7 +7,7 @@ using ESFA.DC.ILR.Model.Loose.Schema.Interface;
 
 namespace ESFA.DC.ILR.Model.Loose.Schema
 {
-    public class XmlSchemaProvider : IXmlSchemaProvider
+    public class IlrLooseXmlSchemaProvider : IIlrLooseXmlSchemaProvider
     {
         public XmlSchema Provide()
         {

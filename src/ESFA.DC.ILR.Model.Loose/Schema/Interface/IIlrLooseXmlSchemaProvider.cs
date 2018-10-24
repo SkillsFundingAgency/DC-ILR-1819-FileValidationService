@@ -2,7 +2,7 @@
 
 namespace ESFA.DC.ILR.Model.Loose.Schema.Interface
 {
-    public interface IXmlSchemaProvider
+    public interface IIlrLooseXmlSchemaProvider
     {
         XmlSchema Provide();
     }

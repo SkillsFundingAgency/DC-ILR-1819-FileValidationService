@@ -57,7 +57,7 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             IFileService fileService = new FileSystemFileService();
 
             IValidationErrorHandler validationErrorHandler = new ValidationErrorHandler();
-            IXmlSchemaProvider xmlSchemaProvider = new XmlSchemaProvider();
+            IIlrLooseXmlSchemaProvider xmlSchemaProvider = new IlrLooseXmlSchemaProvider();
             IValidationErrorMetadataService validationErrorMetadataService = new ValidationErrorMetadataService();
             IXsdValidationService xsdValidationService = new XsdValidationService(xmlSchemaProvider, validationErrorHandler, validationErrorMetadataService);
             

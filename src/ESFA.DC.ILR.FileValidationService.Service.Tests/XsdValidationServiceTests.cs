@@ -55,7 +55,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
         {
             var xmlSchema = new XmlSchema();
 
-            var xmlSchemaProviderMock = new Mock<IXmlSchemaProvider>();
+            var xmlSchemaProviderMock = new Mock<IIlrLooseXmlSchemaProvider>();
             xmlSchemaProviderMock.Setup(p => p.Provide()).Returns(xmlSchema);
 
             var xmlSchemaSet = NewService(xmlSchemaProviderMock.Object).BuildXmlSchemaSet();
@@ -80,7 +80,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             xmlReaderSettings.ValidationFlags.Should().Be(XmlSchemaValidationFlags.ProcessIdentityConstraints);
         }
 
-        private XsdValidationService NewService(IXmlSchemaProvider xmlSchemaProvider = null, IValidationErrorHandler validationErrorHandler = null, IValidationErrorMetadataService validationErrorMetadataService = null)
+        private XsdValidationService NewService(IIlrLooseXmlSchemaProvider xmlSchemaProvider = null, IValidationErrorHandler validationErrorHandler = null, IValidationErrorMetadataService validationErrorMetadataService = null)
         {
             return new XsdValidationService(xmlSchemaProvider, validationErrorHandler, validationErrorMetadataService);
         }

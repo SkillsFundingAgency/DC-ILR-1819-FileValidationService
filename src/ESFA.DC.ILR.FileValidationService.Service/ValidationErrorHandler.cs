@@ -42,7 +42,5 @@ namespace ESFA.DC.ILR.FileValidationService.Service
                     BuildErrorMessageParameter(MessagePropertyName, e.Message),
                 }));
         }
-
-        
     }
 }

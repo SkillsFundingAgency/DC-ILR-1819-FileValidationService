@@ -8,11 +8,11 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 {
     public class XsdValidationService : IXsdValidationService
     {
-        private readonly IXmlSchemaProvider _xmlSchemaProvider;
+        private readonly IIlrLooseXmlSchemaProvider _xmlSchemaProvider;
         private readonly IValidationErrorHandler _validationErrorHandler;
         private readonly IValidationErrorMetadataService _validationErrorMetadataService;
 
-        public XsdValidationService(IXmlSchemaProvider xmlSchemaProvider, IValidationErrorHandler validationErrorHandler, IValidationErrorMetadataService validationErrorMetadataService)
+        public XsdValidationService(IIlrLooseXmlSchemaProvider xmlSchemaProvider, IValidationErrorHandler validationErrorHandler, IValidationErrorMetadataService validationErrorMetadataService)
         {
             _xmlSchemaProvider = xmlSchemaProvider;
             _validationErrorHandler = validationErrorHandler;
