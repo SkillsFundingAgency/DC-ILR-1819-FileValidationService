@@ -7,12 +7,8 @@ namespace ESFA.DC.FileService.Interface
 {
     public interface IFileService
     {
-        Task<string> ReadStringAsync(string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null);
+        Task<Stream> OpenReadStreamAsync(string fileReference, string container, CancellationToken cancellationToken);
 
-        Task<Stream> OpenStreamAsync();
-
-        Task WriteStringAsync(string content, string fileReference, string container, CancellationToken cancellationToken, Encoding encoding = null);
-
-        Task WriteToStreamAsync();
+        Task<Stream> OpenWriteStreamAsync(string fileReference, string container, CancellationToken cancellationToken);
     }
 }

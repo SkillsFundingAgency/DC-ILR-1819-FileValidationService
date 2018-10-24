@@ -11,24 +11,26 @@ namespace ESFA.DC.ILR.FileValidationService.Service
     {
         private readonly IFileService _fileService;
         private readonly IXmlSerializationService _xmlSerializationService;
+        private readonly IXsdValidationService _xsdValidationService;
 
-        public LooseMessageProvider(IFileService fileService, IXmlSerializationService xmlSerializationService)
+
+        public LooseMessageProvider(IFileService fileService, IXmlSerializationService xmlSerializationService, IXsdValidationService xsdValidationService)
         {
             _fileService = fileService;
             _xmlSerializationService = xmlSerializationService;
+            _xsdValidationService = xsdValidationService;
         }
 
         public async Task<Message> ProvideAsync(IFileValidationContext fileValidationContext, CancellationToken cancellationToken)
         {
-            // Load String from File
-            var fileContent = await _fileService.ReadStringAsync(fileValidationContext.FileReference, fileValidationContext.Container, cancellationToken);
-            
-            // XSD Validation
+            using (var stream = await _fileService.OpenReadStreamAsync(fileValidationContext.FileReference, fileValidationContext.Container, cancellationToken))
+            {
+                _xsdValidationService.Validate(stream);
 
-            // Throw Exception if Fail
+                stream.Position = 0;
 
-            // Deserialize
-            return _xmlSerializationService.Deserialize<Message>(fileContent);
+                return _xmlSerializationService.Deserialize<Message>(stream);
+            }
         }
     }
 }
