@@ -26,7 +26,7 @@ namespace ESFA.DC.FileService
             var cloudBlockBlob = await GetCloudBlockBlob(fileReference, container, cancellationToken);
 
             var stream = await cloudBlockBlob.OpenReadAsync(
-                AccessCondition.GenerateIfNotExistsCondition(),
+                null,
                 _requestOptions,
                 null,
                 cancellationToken);
@@ -39,7 +39,7 @@ namespace ESFA.DC.FileService
             var cloudBlockBlob = await GetCloudBlockBlob(fileReference, container, cancellationToken);
 
             var stream = await cloudBlockBlob.OpenWriteAsync(
-                AccessCondition.GenerateIfNotExistsCondition(),
+                null,
                 _requestOptions,
                 null,
                 cancellationToken);
@@ -52,6 +52,7 @@ namespace ESFA.DC.FileService
             var cloudStorageAccount = CloudStorageAccount.Parse(_azureStorageFileServiceConfig.ConnectionString);
             var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
             var cloudBlobContainer = cloudBlobClient.GetContainerReference(container);
+
             await cloudBlobContainer.CreateIfNotExistsAsync(BlobContainerPublicAccessType.Off, _requestOptions, null, cancellationToken);
             return cloudBlobContainer.GetBlockBlobReference(fileReference);
         }

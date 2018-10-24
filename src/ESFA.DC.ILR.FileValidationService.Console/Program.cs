@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Threading;
 using System.Xml.Schema;
 using ESFA.DC.FileService;
+using ESFA.DC.FileService.Config;
+using ESFA.DC.FileService.Config.Interface;
 using ESFA.DC.FileService.Interface;
 using ESFA.DC.ILR.FileValidationService.Rules;
 using ESFA.DC.ILR.FileValidationService.Service;
@@ -36,17 +38,25 @@ namespace ESFA.DC.ILR.FileValidationService.Console
 
             IFileValidationContext fileValidationContext = new FileValidationContext()
             {
-                FileReference = "ILR-10003231-1819-20181012-100001-01.xml",
-                Container = "Files",
-                OutputFileReference = "ILR-10003231-1819-20181012-100001-02.xml",
-                OutputContainer = "Files"
+                FileReference = @"10003231/ILR-10003231-1819-20181012-100001-01.xml",
+                Container = "ilr-files",
+                OutputFileReference = @"10003231/ILR-10003231-1819-20181012-100001-02.xml",
+                OutputContainer = "ilr-files"
             };
+
+            //IAzureStorageFileServiceConfig azureStorageFileServiceConfig = new AzureStorageFileServiceConfig()
+            //{
+            //    ConnectionString = ""
+            //};
+            //IFileService fileService = new AzureStorageFileService(azureStorageFileServiceConfig);
+
+            IFileService fileService = new FileSystemFileService();
 
             IValidationErrorHandler validationErrorHandler = new ValidationErrorHandler();
             IXmlSchemaProvider xmlSchemaProvider = new XmlSchemaProvider();
             IValidationErrorMetadataService validationErrorMetadataService = new ValidationErrorMetadataService();
             IXsdValidationService xsdValidationService = new XsdValidationService(xmlSchemaProvider, validationErrorHandler, validationErrorMetadataService);
-            IFileService fileService = new FileSystemFileService();
+            
             IXmlSerializationService xmlSerializationService = new XmlSerializationService();
             
             IValidator<ILooseContactPreference> contactPreferenceValidator = new ContactPreferenceValidator();
