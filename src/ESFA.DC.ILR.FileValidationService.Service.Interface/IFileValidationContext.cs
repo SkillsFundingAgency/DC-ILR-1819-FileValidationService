@@ -9,5 +9,7 @@
         string OutputFileReference { get; }
 
         string OutputContainer { get; }
+
+        string ValidationErrorsKey { get; }
     }
 }
