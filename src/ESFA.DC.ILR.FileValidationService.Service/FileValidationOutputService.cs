@@ -24,7 +24,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
         public async Task OutputAsync(IFileValidationContext fileValidationContext, Message message, IEnumerable<IValidationError> validationErrors, CancellationToken cancellationToken)
         {
-            using (var fileStream = await _fileService.OpenWriteStreamAsync(fileValidationContext.OutputFileReference, fileValidationContext.OutputContainer, cancellationToken))
+            using (var fileStream = await _fileService.OpenWriteStreamAsync(fileValidationContext.OutputFileReference, fileValidationContext.Container, cancellationToken))
             {
                 _xmlSerializationService.Serialize(message, fileStream);
             }

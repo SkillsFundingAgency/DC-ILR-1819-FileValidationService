@@ -4,12 +4,10 @@
     {
         string FileReference { get; }
 
-        string Container { get; }
-
         string OutputFileReference { get; }
 
-        string OutputContainer { get; }
-
+        string Container { get; }
+        
         string ValidationErrorsKey { get; }
     }
 }

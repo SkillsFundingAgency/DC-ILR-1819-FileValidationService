@@ -36,7 +36,6 @@ namespace ESFA.DC.ILR.FileValidationService.Console
                 FileReference = "ILR-99999999-1819-20180626-144401-01.xml",
                 Container = "Files",
                 OutputFileReference = "ILR-99999999-1819-20180626-144401-02.xml",
-                OutputContainer = "Files",
                 ValidationErrorsKey = "ValidationErrors"
             };
 

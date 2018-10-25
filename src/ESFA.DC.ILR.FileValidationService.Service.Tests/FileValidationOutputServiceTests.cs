@@ -19,7 +19,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             var cancellationToken = CancellationToken.None;
 
             var outputFileReference = "OutputFileReference";
-            var outputContainer = "OutputContainer";
+            var container = "Container";
             var validationErrorsKey = "ValidationErrorsKey";
 
             var ilrFileContent = "IlrFileContent";
@@ -33,10 +33,10 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             var fileServiceMock = new Mock<IFileService>();
             var stronglyTypedKeyValuePersistenceService = new Mock<IStronglyTypedKeyValuePersistenceService>();
 
-            fileServiceMock.Setup(s => s.OpenWriteStreamAsync(outputFileReference, outputContainer, cancellationToken)).Returns(Task.FromResult(stream)).Verifiable();
+            fileServiceMock.Setup(s => s.OpenWriteStreamAsync(outputFileReference, container, cancellationToken)).Returns(Task.FromResult(stream)).Verifiable();
 
             fileValidationContextMock.SetupGet(c => c.OutputFileReference).Returns(outputFileReference);
-            fileValidationContextMock.SetupGet(c => c.OutputContainer).Returns(outputContainer);
+            fileValidationContextMock.SetupGet(c => c.Container).Returns(container);
             fileValidationContextMock.SetupGet(c => c.ValidationErrorsKey).Returns(validationErrorsKey);
 
             xmlSerializationServiceMock.Setup(s => s.Serialize(tightValidMessage, stream)).Verifiable();
