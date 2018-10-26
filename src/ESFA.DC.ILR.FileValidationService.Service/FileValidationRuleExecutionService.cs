@@ -13,12 +13,12 @@ namespace ESFA.DC.ILR.FileValidationService.Service
     public class FileValidationRuleExecutionService : IFileValidationRuleExecutionService
     {
         private readonly IValidator<ILooseLearner> _learnerValidator;
-        private readonly IValidator<MessageLearnerLearningDelivery> _learningDeliveryValidator;
+        private readonly IValidator<ILooseLearningDelivery> _learningDeliveryValidator;
         private readonly IValidator<ILooseLearnerDestinationAndProgression> _learnerDestinationAndProgressionValidator;
 
         public FileValidationRuleExecutionService(
             IValidator<ILooseLearner> learnerValidator,
-            IValidator<MessageLearnerLearningDelivery> learningDeliveryValidator,
+            IValidator<ILooseLearningDelivery> learningDeliveryValidator,
             IValidator<ILooseLearnerDestinationAndProgression> learnerDestinationAndProgressionValidator)
         {
             _learnerValidator = learnerValidator;
