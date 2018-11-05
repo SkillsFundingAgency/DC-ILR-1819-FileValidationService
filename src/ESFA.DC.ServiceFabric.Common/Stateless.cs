@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Fabric;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
-namespace ESFA.DC.ILR.FileValidationService.Stateless
+namespace ESFA.DC.ServiceFabric.Common
 {
     /// <summary>
     /// An instance of this class is created for each service instance by the Service Fabric runtime.
     /// </summary>
-    internal sealed class Stateless : StatelessService
+    public class Stateless : StatelessService
     {
         public Stateless(StatelessServiceContext context)
             : base(context)
@@ -42,7 +41,6 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
 
                 await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
             }

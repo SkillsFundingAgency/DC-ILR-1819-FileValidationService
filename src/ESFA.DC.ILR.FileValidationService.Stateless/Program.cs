@@ -22,9 +22,9 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
                 // an instance of the class is created in this host process.
 
                 ServiceRuntime.RegisterServiceAsync("ESFA.DC.ILR.FileValidationService.StatelessType",
-                    context => new Stateless(context)).GetAwaiter().GetResult();
+                    context => new ServiceFabric.Common.Stateless(context)).GetAwaiter().GetResult();
 
-                ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(Stateless).Name);
+                ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(ServiceFabric.Common.Stateless).Name);
 
                 // Prevents this host process from terminating so services keep running.
                 Thread.Sleep(Timeout.Infinite);
