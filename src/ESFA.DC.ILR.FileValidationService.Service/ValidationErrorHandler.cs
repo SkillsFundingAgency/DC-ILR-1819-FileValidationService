@@ -32,15 +32,17 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
         public void XsdValidationErrorHandler(object sender, ValidationEventArgs e)
         {
-            var xmlLineInfo = sender as IXmlLineInfo;
-
-            _validationErrors.Add(new ValidationError.Model.ValidationError(SchemaRuleName, null, null, Severity.Error,
-                new []
-                {
-                    BuildErrorMessageParameter(LinePropertyName, xmlLineInfo.LineNumber),
-                    BuildErrorMessageParameter(PositionPropertyName, xmlLineInfo.LinePosition),
-                    BuildErrorMessageParameter(MessagePropertyName, e.Message),
-                }));
+            if (sender is IXmlLineInfo xmlLineInfo)
+            {
+                _validationErrors.Add(new ValidationError.Model.ValidationError(SchemaRuleName, null, null,
+                    Severity.Error,
+                    new[]
+                    {
+                        BuildErrorMessageParameter(LinePropertyName, xmlLineInfo.LineNumber),
+                        BuildErrorMessageParameter(PositionPropertyName, xmlLineInfo.LinePosition),
+                        BuildErrorMessageParameter(MessagePropertyName, e.Message),
+                    }));
+            }
         }
     }
 }

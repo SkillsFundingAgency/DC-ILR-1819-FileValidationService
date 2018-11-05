@@ -329,3 +329,5 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /src/ESFA.DC.ILR.FileValidationService.Console/Files/ILR-10003231-1819-20181012-100001-01.xml
+/src/ESFA.DC.ILR.FileValidationService/ApplicationParameters/Local.1Node.xml
+/src/ESFA.DC.ILR.FileValidationService/ApplicationParameters/Local.5Node.xml

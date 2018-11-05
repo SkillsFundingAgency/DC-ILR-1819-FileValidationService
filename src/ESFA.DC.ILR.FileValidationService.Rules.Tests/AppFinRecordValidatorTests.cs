@@ -1,5 +1,6 @@
 ﻿using ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract;
 using ESFA.DC.ILR.Model.Loose.Interface;
+using FluentAssertions;
 using Xunit;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
