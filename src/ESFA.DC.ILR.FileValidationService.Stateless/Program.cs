@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Integration.ServiceFabric;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace ESFA.DC.ILR.FileValidationService.Stateless
@@ -21,19 +23,32 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
                 // When Service Fabric creates an instance of this service type,
                 // an instance of the class is created in this host process.
 
-                ServiceRuntime.RegisterServiceAsync("ESFA.DC.ILR.FileValidationService.StatelessType",
-                    context => new ServiceFabric.Common.Stateless(context)).GetAwaiter().GetResult();
+                var builder = BuildContainerBuilder();
 
-                ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(ServiceFabric.Common.Stateless).Name);
+                builder.RegisterServiceFabricSupport();
 
-                // Prevents this host process from terminating so services keep running.
-                Thread.Sleep(Timeout.Infinite);
+                builder.RegisterStatelessService<ServiceFabric.Common.Stateless>("ESFA.DC.ILR.FileValidationService.StatelessType");
+
+                using (var container = builder.Build())
+                {
+                    ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(ServiceFabric.Common.Stateless).Name);
+
+                    // Prevents this host process from terminating so services keep running.
+                    Thread.Sleep(Timeout.Infinite);
+                }
             }
             catch (Exception e)
             {
                 ServiceEventSource.Current.ServiceHostInitializationFailed(e.ToString());
                 throw;
             }
+        }
+
+        private static ContainerBuilder BuildContainerBuilder()
+        {
+            var containerBuilder = new ContainerBuilder();
+
+            return containerBuilder;
         }
     }
 }

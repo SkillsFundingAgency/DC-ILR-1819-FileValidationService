@@ -1,48 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using ESFA.DC.JobContextManager.Interface;
+using ESFA.DC.JobContextManager.Model;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace ESFA.DC.ServiceFabric.Common
 {
-    /// <summary>
-    /// An instance of this class is created for each service instance by the Service Fabric runtime.
-    /// </summary>
     public class Stateless : StatelessService
     {
-        public Stateless(StatelessServiceContext context)
-            : base(context)
-        { }
+        private readonly IJobContextManager<JobContextMessage> _jobContextManager;
 
-        /// <summary>
-        /// Optional override to create listeners (e.g., TCP, HTTP) for this service replica to handle client or user requests.
-        /// </summary>
-        /// <returns>A collection of listeners.</returns>
-        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+        public Stateless(StatelessServiceContext context, IJobContextManager<JobContextMessage> jobContextManager)
+            : base(context)
         {
-            return new ServiceInstanceListener[0];
+            _jobContextManager = jobContextManager;
         }
 
-        /// <summary>
-        /// This is the main entry point for your service instance.
-        /// </summary>
-        /// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service instance.</param>
         protected override async Task RunAsync(CancellationToken cancellationToken)
         {
-            // TODO: Replace the following sample code with your own logic 
-            //       or remove this RunAsync override if it's not needed in your service.
+            bool initialised = false;
 
-            long iterations = 0;
-
-            while (true)
+            try
             {
-                cancellationToken.ThrowIfCancellationRequested();
-
-
-                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+                _jobContextManager.OpenAsync(cancellationToken);
+                initialised = true;
+                await Task.Delay(Timeout.Infinite, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                // Ignore, as an exception is only really thrown on cancellation of the token.
+            }
+            finally
+            {
+                if (initialised)
+                {
+                    await _jobContextManager.CloseAsync();
+                }
             }
         }
     }

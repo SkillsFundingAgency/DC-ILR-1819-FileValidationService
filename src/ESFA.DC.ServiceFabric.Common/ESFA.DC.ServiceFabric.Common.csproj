@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ESFA.DC.JobContext.Interface" Version="0.2.4-beta0001" />
+    <PackageReference Include="ESFA.DC.JobContextManager" Version="0.2.4-beta0001" />
     <PackageReference Include="Microsoft.ServiceFabric" Version="6.3.187" />
     <PackageReference Include="Microsoft.ServiceFabric.Diagnostics.Internal" Version="3.2.187" />
     <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.2.187" />
