@@ -5,6 +5,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Integration.ServiceFabric;
+using ESFA.DC.JobContextManager.Interface;
+using ESFA.DC.JobContextManager.Model;
+using ESFA.DC.Queueing;
+using ESFA.DC.ServiceFabric.Common.Modules;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace ESFA.DC.ILR.FileValidationService.Stateless
@@ -31,6 +35,8 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
 
                 using (var container = builder.Build())
                 {
+                    var manager = container.Resolve<IJobContextManager<JobContextMessage>>();
+
                     ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(ServiceFabric.Common.Stateless).Name);
 
                     // Prevents this host process from terminating so services keep running.
@@ -47,6 +53,17 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
         private static ContainerBuilder BuildContainerBuilder()
         {
             var containerBuilder = new ContainerBuilder();
+
+            var topicConfiguration = new TopicConfiguration("connection string", "topic", "subscription", 1);
+            var auditingQueueConfiguration = new QueueConfiguration("connection string", "queue", 1);
+            var jobStatusQueueConfiguration = new QueueConfiguration("connection string", "queue", 1);
+
+            var statelessServiceModule = new StatelessServiceModule(topicConfiguration, auditingQueueConfiguration, jobStatusQueueConfiguration);
+
+            containerBuilder.RegisterModule(statelessServiceModule);
+            containerBuilder.RegisterModule<SerializationModule>();
+
+            containerBuilder.RegisterType<MessageHandler>().As<IMessageHandler<JobContextMessage>>();
 
             return containerBuilder;
         }
