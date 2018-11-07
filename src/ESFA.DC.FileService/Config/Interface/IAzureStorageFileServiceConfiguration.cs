@@ -1,6 +1,6 @@
 ﻿namespace ESFA.DC.FileService.Config.Interface
 {
-    public interface IAzureStorageFileServiceConfig
+    public interface IAzureStorageFileServiceConfiguration
     {
         string ConnectionString { get; }
     }

@@ -12,6 +12,7 @@
     <Parameter Name="AuditQueueName" DefaultValue="" />
     <Parameter Name="AuditMaxConcurrentCalls" DefaultValue="" />
     <Parameter Name="LoggerConnectionString" DefaultValue="" />
+    <Parameter Name="AzureStorageConnectionString" DefaultValue="" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
@@ -32,6 +33,9 @@
             <Parameter Name="AuditQueueName" Value="[AuditQueueName]" />
             <Parameter Name="AuditMaxConcurrentCalls" Value="[AuditMaxConcurrentCalls]" />
             <Parameter Name="LoggerConnectionString" Value="[LoggerConnectionString]" />
+          </Section>
+          <Section Name="AzureStorageFileServiceConfiguration">
+            <Parameter Name="ConnectionString" Value="[AzureStorageConnectionString]" />
           </Section>
         </Settings>
       </ConfigOverride>

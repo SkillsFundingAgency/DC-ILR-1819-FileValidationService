@@ -2,7 +2,7 @@
 
 namespace ESFA.DC.FileService.Config
 {
-    public class AzureStorageFileServiceConfig : IAzureStorageFileServiceConfig
+    public class AzureStorageFileServiceConfiguration : IAzureStorageFileServiceConfiguration
     {
         public string ConnectionString { get; set; }
     }

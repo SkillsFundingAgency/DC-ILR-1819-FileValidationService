@@ -5,6 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Integration.ServiceFabric;
+using ESFA.DC.FileService.Config;
+using ESFA.DC.ILR.FileValidationService.Modules;
 using ESFA.DC.JobContextManager.Interface;
 using ESFA.DC.JobContextManager.Model;
 using ESFA.DC.Queueing;
@@ -58,11 +60,14 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
             var serviceFabricConfigurationService = new ServiceFabricConfigurationService();
 
             var statelessServiceConfiguration = serviceFabricConfigurationService.GetConfigSectionAsStatelessServiceConfiguration();
-
-            var statelessServiceModule = new StatelessServiceModule(statelessServiceConfiguration);
-
-            containerBuilder.RegisterModule(statelessServiceModule);
+            var azureStorageFileServiceConfiguration = serviceFabricConfigurationService.GetConfigSectionAs<AzureStorageFileServiceConfiguration>("AzureStorageFileServiceConfiguration");
+            
+            containerBuilder.RegisterModule(new StatelessServiceModule(statelessServiceConfiguration));
             containerBuilder.RegisterModule<SerializationModule>();
+
+            containerBuilder.RegisterModule<FileValidationOrchestrationServicesModule>();
+            containerBuilder.RegisterModule(new IOModule(azureStorageFileServiceConfiguration));
+            containerBuilder.RegisterModule<ValidatorModule>();
 
             containerBuilder.RegisterType<MessageHandler>().As<IMessageHandler<JobContextMessage>>();
 

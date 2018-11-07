@@ -12,13 +12,13 @@ namespace ESFA.DC.FileService
 {
     public class AzureStorageFileService : IFileService
     {
-        private readonly IAzureStorageFileServiceConfig _azureStorageFileServiceConfig;
+        private readonly IAzureStorageFileServiceConfiguration azureStorageFileServiceConfig;
 
         private readonly BlobRequestOptions _requestOptions = new BlobRequestOptions() { RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(5), 3) };
 
-        public AzureStorageFileService(IAzureStorageFileServiceConfig _azureStorageFileServiceConfig)
+        public AzureStorageFileService(IAzureStorageFileServiceConfiguration _azureStorageFileServiceConfig)
         {
-            this._azureStorageFileServiceConfig = _azureStorageFileServiceConfig;
+            azureStorageFileServiceConfig = _azureStorageFileServiceConfig;
         }
 
         public async Task<Stream> OpenReadStreamAsync(string fileReference, string container, CancellationToken cancellationToken)
@@ -49,7 +49,7 @@ namespace ESFA.DC.FileService
 
         private async Task<CloudBlockBlob> GetCloudBlockBlob(string fileReference, string container, CancellationToken cancellationToken)
         {
-            var cloudStorageAccount = CloudStorageAccount.Parse(_azureStorageFileServiceConfig.ConnectionString);
+            var cloudStorageAccount = CloudStorageAccount.Parse(azureStorageFileServiceConfig.ConnectionString);
             var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
             var cloudBlobContainer = cloudBlobClient.GetContainerReference(container);
 
