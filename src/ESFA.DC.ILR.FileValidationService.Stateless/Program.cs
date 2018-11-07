@@ -8,6 +8,7 @@ using Autofac.Integration.ServiceFabric;
 using ESFA.DC.JobContextManager.Interface;
 using ESFA.DC.JobContextManager.Model;
 using ESFA.DC.Queueing;
+using ESFA.DC.ServiceFabric.Common.Config;
 using ESFA.DC.ServiceFabric.Common.Modules;
 using Microsoft.ServiceFabric.Services.Runtime;
 
@@ -54,11 +55,11 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
         {
             var containerBuilder = new ContainerBuilder();
 
-            var topicConfiguration = new TopicConfiguration("connection string", "topic", "subscription", 1);
-            var auditingQueueConfiguration = new QueueConfiguration("connection string", "queue", 1);
-            var jobStatusQueueConfiguration = new QueueConfiguration("connection string", "queue", 1);
+            var serviceFabricConfigurationService = new ServiceFabricConfigurationService();
 
-            var statelessServiceModule = new StatelessServiceModule(topicConfiguration, auditingQueueConfiguration, jobStatusQueueConfiguration);
+            var statelessServiceConfiguration = serviceFabricConfigurationService.GetConfigSectionAsStatelessServiceConfiguration();
+
+            var statelessServiceModule = new StatelessServiceModule(statelessServiceConfiguration);
 
             containerBuilder.RegisterModule(statelessServiceModule);
             containerBuilder.RegisterModule<SerializationModule>();
