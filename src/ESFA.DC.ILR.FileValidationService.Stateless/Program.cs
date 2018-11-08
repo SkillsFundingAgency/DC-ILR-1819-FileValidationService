@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Fabric;
 using System.Threading;
-using System.Threading.Tasks;
 using Autofac;
 using Autofac.Integration.ServiceFabric;
 using ESFA.DC.FileService.Config;
 using ESFA.DC.ILR.FileValidationService.Modules;
 using ESFA.DC.JobContextManager.Interface;
 using ESFA.DC.JobContextManager.Model;
-using ESFA.DC.Queueing;
 using ESFA.DC.ServiceFabric.Common.Config;
 using ESFA.DC.ServiceFabric.Common.Modules;
-using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace ESFA.DC.ILR.FileValidationService.Stateless
 {

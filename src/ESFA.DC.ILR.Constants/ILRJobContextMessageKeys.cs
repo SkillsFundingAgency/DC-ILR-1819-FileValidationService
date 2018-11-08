@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ESFA.DC.ILR.Constants
+﻿namespace ESFA.DC.ILR.Constants
 {
     public static class ILRJobContextMessageKeys
     {
         public const string Filename = "Filename";
+
+        public const string OriginalFilename = "OriginalFilename";
 
         public const string Container = "Container";
 

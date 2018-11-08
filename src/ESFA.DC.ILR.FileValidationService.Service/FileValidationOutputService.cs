@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using ESFA.DC.FileService.Interface;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.Model;
-using ESFA.DC.IO.Interfaces;
 using ESFA.DC.Serialization.Interfaces;
 
 namespace ESFA.DC.ILR.FileValidationService.Service
@@ -24,12 +23,21 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
         public async Task OutputAsync(IFileValidationContext fileValidationContext, Message message, IEnumerable<IValidationError> validationErrors, CancellationToken cancellationToken)
         {
-            using (var fileStream = await _fileService.OpenWriteStreamAsync(fileValidationContext.OutputFileReference, fileValidationContext.Container, cancellationToken))
+            var outputFileReference = BuildOutputFileReference(fileValidationContext.FileReference);
+
+            using (var fileStream = await _fileService.OpenWriteStreamAsync(outputFileReference, fileValidationContext.Container, cancellationToken))
             {
                 _xmlSerializationService.Serialize(message, fileStream);
             }
 
+            fileValidationContext.FileReference = outputFileReference;
+
             await _stronglyTypedKeyValuePersistenceService.SaveAsync(fileValidationContext.ValidationErrorsKey, validationErrors, cancellationToken);
+        }
+
+        public string BuildOutputFileReference(string fileReference)
+        {
+            return fileReference.Insert(fileReference.Length - 4, "_Tight");
         }
     }
 }

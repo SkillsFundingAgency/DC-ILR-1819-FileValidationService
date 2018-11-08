@@ -8,7 +8,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
         public string Container { get; set; }
 
-        public string OutputFileReference { get; set; }
+        public string OriginalFileReference { get; set; }
         
         public string ValidationErrorsKey { get; set; }
     }

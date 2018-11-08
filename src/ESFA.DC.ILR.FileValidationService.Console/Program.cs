@@ -3,24 +3,8 @@ using System.Diagnostics;
 using System.Threading;
 using System.Xml.Schema;
 using Autofac;
-using ESFA.DC.FileService;
-using ESFA.DC.FileService.Config;
-using ESFA.DC.FileService.Config.Interface;
-using ESFA.DC.FileService.Interface;
-using ESFA.DC.ILR.FileValidationService.Rules;
 using ESFA.DC.ILR.FileValidationService.Service;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
-using ESFA.DC.ILR.Model;
-using ESFA.DC.ILR.Model.Loose.Interface;
-using ESFA.DC.ILR.Model.Loose.Schema;
-using ESFA.DC.ILR.Model.Loose.Schema.Interface;
-using ESFA.DC.IO.Dictionary;
-using ESFA.DC.IO.Interfaces;
-using ESFA.DC.Mapping.Interface;
-using ESFA.DC.Serialization.Interfaces;
-using ESFA.DC.Serialization.Json;
-using ESFA.DC.Serialization.Xml;
-using FluentValidation;
 
 namespace ESFA.DC.ILR.FileValidationService.Console
 {
@@ -36,7 +20,7 @@ namespace ESFA.DC.ILR.FileValidationService.Console
             {
                 FileReference = "ILR-99999999-1819-20180626-144401-01.xml",
                 Container = "Files",
-                OutputFileReference = "ILR-99999999-1819-20180626-144401-02.xml",
+                OriginalFileReference = "ILR-99999999-1819-20180626-144401-02.xml",
                 ValidationErrorsKey = "ValidationErrors"
             };
 

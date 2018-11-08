@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using ESFA.DC.FileService;
 using ESFA.DC.FileService.Interface;
 using ESFA.DC.ILR.FileValidationService.Rules;

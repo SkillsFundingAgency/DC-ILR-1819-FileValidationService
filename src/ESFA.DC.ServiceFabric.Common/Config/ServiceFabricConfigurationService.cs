@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Fabric;
 using System.Linq;
-using System.Reflection;
 using ESFA.DC.ServiceFabric.Common.Config.Interface;
 
 namespace ESFA.DC.ServiceFabric.Common.Config

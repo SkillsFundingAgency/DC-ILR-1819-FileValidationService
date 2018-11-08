@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.Model;
+using ESFA.DC.Logging.Interfaces;
 using ESFA.DC.Mapping.Interface;
 using Moq;
 using Xunit;
@@ -22,6 +23,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             var tightSchemaValidMessageFilterServiceMock = new Mock<ITightSchemaValidMessageFilterService>();
             var mapperMock = new Mock<IMapper<Model.Loose.Message, Message>>();
             var fileValidationOutputServiceMock = new Mock<IFileValidationOutputService>();
+            var loggerMock = new Mock<ILogger>();
 
             var looseMessage = new Model.Loose.Message();
             var validationErrors = new List<IValidationError>();
@@ -34,7 +36,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             mapperMock.Setup(m => m.MapTo(validLooseMessage)).Returns(tightMessage).Verifiable();
             fileValidationOutputServiceMock.Setup(s => s.OutputAsync(fileValidationContextMock.Object, tightMessage, validationErrors, cancellationToken)).Returns(Task.CompletedTask).Verifiable();
             
-            var service = NewService(looseMessageProviderMock.Object, fileValidationRuleExecutionServiceMock.Object, tightSchemaValidMessageFilterServiceMock.Object, mapperMock.Object, fileValidationOutputServiceMock.Object);
+            var service = NewService(looseMessageProviderMock.Object, fileValidationRuleExecutionServiceMock.Object, tightSchemaValidMessageFilterServiceMock.Object, mapperMock.Object, fileValidationOutputServiceMock.Object, loggerMock.Object);
 
             await service.Validate(fileValidationContextMock.Object, cancellationToken);
 
@@ -45,9 +47,9 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             fileValidationOutputServiceMock.VerifyAll();
         }
 
-        private FileValidationOrchestrationService NewService(ILooseMessageProvider looseMessageProvider = null, IFileValidationRuleExecutionService fileValidationRuleExecutionService = null, ITightSchemaValidMessageFilterService tightSchemaValidMessageFilterService = null, IMapper<Model.Loose.Message, Message> mapper = null, IFileValidationOutputService fileValidationOutputService = null)
+        private FileValidationOrchestrationService NewService(ILooseMessageProvider looseMessageProvider = null, IFileValidationRuleExecutionService fileValidationRuleExecutionService = null, ITightSchemaValidMessageFilterService tightSchemaValidMessageFilterService = null, IMapper<Model.Loose.Message, Message> mapper = null, IFileValidationOutputService fileValidationOutputService = null, ILogger logger = null)
         {
-            return new FileValidationOrchestrationService(looseMessageProvider, fileValidationRuleExecutionService, tightSchemaValidMessageFilterService, mapper, fileValidationOutputService);
+            return new FileValidationOrchestrationService(looseMessageProvider, fileValidationRuleExecutionService, tightSchemaValidMessageFilterService, mapper, fileValidationOutputService, logger);
         }
     }
 }

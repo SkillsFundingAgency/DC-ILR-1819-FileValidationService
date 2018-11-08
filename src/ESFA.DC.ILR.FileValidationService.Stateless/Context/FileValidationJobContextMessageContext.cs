@@ -13,12 +13,22 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless.Context
             _jobContextMessage = jobContextMessage;
         }
 
-        public string FileReference => _jobContextMessage.KeyValuePairs[ILRJobContextMessageKeys.Filename].ToString();
+        public string FileReference
+        {
+            get => _jobContextMessage.KeyValuePairs[ILRJobContextMessageKeys.Filename].ToString();
+            set => _jobContextMessage.KeyValuePairs[ILRJobContextMessageKeys.Filename] = value;
+        }
 
-        public string OutputFileReference => "Tight_" + _jobContextMessage.KeyValuePairs[ILRJobContextMessageKeys.Filename];
+        public string OriginalFileReference
+        {
+            get => _jobContextMessage.KeyValuePairs[ILRJobContextMessageKeys.OriginalFilename].ToString();
+            set => _jobContextMessage.KeyValuePairs[ILRJobContextMessageKeys.OriginalFilename] = value;
+        }
 
         public string Container => _jobContextMessage.KeyValuePairs[ILRJobContextMessageKeys.Container].ToString();
 
         public string ValidationErrorsKey => _jobContextMessage.KeyValuePairs[ILRJobContextMessageKeys.ValidationErrors].ToString();
+
+
     }
 }

@@ -17,7 +17,6 @@ using ESFA.DC.Queueing;
 using ESFA.DC.Queueing.Interface;
 using ESFA.DC.Queueing.Interface.Configuration;
 using ESFA.DC.ServiceFabric.Common.Config.Interface;
-using ESFA.DC.ServiceFabric.Common.Stubs;
 
 namespace ESFA.DC.ServiceFabric.Common.Modules
 {

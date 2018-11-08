@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using ESFA.DC.Logging.Interfaces;
 
 namespace ESFA.DC.ServiceFabric.Common.Stubs
