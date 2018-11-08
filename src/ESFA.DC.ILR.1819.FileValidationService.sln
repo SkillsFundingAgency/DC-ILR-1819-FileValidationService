@@ -25,9 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ServiceFabric.Common", "ESFA.DC.ServiceFabric.Common\ESFA.DC.ServiceFabric.Common.csproj", "{90B2DA1D-9673-4C24-97EB-0361ED71130E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.FileValidationService.Modules", "ESFA.DC.ILR.FileValidationService.Modules\ESFA.DC.ILR.FileValidationService.Modules.csproj", "{E3F40C0C-1EC2-4F74-8FC2-38DB3496083E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.FileValidationService.Modules", "ESFA.DC.ILR.FileValidationService.Modules\ESFA.DC.ILR.FileValidationService.Modules.csproj", "{E3F40C0C-1EC2-4F74-8FC2-38DB3496083E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.Constants", "ESFA.DC.ILR.Constants\ESFA.DC.ILR.Constants.csproj", "{517D70CC-4F92-48C5-9CC6-FA9290711ADF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.Constants", "ESFA.DC.ILR.Constants\ESFA.DC.ILR.Constants.csproj", "{517D70CC-4F92-48C5-9CC6-FA9290711ADF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,6 +108,7 @@ Global
 		{9AC4F070-833B-470D-9FCA-C1E1E36884D3}.Debug|x64.Build.0 = Debug|x64
 		{9AC4F070-833B-470D-9FCA-C1E1E36884D3}.Debug|x64.Deploy.0 = Debug|x64
 		{9AC4F070-833B-470D-9FCA-C1E1E36884D3}.Release|Any CPU.ActiveCfg = Release|x64
+		{9AC4F070-833B-470D-9FCA-C1E1E36884D3}.Release|Any CPU.Build.0 = Release|x64
 		{9AC4F070-833B-470D-9FCA-C1E1E36884D3}.Release|x64.ActiveCfg = Release|x64
 		{9AC4F070-833B-470D-9FCA-C1E1E36884D3}.Release|x64.Build.0 = Release|x64
 		{9AC4F070-833B-470D-9FCA-C1E1E36884D3}.Release|x64.Deploy.0 = Release|x64
@@ -116,6 +117,7 @@ Global
 		{CE61FE0F-FCB0-4870-93A4-3153699E1CDE}.Debug|x64.ActiveCfg = Debug|x64
 		{CE61FE0F-FCB0-4870-93A4-3153699E1CDE}.Debug|x64.Build.0 = Debug|x64
 		{CE61FE0F-FCB0-4870-93A4-3153699E1CDE}.Release|Any CPU.ActiveCfg = Release|x64
+		{CE61FE0F-FCB0-4870-93A4-3153699E1CDE}.Release|Any CPU.Build.0 = Release|x64
 		{CE61FE0F-FCB0-4870-93A4-3153699E1CDE}.Release|x64.ActiveCfg = Release|x64
 		{CE61FE0F-FCB0-4870-93A4-3153699E1CDE}.Release|x64.Build.0 = Release|x64
 		{90B2DA1D-9673-4C24-97EB-0361ED71130E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
