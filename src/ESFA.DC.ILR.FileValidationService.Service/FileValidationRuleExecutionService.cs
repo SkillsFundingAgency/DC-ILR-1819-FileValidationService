@@ -29,8 +29,6 @@ namespace ESFA.DC.ILR.FileValidationService.Service
         {
             var validationErrors = new List<IValidationError>();
 
-            int iteration = 0;
-
             var ruleSet = "*";
 
             if (message?.Learner != null)
