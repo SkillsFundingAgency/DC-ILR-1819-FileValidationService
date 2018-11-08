@@ -23,6 +23,7 @@ namespace ESFA.DC.ILR.FileValidationService.Modules
             containerBuilder.RegisterInstance(_azureStorageFileServiceConfig).As<IAzureStorageFileServiceConfiguration>();
 
             containerBuilder.RegisterType<AzureStorageFileService>().As<IFileService>();
+            containerBuilder.RegisterType<DecompressionService>().As<IDecompressionService>();
             containerBuilder.RegisterType<DictionaryKeyValuePersistenceService>().As<IKeyValuePersistenceService>();
             containerBuilder.RegisterType<StronglyTypedKeyValuePersistenceService>().As<IStronglyTypedKeyValuePersistenceService>();
         }

@@ -120,6 +120,7 @@
   <ItemGroup>
     <Compile Include="FileValidationOrchestrationServiceTests.cs" />
     <Compile Include="FileValidationOutputServiceTests.cs" />
+    <Compile Include="FileValidationPreparationServiceTests.cs" />
     <Compile Include="LooseMessageProviderTests.cs" />
     <Compile Include="LooseToTightSchemaMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

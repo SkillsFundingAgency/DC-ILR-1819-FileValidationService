@@ -8,6 +8,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 {
     public class FileValidationOrchestrationService : IFileValidationOrchestrationService
     {
+        private readonly IFileValidationPreparationService _fileValidationPreparationService;
         private readonly ILooseMessageProvider _looseMessageProvider;
         private readonly IFileValidationRuleExecutionService _fileValidationRuleExecutionService;
         private readonly ITightSchemaValidMessageFilterService _tightSchemaValidMessageFilterService;
@@ -16,6 +17,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
         private readonly ILogger _logger;
 
         public FileValidationOrchestrationService(
+            IFileValidationPreparationService fileValidationPreparationService,
             ILooseMessageProvider looseMessageProvider,
             IFileValidationRuleExecutionService fileValidationRuleExecutionService,
             ITightSchemaValidMessageFilterService tightSchemaValidMessageFilterService,
@@ -23,6 +25,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             IFileValidationOutputService fileValidationOutputService,
             ILogger logger)
         {
+            _fileValidationPreparationService = fileValidationPreparationService;
             _looseMessageProvider = looseMessageProvider;
             _fileValidationRuleExecutionService = fileValidationRuleExecutionService;
             _tightSchemaValidMessageFilterService = tightSchemaValidMessageFilterService;
@@ -33,6 +36,10 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
         public async Task Validate(IFileValidationContext fileValidationContext, CancellationToken cancellationToken)
         {
+            _logger.LogInfo("Starting File Validation Preparation Service");
+            await _fileValidationPreparationService.Prepare(fileValidationContext, cancellationToken);
+            _logger.LogInfo("Finished File Validation Preparation Service");
+
             // Get File
             _logger.LogInfo("Starting Loose Message Provide");
             var looseMessage = await _looseMessageProvider.ProvideAsync(fileValidationContext, cancellationToken);

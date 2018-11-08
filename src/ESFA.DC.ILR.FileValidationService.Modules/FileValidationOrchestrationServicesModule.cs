@@ -22,6 +22,7 @@ namespace ESFA.DC.ILR.FileValidationService.Modules
             containerBuilder.RegisterType<LooseToTightSchemaMapper>().As<IMapper<Model.Loose.Message, Message>>();
             containerBuilder.RegisterType<FileValidationOutputService>().As<IFileValidationOutputService>();
             containerBuilder.RegisterType<FileValidationOrchestrationService>().As<IFileValidationOrchestrationService>();
+            containerBuilder.RegisterType<FileValidationPreparationService>().As<IFileValidationPreparationService>();
         }
     }
 }
