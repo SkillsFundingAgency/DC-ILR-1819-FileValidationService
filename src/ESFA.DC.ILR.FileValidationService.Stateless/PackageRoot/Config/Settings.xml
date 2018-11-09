@@ -15,4 +15,8 @@
   <Section Name="AzureStorageFileServiceConfiguration">
     <Parameter Name="ConnectionString" Value="" />
   </Section>
+  <Section Name="IOConfiguration">
+    <Parameter Name="ConnectionString" Value="" />
+    <Parameter Name="ContainerName" Value="" />
+  </Section>
 </Settings>
