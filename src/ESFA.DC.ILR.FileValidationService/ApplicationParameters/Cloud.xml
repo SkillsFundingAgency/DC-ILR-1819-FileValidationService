@@ -1,6 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/ESFA.DC.ILR.FileValidationService" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
-    <Parameter Name="ESFA.DC.ILR.FileValidationService.Stateless_InstanceCount" Value="-1" />
+    <Parameter Name="ESFA.DC.ILR.FileValidationService.Stateless_InstanceCount" Value="__FileValidation_Stateless_InstanceCount__" />
+    <Parameter Name="ServiceBusConnectionString" Value="__ServiceBusConnectionString__" />
+    <Parameter Name="TopicName" Value="__TopicName__" />
+    <Parameter Name="SubscriptionName" Value="__SubscriptionName__" />
+    <Parameter Name="TopicMaxConcurrentCalls" Value="__TopicMaxConcurrentCalls__" />
+    <Parameter Name="TopicMaxCallbackTimeSpanMinutes" Value="__TopicMaxCallbackTimeSpanMinutes__" />
+    <Parameter Name="JobStatusQueueName" Value="__JobStatusQueueName__" />
+    <Parameter Name="JobStatusMaxConcurrentCalls" Value="__JobStatusMaxConcurrentCalls__" />
+    <Parameter Name="AuditQueueName" Value="__AuditQueueName__" />
+    <Parameter Name="AuditMaxConcurrentCalls" Value="__AuditMaxConcurrentCalls__" />
+    <Parameter Name="LoggerConnectionString" Value="__LoggerConnectionString__" />
+    <Parameter Name="AzureStorageConnectionString" Value="__AzureStorageConnectionString__" />
+    <Parameter Name="AzureStorageContainerName" Value="__AzureStorageContainerName__" />
   </Parameters>
 </Application>
