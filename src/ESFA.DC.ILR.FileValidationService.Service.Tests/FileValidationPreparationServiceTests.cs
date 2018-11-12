@@ -68,15 +68,25 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
         [Fact]
         public void ValidateXmlFileNames_Invalid_Empty()
         {
-            Action action = () => NewService().ValidateXmlFileNames(new string[] { });
+            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
+
+            validationErrorHandlerMock.Setup(h => h.FileFailureErrorHandler("ZIP_EMPTY")).Verifiable();
+
+            Action action = () => NewService(validationErrorHandler: validationErrorHandlerMock.Object).ValidateXmlFileNames(new string[] { });
 
             action.Should().Throw<FileLoadException>();
+
+            validationErrorHandlerMock.Verify();
         }
 
         [Fact]
         public void ValidateXmlFileNames_Invalid_MoreThanOne()
         {
-            Action action = () => NewService().ValidateXmlFileNames(new string[] { "a.xml", "b.xml" });
+            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
+
+            validationErrorHandlerMock.Setup(h => h.FileFailureErrorHandler("ZIP_TOO_MANY_FILES")).Verifiable();
+
+            Action action = () => NewService(validationErrorHandler: validationErrorHandlerMock.Object).ValidateXmlFileNames(new string[] { "a.xml", "b.xml" });
 
             action.Should().Throw<FileLoadException>();
         }
@@ -114,9 +124,9 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             fileValidationContextMock.VerifyAll();
         }
 
-        private FileValidationPreparationService NewService(IFileService fileService = null, IDecompressionService decompressionService = null)
+        private FileValidationPreparationService NewService(IFileService fileService = null, IDecompressionService decompressionService = null, IValidationErrorHandler validationErrorHandler = null)
         {
-            return new FileValidationPreparationService(fileService, decompressionService);
+            return new FileValidationPreparationService(fileService, decompressionService, validationErrorHandler);
         }
     }
 }

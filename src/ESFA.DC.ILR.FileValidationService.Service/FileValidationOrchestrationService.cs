@@ -1,6 +1,11 @@
-﻿using System.Threading;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
+using ESFA.DC.ILR.FileValidationService.Service.Interface.Exception;
 using ESFA.DC.Logging.Interfaces;
 using ESFA.DC.Mapping.Interface;
 
@@ -14,6 +19,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
         private readonly ITightSchemaValidMessageFilterService _tightSchemaValidMessageFilterService;
         private readonly IMapper<Model.Loose.Message, Model.Message> _mapper;
         private readonly IFileValidationOutputService _fileValidationOutputService;
+        private readonly IValidationErrorHandler _validationErrorHandler;
         private readonly ILogger _logger;
 
         public FileValidationOrchestrationService(
@@ -23,6 +29,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             ITightSchemaValidMessageFilterService tightSchemaValidMessageFilterService,
             IMapper<Model.Loose.Message, Model.Message> mapper,
             IFileValidationOutputService fileValidationOutputService,
+            IValidationErrorHandler validationErrorHandler,
             ILogger logger)
         {
             _fileValidationPreparationService = fileValidationPreparationService;
@@ -31,39 +38,51 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             _tightSchemaValidMessageFilterService = tightSchemaValidMessageFilterService;
             _mapper = mapper;
             _fileValidationOutputService = fileValidationOutputService;
+            _validationErrorHandler = validationErrorHandler;
             _logger = logger;
         }
-
+        
         public async Task Validate(IFileValidationContext fileValidationContext, CancellationToken cancellationToken)
         {
-            _logger.LogInfo("Starting File Validation Preparation Service");
-            await _fileValidationPreparationService.Prepare(fileValidationContext, cancellationToken);
-            _logger.LogInfo("Finished File Validation Preparation Service");
+            try
+            {
+                _logger.LogInfo("Starting File Validation Preparation Service");
+                await _fileValidationPreparationService.Prepare(fileValidationContext, cancellationToken);
+                _logger.LogInfo("Finished File Validation Preparation Service");
 
-            // Get File
-            _logger.LogInfo("Starting Loose Message Provide");
-            var looseMessage = await _looseMessageProvider.ProvideAsync(fileValidationContext, cancellationToken);
-            _logger.LogInfo("Finished Loose Message Provide");
+                // Get File
+                _logger.LogInfo("Starting Loose Message Provide");
+                var looseMessage = await _looseMessageProvider.ProvideAsync(fileValidationContext, cancellationToken);
+                _logger.LogInfo("Finished Loose Message Provide");
 
-            // Validation Rules
-            _logger.LogInfo("Starting Message Validation");
-            var validationErrors = _fileValidationRuleExecutionService.Execute(looseMessage);
-            _logger.LogInfo("Finished Message Validation");
+                // Validation Rules
+                _logger.LogInfo("Starting Message Validation");
+                _fileValidationRuleExecutionService.Execute(looseMessage);
+                _logger.LogInfo("Finished Message Validation");
 
-            // Filter
-            _logger.LogInfo("Starting Valid Learner Filter");
-            var validLooseMessage = _tightSchemaValidMessageFilterService.ApplyFilter(looseMessage, validationErrors);
-            _logger.LogInfo("Finished Valid Learner Filter");
+                var validationErrors = _validationErrorHandler.ValidationErrors.ToList();
 
-            // Map to Tight Schema
-            _logger.LogInfo("Starting Map to Tight Schema");
-            var tightMessage = _mapper.MapTo(validLooseMessage);
-            _logger.LogInfo("Finished Map to Tight Schema");
+                // Filter
+                _logger.LogInfo("Starting Valid Learner Filter");
+                var validLooseMessage = _tightSchemaValidMessageFilterService.ApplyFilter(looseMessage, validationErrors);
+                _logger.LogInfo("Finished Valid Learner Filter");
 
-            // Output Tight Xml File
-            _logger.LogInfo("Starting Validation Output");
-            await _fileValidationOutputService.OutputAsync(fileValidationContext, tightMessage, validationErrors, cancellationToken);
-            _logger.LogInfo("Finished Validation Output");
+                // Map to Tight Schema
+                _logger.LogInfo("Starting Map to Tight Schema");
+                var tightMessage = _mapper.MapTo(validLooseMessage);
+                _logger.LogInfo("Finished Map to Tight Schema");
+
+                // Output Tight Xml File
+                _logger.LogInfo("Starting Validation Output");
+                await _fileValidationOutputService.OutputAsync(fileValidationContext, tightMessage, validationErrors, cancellationToken);
+                _logger.LogInfo("Finished Validation Output");
+            }
+            catch (Exception exception) when (exception is FileLoadException || exception is XmlSchemaException)
+            {
+                _logger.LogError("File Validation Failure Output", exception);
+                await _fileValidationOutputService.OutputFileValidationFailureAsync(fileValidationContext, _validationErrorHandler.ValidationErrors, cancellationToken);
+                throw new FileValidationServiceFileFailureException("File Validation Service File Failure", exception);
+            }
         }
     }
 }

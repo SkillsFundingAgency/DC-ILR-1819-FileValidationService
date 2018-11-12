@@ -13,14 +13,18 @@ namespace ESFA.DC.ILR.FileValidationService.Service
     {
         private const string XmlExtension = ".xml";
         private const string ZipExtension = ".zip";
+        private const string ZipEmptyRuleName = "ZIP_EMPTY";
+        private const string ZipTooManyFilesRuleName = "ZIP_TOO_MANY_FILES";
 
         private readonly IFileService _fileService;
         private readonly IDecompressionService _decompressionService;
+        private readonly IValidationErrorHandler _validationErrorHandler;
 
-        public FileValidationPreparationService(IFileService fileService, IDecompressionService decompressionService)
+        public FileValidationPreparationService(IFileService fileService, IDecompressionService decompressionService, IValidationErrorHandler validationErrorHandler)
         {
             _fileService = fileService;
             _decompressionService = decompressionService;
+            _validationErrorHandler = validationErrorHandler;
         }
 
         public async Task Prepare(IFileValidationContext fileValidationContext, CancellationToken cancellationToken)
@@ -53,11 +57,13 @@ namespace ESFA.DC.ILR.FileValidationService.Service
         {
             if (!xmlFileNames.Any())
             {
+                _validationErrorHandler.FileFailureErrorHandler(ZipEmptyRuleName);
                 throw new FileLoadException("Zip File contains no Xml File.");
             }
 
             if (xmlFileNames.Count() > 1)
             {
+                _validationErrorHandler.FileFailureErrorHandler(ZipTooManyFilesRuleName);
                 throw new FileLoadException("Zip File contains more than one Xml File.");
             }
 

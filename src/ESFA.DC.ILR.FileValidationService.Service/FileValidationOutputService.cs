@@ -35,6 +35,11 @@ namespace ESFA.DC.ILR.FileValidationService.Service
             await _stronglyTypedKeyValuePersistenceService.SaveAsync(fileValidationContext.ValidationErrorsKey, validationErrors, cancellationToken);
         }
 
+        public async Task OutputFileValidationFailureAsync(IFileValidationContext fileValidationContext, IEnumerable<IValidationError> validationErrors, CancellationToken cancellationToken)
+        {
+            await _stronglyTypedKeyValuePersistenceService.SaveAsync(fileValidationContext.ValidationErrorsKey, validationErrors, cancellationToken);
+        }
+
         public string BuildOutputFileReference(string fileReference)
         {
             return fileReference.Insert(fileReference.Length - 4, "_Tight");

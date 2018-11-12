@@ -33,6 +33,8 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
 
             var service = new LooseToTightSchemaMapper();
 
+            LooseToTightSchemaMapper.ConfigureMapper();
+
             var tight = service.MapTo(loose);
 
             tight.Header.Source.ComponentSetVersion.Should().Be("TestCompSetVersion");

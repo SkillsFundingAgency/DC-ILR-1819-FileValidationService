@@ -12,7 +12,9 @@ namespace ESFA.DC.ILR.FileValidationService.Modules
     {
         protected override void Load(ContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterType<ValidationErrorHandler>().As<IValidationErrorHandler>();
+            LooseToTightSchemaMapper.ConfigureMapper();
+
+            containerBuilder.RegisterType<ValidationErrorHandler>().As<IValidationErrorHandler>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<IlrLooseXmlSchemaProvider>().As<IIlrLooseXmlSchemaProvider>();
             containerBuilder.RegisterType<ValidationErrorMetadataService>().As<IValidationErrorMetadataService>();
             containerBuilder.RegisterType<XsdValidationService>().As<IXsdValidationService>();

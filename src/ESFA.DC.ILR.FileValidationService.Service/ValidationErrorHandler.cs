@@ -20,23 +20,31 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
         public IEnumerable<IValidationError> ValidationErrors => _validationErrors;
 
+        public void FileFailureErrorHandler(string ruleName)
+        {
+            _validationErrors.Add(new ValidationError.Model.ValidationError(ruleName, severity: Severity.Fail));
+        }
+
+        public void AddRange(IEnumerable<IValidationError> validationErrors)
+        {
+            foreach (var validationError in validationErrors)
+            {
+                _validationErrors.Add(validationError);
+            }
+        }
+
         public IErrorMessageParameter BuildErrorMessageParameter(string propertyName, object value)
         {
             return new ErrorMessageParameter(propertyName, value?.ToString());
-        }
-
-        public bool SchemaValid()
-        {
-            return _validationErrors.Any(ve => ve.RuleName == SchemaRuleName);
         }
 
         public void XsdValidationErrorHandler(object sender, ValidationEventArgs e)
         {
             if (sender is IXmlLineInfo xmlLineInfo)
             {
-                _validationErrors.Add(new ValidationError.Model.ValidationError(SchemaRuleName, null, null,
-                    Severity.Error,
-                    new[]
+                _validationErrors.Add(new ValidationError.Model.ValidationError(SchemaRuleName,
+                    severity: Severity.Fail,
+                    errorMessageParameters: new[]
                     {
                         BuildErrorMessageParameter(LinePropertyName, xmlLineInfo.LineNumber),
                         BuildErrorMessageParameter(PositionPropertyName, xmlLineInfo.LinePosition),

@@ -1,7 +1,10 @@
-﻿using System.Threading;
+﻿using System;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
+using ESFA.DC.ILR.FileValidationService.Service.Interface.Exception;
 using ESFA.DC.ILR.FileValidationService.Stateless.Context;
 using ESFA.DC.JobContextManager.Interface;
 using ESFA.DC.JobContextManager.Model;
@@ -30,7 +33,14 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
 
                 var fileValidationOrchestrationService = childLifetimeScope.Resolve<IFileValidationOrchestrationService>();
 
-                await fileValidationOrchestrationService.Validate(fileValidationContext, cancellationToken);
+                try
+                {
+                    await fileValidationOrchestrationService.Validate(fileValidationContext, cancellationToken);
+                }
+                catch (FileValidationServiceFileFailureException fileFailureException)
+                {
+                    message.TopicPointer = message.Topics.ToList().FindIndex(t => t.SubscriptionName == "Reports") - 1;
+                }
 
                 return true;
             }

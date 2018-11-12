@@ -53,6 +53,27 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             stronglyTypedKeyValuePersistenceService.VerifyAll();
         }
 
+        [Fact]
+        public async Task OutputFileValidationFailureAsync()
+        {
+            var cancellationToken = CancellationToken.None;
+
+            var validationErrorsKey = "ValidationErrorsKey";
+            
+            IEnumerable<IValidationError> validationErrors = new List<IValidationError>();
+
+            var fileValidationContextMock = new Mock<IFileValidationContext>();
+            var stronglyTypedKeyValuePersistenceService = new Mock<IStronglyTypedKeyValuePersistenceService>();
+            
+            fileValidationContextMock.SetupGet(c => c.ValidationErrorsKey).Returns(validationErrorsKey);
+            stronglyTypedKeyValuePersistenceService.Setup(ps => ps.SaveAsync(validationErrorsKey, validationErrors, cancellationToken)).Returns(Task.CompletedTask).Verifiable();
+
+            await NewService(stronglyTypedKeyValuePersistenceService: stronglyTypedKeyValuePersistenceService.Object)
+                .OutputFileValidationFailureAsync(fileValidationContextMock.Object, validationErrors, cancellationToken);
+
+            stronglyTypedKeyValuePersistenceService.VerifyAll();
+        }
+
         private FileValidationOutputService NewService(IXmlSerializationService xmlSerializationService = null, IFileService fileService = null, IStronglyTypedKeyValuePersistenceService stronglyTypedKeyValuePersistenceService = null)
         {
             return new FileValidationOutputService(xmlSerializationService, fileService, stronglyTypedKeyValuePersistenceService);

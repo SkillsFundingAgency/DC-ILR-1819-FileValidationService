@@ -9,8 +9,10 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Interface
 
         void XsdValidationErrorHandler(object sender, ValidationEventArgs e);
 
-        IErrorMessageParameter BuildErrorMessageParameter(string propertyName, object value);
+        void FileFailureErrorHandler(string ruleName);
 
-        bool SchemaValid();
+        void AddRange(IEnumerable<IValidationError> validationErrors);
+
+        IErrorMessageParameter BuildErrorMessageParameter(string propertyName, object value);
     }
 }
