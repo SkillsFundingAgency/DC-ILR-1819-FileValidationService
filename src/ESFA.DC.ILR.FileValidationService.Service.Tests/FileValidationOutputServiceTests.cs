@@ -19,7 +19,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             var cancellationToken = CancellationToken.None;
 
             var fileReference = @"UKPRN/OutputFileReference.xml";
-            var tightFileReference = @"UKPRN/OutputFileReference_Tight.xml";
+            var tightFileReference = @"UKPRN/OutputFileReference-Tight.xml";
             var container = "Container";
             var validationErrorsKey = "ValidationErrorsKey";
 

@@ -42,7 +42,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
         public string BuildOutputFileReference(string fileReference)
         {
-            return fileReference.Insert(fileReference.Length - 4, "_Tight");
+            return fileReference.Insert(fileReference.Length - 4, "-Tight");
         }
     }
 }
