@@ -17,6 +17,8 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
     {
         private readonly ILifetimeScope _lifetimeScope;
 
+        private const string ReportsTopicName = "Reports";
+
         public MessageHandler(ILifetimeScope lifetimeScope)
         {
             _lifetimeScope = lifetimeScope;
@@ -39,7 +41,10 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
                 }
                 catch (FileValidationServiceFileFailureException fileFailureException)
                 {
-                    message.TopicPointer = message.Topics.ToList().FindIndex(t => t.SubscriptionName == "Reports") - 1;
+                    if (message.Topics.Any(t => t.SubscriptionName == ReportsTopicName))
+                    {
+                        message.TopicPointer = message.Topics.ToList().FindIndex(t => t.SubscriptionName == ReportsTopicName) - 1;
+                    }
                 }
 
                 return true;
