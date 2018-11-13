@@ -12,5 +12,7 @@ namespace ESFA.DC.ILR.Model.Loose
         public long? WorkPlaceModeNullable => workPlaceModeFieldSpecified ? workPlaceModeField : default(long?);
 
         public long? WorkPlaceEmpIdNullable => workPlaceEmpIdFieldSpecified ? workPlaceEmpIdField : default(long?);
+
+        public DateTime? WorkPlaceEndDateNullable => workPlaceEndDateFieldSpecified ? workPlaceEndDateField : default(DateTime?);
     }
 }

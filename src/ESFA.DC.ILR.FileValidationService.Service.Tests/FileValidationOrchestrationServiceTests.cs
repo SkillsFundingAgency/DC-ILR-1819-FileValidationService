@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Schema;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.FileValidationService.Service.Interface.Exception;
@@ -88,6 +89,39 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             looseMessageProviderMock.VerifyAll();
             fileValidationOutputServiceMock.VerifyAll();
         }
+
+        [Fact]
+        public async Task Validate_XmlException()
+        {
+            var cancellationToken = CancellationToken.None;
+
+            var fileValidationContextMock = new Mock<IFileValidationContext>();
+
+            var fileValidationPreparationServiceMock = new Mock<IFileValidationPreparationService>();
+            var looseMessageProviderMock = new Mock<ILooseMessageProvider>();
+            var fileValidationOutputServiceMock = new Mock<IFileValidationOutputService>();
+            var validationErrorHandlerMock = new Mock<IValidationErrorHandler>();
+            var loggerMock = new Mock<ILogger>();
+
+            var validationErrors = new List<IValidationError>();
+
+            fileValidationPreparationServiceMock.Setup(s => s.Prepare(fileValidationContextMock.Object, cancellationToken)).Returns(Task.CompletedTask);
+            looseMessageProviderMock.Setup(p => p.ProvideAsync(fileValidationContextMock.Object, cancellationToken)).Throws<XmlException>();
+
+            fileValidationOutputServiceMock.Setup(s => s.OutputFileValidationFailureAsync(fileValidationContextMock.Object, validationErrors, cancellationToken)).Returns(Task.CompletedTask).Verifiable();
+            validationErrorHandlerMock.SetupGet(h => h.ValidationErrors).Returns(validationErrors);
+
+            var service = NewService(fileValidationPreparationServiceMock.Object, looseMessageProviderMock.Object, fileValidationOutputService: fileValidationOutputServiceMock.Object, validationErrorHandler: validationErrorHandlerMock.Object, logger: loggerMock.Object);
+
+            var exception = Record.ExceptionAsync(() => service.Validate(fileValidationContextMock.Object, cancellationToken));
+
+            exception.Result.Should().BeOfType<FileValidationServiceFileFailureException>();
+
+            fileValidationPreparationServiceMock.VerifyAll();
+            looseMessageProviderMock.VerifyAll();
+            fileValidationOutputServiceMock.VerifyAll();
+        }
+
 
         [Fact]
         public async Task Validate_FileLoadException()

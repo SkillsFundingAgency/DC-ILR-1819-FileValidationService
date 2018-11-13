@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Xml;
 using System.Xml.Schema;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
@@ -26,8 +27,16 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
             using (var xmlReader = XmlReader.Create(stream, xmlReaderSettings))
             {
-                while (xmlReader.Read())
+                try
                 {
+                    while (xmlReader.Read())
+                    {
+                    }
+                }
+                catch (XmlException xmlException)
+                {
+                    _validationErrorHandler.XmlValidationErrorHandler(xmlException);
+                    throw;
                 }
             }
 

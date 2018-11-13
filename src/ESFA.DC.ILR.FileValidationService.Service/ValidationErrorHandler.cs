@@ -20,6 +20,15 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
         public IEnumerable<IValidationError> ValidationErrors => _validationErrors;
 
+        public void XmlValidationErrorHandler(XmlException xmlException)
+        {
+            _validationErrors.Add(
+                new ValidationError.Model.ValidationError(
+                    SchemaRuleName,
+                    severity:Severity.Fail,
+                    errorMessageParameters: BuildXmlErrorMessageParameters(xmlException.LineNumber, xmlException.LinePosition, xmlException.Message)));
+        }
+
         public void FileFailureErrorHandler(string ruleName)
         {
             _validationErrors.Add(new ValidationError.Model.ValidationError(ruleName, severity: Severity.Fail));
@@ -42,15 +51,22 @@ namespace ESFA.DC.ILR.FileValidationService.Service
         {
             if (sender is IXmlLineInfo xmlLineInfo)
             {
-                _validationErrors.Add(new ValidationError.Model.ValidationError(SchemaRuleName,
-                    severity: Severity.Fail,
-                    errorMessageParameters: new[]
-                    {
-                        BuildErrorMessageParameter(LinePropertyName, xmlLineInfo.LineNumber),
-                        BuildErrorMessageParameter(PositionPropertyName, xmlLineInfo.LinePosition),
-                        BuildErrorMessageParameter(MessagePropertyName, e.Message),
-                    }));
+                _validationErrors.Add(
+                    new ValidationError.Model.ValidationError(
+                        SchemaRuleName,
+                        severity: Severity.Fail,
+                        errorMessageParameters: BuildXmlErrorMessageParameters(xmlLineInfo.LineNumber, xmlLineInfo.LinePosition, e.Message)));
             }
+        }
+
+        private IEnumerable<IErrorMessageParameter> BuildXmlErrorMessageParameters(int lineNumber, int linePosition, string message)
+        {
+            return new[]
+            {
+                BuildErrorMessageParameter(LinePropertyName, lineNumber),
+                BuildErrorMessageParameter(PositionPropertyName, linePosition),
+                BuildErrorMessageParameter(MessagePropertyName, message),
+            };
         }
     }
 }

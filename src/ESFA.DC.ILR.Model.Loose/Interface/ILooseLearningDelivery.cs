@@ -34,10 +34,16 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         long? StdCodeNullable { get; }
 
         long? CompStatusNullable { get; }
+        
+        DateTime? OrigLearnStartDateNullable { get; }
 
         DateTime? LearnStartDateNullable { get; }
 
         DateTime? LearnPlanEndDateNullable { get; }
+
+        DateTime? LearnActEndDateNullable { get; }
+
+        DateTime? AchDateNullable { get; }
 
         long? PartnerUKPRNNullable { get; }
 

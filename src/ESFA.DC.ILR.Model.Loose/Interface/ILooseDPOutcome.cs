@@ -10,6 +10,8 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
 
         DateTime? OutStartDateNullable { get; }
 
+        DateTime? OutEndDateNullable { get; }
+
         DateTime? OutCollDateNullable { get; }
     }
 }

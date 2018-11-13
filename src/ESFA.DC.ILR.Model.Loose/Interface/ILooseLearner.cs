@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ESFA.DC.ILR.Model.Loose.Interface
 {
@@ -59,7 +60,9 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
         long? PlanEEPHoursNullable { get; }
 
         long? OTJHoursNullable { get; }
-        
+
+        DateTime? DateOfBirthNullable { get; }
+
         IReadOnlyCollection<ILooseContactPreference> ContactPreferences { get; }
 
         IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs { get; }

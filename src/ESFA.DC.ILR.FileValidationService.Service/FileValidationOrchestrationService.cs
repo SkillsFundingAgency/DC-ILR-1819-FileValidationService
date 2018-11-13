@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Schema;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.FileValidationService.Service.Interface.Exception;
@@ -21,6 +23,13 @@ namespace ESFA.DC.ILR.FileValidationService.Service
         private readonly IFileValidationOutputService _fileValidationOutputService;
         private readonly IValidationErrorHandler _validationErrorHandler;
         private readonly ILogger _logger;
+
+        private readonly IEnumerable<Type> _fileFailureExceptions = new List<Type>()
+        {
+            typeof(XmlSchemaException),
+            typeof(XmlException),
+            typeof(FileLoadException),
+        };
 
         public FileValidationOrchestrationService(
             IFileValidationPreparationService fileValidationPreparationService,
@@ -77,7 +86,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
                 await _fileValidationOutputService.OutputAsync(fileValidationContext, tightMessage, validationErrors, cancellationToken);
                 _logger.LogInfo("Finished Validation Output");
             }
-            catch (Exception exception) when (exception is FileLoadException || exception is XmlSchemaException)
+            catch (Exception exception) when (_fileFailureExceptions.Contains(exception.GetType()))
             {
                 _logger.LogError("File Validation Failure Output", exception);
                 await _fileValidationOutputService.OutputFileValidationFailureAsync(fileValidationContext, _validationErrorHandler.ValidationErrors, cancellationToken);

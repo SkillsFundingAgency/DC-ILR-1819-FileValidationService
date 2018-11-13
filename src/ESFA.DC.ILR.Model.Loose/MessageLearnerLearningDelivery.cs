@@ -22,9 +22,15 @@ namespace ESFA.DC.ILR.Model.Loose
 
         public long? CompStatusNullable => compStatusFieldSpecified ? compStatusField : default(long?);
 
+        public DateTime? OrigLearnStartDateNullable => OrigLearnStartDateSpecified ? OrigLearnStartDate : default(DateTime?);
+
         public DateTime? LearnStartDateNullable => learnStartDateFieldSpecified ? learnStartDateField : default(DateTime?);
 
         public DateTime? LearnPlanEndDateNullable => learnPlanEndDateFieldSpecified ? learnPlanEndDateField : default(DateTime?);
+
+        public DateTime? LearnActEndDateNullable => LearnActEndDateSpecified ? LearnActEndDate : default(DateTime?);
+
+        public DateTime? AchDateNullable => AchDateSpecified ? AchDate : default(DateTime?);
 
         public long? PartnerUKPRNNullable => partnerUKPRNFieldSpecified ? partnerUKPRNField : default(long?);
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml;
 using System.Xml.Schema;
 
 namespace ESFA.DC.ILR.FileValidationService.Service.Interface
@@ -8,6 +9,8 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Interface
         IEnumerable<IValidationError> ValidationErrors { get; }
 
         void XsdValidationErrorHandler(object sender, ValidationEventArgs e);
+
+        void XmlValidationErrorHandler(XmlException xmlException);
 
         void FileFailureErrorHandler(string ruleName);
 
