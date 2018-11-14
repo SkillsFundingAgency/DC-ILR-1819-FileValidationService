@@ -10,7 +10,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.ValidationError.Model
         {
         }
 
-        public ValidationError(string ruleName, string learnerReferenceNumber, long? aimSequenceNumber = null, Severity? severity = null, IEnumerable<IErrorMessageParameter> errorMessageParameters = null)
+        public ValidationError(string ruleName, string learnerReferenceNumber = null, long? aimSequenceNumber = null, Severity? severity = null, IEnumerable<IErrorMessageParameter> errorMessageParameters = null)
         {
             LearnerReferenceNumber = learnerReferenceNumber;
             AimSequenceNumber = aimSequenceNumber;

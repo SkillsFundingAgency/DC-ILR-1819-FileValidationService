@@ -6,6 +6,8 @@ namespace ESFA.DC.ILR.Model.Loose.Interface
     {
         DateTime? WorkPlaceStartDateNullable { get; }
 
+        DateTime? WorkPlaceEndDateNullable { get; }
+
         long? WorkPlaceHoursNullable { get; }
 
         long? WorkPlaceModeNullable { get; }

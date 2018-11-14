@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.Model.Loose;
@@ -13,25 +12,24 @@ namespace ESFA.DC.ILR.FileValidationService.Service
     public class FileValidationRuleExecutionService : IFileValidationRuleExecutionService
     {
         private readonly IValidator<ILooseLearner> _learnerValidator;
-        private readonly IValidator<MessageLearnerLearningDelivery> _learningDeliveryValidator;
+        private readonly IValidator<ILooseLearningDelivery> _learningDeliveryValidator;
         private readonly IValidator<ILooseLearnerDestinationAndProgression> _learnerDestinationAndProgressionValidator;
+        private readonly IValidationErrorHandler _validationErrorHandler;
 
         public FileValidationRuleExecutionService(
             IValidator<ILooseLearner> learnerValidator,
-            IValidator<MessageLearnerLearningDelivery> learningDeliveryValidator,
-            IValidator<ILooseLearnerDestinationAndProgression> learnerDestinationAndProgressionValidator)
+            IValidator<ILooseLearningDelivery> learningDeliveryValidator,
+            IValidator<ILooseLearnerDestinationAndProgression> learnerDestinationAndProgressionValidator,
+            IValidationErrorHandler validationErrorHandler)
         {
             _learnerValidator = learnerValidator;
             _learningDeliveryValidator = learningDeliveryValidator;
             _learnerDestinationAndProgressionValidator = learnerDestinationAndProgressionValidator;
+            _validationErrorHandler = validationErrorHandler;
         }
 
         public IEnumerable<IValidationError> Execute(Message message)
         {
-            var validationErrors = new List<IValidationError>();
-
-            int iteration = 0;
-
             var ruleSet = "*";
 
             if (message?.Learner != null)
@@ -42,7 +40,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
                     if (!error.IsValid)
                     {
-                        validationErrors.AddRange(BuildValidationErrorsFromValidationResult(error, learner.LearnRefNumber));
+                        HandleValidationErrors(BuildValidationErrorsFromValidationResult(error, learner.LearnRefNumber));
                     }
 
                     foreach (var learningDelivery in learner.LearningDelivery)
@@ -51,7 +49,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
                         if (!ldError.IsValid)
                         {
-                            validationErrors.AddRange(BuildValidationErrorsFromValidationResult(ldError, learner.LearnRefNumber, learningDelivery.AimSeqNumber));
+                            HandleValidationErrors(BuildValidationErrorsFromValidationResult(ldError, learner.LearnRefNumber, learningDelivery.AimSeqNumber));
                         }
                     }
                 }
@@ -63,11 +61,16 @@ namespace ESFA.DC.ILR.FileValidationService.Service
                 {
                     var error = _learnerDestinationAndProgressionValidator.Validate(learnerDestinationAndProgression, ruleSet: ruleSet);
 
-                    validationErrors.AddRange(BuildValidationErrorsFromValidationResult(error, learnerDestinationAndProgression.LearnRefNumber));
+                    HandleValidationErrors(BuildValidationErrorsFromValidationResult(error, learnerDestinationAndProgression.LearnRefNumber));
                 }
             };
 
-            return validationErrors;
+            return _validationErrorHandler.ValidationErrors;
+        }
+
+        private void HandleValidationErrors(IEnumerable<IValidationError> validationErrors)
+        {
+            _validationErrorHandler.AddRange(validationErrors);
         }
 
         private IEnumerable<IValidationError> BuildValidationErrorsFromValidationResult(ValidationResult validationResult, string learnRefNumber, long? aimSequenceNumber = null)

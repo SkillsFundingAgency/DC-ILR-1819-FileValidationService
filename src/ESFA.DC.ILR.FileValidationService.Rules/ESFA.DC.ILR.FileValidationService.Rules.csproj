@@ -13,10 +13,4 @@
     <ProjectReference Include="..\ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="xunit.core">
-      <HintPath>..\packages\xunit.extensibility.core.2.4.0\lib\net452\xunit.core.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

@@ -10,5 +10,7 @@ namespace ESFA.DC.ILR.Model.Loose
         public DateTime? OutStartDateNullable => outStartDateFieldSpecified ? outStartDateField : default(DateTime?);
 
         public DateTime? OutCollDateNullable => outCollDateFieldSpecified ? outCollDateField : default(DateTime?);
+
+        public DateTime? OutEndDateNullable => outEndDateFieldSpecified ? outEndDateField : default(DateTime?);
     }
 }

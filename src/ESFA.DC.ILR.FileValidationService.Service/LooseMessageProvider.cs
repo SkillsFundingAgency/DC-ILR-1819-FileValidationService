@@ -13,7 +13,6 @@ namespace ESFA.DC.ILR.FileValidationService.Service
         private readonly IXmlSerializationService _xmlSerializationService;
         private readonly IXsdValidationService _xsdValidationService;
 
-
         public LooseMessageProvider(IFileService fileService, IXmlSerializationService xmlSerializationService, IXsdValidationService xsdValidationService)
         {
             _fileService = fileService;

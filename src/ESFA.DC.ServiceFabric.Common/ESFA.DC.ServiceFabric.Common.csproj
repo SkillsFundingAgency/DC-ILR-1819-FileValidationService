@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="Autofac.ServiceFabric" Version="2.0.0" />
+    <PackageReference Include="ESFA.DC.JobContext.Interface" Version="0.2.4-beta0001" />
+    <PackageReference Include="ESFA.DC.JobContextManager" Version="0.2.4-beta0001" />
+    <PackageReference Include="ESFA.DC.Queueing" Version="0.1.14-beta0001" />
+    <PackageReference Include="ESFA.DC.Queueing.Interface" Version="0.1.14-beta0001" />
+    <PackageReference Include="ESFA.DC.Serialization.Interfaces" Version="0.1.4-beta0001" />
+    <PackageReference Include="ESFA.DC.Serialization.Json" Version="0.1.4-beta0001" />
+    <PackageReference Include="ESFA.DC.Serialization.Xml" Version="0.1.4-beta0001" />
+    <PackageReference Include="Microsoft.ServiceFabric" Version="6.3.187" />
+    <PackageReference Include="Microsoft.ServiceFabric.Diagnostics.Internal" Version="3.2.187" />
+    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.2.187" />
+  </ItemGroup>
+
+</Project>

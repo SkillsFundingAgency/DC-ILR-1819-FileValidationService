@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ESFA.DC.ILR.Model.Loose.Interface;
 
 namespace ESFA.DC.ILR.Model.Loose
@@ -27,6 +28,8 @@ namespace ESFA.DC.ILR.Model.Loose
 
         public long? OTJHoursNullable => oTJHoursFieldSpecified ? oTJHoursField : default(long?);
 
+        public DateTime? DateOfBirthNullable => dateOfBirthFieldSpecified ? dateOfBirthField : default(DateTime?);
+
         public IReadOnlyCollection<ILooseContactPreference> ContactPreferences => contactPreferenceField;
 
         public IReadOnlyCollection<ILooseLearnerFAM> LearnerFAMs => learnerFAMField;
@@ -40,6 +43,5 @@ namespace ESFA.DC.ILR.Model.Loose
         public IReadOnlyCollection<ILooseLearningDelivery> LearningDeliveries => learningDeliveryField;
 
         public IReadOnlyCollection<ILooseLLDDAndHealthProblem> LLDDAndHealthProblems => lLDDandHealthProblemField;
-
     }
 }

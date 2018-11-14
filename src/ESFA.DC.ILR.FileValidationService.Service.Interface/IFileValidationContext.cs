@@ -2,14 +2,12 @@
 {
     public interface IFileValidationContext
     {
-        string FileReference { get; }
+        string FileReference { get; set;  }
+
+        string OriginalFileReference { get; set; }
 
         string Container { get; }
-
-        string OutputFileReference { get; }
-
-        string OutputContainer { get; }
-
+        
         string ValidationErrorsKey { get; }
     }
 }

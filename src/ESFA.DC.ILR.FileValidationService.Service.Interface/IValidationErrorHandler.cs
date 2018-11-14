@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Xml;
 using System.Xml.Schema;
 
 namespace ESFA.DC.ILR.FileValidationService.Service.Interface
@@ -10,8 +10,12 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Interface
 
         void XsdValidationErrorHandler(object sender, ValidationEventArgs e);
 
-        IErrorMessageParameter BuildErrorMessageParameter(string propertyName, object value);
+        void XmlValidationErrorHandler(XmlException xmlException);
 
-        bool SchemaValid();
+        void FileFailureErrorHandler(string ruleName);
+
+        void AddRange(IEnumerable<IValidationError> validationErrors);
+
+        IErrorMessageParameter BuildErrorMessageParameter(string propertyName, object value);
     }
 }

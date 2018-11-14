@@ -20,27 +20,53 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
         public IEnumerable<IValidationError> ValidationErrors => _validationErrors;
 
+        public void XmlValidationErrorHandler(XmlException xmlException)
+        {
+            _validationErrors.Add(
+                new ValidationError.Model.ValidationError(
+                    SchemaRuleName,
+                    severity:Severity.Fail,
+                    errorMessageParameters: BuildXmlErrorMessageParameters(xmlException.LineNumber, xmlException.LinePosition, xmlException.Message)));
+        }
+
+        public void FileFailureErrorHandler(string ruleName)
+        {
+            _validationErrors.Add(new ValidationError.Model.ValidationError(ruleName, severity: Severity.Fail));
+        }
+
+        public void AddRange(IEnumerable<IValidationError> validationErrors)
+        {
+            foreach (var validationError in validationErrors)
+            {
+                _validationErrors.Add(validationError);
+            }
+        }
+
         public IErrorMessageParameter BuildErrorMessageParameter(string propertyName, object value)
         {
             return new ErrorMessageParameter(propertyName, value?.ToString());
         }
 
-        public bool SchemaValid()
-        {
-            return _validationErrors.Any(ve => ve.RuleName == SchemaRuleName);
-        }
-
         public void XsdValidationErrorHandler(object sender, ValidationEventArgs e)
         {
-            var xmlLineInfo = sender as IXmlLineInfo;
+            if (sender is IXmlLineInfo xmlLineInfo)
+            {
+                _validationErrors.Add(
+                    new ValidationError.Model.ValidationError(
+                        SchemaRuleName,
+                        severity: Severity.Fail,
+                        errorMessageParameters: BuildXmlErrorMessageParameters(xmlLineInfo.LineNumber, xmlLineInfo.LinePosition, e.Message)));
+            }
+        }
 
-            _validationErrors.Add(new ValidationError.Model.ValidationError(SchemaRuleName, null, null, Severity.Error,
-                new []
-                {
-                    BuildErrorMessageParameter(LinePropertyName, xmlLineInfo.LineNumber),
-                    BuildErrorMessageParameter(PositionPropertyName, xmlLineInfo.LinePosition),
-                    BuildErrorMessageParameter(MessagePropertyName, e.Message),
-                }));
+        private IEnumerable<IErrorMessageParameter> BuildXmlErrorMessageParameters(int lineNumber, int linePosition, string message)
+        {
+            return new[]
+            {
+                BuildErrorMessageParameter(LinePropertyName, lineNumber),
+                BuildErrorMessageParameter(PositionPropertyName, linePosition),
+                BuildErrorMessageParameter(MessagePropertyName, message),
+            };
         }
     }
 }

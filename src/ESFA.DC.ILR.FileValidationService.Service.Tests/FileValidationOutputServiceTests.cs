@@ -18,8 +18,9 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
         {
             var cancellationToken = CancellationToken.None;
 
-            var outputFileReference = "OutputFileReference";
-            var outputContainer = "OutputContainer";
+            var fileReference = @"UKPRN/OutputFileReference.xml";
+            var tightFileReference = @"UKPRN/OutputFileReference-Tight.xml";
+            var container = "Container";
             var validationErrorsKey = "ValidationErrorsKey";
 
             var ilrFileContent = "IlrFileContent";
@@ -33,11 +34,12 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             var fileServiceMock = new Mock<IFileService>();
             var stronglyTypedKeyValuePersistenceService = new Mock<IStronglyTypedKeyValuePersistenceService>();
 
-            fileServiceMock.Setup(s => s.OpenWriteStreamAsync(outputFileReference, outputContainer, cancellationToken)).Returns(Task.FromResult(stream)).Verifiable();
+            fileServiceMock.Setup(s => s.OpenWriteStreamAsync(tightFileReference, container, cancellationToken)).Returns(Task.FromResult(stream)).Verifiable();
 
-            fileValidationContextMock.SetupGet(c => c.OutputFileReference).Returns(outputFileReference);
-            fileValidationContextMock.SetupGet(c => c.OutputContainer).Returns(outputContainer);
+            fileValidationContextMock.SetupGet(c => c.FileReference).Returns(fileReference).Verifiable();
+            fileValidationContextMock.SetupGet(c => c.Container).Returns(container);
             fileValidationContextMock.SetupGet(c => c.ValidationErrorsKey).Returns(validationErrorsKey);
+            fileValidationContextMock.SetupSet(c => c.FileReference = tightFileReference).Verifiable();
 
             xmlSerializationServiceMock.Setup(s => s.Serialize(tightValidMessage, stream)).Verifiable();
 
@@ -48,6 +50,27 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
 
             xmlSerializationServiceMock.VerifyAll();
             fileServiceMock.VerifyAll();
+            stronglyTypedKeyValuePersistenceService.VerifyAll();
+        }
+
+        [Fact]
+        public async Task OutputFileValidationFailureAsync()
+        {
+            var cancellationToken = CancellationToken.None;
+
+            var validationErrorsKey = "ValidationErrorsKey";
+            
+            IEnumerable<IValidationError> validationErrors = new List<IValidationError>();
+
+            var fileValidationContextMock = new Mock<IFileValidationContext>();
+            var stronglyTypedKeyValuePersistenceService = new Mock<IStronglyTypedKeyValuePersistenceService>();
+            
+            fileValidationContextMock.SetupGet(c => c.ValidationErrorsKey).Returns(validationErrorsKey);
+            stronglyTypedKeyValuePersistenceService.Setup(ps => ps.SaveAsync(validationErrorsKey, validationErrors, cancellationToken)).Returns(Task.CompletedTask).Verifiable();
+
+            await NewService(stronglyTypedKeyValuePersistenceService: stronglyTypedKeyValuePersistenceService.Object)
+                .OutputFileValidationFailureAsync(fileValidationContextMock.Object, validationErrors, cancellationToken);
+
             stronglyTypedKeyValuePersistenceService.VerifyAll();
         }
 

@@ -8,6 +8,7 @@
     <PackageReference Include="AutoMapper" Version="7.0.1" />
     <PackageReference Include="ESFA.DC.ILR.1819.Model" Version="0.1.4-beta0001" />
     <PackageReference Include="ESFA.DC.IO.Interfaces" Version="0.1.12-beta0001" />
+    <PackageReference Include="ESFA.DC.Logging" Version="0.1.1-beta0001" />
     <PackageReference Include="ESFA.DC.Mapping.Interface" Version="0.1.0-beta0001" />
     <PackageReference Include="ESFA.DC.Serialization.Interfaces" Version="0.1.4-beta0001" />
   </ItemGroup>
@@ -17,6 +18,12 @@
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Rules\ESFA.DC.ILR.FileValidationService.Rules.csproj" />
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service.Interface\ESFA.DC.ILR.FileValidationService.Service.Interface.csproj" />
     <ProjectReference Include="..\ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ESFA.DC.Logging">
+      <HintPath>..\packages\ESFA.DC.Logging.0.1.1-beta0001\lib\netstandard2.0\ESFA.DC.Logging.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
