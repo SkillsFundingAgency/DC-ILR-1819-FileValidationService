@@ -15,6 +15,7 @@ namespace ESFA.DC.ILR.FileValidationService.Modules
             containerBuilder.RegisterType<SourceMapper>().As<IModelMapper<Model.Loose.MessageHeaderSource, MessageHeaderSource>>();
             containerBuilder.RegisterType<LearningProviderMapper>().As<IModelMapper<Model.Loose.MessageLearningProvider, MessageLearningProvider>>();
             containerBuilder.RegisterType<SourceFileMapper>().As<IModelMapper<Model.Loose.MessageSourceFile, MessageSourceFile>>();
+            containerBuilder.RegisterType<LearnerMapper>().As<IModelMapper<Model.Loose.MessageLearner, MessageLearner>>();
         }
     }
 }

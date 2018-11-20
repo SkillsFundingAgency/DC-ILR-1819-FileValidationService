@@ -16,6 +16,8 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests.Abstract
         protected readonly DateTime TestDateTime = new DateTime(2018, 1, 1);
         protected const string TestString = "TestString";
         protected const int TestInt = 1234567;
+        protected const long TestIntSizedLong = 1234567;
+        protected const long TestLong = 123455678901;
         protected const bool TestBool = true;
         
         protected void TestMapperProperty<TPropertyIn, TPropertyOut>(IModelMapper<TIn, TOut> mapper, Expression<Func<TIn, TPropertyIn>> inputSelector, TPropertyIn inputValue, Expression<Func<TOut, TPropertyOut>> outputSelector, TPropertyOut outputValue)
@@ -106,11 +108,13 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests.Abstract
             return list.ToArray();
         }
 
-        private void AssertOutputModel<TPropertyOut>(Expression<Func<TOut, TPropertyOut>> outputSelector, TOut outputModel, TPropertyOut outputValue)
+        private void AssertOutputModel<TPropertyOut>(Expression<Func<TOut, TPropertyOut>> outputSelector, TOut outputModel, TPropertyOut expectedOutputValue)
         {
             var selector = outputSelector.Compile();
 
-            selector(outputModel).Should().Be(outputValue);
+            var outputValue = selector(outputModel);
+                
+            outputValue.Should().Be(expectedOutputValue);
         }
 
         private void AssertOutputModelCollectionProperty<TPropertyOut>(Expression<Func<TOut, IEnumerable<TPropertyOut>>> outputSelector, TOut outputModel, IEnumerable<TPropertyOut> expectedOutputValue)
