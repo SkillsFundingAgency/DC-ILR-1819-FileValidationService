@@ -1,5 +1,4 @@
-﻿using ESFA.DC.ILR.Model.Mapper.Interface;
-using ESFA.DC.ILR.Model.Mapper.Tests.Abstract;
+﻿using ESFA.DC.ILR.Model.Mapper.Tests.Abstract;
 using FluentAssertions;
 using Xunit;
 

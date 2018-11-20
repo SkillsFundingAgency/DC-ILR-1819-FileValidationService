@@ -1,5 +1,4 @@
-﻿using System;
-using ESFA.DC.ILR.Model.Mapper.Abstract;
+﻿using ESFA.DC.ILR.Model.Mapper.Abstract;
 
 namespace ESFA.DC.ILR.Model.Mapper
 {

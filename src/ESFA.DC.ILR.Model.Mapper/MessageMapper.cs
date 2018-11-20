@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using ESFA.DC.ILR.Model.Loose.Interface;
 using ESFA.DC.ILR.Model.Mapper.Abstract;
 using ESFA.DC.ILR.Model.Mapper.Interface;
 

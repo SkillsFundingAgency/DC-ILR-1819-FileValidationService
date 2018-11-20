@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ESFA.DC.ILR.Model.Mapper.Interface;
+﻿using ESFA.DC.ILR.Model.Mapper.Interface;
 
 namespace ESFA.DC.ILR.Model.Mapper.Abstract
 {

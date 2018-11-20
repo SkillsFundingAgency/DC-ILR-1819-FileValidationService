@@ -6,7 +6,6 @@ using Autofac.Integration.ServiceFabric;
 using ESFA.DC.FileService.Config;
 using ESFA.DC.ILR.FileValidationService.Modules;
 using ESFA.DC.ILR.FileValidationService.Stateless.Config;
-using ESFA.DC.IO.AzureStorage;
 using ESFA.DC.JobContextManager.Interface;
 using ESFA.DC.JobContextManager.Model;
 using ESFA.DC.ServiceFabric.Common.Config;
