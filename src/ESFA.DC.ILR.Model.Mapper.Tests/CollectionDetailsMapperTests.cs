@@ -7,7 +7,6 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
 {
     public class CollectionDetailsMapperTests : AbstractMapperTests<Loose.MessageHeaderCollectionDetails, MessageHeaderCollectionDetails>
     {
-
         [Fact]
         public void Map_Null()
         {
