@@ -84,6 +84,7 @@
     <Compile Include="LearningProviderMapperTests.cs" />
     <Compile Include="MessageMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SourceFileMapperTests.cs" />
     <Compile Include="SourceMapperTests.cs" />
   </ItemGroup>
   <ItemGroup>
