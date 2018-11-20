@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Abstract\AbstractMapperTests.cs" />
     <Compile Include="CollectionDetailsMapperTests.cs" />
+    <Compile Include="ContactPreferenceMapperTests.cs" />
     <Compile Include="HeaderMapperTests.cs" />
     <Compile Include="LearnerMapperTests.cs" />
     <Compile Include="LearningProviderMapperTests.cs" />
