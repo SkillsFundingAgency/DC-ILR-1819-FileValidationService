@@ -24,7 +24,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
 
             var mapper = NewMapper(propertyMapper);
 
-            TestMapperProperty(mapper, m => m.CollectionDetails, input, m => m.CollectionDetails, output);
+            TestMapperEntityProperty(mapper, m => m.CollectionDetails, input, m => m.CollectionDetails, output);
         }
 
         [Fact]
@@ -37,7 +37,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
 
             var mapper = NewMapper(sourceMapper: propertyMapper);
 
-            TestMapperProperty(mapper, m => m.Source, input, m => m.Source, output);
+            TestMapperEntityProperty(mapper, m => m.Source, input, m => m.Source, output);
         }
 
         private HeaderMapper NewMapper(
@@ -48,6 +48,5 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
                 collectionDetailsMapper ?? Mock.Of<IModelMapper<Loose.MessageHeaderCollectionDetails, MessageHeaderCollectionDetails>>(),
                 sourceMapper ?? Mock.Of<IModelMapper<Loose.MessageHeaderSource, MessageHeaderSource>>());
         }
-
     }
 }

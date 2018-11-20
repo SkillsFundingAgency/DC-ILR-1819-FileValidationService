@@ -13,15 +13,24 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests.Abstract
         where TIn : new()
         where TOut : new()
     {
+        protected readonly DateTime TestDateTime = new DateTime(2018, 1, 1);
+
         protected void TestMapperProperty<TPropertyIn, TPropertyOut>(IModelMapper<TIn, TOut> mapper, Expression<Func<TIn, TPropertyIn>> inputSelector, TPropertyIn inputValue, Expression<Func<TOut, TPropertyOut>> outputSelector, TPropertyOut outputValue)
+        {
+            var inputModel = NewInputModelEntity(inputSelector, inputValue);
+            var outputModel = mapper.Map(inputModel);
+            AssertOutputModel(outputSelector, outputModel, outputValue);
+        }
+
+        protected void TestMapperEntityProperty<TPropertyIn, TPropertyOut>(IModelMapper<TIn, TOut> mapper, Expression<Func<TIn, TPropertyIn>> inputSelector, TPropertyIn inputValue, Expression<Func<TOut, TPropertyOut>> outputSelector, TPropertyOut outputValue)
             where TPropertyIn : class
             where TPropertyOut : class
         {
-            var inputModel = NewInputModel(inputSelector, inputValue);
+            var inputModel = NewInputModelEntity(inputSelector, inputValue);
             var outputModel = mapper.Map(inputModel);
             AssertOutputModel(outputSelector, outputModel, outputValue);
 
-            var nullInputModel = NewInputModel(inputSelector, null);
+            var nullInputModel = NewInputModelEntity(inputSelector, null);
             var nullOutputModel = mapper.Map(nullInputModel);
             AssertOutputModel(outputSelector, nullOutputModel, null);
         }
@@ -42,11 +51,11 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests.Abstract
             where TPropertyIn : class
             where TPropertyOut : class
         {
-            var inputModel = NewInputModel(inputSelector, inputValue);
+            var inputModel = NewInputModelEntity(inputSelector, inputValue);
             var outputModel = mapper.Map(inputModel);
             AssertOutputModelCollectionProperty(outputSelector, outputModel, outputValue);
 
-            var nullInputModel = NewInputModel(inputSelector, null);
+            var nullInputModel = NewInputModelEntity(inputSelector, null);
             var nullOutputModel = mapper.Map(nullInputModel);
             AssertOutputModelCollectionProperty(outputSelector, nullOutputModel, null);
         }
@@ -72,7 +81,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests.Abstract
             return mock.Object;
         }
 
-        private TIn NewInputModel<TPropertyIn>(Expression<Func<TIn, TPropertyIn>> inputSelector, TPropertyIn inputValue)
+        private TIn NewInputModelEntity<TPropertyIn>(Expression<Func<TIn, TPropertyIn>> inputSelector, TPropertyIn inputValue)
         {
             var input = new TIn();
 

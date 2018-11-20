@@ -14,6 +14,8 @@
     <ProjectReference Include="..\ESFA.DC.FileService\ESFA.DC.FileService.csproj" />
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service.Interface\ESFA.DC.ILR.FileValidationService.Service.Interface.csproj" />
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service\ESFA.DC.ILR.FileValidationService.Service.csproj" />
+    <ProjectReference Include="..\ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj" />
+    <ProjectReference Include="..\ESFA.DC.ILR.Model.Mapper\ESFA.DC.ILR.Model.Mapper.csproj" />
   </ItemGroup>
 
 </Project>

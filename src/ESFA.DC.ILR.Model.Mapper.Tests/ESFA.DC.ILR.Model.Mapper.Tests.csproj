@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\AbstractMapperTests.cs" />
+    <Compile Include="CollectionDetailsMapperTests.cs" />
     <Compile Include="HeaderMapperTests.cs" />
     <Compile Include="MessageMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

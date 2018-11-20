@@ -24,7 +24,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
 
             var mapper = NewMapper(propertyMapper);
 
-            TestMapperProperty(mapper, m => m.Header, input, m => m.Header, output);
+            TestMapperEntityProperty(mapper, m => m.Header, input, m => m.Header, output);
         }
 
         [Fact]
@@ -37,7 +37,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
 
             var mapper = NewMapper(learningProviderMapper: propertyMapper);
 
-            TestMapperProperty(mapper, m => m.LearningProvider, input, m => m.LearningProvider, output);
+            TestMapperEntityProperty(mapper, m => m.LearningProvider, input, m => m.LearningProvider, output);
         }
 
         [Fact]
