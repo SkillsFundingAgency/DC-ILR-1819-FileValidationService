@@ -14,7 +14,9 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests.Abstract
         where TOut : new()
     {
         protected readonly DateTime TestDateTime = new DateTime(2018, 1, 1);
-
+        protected const string TestString = "TestString";
+        protected const int TestInt = 1234567;
+        
         protected void TestMapperProperty<TPropertyIn, TPropertyOut>(IModelMapper<TIn, TOut> mapper, Expression<Func<TIn, TPropertyIn>> inputSelector, TPropertyIn inputValue, Expression<Func<TOut, TPropertyOut>> outputSelector, TPropertyOut outputValue)
         {
             var inputModel = NewInputModelEntity(inputSelector, inputValue);
