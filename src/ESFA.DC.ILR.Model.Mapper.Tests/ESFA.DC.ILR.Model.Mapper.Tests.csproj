@@ -84,6 +84,7 @@
     <Compile Include="HeaderMapperTests.cs" />
     <Compile Include="LearnerMapperTests.cs" />
     <Compile Include="LearningProviderMapperTests.cs" />
+    <Compile Include="LLDDAndHealthProblemMapperTests.cs" />
     <Compile Include="MessageMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourceFileMapperTests.cs" />
