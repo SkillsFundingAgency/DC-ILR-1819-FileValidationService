@@ -18,6 +18,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests.Abstract
         protected const int TestInt = 1234567;
         protected const long TestIntSizedLong = 1234567;
         protected const long TestLong = 123455678901;
+        protected const decimal TestDecimal = 1.234m;
         protected const bool TestBool = true;
         
         protected void TestMapperProperty<TPropertyIn, TPropertyOut>(IModelMapper<TIn, TOut> mapper, Expression<Func<TIn, TPropertyIn>> inputSelector, TPropertyIn inputValue, Expression<Func<TOut, TPropertyOut>> outputSelector, TPropertyOut outputValue)
