@@ -84,6 +84,7 @@
     <Compile Include="HeaderMapperTests.cs" />
     <Compile Include="LearnerEmploymentStatusMapperTests.cs" />
     <Compile Include="LearnerMapperTests.cs" />
+    <Compile Include="LearnerFAMMapperTests.cs" />
     <Compile Include="LearningProviderMapperTests.cs" />
     <Compile Include="LLDDAndHealthProblemMapperTests.cs" />
     <Compile Include="MessageMapperTests.cs" />
