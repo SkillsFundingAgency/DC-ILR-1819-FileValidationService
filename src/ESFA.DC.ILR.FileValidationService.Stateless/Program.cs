@@ -66,6 +66,7 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
             containerBuilder.RegisterModule<FileValidationOrchestrationServicesModule>();
             containerBuilder.RegisterModule(new IOModule(azureStorageFileServiceConfiguration, ioConfiguration));
             containerBuilder.RegisterModule<ValidatorModule>();
+            containerBuilder.RegisterModule<MapperModule>();
 
             containerBuilder.RegisterType<MessageHandler>().As<IMessageHandler<JobContextMessage>>();
 
