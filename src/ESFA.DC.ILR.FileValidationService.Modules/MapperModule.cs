@@ -23,6 +23,7 @@ namespace ESFA.DC.ILR.FileValidationService.Modules
             containerBuilder.RegisterType<LearnerHEMapper>().As<IModelMapper<Model.Loose.MessageLearnerLearnerHE, MessageLearnerLearnerHE>>();
             containerBuilder.RegisterType<ProviderSpecLearnerMonitoringMapper>().As<IModelMapper<Model.Loose.MessageLearnerProviderSpecLearnerMonitoring, MessageLearnerProviderSpecLearnerMonitoring>>();
             containerBuilder.RegisterType<LearningDeliveryMapper>().As<IModelMapper<Model.Loose.MessageLearnerLearningDelivery, MessageLearnerLearningDelivery>>();
+            containerBuilder.RegisterType<EmploymentStatusMonitoringMapper>().As<IModelMapper<Model.Loose.MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring,MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring>>();
         }
     }
 }
