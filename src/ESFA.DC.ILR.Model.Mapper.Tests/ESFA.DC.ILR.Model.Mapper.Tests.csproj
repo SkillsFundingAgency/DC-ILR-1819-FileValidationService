@@ -90,6 +90,7 @@
     <Compile Include="LearningDeliveryMapperTests.cs" />
     <Compile Include="EmploymentStatusMonitoringMapperTests.cs" />
     <Compile Include="LearningProviderMapperTests.cs" />
+    <Compile Include="AppFinRecordMapperTests.cs" />
     <Compile Include="LLDDAndHealthProblemMapperTests.cs" />
     <Compile Include="MessageMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
