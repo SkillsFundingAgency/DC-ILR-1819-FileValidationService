@@ -83,6 +83,7 @@
     <Compile Include="ContactPreferenceMapperTests.cs" />
     <Compile Include="HeaderMapperTests.cs" />
     <Compile Include="LearnerEmploymentStatusMapperTests.cs" />
+    <Compile Include="LearnerDestinationAndProgressionMapperTests.cs" />
     <Compile Include="LearningDeliveryHEMapperTests.cs" />
     <Compile Include="LearningDeliveryFAMMapperTests.cs" />
     <Compile Include="LearnerHEFinancialSupportMapperTests.cs" />

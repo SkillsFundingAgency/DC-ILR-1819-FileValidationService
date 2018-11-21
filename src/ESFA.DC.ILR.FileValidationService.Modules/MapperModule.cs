@@ -29,6 +29,7 @@ namespace ESFA.DC.ILR.FileValidationService.Modules
             containerBuilder.RegisterType<LearningDeliveryFAMMapper>().As<IModelMapper<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM, MessageLearnerLearningDeliveryLearningDeliveryFAM>>();
             containerBuilder.RegisterType<LearningDeliveryHEMapper>().As<IModelMapper<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryHE, MessageLearnerLearningDeliveryLearningDeliveryHE>>();
             containerBuilder.RegisterType<LearningDeliveryWorkPlacementMapper>().As<IModelMapper<Model.Loose.MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement, MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement>>();
+            containerBuilder.RegisterType<LearnerDestinationAndProgressionMapper>().As<IModelMapper<Model.Loose.MessageLearnerDestinationandProgression, MessageLearnerDestinationandProgression>>();
         }
     }
 }
