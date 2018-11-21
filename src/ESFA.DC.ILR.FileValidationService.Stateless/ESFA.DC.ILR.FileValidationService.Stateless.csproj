@@ -305,6 +305,10 @@
       <Project>{5972b2d4-2abe-4445-9369-db1cf90462b9}</Project>
       <Name>ESFA.DC.ILR.FileValidationService.Service.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ESFA.DC.ILR.Model.Mapper\ESFA.DC.ILR.Model.Mapper.csproj">
+      <Project>{4d7ca351-f9cd-4a45-8005-33721606635a}</Project>
+      <Name>ESFA.DC.ILR.Model.Mapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ESFA.DC.ServiceFabric.Common\ESFA.DC.ServiceFabric.Common.csproj">
       <Project>{90b2da1d-9673-4c24-97eb-0361ed71130e}</Project>
       <Name>ESFA.DC.ServiceFabric.Common</Name>
