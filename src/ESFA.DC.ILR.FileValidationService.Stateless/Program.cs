@@ -6,7 +6,6 @@ using Autofac.Integration.ServiceFabric;
 using ESFA.DC.FileService.Config;
 using ESFA.DC.ILR.FileValidationService.Modules;
 using ESFA.DC.ILR.FileValidationService.Stateless.Config;
-using ESFA.DC.IO.AzureStorage;
 using ESFA.DC.JobContextManager.Interface;
 using ESFA.DC.JobContextManager.Model;
 using ESFA.DC.ServiceFabric.Common.Config;
@@ -67,6 +66,7 @@ namespace ESFA.DC.ILR.FileValidationService.Stateless
             containerBuilder.RegisterModule<FileValidationOrchestrationServicesModule>();
             containerBuilder.RegisterModule(new IOModule(azureStorageFileServiceConfiguration, ioConfiguration));
             containerBuilder.RegisterModule<ValidatorModule>();
+            containerBuilder.RegisterModule<MapperModule>();
 
             containerBuilder.RegisterType<MessageHandler>().As<IMessageHandler<JobContextMessage>>();
 

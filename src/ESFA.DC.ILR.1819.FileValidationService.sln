@@ -29,6 +29,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.FileValidationS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.Constants", "ESFA.DC.ILR.Constants\ESFA.DC.ILR.Constants.csproj", "{517D70CC-4F92-48C5-9CC6-FA9290711ADF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.Model.Mapper", "ESFA.DC.ILR.Model.Mapper\ESFA.DC.ILR.Model.Mapper.csproj", "{4D7CA351-F9CD-4A45-8005-33721606635A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.Model.Mapper.Tests", "ESFA.DC.ILR.Model.Mapper.Tests\ESFA.DC.ILR.Model.Mapper.Tests.csproj", "{9CA31320-63A1-49CA-AA30-9DEE7B551F7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -144,6 +148,22 @@ Global
 		{517D70CC-4F92-48C5-9CC6-FA9290711ADF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{517D70CC-4F92-48C5-9CC6-FA9290711ADF}.Release|x64.ActiveCfg = Release|Any CPU
 		{517D70CC-4F92-48C5-9CC6-FA9290711ADF}.Release|x64.Build.0 = Release|Any CPU
+		{4D7CA351-F9CD-4A45-8005-33721606635A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7CA351-F9CD-4A45-8005-33721606635A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7CA351-F9CD-4A45-8005-33721606635A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4D7CA351-F9CD-4A45-8005-33721606635A}.Debug|x64.Build.0 = Debug|Any CPU
+		{4D7CA351-F9CD-4A45-8005-33721606635A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7CA351-F9CD-4A45-8005-33721606635A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D7CA351-F9CD-4A45-8005-33721606635A}.Release|x64.ActiveCfg = Release|Any CPU
+		{4D7CA351-F9CD-4A45-8005-33721606635A}.Release|x64.Build.0 = Release|Any CPU
+		{9CA31320-63A1-49CA-AA30-9DEE7B551F7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA31320-63A1-49CA-AA30-9DEE7B551F7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA31320-63A1-49CA-AA30-9DEE7B551F7C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9CA31320-63A1-49CA-AA30-9DEE7B551F7C}.Debug|x64.Build.0 = Debug|Any CPU
+		{9CA31320-63A1-49CA-AA30-9DEE7B551F7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA31320-63A1-49CA-AA30-9DEE7B551F7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CA31320-63A1-49CA-AA30-9DEE7B551F7C}.Release|x64.ActiveCfg = Release|Any CPU
+		{9CA31320-63A1-49CA-AA30-9DEE7B551F7C}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
-using ESFA.DC.ILR.Model.Loose;
+using ESFA.DC.ILR.Model.Mapper.Interface;
 using FluentAssertions;
+using Moq;
 using Xunit;
 
 namespace ESFA.DC.ILR.FileValidationService.Service.Tests
@@ -10,37 +11,17 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
         [Fact]
         public void Map()
         {
-            var loose = new Model.Loose.Message()
-            {
-                Header = new MessageHeader()
-                {
-                    Source = new MessageHeaderSource()
-                    {
-                        ComponentSetVersion = "TestCompSetVersion",
-                    }
-                },
-                Learner =  new []
-                {
-                    new MessageLearner()
-                    {
-                        ALSCost = 1,
-                        ALSCostSpecified = false,
-                        Accom = 1,
-                        Email = "HELLO",
-                    }
-                }
-            };
+            var loose = new Model.Loose.Message();
 
-            var service = new LooseToTightSchemaMapper();
+            var tight = new Model.Message();
 
-            LooseToTightSchemaMapper.ConfigureMapper();
+            var messageMapperMock = new Mock<IModelMapper<Model.Loose.Message, Model.Message>>();
+            
+            messageMapperMock.Setup(m => m.Map(loose)).Returns(tight).Verifiable();
 
-            var tight = service.MapTo(loose);
+            var service = new LooseToTightSchemaMapper(messageMapperMock.Object);
 
-            tight.Header.Source.ComponentSetVersion.Should().Be("TestCompSetVersion");
-            tight.Learner.Should().HaveCount(1);
-            tight.Learner.First().Accom.Should().Be(1);
-            tight.Learner.First().Email.Should().Be("HELLO");
+            service.MapTo(loose).Should().BeSameAs(tight);
         }
     }
 }
