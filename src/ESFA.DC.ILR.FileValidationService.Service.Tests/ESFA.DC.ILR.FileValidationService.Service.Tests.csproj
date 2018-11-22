@@ -133,6 +133,10 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ESFA.DC.FileService.Interface\ESFA.DC.FileService.Interface.csproj">
+      <Project>{1DE34151-E724-4AE9-9C7B-6444E8DFC758}</Project>
+      <Name>ESFA.DC.FileService.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ESFA.DC.FileService\ESFA.DC.FileService.csproj">
       <Project>{3BF6A9B5-E596-4857-B224-50FDE6A1E062}</Project>
       <Name>ESFA.DC.FileService</Name>
