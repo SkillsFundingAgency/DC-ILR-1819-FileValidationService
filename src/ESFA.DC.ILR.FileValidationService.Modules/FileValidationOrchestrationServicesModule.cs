@@ -23,6 +23,7 @@ namespace ESFA.DC.ILR.FileValidationService.Modules
             containerBuilder.RegisterType<FileValidationOutputService>().As<IFileValidationOutputService>();
             containerBuilder.RegisterType<FileValidationOrchestrationService>().As<IFileValidationOrchestrationService>();
             containerBuilder.RegisterType<FileValidationPreparationService>().As<IFileValidationPreparationService>();
+            containerBuilder.RegisterType<FileValidationIOModelBuilder>().As<IFileValidationIOModelBuilder>();
         }
     }
 }

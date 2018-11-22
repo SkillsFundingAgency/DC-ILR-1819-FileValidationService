@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ESFA.DC.FileValidationService.IO.Model\ESFA.DC.FileValidationService.IO.Model.csproj" />
     <ProjectReference Include="..\ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj" />
   </ItemGroup>
 

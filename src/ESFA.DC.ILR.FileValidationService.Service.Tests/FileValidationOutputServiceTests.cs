@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,12 +28,14 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
 
             var tightValidMessage = new Message();
             IEnumerable<IValidationError> validationErrors = new List<IValidationError>();
+            IEnumerable<IO.Model.ValidationError> ioValidationErrors = new List<IO.Model.ValidationError>();
             Stream stream = new MemoryStream();
 
             var fileValidationContextMock = new Mock<IFileValidationContext>();
             var xmlSerializationServiceMock = new Mock<IXmlSerializationService>();
             var fileServiceMock = new Mock<IFileService>();
             var stronglyTypedKeyValuePersistenceService = new Mock<IStronglyTypedKeyValuePersistenceService>();
+            var fileValidationIoModelBuilderMock = new Mock<IFileValidationIOModelBuilder>();
 
             fileServiceMock.Setup(s => s.OpenWriteStreamAsync(tightFileReference, container, cancellationToken)).Returns(Task.FromResult(stream)).Verifiable();
 
@@ -43,9 +46,11 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
 
             xmlSerializationServiceMock.Setup(s => s.Serialize(tightValidMessage, stream)).Verifiable();
 
-            stronglyTypedKeyValuePersistenceService.Setup(ps => ps.SaveAsync(validationErrorsKey, validationErrors, cancellationToken)).Returns(Task.CompletedTask).Verifiable();
+            stronglyTypedKeyValuePersistenceService.Setup(ps => ps.SaveAsync(validationErrorsKey, ioValidationErrors, cancellationToken)).Returns(Task.CompletedTask).Verifiable();
 
-            await NewService(xmlSerializationServiceMock.Object, fileServiceMock.Object, stronglyTypedKeyValuePersistenceService.Object)
+            fileValidationIoModelBuilderMock.Setup(b => b.BuildValidationErrors(validationErrors)).Returns(ioValidationErrors);
+
+            await NewService(xmlSerializationServiceMock.Object, fileServiceMock.Object, stronglyTypedKeyValuePersistenceService.Object, fileValidationIoModelBuilderMock.Object)
                 .OutputAsync(fileValidationContextMock.Object, tightValidMessage, validationErrors, cancellationToken);
 
             xmlSerializationServiceMock.VerifyAll();
@@ -61,22 +66,25 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             var validationErrorsKey = "ValidationErrorsKey";
             
             IEnumerable<IValidationError> validationErrors = new List<IValidationError>();
+            IEnumerable<IO.Model.ValidationError> ioValidationErrors = new List<IO.Model.ValidationError>();
 
             var fileValidationContextMock = new Mock<IFileValidationContext>();
             var stronglyTypedKeyValuePersistenceService = new Mock<IStronglyTypedKeyValuePersistenceService>();
+            var fileValidationIoModelBuilder = new Mock<IFileValidationIOModelBuilder>();
             
             fileValidationContextMock.SetupGet(c => c.ValidationErrorsKey).Returns(validationErrorsKey);
-            stronglyTypedKeyValuePersistenceService.Setup(ps => ps.SaveAsync(validationErrorsKey, validationErrors, cancellationToken)).Returns(Task.CompletedTask).Verifiable();
+            stronglyTypedKeyValuePersistenceService.Setup(ps => ps.SaveAsync(validationErrorsKey, ioValidationErrors, cancellationToken)).Returns(Task.CompletedTask).Verifiable();
+            fileValidationIoModelBuilder.Setup(b => b.BuildValidationErrors(validationErrors)).Returns(ioValidationErrors);
 
-            await NewService(stronglyTypedKeyValuePersistenceService: stronglyTypedKeyValuePersistenceService.Object)
+            await NewService(stronglyTypedKeyValuePersistenceService: stronglyTypedKeyValuePersistenceService.Object, fileValidationIoModelBuilder: fileValidationIoModelBuilder.Object)
                 .OutputFileValidationFailureAsync(fileValidationContextMock.Object, validationErrors, cancellationToken);
 
             stronglyTypedKeyValuePersistenceService.VerifyAll();
         }
 
-        private FileValidationOutputService NewService(IXmlSerializationService xmlSerializationService = null, IFileService fileService = null, IStronglyTypedKeyValuePersistenceService stronglyTypedKeyValuePersistenceService = null)
+        private FileValidationOutputService NewService(IXmlSerializationService xmlSerializationService = null, IFileService fileService = null, IStronglyTypedKeyValuePersistenceService stronglyTypedKeyValuePersistenceService = null, IFileValidationIOModelBuilder fileValidationIoModelBuilder = null)
         {
-            return new FileValidationOutputService(xmlSerializationService, fileService, stronglyTypedKeyValuePersistenceService);
+            return new FileValidationOutputService(xmlSerializationService, fileService, stronglyTypedKeyValuePersistenceService, fileValidationIoModelBuilder);
         }
     }
 }

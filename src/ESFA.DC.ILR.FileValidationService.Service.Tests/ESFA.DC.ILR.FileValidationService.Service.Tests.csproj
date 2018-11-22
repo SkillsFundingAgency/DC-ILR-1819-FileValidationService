@@ -137,6 +137,10 @@
       <Project>{3BF6A9B5-E596-4857-B224-50FDE6A1E062}</Project>
       <Name>ESFA.DC.FileService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ESFA.DC.FileValidationService.IO.Model\ESFA.DC.FileValidationService.IO.Model.csproj">
+      <Project>{45731d37-405c-465c-aebe-fd0083a78a42}</Project>
+      <Name>ESFA.DC.FileValidationService.IO.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service.Interface\ESFA.DC.ILR.FileValidationService.Service.Interface.csproj">
       <Project>{5972B2D4-2ABE-4445-9369-DB1CF90462B9}</Project>
       <Name>ESFA.DC.ILR.FileValidationService.Service.Interface</Name>
