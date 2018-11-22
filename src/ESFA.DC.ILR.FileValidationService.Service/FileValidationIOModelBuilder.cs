@@ -10,7 +10,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
     {
         public IEnumerable<IO.Model.ValidationError> BuildValidationErrors(IEnumerable<IValidationError> validationErrors)
         {
-            return validationErrors
+            return validationErrors?
                 .Select(ve =>
                     new IO.Model.ValidationError()
                     {
@@ -19,7 +19,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
                         LearnerReferenceNumber = ve.LearnerReferenceNumber,
                         RuleName = ve.RuleName,
                         ValidationErrorParameters = ve
-                            .ErrorMessageParameters
+                            .ErrorMessageParameters?
                             .Select(p =>
                                 new ValidationErrorParameter()
                                 {
