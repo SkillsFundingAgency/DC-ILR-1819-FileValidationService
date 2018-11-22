@@ -12,7 +12,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
         {
             var invalidLearners = new HashSet<string>(validationErrors.Where(e => e.Severity == Severity.Error).Select(e => e.LearnerReferenceNumber).Distinct());
 
-            message.Learner = message.Learner.Where(l => !invalidLearners.Contains(l.LearnRefNumber)).ToArray();
+            message.Learner = message.Learner?.Where(l => !invalidLearners.Contains(l.LearnRefNumber)).ToArray();
 
             return message;
         }

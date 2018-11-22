@@ -43,6 +43,19 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             validMessage.Learner.Should().HaveCount(1);
         }
 
+        [Fact]
+        public void ApplyFilter_NullLearners()
+        {
+            var message = new Message()
+            {
+                Learner = null
+            };
+
+            var validMessage = NewService().ApplyFilter(message, new List<IValidationError>());
+
+            validMessage.Learner.Should().BeNull();
+        }
+
         private TightSchemaValidMessageFilterService NewService()
         {
             return new TightSchemaValidMessageFilterService();
