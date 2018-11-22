@@ -43,13 +43,17 @@ namespace ESFA.DC.ILR.FileValidationService.Service
                         HandleValidationErrors(BuildValidationErrorsFromValidationResult(error, learner.LearnRefNumber));
                     }
 
-                    foreach (var learningDelivery in learner.LearningDelivery)
+                    if (learner.LearningDelivery != null)
                     {
-                        var ldError = _learningDeliveryValidator.Validate(learningDelivery, ruleSet: ruleSet);
-
-                        if (!ldError.IsValid)
+                        foreach (var learningDelivery in learner.LearningDelivery)
                         {
-                            HandleValidationErrors(BuildValidationErrorsFromValidationResult(ldError, learner.LearnRefNumber, learningDelivery.AimSeqNumber));
+                            var ldError = _learningDeliveryValidator.Validate(learningDelivery, ruleSet: ruleSet);
+
+                            if (!ldError.IsValid)
+                            {
+                                HandleValidationErrors(BuildValidationErrorsFromValidationResult(ldError,
+                                    learner.LearnRefNumber, learningDelivery.AimSeqNumber));
+                            }
                         }
                     }
                 }
