@@ -36,6 +36,12 @@
     <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="ESFA.DC.FileService, Version=0.1.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ESFA.DC.FileService.0.1.15-beta0001\lib\netstandard2.0\ESFA.DC.FileService.dll</HintPath>
+    </Reference>
+    <Reference Include="ESFA.DC.FileService.Interface, Version=0.1.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ESFA.DC.FileService.Interface.0.1.15-beta0001\lib\netstandard2.0\ESFA.DC.FileService.Interface.dll</HintPath>
+    </Reference>
     <Reference Include="ESFA.DC.ILR.Model, Version=0.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ESFA.DC.ILR.1819.Model.0.1.4-beta0001\lib\netstandard2.0\ESFA.DC.ILR.Model.dll</HintPath>
     </Reference>
@@ -104,14 +110,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ESFA.DC.FileService.Interface\ESFA.DC.FileService.Interface.csproj">
-      <Project>{1DE34151-E724-4AE9-9C7B-6444E8DFC758}</Project>
-      <Name>ESFA.DC.FileService.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ESFA.DC.FileService\ESFA.DC.FileService.csproj">
-      <Project>{3BF6A9B5-E596-4857-B224-50FDE6A1E062}</Project>
-      <Name>ESFA.DC.FileService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Rules\ESFA.DC.ILR.FileValidationService.Rules.csproj">
       <Project>{995F5451-3A7D-4BD6-B018-5555AEDA71F6}</Project>
       <Name>ESFA.DC.ILR.FileValidationService.Rules</Name>

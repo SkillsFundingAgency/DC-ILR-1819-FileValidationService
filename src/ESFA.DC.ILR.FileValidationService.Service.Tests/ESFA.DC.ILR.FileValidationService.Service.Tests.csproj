@@ -37,6 +37,9 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="ESFA.DC.FileService.Interface, Version=0.1.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ESFA.DC.FileService.Interface.0.1.15-beta0001\lib\netstandard2.0\ESFA.DC.FileService.Interface.dll</HintPath>
+    </Reference>
     <Reference Include="ESFA.DC.ILR.Model, Version=0.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ESFA.DC.ILR.1819.Model.0.1.4-beta0001\lib\netstandard2.0\ESFA.DC.ILR.Model.dll</HintPath>
     </Reference>
@@ -133,14 +136,6 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ESFA.DC.FileService.Interface\ESFA.DC.FileService.Interface.csproj">
-      <Project>{1DE34151-E724-4AE9-9C7B-6444E8DFC758}</Project>
-      <Name>ESFA.DC.FileService.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ESFA.DC.FileService\ESFA.DC.FileService.csproj">
-      <Project>{3BF6A9B5-E596-4857-B224-50FDE6A1E062}</Project>
-      <Name>ESFA.DC.FileService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ESFA.DC.FileValidationService.IO.Model\ESFA.DC.FileValidationService.IO.Model.csproj">
       <Project>{45731d37-405c-465c-aebe-fd0083a78a42}</Project>
       <Name>ESFA.DC.FileValidationService.IO.Model</Name>
