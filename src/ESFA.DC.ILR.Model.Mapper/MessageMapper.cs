@@ -12,7 +12,6 @@ namespace ESFA.DC.ILR.Model.Mapper
         private readonly IModelMapper<Loose.MessageLearner, MessageLearner> _learnerMapper;
         private readonly IModelMapper<Loose.MessageLearnerDestinationandProgression, MessageLearnerDestinationandProgression> _destinationAndProgressionMapper;
 
-
         public MessageMapper(
             IModelMapper<Loose.MessageHeader, MessageHeader> headerMapper,
             IModelMapper<Loose.MessageLearningProvider, MessageLearningProvider> learningProviderMapper,

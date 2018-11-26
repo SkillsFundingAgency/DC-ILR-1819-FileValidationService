@@ -53,6 +53,12 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
+        public void FD_EmploymentStatusMonitoring_EO()
+        {
+            TestEntityMaximumOccurrenceFor(l => l.EmploymentStatusMonitorings, "FD_EmploymentStatusMonitoring_EO", "EmploymentStatusMonitoring", 7);
+        }
+
+        [Fact]
         public void EmploymentStatusMonitoring_ChildValidator()
         {
             _validator.ShouldHaveChildValidator(esm => esm.EmploymentStatusMonitorings, typeof(IValidator<ILooseEmploymentStatusMonitoring>));

@@ -106,7 +106,6 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             RuleFor(l => l.LLDDAndHealthProblems).CountLessThanOrEqualTo(22).WithEntityOccurrenceError(RuleNames.FD_LLDDandHealthProblem_EO);
             RuleFor(l => l.LearnerFAMs).CountLessThanOrEqualTo(17).WithEntityOccurrenceError(RuleNames.FD_LearnerFAM_EO);
             RuleFor(l => l.ProviderSpecLearnerMonitorings).CountLessThanOrEqualTo(2).WithEntityOccurrenceError(RuleNames.FD_ProviderSpecLearnerMonitoring_EO);
-            RuleFor(l => l.LearnerEmploymentStatuses).CountLessThanOrEqualTo(7).WithEntityOccurrenceError(RuleNames.FD_EmploymentStatusMonitoring_EO);
             RuleFor(l => l.LearnerHEs).CountLessThanOrEqualTo(1).WithEntityOccurrenceError(RuleNames.FD_LearnerHE_EO);
             RuleFor(l => l.LearningDeliveries).CountGreaterThanOrEqualTo(1).WithEntityOccurrenceError(RuleNames.FD_LearningDelivery_EO);
 

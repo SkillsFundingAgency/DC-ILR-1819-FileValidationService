@@ -408,12 +408,6 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         }
 
         [Fact]
-        public void FD_EmploymentStatusMonitoring_EO()
-        {
-            TestEntityMaximumOccurrenceFor(l => l.LearnerEmploymentStatuses, "FD_EmploymentStatusMonitoring_EO", "EmploymentStatusMonitoring", 7);
-        }
-
-        [Fact]
         public void FD_LearnerHE_EO()
         {
             TestEntityMaximumOccurrenceFor(l => l.LearnerHEs, "FD_LearnerHE_EO", "LearnerHE", 1);

@@ -1,22 +1,19 @@
-﻿using ESFA.DC.ILR.FileValidationService.Rules.Constants;
+﻿using ESFA.DC.ILR.FileValidationService.Rules.Abstract;
+using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using ESFA.DC.ILR.FileValidationService.Rules.Extensions;
 using ESFA.DC.ILR.Model.Loose.Interface;
 using FluentValidation;
 
 namespace ESFA.DC.ILR.FileValidationService.Rules
 {
-    public class LearnerEmploymentStatusValidator : AbstractValidator<ILooseLearnerEmploymentStatus>
+    public class LearnerEmploymentStatusValidator : AbstractFileValidationValidator<ILooseLearnerEmploymentStatus>
     {
         public LearnerEmploymentStatusValidator(IValidator<ILooseEmploymentStatusMonitoring> employmentStatusMonitoringValidator)
         {
-            RegexRules();
-            MandatoryAttributeRules();
-            LengthRules();
-
             RuleForEach(les => les.EmploymentStatusMonitorings).SetValidator(employmentStatusMonitoringValidator);
         }
 
-        private void RegexRules()
+        public override void RegexRules()
         {
             RuleSet(RuleSetNames.Regex, () =>
             {
@@ -24,7 +21,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             });
         }
 
-        private void MandatoryAttributeRules()
+        public override void MandatoryAttributeRules()
         {
             RuleSet(RuleSetNames.MandatoryAttributes, () =>
             {
@@ -33,13 +30,21 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             });
         }
 
-        private void LengthRules()
+        public override void LengthRules()
         {
             RuleSet(RuleSetNames.Length, () =>
             {
                 RuleFor(les => les.EmpStatNullable).Length(1, 2).WithLengthError(RuleNames.FD_EmpStat_AL);
                 RuleFor(les => les.EmpIdNullable).Length(1, 9).WithLengthError(RuleNames.FD_EmpId_AL);
                 RuleFor(les => les.AgreeId).Length(1, 6).WithLengthError(RuleNames.FD_AgreeId_AL);
+            });
+        }
+
+        public override void EntityOccurenceRules()
+        {
+            RuleSet(RuleSetNames.EntityOccurrence, () =>
+            {
+                RuleFor(l => l.EmploymentStatusMonitorings).CountLessThanOrEqualTo(7).WithEntityOccurrenceError(RuleNames.FD_EmploymentStatusMonitoring_EO);
             });
         }
     }
