@@ -2,17 +2,17 @@
 using System.Linq;
 using ESFA.DC.ILR.FileValidationService.Service.Interface;
 using ESFA.DC.ILR.FileValidationService.Service.Interface.Enum;
-using ESFA.DC.ILR.FileValidationService.Service.IO.Model;
+using ESFA.DC.ILR.IO.Model.Validation;
 
 namespace ESFA.DC.ILR.FileValidationService.Service
 {
     public class FileValidationIOModelBuilder : IFileValidationIOModelBuilder
     {
-        public IEnumerable<IO.Model.ValidationError> BuildValidationErrors(IEnumerable<IValidationError> validationErrors)
+        public IEnumerable<IO.Model.Validation.ValidationError> BuildValidationErrors(IEnumerable<IValidationError> validationErrors)
         {
             return validationErrors?
                 .Select(ve =>
-                    new IO.Model.ValidationError()
+                    new IO.Model.Validation.ValidationError()
                     {
                         Severity = SeverityToString(ve.Severity),
                         AimSequenceNumber = ve.AimSequenceNumber,

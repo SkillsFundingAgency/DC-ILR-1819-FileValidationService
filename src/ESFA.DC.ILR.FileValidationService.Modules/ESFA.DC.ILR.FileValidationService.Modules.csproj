@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.8.1" />
     <PackageReference Include="ESFA.DC.FileService" Version="0.1.15-beta0001" />
+    <PackageReference Include="ESFA.DC.ILR.1819.Model.Loose" Version="0.1.5-beta0001" />
     <PackageReference Include="ESFA.DC.IO.AzureStorage" Version="0.1.14-beta0001" />
     <PackageReference Include="ESFA.DC.IO.Interfaces" Version="0.1.12-beta0001" />
   </ItemGroup>
@@ -14,7 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service.Interface\ESFA.DC.ILR.FileValidationService.Service.Interface.csproj" />
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service\ESFA.DC.ILR.FileValidationService.Service.csproj" />
-    <ProjectReference Include="..\ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj" />
     <ProjectReference Include="..\ESFA.DC.ILR.Model.Mapper\ESFA.DC.ILR.Model.Mapper.csproj" />
   </ItemGroup>
 

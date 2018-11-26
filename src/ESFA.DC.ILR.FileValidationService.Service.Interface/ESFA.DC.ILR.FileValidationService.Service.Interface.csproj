@@ -5,12 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ESFA.DC.ILR.1819.IO.Model.Validation" Version="0.1.5-beta0001" />
     <PackageReference Include="ESFA.DC.ILR.1819.Model" Version="0.1.4-beta0001" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ESFA.DC.FileValidationService.IO.Model\ESFA.DC.FileValidationService.IO.Model.csproj" />
-    <ProjectReference Include="..\ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj" />
+    <PackageReference Include="ESFA.DC.ILR.1819.Model.Loose" Version="0.1.5-beta0001" />
   </ItemGroup>
 
 </Project>

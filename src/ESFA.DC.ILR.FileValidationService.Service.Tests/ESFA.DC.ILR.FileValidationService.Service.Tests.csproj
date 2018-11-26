@@ -40,11 +40,17 @@
     <Reference Include="ESFA.DC.FileService.Interface, Version=0.1.15.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ESFA.DC.FileService.Interface.0.1.15-beta0001\lib\netstandard2.0\ESFA.DC.FileService.Interface.dll</HintPath>
     </Reference>
+    <Reference Include="ESFA.DC.ILR.IO.Model.Validation, Version=0.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ESFA.DC.ILR.1819.IO.Model.Validation.0.1.5-beta0001\lib\netstandard2.0\ESFA.DC.ILR.IO.Model.Validation.dll</HintPath>
+    </Reference>
     <Reference Include="ESFA.DC.ILR.Model, Version=0.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ESFA.DC.ILR.1819.Model.0.1.4-beta0001\lib\netstandard2.0\ESFA.DC.ILR.Model.dll</HintPath>
     </Reference>
     <Reference Include="ESFA.DC.ILR.Model.Interface, Version=0.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ESFA.DC.ILR.1819.Model.Interface.0.1.3-beta0001\lib\netstandard2.0\ESFA.DC.ILR.Model.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="ESFA.DC.ILR.Model.Loose, Version=0.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ESFA.DC.ILR.1819.Model.Loose.0.1.5-beta0001\lib\netstandard2.0\ESFA.DC.ILR.Model.Loose.dll</HintPath>
     </Reference>
     <Reference Include="ESFA.DC.Logging, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ESFA.DC.Logging.0.1.1-beta0001\lib\netstandard2.0\ESFA.DC.Logging.dll</HintPath>
@@ -136,10 +142,6 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ESFA.DC.FileValidationService.IO.Model\ESFA.DC.FileValidationService.IO.Model.csproj">
-      <Project>{45731d37-405c-465c-aebe-fd0083a78a42}</Project>
-      <Name>ESFA.DC.FileValidationService.IO.Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service.Interface\ESFA.DC.ILR.FileValidationService.Service.Interface.csproj">
       <Project>{5972B2D4-2ABE-4445-9369-DB1CF90462B9}</Project>
       <Name>ESFA.DC.ILR.FileValidationService.Service.Interface</Name>
@@ -147,10 +149,6 @@
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service\ESFA.DC.ILR.FileValidationService.Service.csproj">
       <Project>{f9c7dee0-1b4f-4141-9cfd-cfdd168debd7}</Project>
       <Name>ESFA.DC.ILR.FileValidationService.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj">
-      <Project>{c1a4477b-5ece-4eed-81c9-f77c8981290c}</Project>
-      <Name>ESFA.DC.ILR.Model.Loose</Name>
     </ProjectReference>
     <ProjectReference Include="..\ESFA.DC.ILR.Model.Mapper\ESFA.DC.ILR.Model.Mapper.csproj">
       <Project>{4d7ca351-f9cd-4a45-8005-33721606635a}</Project>

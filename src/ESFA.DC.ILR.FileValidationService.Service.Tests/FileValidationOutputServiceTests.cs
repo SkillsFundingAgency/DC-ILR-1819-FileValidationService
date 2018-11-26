@@ -28,7 +28,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
 
             var tightValidMessage = new Message();
             IEnumerable<IValidationError> validationErrors = new List<IValidationError>();
-            IEnumerable<IO.Model.ValidationError> ioValidationErrors = new List<IO.Model.ValidationError>();
+            IEnumerable<IO.Model.Validation.ValidationError> ioValidationErrors = new List<IO.Model.Validation.ValidationError>();
             Stream stream = new MemoryStream();
 
             var fileValidationContextMock = new Mock<IFileValidationContext>();
@@ -66,7 +66,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             var validationErrorsKey = "ValidationErrorsKey";
             
             IEnumerable<IValidationError> validationErrors = new List<IValidationError>();
-            IEnumerable<IO.Model.ValidationError> ioValidationErrors = new List<IO.Model.ValidationError>();
+            IEnumerable<IO.Model.Validation.ValidationError> ioValidationErrors = new List<IO.Model.Validation.ValidationError>();
 
             var fileValidationContextMock = new Mock<IFileValidationContext>();
             var stronglyTypedKeyValuePersistenceService = new Mock<IStronglyTypedKeyValuePersistenceService>();

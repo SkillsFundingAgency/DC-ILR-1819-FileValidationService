@@ -37,6 +37,9 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="ESFA.DC.ILR.Model.Loose, Version=0.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ESFA.DC.ILR.1819.Model.Loose.0.1.5-beta0001\lib\netstandard2.0\ESFA.DC.ILR.Model.Loose.dll</HintPath>
+    </Reference>
     <Reference Include="FluentAssertions, Version=5.4.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentAssertions.5.4.2\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
@@ -123,10 +126,6 @@
     <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service.Interface\ESFA.DC.ILR.FileValidationService.Service.Interface.csproj">
       <Project>{5972B2D4-2ABE-4445-9369-DB1CF90462B9}</Project>
       <Name>ESFA.DC.ILR.FileValidationService.Service.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ESFA.DC.ILR.Model.Loose\ESFA.DC.ILR.Model.Loose.csproj">
-      <Project>{C1A4477B-5ECE-4EED-81C9-F77C8981290C}</Project>
-      <Name>ESFA.DC.ILR.Model.Loose</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
