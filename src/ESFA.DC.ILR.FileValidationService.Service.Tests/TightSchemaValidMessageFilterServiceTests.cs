@@ -18,7 +18,9 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
             var invalidLearnerTwo = new MessageLearner() { LearnRefNumber = invalidLearnerTwoLearnRefNumber };
             var validLearnerThreeLearnRefNumber = "ValidThree";
             var validLearnerThree = new MessageLearner() { LearnRefNumber = validLearnerThreeLearnRefNumber };
-            
+            string invalidLearnerThreeNullLearnRefNumber = null;
+            var invalidLearnerThree = new MessageLearner() { LearnRefNumber = invalidLearnerThreeNullLearnRefNumber };
+
             var message = new Message()
             {
                 Learner = new []
@@ -26,6 +28,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
                     invalidLearnerOne,
                     invalidLearnerTwo,
                     validLearnerThree,
+                    invalidLearnerThree,
                 }
             };
 
@@ -35,6 +38,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
                 new ValidationError.Model.ValidationError() { LearnerReferenceNumber = invalidLearnerTwoLearnRefNumber, Severity = Severity.Error },
                 new ValidationError.Model.ValidationError() { LearnerReferenceNumber = invalidLearnerOneLearnRefNumber, Severity = Severity.Error },
                 new ValidationError.Model.ValidationError() { LearnerReferenceNumber = validLearnerThreeLearnRefNumber, Severity = Severity.Warning },
+                new ValidationError.Model.ValidationError() { LearnerReferenceNumber = invalidLearnerThreeNullLearnRefNumber, Severity = Severity.Error },
             };
 
             var validMessage = NewService().ApplyFilter(message, validationErrors);
