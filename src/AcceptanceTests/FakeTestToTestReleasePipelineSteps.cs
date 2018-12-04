@@ -5,6 +5,9 @@ using TechTalk.SpecFlow;
 namespace ESFA.DC.ILR.FileValidationService.AcceptanceTests
 {
     [Binding]
+    [Trait("Category", "SmokeTest")]
+    [Trait("Category", "Bob")]
+    [Trait("Category", "NonDestructive")]
     public class FakeTestToTestReleasePipelineSteps
     {
         private int result;

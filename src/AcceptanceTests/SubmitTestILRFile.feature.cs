@@ -24,7 +24,7 @@ namespace ESFA.DC.ILR.FileValidationService.AcceptanceTests
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "SpecFlowFeature1.feature"
+#line 1 "SubmitTestILRFile.feature"
 #line hidden
         
         public SubmitTestILRFileFeature(SubmitTestILRFileFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
@@ -81,10 +81,16 @@ namespace ESFA.DC.ILR.FileValidationService.AcceptanceTests
         [Xunit.TraitAttribute("FeatureTitle", "SubmitTestILRFile")]
         [Xunit.TraitAttribute("Description", "Process file test file")]
         [Xunit.TraitAttribute("Category", "mytag")]
+        [Xunit.TraitAttribute("Category", "Destructive")]
+        [Xunit.TraitAttribute("Category", "SmokeTest")]
+        [Xunit.TraitAttribute("Category", "Bob")]
         public virtual void ProcessFileTestFile()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Process file test file", null, new string[] {
-                        "mytag"});
+                        "mytag",
+                        "Destructive",
+                        "SmokeTest",
+                        "Bob"});
 #line 8
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

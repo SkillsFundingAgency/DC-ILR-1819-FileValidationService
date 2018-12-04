@@ -5,6 +5,8 @@ using Xunit;
 namespace ESFA.DC.ILR.FileValidationService.AcceptanceTests
 {
     [Binding]
+    [Trait("Category", "Bob")]
+    [Trait("Category", "NonDestructive")]
     public class SubmitTestILRFileSteps
     {
         private int result;
