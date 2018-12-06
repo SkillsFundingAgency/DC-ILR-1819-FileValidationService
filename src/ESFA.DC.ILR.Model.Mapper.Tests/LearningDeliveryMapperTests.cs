@@ -267,6 +267,19 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         }
 
         [Fact]
+        public void Map_ProviderSpecDeliveryMonitoring()
+        {
+            var inputCollection = NewArrayContaining<Loose.MessageLearnerLearningDeliveryProviderSpecDeliveryMonitoring>();
+            var outputCollection = NewArrayContaining<MessageLearnerLearningDeliveryProviderSpecDeliveryMonitoring>();
+
+            var propertyMapper = NewMockedModelCollectionMapper(inputCollection, outputCollection);
+
+            var mapper = NewMapper(providerSpecDeliveryMonitoringMapper: propertyMapper);
+
+            TestMapperCollectionProperty(mapper, m => m.ProviderSpecDeliveryMonitoring, inputCollection, m => m.ProviderSpecDeliveryMonitoring, outputCollection);
+        }
+
+        [Fact]
         public void Map_PwayCode()
         {
             TestMapperProperty(NewMapper(), m => m.PwayCode, TestIntSizedLong, m => m.PwayCode, TestInt);
@@ -312,13 +325,15 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
             IModelMapper<Loose.MessageLearnerLearningDeliveryAppFinRecord, MessageLearnerLearningDeliveryAppFinRecord> appFinRecordMapper = null,
             IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM, MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamMapper = null,
             IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryHE, MessageLearnerLearningDeliveryLearningDeliveryHE> learningDeliveryHeMapper = null,
-            IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement, MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement> learningDeliveryWorkPlacementMapper = null)
+            IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement, MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement> learningDeliveryWorkPlacementMapper = null,
+            IModelMapper<Loose.MessageLearnerLearningDeliveryProviderSpecDeliveryMonitoring, MessageLearnerLearningDeliveryProviderSpecDeliveryMonitoring> providerSpecDeliveryMonitoringMapper = null)
         {
             return new LearningDeliveryMapper(
                 appFinRecordMapper ?? Mock.Of<IModelMapper<Loose.MessageLearnerLearningDeliveryAppFinRecord, MessageLearnerLearningDeliveryAppFinRecord>>(),
                 learningDeliveryFamMapper ?? Mock.Of<IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM, MessageLearnerLearningDeliveryLearningDeliveryFAM>>(),
                 learningDeliveryHeMapper ?? Mock.Of<IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryHE, MessageLearnerLearningDeliveryLearningDeliveryHE>>(),
-                learningDeliveryWorkPlacementMapper ?? Mock.Of< IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement, MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement>>());
+                learningDeliveryWorkPlacementMapper ?? Mock.Of<IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement, MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement>>(),
+                providerSpecDeliveryMonitoringMapper ?? Mock.Of<IModelMapper<Loose.MessageLearnerLearningDeliveryProviderSpecDeliveryMonitoring, MessageLearnerLearningDeliveryProviderSpecDeliveryMonitoring>>());
         }
     }
 }

@@ -11,17 +11,20 @@ namespace ESFA.DC.ILR.Model.Mapper
         private readonly IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM, MessageLearnerLearningDeliveryLearningDeliveryFAM> _learningDeliveryFamMapper;
         private readonly IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryHE, MessageLearnerLearningDeliveryLearningDeliveryHE> _learningDeliveryHeMapper;
         private readonly IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement, MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement> _learningDeliveryWorkPlacementMapper;
+        private readonly IModelMapper<Loose.MessageLearnerLearningDeliveryProviderSpecDeliveryMonitoring, MessageLearnerLearningDeliveryProviderSpecDeliveryMonitoring> _providerSpecDeliveryMonitoringMapper;
 
         public LearningDeliveryMapper(
             IModelMapper<Loose.MessageLearnerLearningDeliveryAppFinRecord, MessageLearnerLearningDeliveryAppFinRecord> appFinRecordMapper,
             IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryFAM, MessageLearnerLearningDeliveryLearningDeliveryFAM> learningDeliveryFamMapper,
             IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryHE, MessageLearnerLearningDeliveryLearningDeliveryHE> learningDeliveryHeMapper,
-            IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement, MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement> learningDeliveryWorkPlacementMapper)
+            IModelMapper<Loose.MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement, MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement> learningDeliveryWorkPlacementMapper,
+            IModelMapper<Loose.MessageLearnerLearningDeliveryProviderSpecDeliveryMonitoring, MessageLearnerLearningDeliveryProviderSpecDeliveryMonitoring> providerSpecDeliveryMonitoringMapper)
         {
             _appFinRecordMapper = appFinRecordMapper;
             _learningDeliveryFamMapper = learningDeliveryFamMapper;
             _learningDeliveryHeMapper = learningDeliveryHeMapper;
             _learningDeliveryWorkPlacementMapper = learningDeliveryWorkPlacementMapper;
+            _providerSpecDeliveryMonitoringMapper = providerSpecDeliveryMonitoringMapper;
         }
 
         protected override MessageLearnerLearningDelivery MapModel(Loose.MessageLearnerLearningDelivery model)
@@ -65,6 +68,7 @@ namespace ESFA.DC.ILR.Model.Mapper
                 PriorLearnFundAdjSpecified = model.PriorLearnFundAdjSpecified,
                 ProgType = (int)model.ProgType,
                 ProgTypeSpecified = model.ProgTypeSpecified,
+                ProviderSpecDeliveryMonitoring = model.ProviderSpecDeliveryMonitoring?.Select(m => _providerSpecDeliveryMonitoringMapper.Map(m)).ToArray(),
                 PwayCode = (int)model.PwayCode,
                 PwayCodeSpecified = model.PwayCodeSpecified,
                 SWSupAimId = model.SWSupAimId,
