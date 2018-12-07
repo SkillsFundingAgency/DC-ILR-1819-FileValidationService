@@ -3,7 +3,7 @@
 	As a math idiot
 	I want to be told the sum of two numbers
 
-@mytag @NonDestructive @SmokeTest @Bob
+@mytag @NonDestructive @Bob
 Scenario: Add two numbers
 	Given I have entered 50 into the calculator
 	And I have also entered 70 into the calculator

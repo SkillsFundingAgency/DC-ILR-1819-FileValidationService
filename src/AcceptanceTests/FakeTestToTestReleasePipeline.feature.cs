@@ -82,14 +82,12 @@ namespace ESFA.DC.ILR.FileValidationService.AcceptanceTests
         [Xunit.TraitAttribute("Description", "Add two numbers")]
         [Xunit.TraitAttribute("Category", "mytag")]
         [Xunit.TraitAttribute("Category", "NonDestructive")]
-        [Xunit.TraitAttribute("Category", "SmokeTest")]
         [Xunit.TraitAttribute("Category", "Bob")]
         public virtual void AddTwoNumbers()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", null, new string[] {
                         "mytag",
                         "NonDestructive",
-                        "SmokeTest",
                         "Bob"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);

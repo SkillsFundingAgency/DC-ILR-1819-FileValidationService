@@ -6,6 +6,7 @@ using TechTalk.SpecFlow;
 namespace ESFA.DC.ILR.FileValidationService.AcceptanceTests
 {
     [Binding]
+    [Trait("Category", "SmokeTest")]
     public class CheckConfileFileIsBeingPopulatedSteps
     {
         String configItemName = "LoggerConnectionString";

@@ -81,10 +81,12 @@ namespace ESFA.DC.ILR.FileValidationService.AcceptanceTests
         [Xunit.TraitAttribute("FeatureTitle", "CheckConfileFileIsBeingPopulated")]
         [Xunit.TraitAttribute("Description", "Get a config item from Config and check it had been populated")]
         [Xunit.TraitAttribute("Category", "mytag")]
+        [Xunit.TraitAttribute("Category", "SmokeTest")]
         public virtual void GetAConfigItemFromConfigAndCheckItHadBeenPopulated()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get a config item from Config and check it had been populated", null, new string[] {
-                        "mytag"});
+                        "mytag",
+                        "SmokeTest"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
