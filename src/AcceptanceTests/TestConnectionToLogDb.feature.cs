@@ -17,17 +17,17 @@ namespace ESFA.DC.ILR.FileValidationService.AcceptanceTests
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class SubmitTestILRFileFeature : Xunit.IClassFixture<SubmitTestILRFileFeature.FixtureData>, System.IDisposable
+    public partial class TestConnectionToLogDbFeature : Xunit.IClassFixture<TestConnectionToLogDbFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "SubmitTestILRFile.feature"
+#line 1 "TestConnectionToLogDb.feature"
 #line hidden
         
-        public SubmitTestILRFileFeature(SubmitTestILRFileFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public TestConnectionToLogDbFeature(TestConnectionToLogDbFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -36,8 +36,8 @@ namespace ESFA.DC.ILR.FileValidationService.AcceptanceTests
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SubmitTestILRFile", "\tIn order to avoid silly mistakes\r\n\tAs a end user\r\n\tI want to submit a file to Se" +
-                    "rvice Bus and Check it processes", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TestConnectionToLogDb", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to test the connecti" +
+                    "on to the Log DB by Getting Date from Server.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -77,31 +77,21 @@ namespace ESFA.DC.ILR.FileValidationService.AcceptanceTests
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Process file test file")]
-        [Xunit.TraitAttribute("FeatureTitle", "SubmitTestILRFile")]
-        [Xunit.TraitAttribute("Description", "Process file test file")]
-        [Xunit.TraitAttribute("Category", "mytag")]
-        [Xunit.TraitAttribute("Category", "Destructive")]
+        [Xunit.FactAttribute(DisplayName="Connect to DB and GetDate")]
+        [Xunit.TraitAttribute("FeatureTitle", "TestConnectionToLogDb")]
+        [Xunit.TraitAttribute("Description", "Connect to DB and GetDate")]
         [Xunit.TraitAttribute("Category", "SmokeTest")]
-        [Xunit.TraitAttribute("Category", "Bob")]
-        public virtual void ProcessFileTestFile()
+        public virtual void ConnectToDBAndGetDate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Process file test file", null, new string[] {
-                        "mytag",
-                        "Destructive",
-                        "SmokeTest",
-                        "Bob"});
-#line 8
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Connect to DB and GetDate", null, new string[] {
+                        "SmokeTest"});
+#line 7
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
+#line 8
+ testRunner.Given("app config \"LoggerConnectionString\" from the file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.Given("I have Created a file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 10
- testRunner.And("I have entered Create a message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 11
- testRunner.When("I submit the Message to Service Bus", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
- testRunner.Then("the result file shoulf be in storage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I try and Get the Datetime Now", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -113,12 +103,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                SubmitTestILRFileFeature.FeatureSetup();
+                TestConnectionToLogDbFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                SubmitTestILRFileFeature.FeatureTearDown();
+                TestConnectionToLogDbFeature.FeatureTearDown();
             }
         }
     }
