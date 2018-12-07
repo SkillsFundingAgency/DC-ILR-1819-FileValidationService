@@ -115,11 +115,11 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App.config">
+    <None Include="App.config">
       <TransformOnBuild>true</TransformOnBuild>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="App.Debug.config">
       <DependentUpon>App.config</DependentUpon>
       <IsTransformFile>true</IsTransformFile>
