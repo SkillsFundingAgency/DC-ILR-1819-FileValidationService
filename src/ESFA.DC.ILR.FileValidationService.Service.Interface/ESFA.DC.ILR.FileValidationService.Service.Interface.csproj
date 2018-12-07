@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ESFA.DC.ILR.1819.IO.Model.Validation" Version="0.1.5-beta0001" />
+    <PackageReference Include="ESFA.DC.ILR.1819.Model" Version="0.1.4-beta0001" />
+    <PackageReference Include="ESFA.DC.ILR.1819.Model.Loose" Version="0.1.5-beta0001" />
+  </ItemGroup>
+
+</Project>

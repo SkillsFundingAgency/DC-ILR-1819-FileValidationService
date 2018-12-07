@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ESFA.DC.ILR.1819.Model.Loose" Version="0.1.5-beta0001" />
+    <PackageReference Include="FluentValidation" Version="8.0.100" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ESFA.DC.ILR.FileValidationService.Service.Interface\ESFA.DC.ILR.FileValidationService.Service.Interface.csproj" />
+  </ItemGroup>
+
+</Project>
