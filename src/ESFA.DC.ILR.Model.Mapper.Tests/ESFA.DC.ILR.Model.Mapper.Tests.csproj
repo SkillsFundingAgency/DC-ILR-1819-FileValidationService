@@ -107,6 +107,7 @@
     <Compile Include="ProviderSpecLearnerMonitoringMapperTests.cs" />
     <Compile Include="SourceFileMapperTests.cs" />
     <Compile Include="SourceMapperTests.cs" />
+    <Compile Include="StringExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

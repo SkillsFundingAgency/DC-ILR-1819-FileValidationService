@@ -60,6 +60,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_HEPostCode()
         {
             TestMapperProperty(NewMapper(), m => m.HEPostCode, TestString, m => m.HEPostCode, TestString);
+            TestMapperProperty(NewMapper(), m => m.HEPostCode, TestStringTrailingWhiteSpace, m => m.HEPostCode, TestString);
         }
 
         [Fact]

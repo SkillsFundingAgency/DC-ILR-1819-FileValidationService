@@ -267,12 +267,14 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_Postcode()
         {
             TestMapperProperty(NewMapper(), m => m.Postcode, TestString, m => m.Postcode, TestString);
+            TestMapperProperty(NewMapper(), m => m.Postcode, TestStringTrailingWhiteSpace, m => m.Postcode, TestString);
         }
 
         [Fact]
         public void Map_PostcodePrior()
         {
             TestMapperProperty(NewMapper(), m => m.PostcodePrior, TestString, m => m.PostcodePrior, TestString);
+            TestMapperProperty(NewMapper(), m => m.PostcodePrior, TestStringTrailingWhiteSpace, m => m.PostcodePrior, TestString);
         }
 
         [Fact]

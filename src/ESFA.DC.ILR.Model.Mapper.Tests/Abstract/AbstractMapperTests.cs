@@ -15,6 +15,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests.Abstract
     {
         protected readonly DateTime TestDateTime = new DateTime(2018, 1, 1);
         protected const string TestString = "TestString";
+        protected const string TestStringTrailingWhiteSpace = "TestString      ";
         protected const int TestInt = 1234567;
         protected const long TestIntSizedLong = 1234567;
         protected const long TestLong = 123455678901;

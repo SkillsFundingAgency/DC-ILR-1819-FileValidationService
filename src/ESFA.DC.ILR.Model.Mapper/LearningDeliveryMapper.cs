@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using ESFA.DC.ILR.Model.Mapper.Abstract;
+using ESFA.DC.ILR.Model.Mapper.Extension;
 using ESFA.DC.ILR.Model.Mapper.Interface;
 
 namespace ESFA.DC.ILR.Model.Mapper
@@ -40,7 +41,7 @@ namespace ESFA.DC.ILR.Model.Mapper
                 AppFinRecord = model.AppFinRecord?.Select(r => _appFinRecordMapper.Map(r)).ToArray(),
                 CompStatus = (int)model.CompStatus,
                 ConRefNumber = model.ConRefNumber,
-                DelLocPostCode = model.DelLocPostCode,
+                DelLocPostCode = model.DelLocPostCode.Sanitize(),
                 EPAOrgID = model.EPAOrgID,
                 EmpOutcome = (int)model.EmpOutcome,
                 EmpOutcomeSpecified = model.EmpOutcomeSpecified,
