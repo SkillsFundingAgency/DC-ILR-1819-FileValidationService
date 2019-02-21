@@ -9,7 +9,7 @@ namespace ESFA.DC.ILR.Model.Mapper
         {
             return new MessageLearnerLearningDeliveryLearningDeliveryFAM()
             {
-                LearnDelFAMCode = model.LearnDelFAMCode.Sanitize(),
+                LearnDelFAMCode = StringExtensions.Trim(model.LearnDelFAMCode),
                 LearnDelFAMDateFrom = model.LearnDelFAMDateFrom,
                 LearnDelFAMDateFromSpecified = model.LearnDelFAMDateFromSpecified,
                 LearnDelFAMDateTo = model.LearnDelFAMDateTo,

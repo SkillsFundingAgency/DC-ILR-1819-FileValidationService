@@ -7,35 +7,47 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
     public class StringExtensionsTests
     {
         [Fact]
-        public void Sanitize_NoWhiteSpace()
+        public void Trim_NoWhiteSpace()
         {
-            "Word".Sanitize().Should().Be("Word");
+            StringExtensions.Trim("Word").Should().Be("Word");
         }
 
         [Fact]
-        public void Sanitize_WhiteSpace()
+        public void Trim_TrailingWhiteSpace()
         {
-            "Word    ".Sanitize().Should().Be("Word");
+            StringExtensions.Trim("Word    ").Should().Be("Word");
         }
 
         [Fact]
-        public void Sanitize_OnlyWhiteSpace()
+        public void Trim_LeadingWhiteSpace()
         {
-            "    ".Sanitize().Should().Be("");
+            StringExtensions.Trim("    Word").Should().Be("Word");
         }
 
         [Fact]
-        public void Sanitize_Null()
+        public void Trim_WhiteSpace()
+        {
+            StringExtensions.Trim("    Word     ").Should().Be("Word");
+        }
+
+        [Fact]
+        public void Trim_OnlyWhiteSpace()
+        {
+            StringExtensions.Trim("    ").Should().Be("");
+        }
+
+        [Fact]
+        public void Trim_Null()
         {
             string word = null;
 
-            word.Sanitize().Should().BeNull();
+            StringExtensions.Trim(word).Should().BeNull();
         }
 
         [Fact]
-        public void Sanitize_Empty()
+        public void Trim_Empty()
         {
-            string.Empty.Sanitize().Should().Be(string.Empty);
+            StringExtensions.Trim(string.Empty).Should().Be(string.Empty);
         }
     }
 }

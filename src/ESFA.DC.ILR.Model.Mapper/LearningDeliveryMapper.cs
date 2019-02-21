@@ -41,7 +41,7 @@ namespace ESFA.DC.ILR.Model.Mapper
                 AppFinRecord = model.AppFinRecord?.Select(r => _appFinRecordMapper.Map(r)).ToArray(),
                 CompStatus = (int)model.CompStatus,
                 ConRefNumber = model.ConRefNumber,
-                DelLocPostCode = model.DelLocPostCode.Sanitize(),
+                DelLocPostCode = StringExtensions.Trim(model.DelLocPostCode),
                 EPAOrgID = model.EPAOrgID,
                 EmpOutcome = (int)model.EmpOutcome,
                 EmpOutcomeSpecified = model.EmpOutcomeSpecified,
