@@ -79,7 +79,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_DelLocPostCode()
         {
             TestMapperProperty(NewMapper(), m => m.DelLocPostCode, TestString, m => m.DelLocPostCode, TestString);
-            TestMapperProperty(NewMapper(), m => m.DelLocPostCode, TestStringTrailingWhiteSpace, m => m.DelLocPostCode, TestString);
+            TestMapperProperty(NewMapper(), m => m.DelLocPostCode, TestStringLeadingAndTrailingWhiteSpace, m => m.DelLocPostCode, TestString);
         }
 
         [Fact]
@@ -217,6 +217,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_OutGrade()
         {
             TestMapperProperty(NewMapper(), m => m.OutGrade, TestString, m => m.OutGrade, TestString);
+            TestMapperProperty(NewMapper(), m => m.OutGrade, TestStringLeadingAndTrailingWhiteSpace, m => m.OutGrade, TestString);
         }
 
         [Fact]

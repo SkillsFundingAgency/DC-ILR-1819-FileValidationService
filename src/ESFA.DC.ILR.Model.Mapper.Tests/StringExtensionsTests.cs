@@ -7,47 +7,47 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
     public class StringExtensionsTests
     {
         [Fact]
-        public void Trim_NoWhiteSpace()
+        public void Sanitize_NoWhiteSpace()
         {
-            StringExtensions.Trim("Word").Should().Be("Word");
+            "Word".Sanitize().Should().Be("Word");
         }
 
         [Fact]
-        public void Trim_TrailingWhiteSpace()
+        public void Sanitize_TrailingWhiteSpace()
         {
-            StringExtensions.Trim("Word    ").Should().Be("Word");
+            "Word    ".Sanitize().Should().Be("Word");
         }
 
         [Fact]
-        public void Trim_LeadingWhiteSpace()
+        public void Sanitize_LeadingWhiteSpace()
         {
-            StringExtensions.Trim("    Word").Should().Be("Word");
+            "    Word".Sanitize().Should().Be("Word");
         }
 
         [Fact]
-        public void Trim_WhiteSpace()
+        public void Sanitize_WhiteSpace()
         {
-            StringExtensions.Trim("    Word     ").Should().Be("Word");
+            "    Word     ".Sanitize().Should().Be("Word");
         }
 
         [Fact]
-        public void Trim_OnlyWhiteSpace()
+        public void Sanitize_OnlyWhiteSpace()
         {
-            StringExtensions.Trim("    ").Should().Be("");
+            "    ".Sanitize().Should().Be("");
         }
 
         [Fact]
-        public void Trim_Null()
+        public void Sanitize_Null()
         {
             string word = null;
 
-            StringExtensions.Trim(word).Should().BeNull();
+            word.Sanitize().Should().BeNull();
         }
 
         [Fact]
-        public void Trim_Empty()
+        public void Sanitize_Empty()
         {
-            StringExtensions.Trim(string.Empty).Should().Be(string.Empty);
+            string.Empty.Sanitize().Should().Be(string.Empty);
         }
     }
 }

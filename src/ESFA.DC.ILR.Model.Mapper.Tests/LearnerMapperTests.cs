@@ -104,6 +104,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_EngGrade()
         {
             TestMapperProperty(NewMapper(), m => m.EngGrade, TestString, m => m.EngGrade, TestString);
+            TestMapperProperty(NewMapper(), m => m.EngGrade, TestStringLeadingAndTrailingWhiteSpace, m => m.EngGrade, TestString);
         }
 
         [Fact]
@@ -207,6 +208,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_MathGrade()
         {
             TestMapperProperty(NewMapper(), m => m.MathGrade, TestString, m => m.MathGrade, TestString);
+            TestMapperProperty(NewMapper(), m => m.MathGrade, TestStringLeadingAndTrailingWhiteSpace, m => m.MathGrade, TestString);
         }
 
         [Fact]
@@ -267,14 +269,14 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_Postcode()
         {
             TestMapperProperty(NewMapper(), m => m.Postcode, TestString, m => m.Postcode, TestString);
-            TestMapperProperty(NewMapper(), m => m.Postcode, TestStringTrailingWhiteSpace, m => m.Postcode, TestString);
+            TestMapperProperty(NewMapper(), m => m.Postcode, TestStringLeadingAndTrailingWhiteSpace, m => m.Postcode, TestString);
         }
 
         [Fact]
         public void Map_PostcodePrior()
         {
             TestMapperProperty(NewMapper(), m => m.PostcodePrior, TestString, m => m.PostcodePrior, TestString);
-            TestMapperProperty(NewMapper(), m => m.PostcodePrior, TestStringTrailingWhiteSpace, m => m.PostcodePrior, TestString);
+            TestMapperProperty(NewMapper(), m => m.PostcodePrior, TestStringLeadingAndTrailingWhiteSpace, m => m.PostcodePrior, TestString);
         }
 
         [Fact]

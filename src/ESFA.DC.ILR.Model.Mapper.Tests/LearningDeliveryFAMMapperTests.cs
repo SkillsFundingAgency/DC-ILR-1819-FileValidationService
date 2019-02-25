@@ -16,7 +16,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_LearnDelFAMCode()
         {
             TestMapperProperty(NewMapper(), m => m.LearnDelFAMCode, TestString, m => m.LearnDelFAMCode, TestString);
-            TestMapperProperty(NewMapper(), m => m.LearnDelFAMCode, TestStringTrailingWhiteSpace, m => m.LearnDelFAMCode, TestString);
+            TestMapperProperty(NewMapper(), m => m.LearnDelFAMCode, TestStringLeadingAndTrailingWhiteSpace, m => m.LearnDelFAMCode, TestString);
         }
 
         [Fact]

@@ -2,9 +2,9 @@
 {
     public static class StringExtensions
     {
-        public static string Trim(this string input)
+        public static string Sanitize(this string input)
         {
-            return input?.TrimStart().TrimEnd();
+            return input?.Trim();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ESFA.DC.ILR.Model.Mapper
                 FUNDLEV = (int)model.FUNDLEV,
                 GROSSFEE = (int)model.GROSSFEE,
                 GROSSFEESpecified = model.GROSSFEESpecified,
-                HEPostCode = StringExtensions.Trim(model.HEPostCode),
+                HEPostCode = model.HEPostCode.Sanitize(),
                 MODESTUD = (int)model.MODESTUD,
                 MSTUFEE = (int)model.MSTUFEE,
                 NETFEE = (int)model.NETFEE,
