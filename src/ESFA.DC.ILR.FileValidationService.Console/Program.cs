@@ -18,9 +18,9 @@ namespace ESFA.DC.ILR.FileValidationService.Console
 
             IFileValidationContext fileValidationContext = new FileValidationContext()
             {
-                FileReference = "ILR-99999999-1819-20180626-144401-01.xml",
+                FileReference = "ILR-10003915-1819-20181206-112643-01.xml",
                 Container = "Files",
-                OriginalFileReference = "ILR-99999999-1819-20180626-144401-02.xml",
+                OriginalFileReference = "ILR-10003915-1819-20181206-112643-01.xml",
                 ValidationErrorsKey = "ValidationErrors"
             };
 
@@ -67,7 +67,9 @@ namespace ESFA.DC.ILR.FileValidationService.Console
                 .RegisterValidators()
                 .RegisterSerializers()
                 .RegisterIoServices()
-                .RegisterValidationServices();
+                .RegisterValidationServices()
+                .RegisterMappers()
+                .RegisterLogger();
             
             return containerBuilder;
         }

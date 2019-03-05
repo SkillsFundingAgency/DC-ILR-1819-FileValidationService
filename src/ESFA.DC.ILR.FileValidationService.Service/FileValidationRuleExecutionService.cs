@@ -51,8 +51,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 
                             if (!ldError.IsValid)
                             {
-                                HandleValidationErrors(BuildValidationErrorsFromValidationResult(ldError,
-                                    learner.LearnRefNumber, learningDelivery.AimSeqNumber));
+                                HandleValidationErrors(BuildValidationErrorsFromValidationResult(ldError, learner.LearnRefNumber, learningDelivery.AimSeqNumber));
                             }
                         }
                     }
@@ -65,7 +64,10 @@ namespace ESFA.DC.ILR.FileValidationService.Service
                 {
                     var error = _learnerDestinationAndProgressionValidator.Validate(learnerDestinationAndProgression, ruleSet: ruleSet);
 
-                    HandleValidationErrors(BuildValidationErrorsFromValidationResult(error, learnerDestinationAndProgression.LearnRefNumber));
+                    if (!error.IsValid)
+                    {
+                        HandleValidationErrors(BuildValidationErrorsFromValidationResult(error, learnerDestinationAndProgression.LearnRefNumber));
+                    }
                 }
             };
 

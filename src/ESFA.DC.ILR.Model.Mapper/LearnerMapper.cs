@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using ESFA.DC.ILR.Model.Mapper.Abstract;
+using ESFA.DC.ILR.Model.Mapper.Extension;
 using ESFA.DC.ILR.Model.Mapper.Interface;
 
 namespace ESFA.DC.ILR.Model.Mapper
@@ -49,7 +50,7 @@ namespace ESFA.DC.ILR.Model.Mapper
                 DateOfBirth = model.DateOfBirth,
                 DateOfBirthSpecified = model.DateOfBirthSpecified,
                 Email = model.Email,
-                EngGrade = model.EngGrade,
+                EngGrade = model.EngGrade.Sanitize(),
                 Ethnicity = (int)model.Ethnicity,
                 FamilyName = model.FamilyName,
                 GivenNames = model.GivenNames,
@@ -60,7 +61,7 @@ namespace ESFA.DC.ILR.Model.Mapper
                 LearnerFAM = model.LearnerFAM?.Select(f => _learnerFamMapper.Map(f)).ToArray(),
                 LearnerHE = _learnerHeMapper.Map(model.LearnerHE?.FirstOrDefault()),
                 LearningDelivery = model.LearningDelivery?.Select(ld => _learningDeliveryMapper.Map(ld)).ToArray(),
-                MathGrade = model.MathGrade,
+                MathGrade = model.MathGrade.Sanitize(),
                 NINumber = model.NINumber,
                 OTJHours = (int)model.OTJHours,
                 OTJHoursSpecified = model.OTJHoursSpecified,
@@ -70,8 +71,8 @@ namespace ESFA.DC.ILR.Model.Mapper
                 PlanEEPHoursSpecified = model.PlanEEPHoursSpecified,
                 PlanLearnHours = (int)model.PlanLearnHours,
                 PlanLearnHoursSpecified = model.PlanLearnHoursSpecified,
-                Postcode = model.Postcode,
-                PostcodePrior = model.PostcodePrior,
+                Postcode = model.Postcode.Sanitize(),
+                PostcodePrior = model.PostcodePrior.Sanitize(),
                 PrevLearnRefNumber = model.PrevLearnRefNumber,
                 PrevUKPRN = (int)model.PrevUKPRN,
                 PrevUKPRNSpecified = model.PrevUKPRNSpecified,

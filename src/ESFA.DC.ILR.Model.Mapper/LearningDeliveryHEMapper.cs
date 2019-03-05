@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using ESFA.DC.ILR.Model.Mapper.Abstract;
+using ESFA.DC.ILR.Model.Mapper.Extension;
 
 namespace ESFA.DC.ILR.Model.Mapper
 {
@@ -18,7 +19,7 @@ namespace ESFA.DC.ILR.Model.Mapper
                 FUNDLEV = (int)model.FUNDLEV,
                 GROSSFEE = (int)model.GROSSFEE,
                 GROSSFEESpecified = model.GROSSFEESpecified,
-                HEPostCode = model.HEPostCode,
+                HEPostCode = model.HEPostCode.Sanitize(),
                 MODESTUD = (int)model.MODESTUD,
                 MSTUFEE = (int)model.MSTUFEE,
                 NETFEE = (int)model.NETFEE,

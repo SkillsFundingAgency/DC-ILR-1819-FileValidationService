@@ -2,6 +2,7 @@
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/ESFA.DC.ILR.FileValidationService" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="ESFA.DC.ILR.FileValidationService.Stateless_InstanceCount" Value="__FileValidation_Stateless_InstanceCount__" />
+    <Parameter Name="ProcessingServicePlacementConstraints" Value="__ProcessingServicePlacementConstraints__" />
     <Parameter Name="ServiceBusConnectionString" Value="__ServiceBusConnectionString__" />
     <Parameter Name="TopicName" Value="__TopicName__" />
     <Parameter Name="SubscriptionName" Value="__SubscriptionName__" />

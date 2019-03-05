@@ -34,7 +34,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
                     return ucasPerIdLong >= 1 && ucasPerIdLong <= 9999999999;
                 }
 
-                return false;
+                return true;
             }).WithRangeError(RuleNames.FD_UCASPERID_AR);
         }
 

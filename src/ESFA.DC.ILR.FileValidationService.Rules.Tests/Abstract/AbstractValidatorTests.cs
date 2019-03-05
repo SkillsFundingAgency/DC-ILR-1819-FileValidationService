@@ -165,6 +165,10 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
             _validator.ShouldHaveValidationErrorFor(selector, MockEntity(selector, invalidMaximum), RangeRuleSetName)
                 .WithErrorCode(ruleName)
                 .WithRangeState(ruleName, attributeName, invalidMaximum);
+
+            string invalidNull = null;
+
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, invalidNull), RangeRuleSetName);
         }
 
         protected void TestEntityMaximumOccurrenceFor<T>(Expression<Func<TEntity, IReadOnlyCollection<T>>> selector, string ruleName, string attributeName, int occurrences)
