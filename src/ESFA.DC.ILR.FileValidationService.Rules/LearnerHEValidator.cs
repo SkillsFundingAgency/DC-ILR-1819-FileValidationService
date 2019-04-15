@@ -21,7 +21,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         public override void LengthRules()
         {
-            RuleFor(lhe => lhe.UCASPERID).Length(1, 10).WithLengthError(RuleNames.FD_UCASPERID_AL);
+            RuleFor(lhe => lhe.UCASPERID).LengthTrim(1, 10).WithLengthError(RuleNames.FD_UCASPERID_AL);
             RuleFor(lhe => lhe.TTACCOMNullable).Length(1, 1).WithLengthError(RuleNames.FD_TTACCOM_AL);
         }
 

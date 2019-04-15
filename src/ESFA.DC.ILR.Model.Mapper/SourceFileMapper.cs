@@ -1,4 +1,5 @@
 ﻿using ESFA.DC.ILR.Model.Mapper.Abstract;
+using ESFA.DC.ILR.Model.Mapper.Extension;
 
 namespace ESFA.DC.ILR.Model.Mapper
 {
@@ -11,11 +12,11 @@ namespace ESFA.DC.ILR.Model.Mapper
                 DateTime = model.DateTime,
                 DateTimeSpecified = model.DateTimeSpecified,
                 FilePreparationDate = model.FilePreparationDate,
-                Release = model.Release,
-                SerialNo = model.SerialNo,
-                SoftwarePackage = model.SoftwarePackage,
-                SoftwareSupplier = model.SoftwareSupplier,
-                SourceFileName = model.SourceFileName
+                Release = model.Release.Sanitize(),
+                SerialNo = model.SerialNo.Sanitize(),
+                SoftwarePackage = model.SoftwarePackage.Sanitize(),
+                SoftwareSupplier = model.SoftwareSupplier.Sanitize(),
+                SourceFileName = model.SourceFileName.Sanitize()
             };
         }
     }

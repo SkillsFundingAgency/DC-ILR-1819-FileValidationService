@@ -30,24 +30,28 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_AddLine1()
         {
             TestMapperProperty(NewMapper(), m => m.AddLine1, TestString, m => m.AddLine1, TestString);
+            TestMapperProperty(NewMapper(), m => m.AddLine1, TestStringLeadingAndTrailingWhiteSpace, m => m.AddLine1, TestString);
         }
 
         [Fact]
         public void Map_AddLine2()
         {
             TestMapperProperty(NewMapper(), m => m.AddLine2, TestString, m => m.AddLine2, TestString);
+            TestMapperProperty(NewMapper(), m => m.AddLine2, TestStringLeadingAndTrailingWhiteSpace, m => m.AddLine2, TestString);
         }
 
         [Fact]
         public void Map_AddLine3()
         {
             TestMapperProperty(NewMapper(), m => m.AddLine3, TestString, m => m.AddLine3, TestString);
+            TestMapperProperty(NewMapper(), m => m.AddLine3, TestStringLeadingAndTrailingWhiteSpace, m => m.AddLine3, TestString);
         }
 
         [Fact]
         public void Map_AddLine4()
         {
             TestMapperProperty(NewMapper(), m => m.AddLine4, TestString, m => m.AddLine4, TestString);
+            TestMapperProperty(NewMapper(), m => m.AddLine4, TestStringLeadingAndTrailingWhiteSpace, m => m.AddLine4, TestString);
         }
 
         [Fact]
@@ -66,6 +70,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_CampId()
         {
             TestMapperProperty(NewMapper(), m => m.CampId, TestString, m => m.CampId, TestString);
+            TestMapperProperty(NewMapper(), m => m.CampId, TestStringLeadingAndTrailingWhiteSpace, m => m.CampId, TestString);
         }
 
         [Fact]
@@ -98,6 +103,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_Email()
         {
             TestMapperProperty(NewMapper(), m => m.Email, TestString, m => m.Email, TestString);
+            TestMapperProperty(NewMapper(), m => m.Email, TestStringLeadingAndTrailingWhiteSpace, m => m.Email, TestString);
         }
 
         [Fact]
@@ -117,12 +123,14 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_FamilyName()
         {
             TestMapperProperty(NewMapper(), m => m.FamilyName, TestString, m => m.FamilyName, TestString);
+            TestMapperProperty(NewMapper(), m => m.FamilyName, TestStringLeadingAndTrailingWhiteSpace, m => m.FamilyName, TestString);
         }
 
         [Fact]
         public void Map_GivenNames()
         {
             TestMapperProperty(NewMapper(), m => m.GivenNames, TestString, m => m.GivenNames, TestString);
+            TestMapperProperty(NewMapper(), m => m.GivenNames, TestStringLeadingAndTrailingWhiteSpace, m => m.GivenNames, TestString);
         }
 
         [Fact]
@@ -148,6 +156,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_LearnRefNumber()
         {
             TestMapperProperty(NewMapper(), m => m.LearnRefNumber, TestString, m => m.LearnRefNumber, TestString);
+            TestMapperProperty(NewMapper(), m => m.LearnRefNumber, TestStringLeadingAndTrailingWhiteSpace, m => m.LearnRefNumber, TestString);
         }
 
         [Fact]
@@ -215,6 +224,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_NINumber()
         {
             TestMapperProperty(NewMapper(), m => m.NINumber, TestString, m => m.NINumber, TestString);
+            TestMapperProperty(NewMapper(), m => m.NINumber, TestStringLeadingAndTrailingWhiteSpace, m => m.NINumber, TestString);
         }
 
         [Fact]
@@ -283,6 +293,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_PrevLearnRefNumber()
         {
             TestMapperProperty(NewMapper(), m => m.PrevLearnRefNumber, TestString, m => m.PrevLearnRefNumber, TestString);
+            TestMapperProperty(NewMapper(), m => m.PrevLearnRefNumber, TestStringLeadingAndTrailingWhiteSpace, m => m.PrevLearnRefNumber, TestString);
         }
 
         [Fact]
@@ -326,12 +337,14 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_Sex()
         {
             TestMapperProperty(NewMapper(), m => m.Sex, TestString, m => m.Sex, TestString);
+            TestMapperProperty(NewMapper(), m => m.Sex, TestStringLeadingAndTrailingWhiteSpace, m => m.Sex, TestString);
         }
 
         [Fact]
         public void Map_TelNo()
         {
             TestMapperProperty(NewMapper(), m => m.TelNo, TestString, m => m.TelNo, TestString);
+            TestMapperProperty(NewMapper(), m => m.TelNo, TestStringLeadingAndTrailingWhiteSpace, m => m.TelNo, TestString);
         }
 
         [Fact]

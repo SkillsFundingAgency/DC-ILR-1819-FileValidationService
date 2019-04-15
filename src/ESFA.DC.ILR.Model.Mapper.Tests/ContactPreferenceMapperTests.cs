@@ -16,6 +16,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_ContPrefType()
         {
             TestMapperProperty(NewMapper(), m => m.ContPrefType, TestString, m => m.ContPrefType, TestString);
+            TestMapperProperty(NewMapper(), m => m.ContPrefType, TestStringLeadingAndTrailingWhiteSpace, m => m.ContPrefType, TestString);
         }
 
         [Fact]

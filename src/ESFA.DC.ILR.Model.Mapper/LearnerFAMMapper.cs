@@ -1,4 +1,5 @@
 ﻿using ESFA.DC.ILR.Model.Mapper.Abstract;
+using ESFA.DC.ILR.Model.Mapper.Extension;
 
 namespace ESFA.DC.ILR.Model.Mapper
 {
@@ -9,7 +10,7 @@ namespace ESFA.DC.ILR.Model.Mapper
             return new MessageLearnerLearnerFAM()
             {
                 LearnFAMCode = (int)model.LearnFAMCode,
-                LearnFAMType = model.LearnFAMType,
+                LearnFAMType = model.LearnFAMType.Sanitize(),
             };
         }
     }

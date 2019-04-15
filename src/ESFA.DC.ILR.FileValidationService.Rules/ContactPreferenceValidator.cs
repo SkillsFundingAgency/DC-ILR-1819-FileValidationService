@@ -21,7 +21,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         public override void LengthRules()
         {
-            RuleFor(cp => cp.ContPrefType).Length(1, 3).WithLengthError(RuleNames.FD_ContPrefType_AL);
+            RuleFor(cp => cp.ContPrefType).LengthTrim(1, 3).WithLengthError(RuleNames.FD_ContPrefType_AL);
             RuleFor(cp => cp.ContPrefCodeNullable).Length(1, 1).WithLengthError(RuleNames.FD_ContPrefCode_AL);
         }
     }

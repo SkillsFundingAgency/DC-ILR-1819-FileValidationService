@@ -34,6 +34,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_AFinType()
         {
             TestMapperProperty(NewMapper(), m => m.AFinType, TestString, m => m.AFinType, TestString);
+            TestMapperProperty(NewMapper(), m => m.AFinType, TestStringLeadingAndTrailingWhiteSpace, m => m.AFinType, TestString);
         }
         
         private AppFinRecordMapper NewMapper()

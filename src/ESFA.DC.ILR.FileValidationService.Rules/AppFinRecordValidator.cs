@@ -23,7 +23,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         public override void LengthRules()
         {
-            RuleFor(afr => afr.AFinType).Length(1, 3).WithLengthError(RuleNames.FD_AFinType_AL);
+            RuleFor(afr => afr.AFinType).LengthTrim(1, 3).WithLengthError(RuleNames.FD_AFinType_AL);
             RuleFor(afr => afr.AFinCodeNullable).Length(1, 2).WithLengthError(RuleNames.FD_AFinCode_AL);
             RuleFor(afr => afr.AFinAmountNullable).Length(1, 6).WithLengthError(RuleNames.FD_AFinAmount_AL);
         }

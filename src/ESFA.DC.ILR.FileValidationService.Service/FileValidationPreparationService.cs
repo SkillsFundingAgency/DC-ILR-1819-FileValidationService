@@ -11,8 +11,8 @@ namespace ESFA.DC.ILR.FileValidationService.Service
 {
     public class FileValidationPreparationService : IFileValidationPreparationService
     {
-        private const string XmlExtension = ".xml";
-        private const string ZipExtension = ".zip";
+        private const string XmlExtension = ".XML";
+        private const string ZipExtension = ".ZIP";
         private const string ZipEmptyRuleName = "ZIP_EMPTY";
         private const string ZipTooManyFilesRuleName = "ZIP_TOO_MANY_FILES";
 

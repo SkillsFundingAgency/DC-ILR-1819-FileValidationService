@@ -43,6 +43,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_UCASPERID()
         {
             TestMapperProperty(NewMapper(), m => m.UCASPERID, TestString, m => m.UCASPERID, TestString);
+            TestMapperProperty(NewMapper(), m => m.UCASPERID, TestStringLeadingAndTrailingWhiteSpace, m => m.UCASPERID, TestString);
         }
         
         private LearnerHEMapper NewMapper(IModelMapper<Loose.MessageLearnerLearnerHELearnerHEFinancialSupport, MessageLearnerLearnerHELearnerHEFinancialSupport> learnerHEFinancialSupportMapper = null)

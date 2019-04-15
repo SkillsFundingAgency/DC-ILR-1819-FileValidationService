@@ -22,6 +22,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_ESMType()
         {
             TestMapperProperty(NewMapper(), m => m.ESMType, TestString, m => m.ESMType, TestString);
+            TestMapperProperty(NewMapper(), m => m.ESMType, TestStringLeadingAndTrailingWhiteSpace, m => m.ESMType, TestString);
         }
 
         private EmploymentStatusMonitoringMapper NewMapper()

@@ -73,6 +73,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_ConRefNumber()
         {
             TestMapperProperty(NewMapper(), m => m.ConRefNumber, TestString, m => m.ConRefNumber, TestString);
+            TestMapperProperty(NewMapper(), m => m.ConRefNumber, TestStringLeadingAndTrailingWhiteSpace, m => m.ConRefNumber, TestString);
         }
 
         [Fact]
@@ -86,6 +87,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_EPAOrgID()
         {
             TestMapperProperty(NewMapper(), m => m.EPAOrgID, TestString, m => m.EPAOrgID, TestString);
+            TestMapperProperty(NewMapper(), m => m.EPAOrgID, TestStringLeadingAndTrailingWhiteSpace, m => m.EPAOrgID, TestString);
         }
 
         [Fact]
@@ -134,6 +136,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_LearnAimRef()
         {
             TestMapperProperty(NewMapper(), m => m.LearnAimRef, TestString, m => m.LearnAimRef, TestString);
+            TestMapperProperty(NewMapper(), m => m.LearnAimRef, TestStringLeadingAndTrailingWhiteSpace, m => m.LearnAimRef, TestString);
         }
 
         [Fact]
@@ -297,6 +300,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_SWSupAimId()
         {
             TestMapperProperty(NewMapper(), m => m.SWSupAimId, TestString, m => m.SWSupAimId, TestString);
+            TestMapperProperty(NewMapper(), m => m.SWSupAimId, TestStringLeadingAndTrailingWhiteSpace, m => m.SWSupAimId, TestString);
         }
 
         [Fact]

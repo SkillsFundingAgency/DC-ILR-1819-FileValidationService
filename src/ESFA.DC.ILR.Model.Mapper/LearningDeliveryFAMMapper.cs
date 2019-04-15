@@ -14,7 +14,7 @@ namespace ESFA.DC.ILR.Model.Mapper
                 LearnDelFAMDateFromSpecified = model.LearnDelFAMDateFromSpecified,
                 LearnDelFAMDateTo = model.LearnDelFAMDateTo,
                 LearnDelFAMDateToSpecified = model.LearnDelFAMDateToSpecified,
-                LearnDelFAMType = model.LearnDelFAMType,
+                LearnDelFAMType = model.LearnDelFAMType.Sanitize(),
             };
         }
     }

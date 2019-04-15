@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using ESFA.DC.ILR.Model.Mapper.Abstract;
+using ESFA.DC.ILR.Model.Mapper.Extension;
 using ESFA.DC.ILR.Model.Mapper.Interface;
 
 namespace ESFA.DC.ILR.Model.Mapper
@@ -17,7 +18,7 @@ namespace ESFA.DC.ILR.Model.Mapper
         {
             return new MessageLearnerLearnerEmploymentStatus()
             {
-                AgreeId = model.AgreeId,
+                AgreeId = model.AgreeId.Sanitize(),
                 DateEmpStatApp = model.DateEmpStatApp,
                 EmpId = (int)model.EmpId,
                 EmpIdSpecified = model.EmpIdSpecified,

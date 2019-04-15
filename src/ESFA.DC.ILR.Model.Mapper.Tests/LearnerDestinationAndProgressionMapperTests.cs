@@ -31,6 +31,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_LearnRefNumber()
         {
             TestMapperProperty(NewMapper(), m => m.LearnRefNumber, TestString, m => m.LearnRefNumber, TestString);
+            TestMapperProperty(NewMapper(), m => m.LearnRefNumber, TestStringLeadingAndTrailingWhiteSpace, m => m.LearnRefNumber, TestString);
         }
 
         [Fact]

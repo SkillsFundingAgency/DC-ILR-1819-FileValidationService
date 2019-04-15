@@ -22,6 +22,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_LearnFAMType()
         {
             TestMapperProperty(NewMapper(), m => m.LearnFAMType, TestString, m => m.LearnFAMType, TestString);
+            TestMapperProperty(NewMapper(), m => m.LearnFAMType, TestStringLeadingAndTrailingWhiteSpace, m => m.LearnFAMType, TestString);
         }
 
         private LearnerFAMMapper NewMapper()

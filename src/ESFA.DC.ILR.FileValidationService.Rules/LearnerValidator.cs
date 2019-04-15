@@ -59,34 +59,34 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         public override void LengthRules()
         {
-            RuleFor(l => l.LearnRefNumber).Length(1, 12).WithLengthError(RuleNames.FD_LearnRefNumber_AL);
-            RuleFor(l => l.PrevLearnRefNumber).Length(1, 12).WithLengthError(RuleNames.FD_PrevLearnRefNumber_AL);
+            RuleFor(l => l.LearnRefNumber).LengthTrim(1, 12).WithLengthError(RuleNames.FD_LearnRefNumber_AL);
+            RuleFor(l => l.PrevLearnRefNumber).LengthTrim(1, 12).WithLengthError(RuleNames.FD_PrevLearnRefNumber_AL);
             RuleFor(l => l.PrevUKPRNNullable).Length(1, 8).WithLengthError(RuleNames.FD_PrevUKPRN_AL);
             RuleFor(l => l.PMUKPRNNullable).Length(1, 8).WithLengthError(RuleNames.FD_PMUKPRN_AL);
             RuleFor(l => l.ULNNullable).Length(1, 10).WithLengthError(RuleNames.FD_ULN_AL);
-            RuleFor(l => l.FamilyName).Length(1, 100).WithLengthError(RuleNames.FD_FamilyName_AL);
-            RuleFor(l => l.GivenNames).Length(1, 100).WithLengthError(RuleNames.FD_GivenNames_AL);
+            RuleFor(l => l.FamilyName).LengthTrim(1, 100).WithLengthError(RuleNames.FD_FamilyName_AL);
+            RuleFor(l => l.GivenNames).LengthTrim(1, 100).WithLengthError(RuleNames.FD_GivenNames_AL);
             RuleFor(l => l.EthnicityNullable).Length(1, 2).WithLengthError(RuleNames.FD_Ethnicity_AL);
-            RuleFor(l => l.Sex).Length(1, 1).WithLengthError(RuleNames.FD_Sex_AL);
+            RuleFor(l => l.Sex).LengthTrim(1, 1).WithLengthError(RuleNames.FD_Sex_AL);
             RuleFor(l => l.LLDDHealthProbNullable).Length(1, 1).WithLengthError(RuleNames.FD_LLDDHealthProb_AL);
-            RuleFor(l => l.NINumber).Length(1, 9).WithLengthError(RuleNames.FD_NINumber_AL);
+            RuleFor(l => l.NINumber).LengthTrim(1, 9).WithLengthError(RuleNames.FD_NINumber_AL);
             RuleFor(l => l.PriorAttainNullable).Length(1, 2).WithLengthError(RuleNames.FD_PriorAttain_AL);
             RuleFor(l => l.AccomNullable).Length(1, 1).WithLengthError(RuleNames.FD_Accom_AL);
             RuleFor(l => l.ALSCostNullable).Length(1, 6).WithLengthError(RuleNames.FD_ALSCost_AL);
             RuleFor(l => l.PlanLearnHoursNullable).Length(1, 4).WithLengthError(RuleNames.FD_PlanLearnHours_AL);
             RuleFor(l => l.PlanEEPHoursNullable).Length(1, 4).WithLengthError(RuleNames.FD_PlanEEPHours_AL);
-            RuleFor(l => l.MathGrade).Length(1, 4).WithLengthError(RuleNames.FD_MathGrade_AL);
-            RuleFor(l => l.EngGrade).Length(1, 4).WithLengthError(RuleNames.FD_EngGrade_AL);
-            RuleFor(l => l.PostcodePrior).Length(1, 8).WithLengthError(RuleNames.FD_PostcodePrior_AL);
-            RuleFor(l => l.Postcode).Length(1, 8).WithLengthError(RuleNames.FD_Postcode_AL);
-            RuleFor(l => l.CampId).Length(0, 8).WithLengthError(RuleNames.FD_CampId_AL);
+            RuleFor(l => l.MathGrade).LengthTrim(1, 4).WithLengthError(RuleNames.FD_MathGrade_AL);
+            RuleFor(l => l.EngGrade).LengthTrim(1, 4).WithLengthError(RuleNames.FD_EngGrade_AL);
+            RuleFor(l => l.PostcodePrior).LengthTrim(1, 8).WithLengthError(RuleNames.FD_PostcodePrior_AL);
+            RuleFor(l => l.Postcode).LengthTrim(1, 8).WithLengthError(RuleNames.FD_Postcode_AL);
+            RuleFor(l => l.CampId).LengthTrim(0, 8).WithLengthError(RuleNames.FD_CampId_AL);
             RuleFor(l => l.OTJHoursNullable).Length(0, 4).WithLengthError(RuleNames.FD_OTJHours_AL);
-            RuleFor(l => l.AddLine1).Length(1, 50).WithLengthError(RuleNames.FD_AddLine1_AL);
-            RuleFor(l => l.AddLine2).Length(1, 50).WithLengthError(RuleNames.FD_AddLine2_AL);
-            RuleFor(l => l.AddLine3).Length(1, 50).WithLengthError(RuleNames.FD_AddLine3_AL);
-            RuleFor(l => l.AddLine4).Length(1, 50).WithLengthError(RuleNames.FD_AddLine4_AL);
-            RuleFor(l => l.TelNo).Length(1, 18).WithLengthError(RuleNames.FD_TelNo_AL);
-            RuleFor(l => l.Email).Length(1, 100).WithLengthError(RuleNames.FD_Email_AL);
+            RuleFor(l => l.AddLine1).LengthTrim(1, 50).WithLengthError(RuleNames.FD_AddLine1_AL);
+            RuleFor(l => l.AddLine2).LengthTrim(1, 50).WithLengthError(RuleNames.FD_AddLine2_AL);
+            RuleFor(l => l.AddLine3).LengthTrim(1, 50).WithLengthError(RuleNames.FD_AddLine3_AL);
+            RuleFor(l => l.AddLine4).LengthTrim(1, 50).WithLengthError(RuleNames.FD_AddLine4_AL);
+            RuleFor(l => l.TelNo).LengthTrim(1, 18).WithLengthError(RuleNames.FD_TelNo_AL);
+            RuleFor(l => l.Email).LengthTrim(1, 100).WithLengthError(RuleNames.FD_Email_AL);
         }
 
         public override void RangeRules()

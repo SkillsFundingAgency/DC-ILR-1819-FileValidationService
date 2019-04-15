@@ -18,6 +18,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_Domicile()
         {
             TestMapperProperty(NewMapper(), m => m.DOMICILE, TestString, m => m.DOMICILE, TestString);
+            TestMapperProperty(NewMapper(), m => m.DOMICILE, TestStringLeadingAndTrailingWhiteSpace, m => m.DOMICILE, TestString);
         }
 
         [Fact]
@@ -91,6 +92,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_NUMHUS()
         {
             TestMapperProperty(NewMapper(), m => m.NUMHUS, TestString, m => m.NUMHUS, TestString);
+            TestMapperProperty(NewMapper(), m => m.NUMHUS, TestStringLeadingAndTrailingWhiteSpace, m => m.NUMHUS, TestString);
         }
 
         [Fact]
@@ -145,6 +147,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_QUALENT3()
         {
             TestMapperProperty(NewMapper(), m => m.QUALENT3, TestString, m => m.QUALENT3, TestString);
+            TestMapperProperty(NewMapper(), m => m.QUALENT3, TestStringLeadingAndTrailingWhiteSpace, m => m.QUALENT3, TestString);
         }
 
         [Fact]
@@ -181,6 +184,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_SSN()
         {
             TestMapperProperty(NewMapper(), m => m.SSN, TestString, m => m.SSN, TestString);
+            TestMapperProperty(NewMapper(), m => m.SSN, TestStringLeadingAndTrailingWhiteSpace, m => m.SSN, TestString);
         }
 
         [Fact]
@@ -205,6 +209,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_UCASAPPID()
         {
             TestMapperProperty(NewMapper(), m => m.UCASAPPID, TestString, m => m.UCASAPPID, TestString);
+            TestMapperProperty(NewMapper(), m => m.UCASAPPID, TestStringLeadingAndTrailingWhiteSpace, m => m.UCASAPPID, TestString);
         }
 
         [Fact]

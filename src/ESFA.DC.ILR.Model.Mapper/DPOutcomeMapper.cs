@@ -1,4 +1,5 @@
 ﻿using ESFA.DC.ILR.Model.Mapper.Abstract;
+using ESFA.DC.ILR.Model.Mapper.Extension;
 
 namespace ESFA.DC.ILR.Model.Mapper
 {
@@ -13,7 +14,7 @@ namespace ESFA.DC.ILR.Model.Mapper
                 OutEndDate = model.OutEndDate,
                 OutEndDateSpecified = model.OutEndDateSpecified,
                 OutStartDate = model.OutStartDate,
-                OutType = model.OutType,
+                OutType = model.OutType.Sanitize(),
             };
         }
     }

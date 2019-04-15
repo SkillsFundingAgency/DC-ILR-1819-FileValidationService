@@ -49,5 +49,11 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         {
             string.Empty.Sanitize().Should().Be(string.Empty);
         }
+
+        [Fact]
+        public void Sanitize_CarriageReturn()
+        {
+            "Word&#13;".Sanitize().Should().Be("Word");
+        }
     }
 }

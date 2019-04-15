@@ -16,6 +16,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_ComponentSetVersion()
         {
             TestMapperProperty(NewMapper(), m => m.ComponentSetVersion, TestString, m => m.ComponentSetVersion, TestString);
+            TestMapperProperty(NewMapper(), m => m.ComponentSetVersion, TestStringLeadingAndTrailingWhiteSpace, m => m.ComponentSetVersion, TestString);
         }
 
         [Fact]
@@ -34,30 +35,35 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_ReferenceData()
         {
             TestMapperProperty(NewMapper(), m => m.ReferenceData, TestString, m => m.ReferenceData, TestString);
+            TestMapperProperty(NewMapper(), m => m.ReferenceData, TestStringLeadingAndTrailingWhiteSpace, m => m.ReferenceData, TestString);
         }
 
         [Fact]
         public void Map_Release()
         {
             TestMapperProperty(NewMapper(), m => m.Release, TestString, m => m.Release, TestString);
+            TestMapperProperty(NewMapper(), m => m.Release, TestStringLeadingAndTrailingWhiteSpace, m => m.Release, TestString);
         }
 
         [Fact]
         public void Map_SerialNo()
         {
             TestMapperProperty(NewMapper(), m => m.SerialNo, TestString, m => m.SerialNo, TestString);
+            TestMapperProperty(NewMapper(), m => m.SerialNo, TestStringLeadingAndTrailingWhiteSpace, m => m.SerialNo, TestString);
         }
 
         [Fact]
         public void Map_SoftwarePackage()
         {
             TestMapperProperty(NewMapper(), m => m.SoftwarePackage, TestString, m => m.SoftwarePackage, TestString);
+            TestMapperProperty(NewMapper(), m => m.SoftwarePackage, TestStringLeadingAndTrailingWhiteSpace, m => m.SoftwarePackage, TestString);
         }
 
         [Fact]
         public void Map_SoftwareSupplier()
         {
             TestMapperProperty(NewMapper(), m => m.SoftwareSupplier, TestString, m => m.SoftwareSupplier, TestString);
+            TestMapperProperty(NewMapper(), m => m.SoftwareSupplier, TestStringLeadingAndTrailingWhiteSpace, m => m.SoftwareSupplier, TestString);
         }
 
         [Fact]

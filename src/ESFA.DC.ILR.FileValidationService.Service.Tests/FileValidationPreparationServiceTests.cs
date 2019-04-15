@@ -34,7 +34,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
         [Fact]
         public void BuildIlrXmlFileReference()
         {
-            NewService().BuildIlrXmlFileReference("a.zip").Should().Be("a.xml");
+            NewService().BuildIlrXmlFileReference("a.zip").Should().Be("a.XML");
         }
 
         [Fact]
@@ -95,7 +95,7 @@ namespace ESFA.DC.ILR.FileValidationService.Service.Tests
         public async Task Prepare()
         {
             var fileReference = "FileReference.zip";
-            var outputFileReference = "FileReference.xml";
+            var outputFileReference = "FileReference.XML";
             var container = "Container";
             var xmlFileName = "a.xml";
             Stream inputStream = new MemoryStream();

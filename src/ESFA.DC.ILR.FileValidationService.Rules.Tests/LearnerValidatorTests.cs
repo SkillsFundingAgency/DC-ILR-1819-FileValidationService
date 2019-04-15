@@ -116,6 +116,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests
         public void FD_TelNo_AP()
         {
             TestRegexRuleFor(l => l.TelNo, "FD_TelNo_AP", "012345678910", "ABC");
+            TestRegexRuleFor(l => l.TelNo, "FD_TelNo_AP", "012345678910    ", "ABC");
         }
 
         [Fact]

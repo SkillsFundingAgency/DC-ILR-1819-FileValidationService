@@ -36,7 +36,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
             {
                 RuleFor(les => les.EmpStatNullable).Length(1, 2).WithLengthError(RuleNames.FD_EmpStat_AL);
                 RuleFor(les => les.EmpIdNullable).Length(1, 9).WithLengthError(RuleNames.FD_EmpId_AL);
-                RuleFor(les => les.AgreeId).Length(1, 6).WithLengthError(RuleNames.FD_AgreeId_AL);
+                RuleFor(les => les.AgreeId).LengthTrim(1, 6).WithLengthError(RuleNames.FD_AgreeId_AL);
             });
         }
 

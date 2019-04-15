@@ -1,4 +1,5 @@
 ﻿using ESFA.DC.ILR.Model.Mapper.Abstract;
+using ESFA.DC.ILR.Model.Mapper.Extension;
 
 namespace ESFA.DC.ILR.Model.Mapper
 {
@@ -11,7 +12,7 @@ namespace ESFA.DC.ILR.Model.Mapper
                 AFinAmount = (int)model.AFinAmount,
                 AFinCode = (int)model.AFinCode,
                 AFinDate = model.AFinDate,
-                AFinType = model.AFinType,
+                AFinType = model.AFinType.Sanitize(),
             };
         }
     }

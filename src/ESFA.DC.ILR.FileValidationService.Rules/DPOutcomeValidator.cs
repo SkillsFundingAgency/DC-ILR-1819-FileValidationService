@@ -23,7 +23,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         public override void LengthRules()
         {
-            RuleFor(dpo => dpo.OutType).Length(1, 3).WithLengthError(RuleNames.FD_DP_OutType_AL);
+            RuleFor(dpo => dpo.OutType).LengthTrim(1, 3).WithLengthError(RuleNames.FD_DP_OutType_AL);
             RuleFor(dpo => dpo.OutCodeNullable).Length(1, 3).WithLengthError(RuleNames.FD_DP_OutCode_AL);
         }
     }

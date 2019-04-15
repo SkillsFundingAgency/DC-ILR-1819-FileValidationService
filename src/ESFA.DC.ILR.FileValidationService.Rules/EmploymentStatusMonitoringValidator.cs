@@ -35,7 +35,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RuleSet(RuleSetNames.Length, () =>
             {
-                RuleFor(esm => esm.ESMType).Length(1, 3).WithLengthError(RuleNames.FD_ESMType_AL);
+                RuleFor(esm => esm.ESMType).LengthTrim(1, 3).WithLengthError(RuleNames.FD_ESMType_AL);
                 RuleFor(esm => esm.ESMCodeNullable).Length(1, 2).WithLengthError(RuleNames.FD_ESMCode_AL);
             });
         }

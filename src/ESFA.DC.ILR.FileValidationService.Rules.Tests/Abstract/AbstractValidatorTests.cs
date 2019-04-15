@@ -53,6 +53,9 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Tests.Abstract
             _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, BuildStringOfCharOfLength(lowerLength)), LengthRuleSetName);
             _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, BuildStringOfCharOfLength(upperLength)), LengthRuleSetName);
 
+            // whitespace
+            _validator.ShouldNotHaveValidationErrorFor(selector, MockEntity(selector, BuildStringOfCharOfLength(upperLength) + "     "), LengthRuleSetName);
+
             var lowerInvalidLength = lowerLength - 1;
             var upperInvalidLength = upperLength + 1;
 

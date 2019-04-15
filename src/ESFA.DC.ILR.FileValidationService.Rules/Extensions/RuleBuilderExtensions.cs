@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading;
 using ESFA.DC.ILR.FileValidationService.Rules.Constants;
 using FluentValidation;
 
@@ -10,14 +12,26 @@ namespace ESFA.DC.ILR.FileValidationService.Rules.Extensions
         private const string LengthStateKey = "Length";
         private const string ActualOccurrencesStateKey = "Actual Occurrences";
 
-        public static IRuleBuilderOptions<T, string> MatchesRestrictedString<T>(this IRuleBuilder<T, string> ruleBuilder)
+        private const string CarriageReturnASCII = "&#13;";
+
+        public static IRuleBuilderOptions<T, string> MatchesRestrictedString<T>(this IRuleBuilderInitial<T, string> ruleBuilder)
         {
             return ruleBuilder.MatchesRegex(Regexes.RestrictedString);
         }
 
-        public static IRuleBuilderOptions<T, string> MatchesRegex<T>(this IRuleBuilder<T, string> ruleBuilder, string expression)
+        public static IRuleBuilderOptions<T, string> MatchesRegex<T>(this IRuleBuilderInitial<T, string> ruleBuilder, string expression)
         {
-            return ruleBuilder.Matches(expression, RegexOptions.Compiled);
+            return ruleBuilder
+                .Transform(s => 
+                    s?
+                        .Replace(CarriageReturnASCII, string.Empty)
+                        .Trim())
+                .Matches(expression, RegexOptions.Compiled);
+        }
+        
+        public static IRuleBuilderOptions<T, string> LengthTrim<T>(this IRuleBuilderInitial<T, string> ruleBuilder, int lowerLength, int upperLength)
+        {
+            return ruleBuilder.Transform(s => s?.Trim()).Length(lowerLength, upperLength);
         }
 
         public static IRuleBuilderOptions<T, long?> Length<T>(this IRuleBuilder<T, long?> ruleBuilder, int lowerLength, int upperLength)

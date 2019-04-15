@@ -18,6 +18,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_AgreeId()
         {
             TestMapperProperty(NewMapper(), m => m.AgreeId, TestString, m => m.AgreeId, TestString);
+            TestMapperProperty(NewMapper(), m => m.AgreeId, TestStringLeadingAndTrailingWhiteSpace, m => m.AgreeId, TestString);
         }
 
         [Fact]

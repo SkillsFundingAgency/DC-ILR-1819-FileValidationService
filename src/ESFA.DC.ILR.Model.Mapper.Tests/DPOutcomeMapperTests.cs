@@ -46,6 +46,7 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_OutType()
         {
             TestMapperProperty(NewMapper(), m => m.OutType, TestString, m => m.OutType, TestString);
+            TestMapperProperty(NewMapper(), m => m.OutType, TestStringLeadingAndTrailingWhiteSpace, m => m.OutType, TestString);
         }
 
         private DPOutcomeMapper NewMapper()

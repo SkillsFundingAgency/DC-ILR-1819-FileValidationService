@@ -26,7 +26,7 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         public override void LengthRules()
         {
-            RuleFor(ldp => ldp.LearnRefNumber).Length(1, 12).WithLengthError(RuleNames.FD_DP_LearnRefNumber_AL);
+            RuleFor(ldp => ldp.LearnRefNumber).LengthTrim(1, 12).WithLengthError(RuleNames.FD_DP_LearnRefNumber_AL);
             RuleFor(ldp => ldp.ULNNullable).Length(1, 10).WithLengthError(RuleNames.FD_DP_ULN_AL);
         }
 

@@ -36,8 +36,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
         {
             RuleSet(RuleSetNames.Length, () =>
             {
-                RuleFor(fam => fam.LearnDelFAMType).Length(1, 3).WithLengthError(RuleNames.FD_LearnDelFAMType_AL);
-                RuleFor(fam => fam.LearnDelFAMCode).Length(1, 5).WithLengthError(RuleNames.FD_LearnDelFAMCode_AL);
+                RuleFor(fam => fam.LearnDelFAMType).LengthTrim(1, 3).WithLengthError(RuleNames.FD_LearnDelFAMType_AL);
+                RuleFor(fam => fam.LearnDelFAMCode).LengthTrim(1, 5).WithLengthError(RuleNames.FD_LearnDelFAMCode_AL);
             });
         }
     }

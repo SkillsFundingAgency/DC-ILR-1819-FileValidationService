@@ -1,4 +1,5 @@
 ﻿using ESFA.DC.ILR.Model.Mapper.Abstract;
+using ESFA.DC.ILR.Model.Mapper.Extension;
 
 namespace ESFA.DC.ILR.Model.Mapper
 {
@@ -8,7 +9,7 @@ namespace ESFA.DC.ILR.Model.Mapper
         {
             return new MessageLearnerContactPreference()
             {
-                ContPrefType = model.ContPrefType,
+                ContPrefType = model.ContPrefType.Sanitize(),
                 ContPrefCode = (int)model.ContPrefCode,
             };
         }

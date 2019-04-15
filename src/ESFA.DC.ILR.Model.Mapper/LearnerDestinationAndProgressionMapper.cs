@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using ESFA.DC.ILR.Model.Mapper.Abstract;
+using ESFA.DC.ILR.Model.Mapper.Extension;
 using ESFA.DC.ILR.Model.Mapper.Interface;
 
 namespace ESFA.DC.ILR.Model.Mapper
@@ -18,7 +19,7 @@ namespace ESFA.DC.ILR.Model.Mapper
             return new MessageLearnerDestinationandProgression()
             {
                 DPOutcome = model.DPOutcome?.Select(o => _dpOutcomeMapper.Map(o)).ToArray(),
-                LearnRefNumber = model.LearnRefNumber,
+                LearnRefNumber = model.LearnRefNumber.Sanitize(),
                 ULN = model.ULN,
             };
         }

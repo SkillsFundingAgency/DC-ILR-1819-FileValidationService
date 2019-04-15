@@ -16,12 +16,14 @@ namespace ESFA.DC.ILR.Model.Mapper.Tests
         public void Map_ProvSpecLearnMon()
         {
             TestMapperProperty(NewMapper(), m => m.ProvSpecLearnMon, TestString, m => m.ProvSpecLearnMon, TestString);
+            TestMapperProperty(NewMapper(), m => m.ProvSpecLearnMon, TestStringLeadingAndTrailingWhiteSpace, m => m.ProvSpecLearnMon, TestString);
         }
 
         [Fact]
         public void Map_ProvSpecLearnMonOccur()
         {
             TestMapperProperty(NewMapper(), m => m.ProvSpecLearnMonOccur, TestString, m => m.ProvSpecLearnMonOccur, TestString);
+            TestMapperProperty(NewMapper(), m => m.ProvSpecLearnMonOccur, TestStringLeadingAndTrailingWhiteSpace, m => m.ProvSpecLearnMonOccur, TestString);
         }
         
         private ProviderSpecLearnerMonitoringMapper NewMapper()

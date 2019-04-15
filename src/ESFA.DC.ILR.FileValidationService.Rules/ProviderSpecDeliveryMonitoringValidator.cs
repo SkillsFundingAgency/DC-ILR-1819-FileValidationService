@@ -22,8 +22,8 @@ namespace ESFA.DC.ILR.FileValidationService.Rules
 
         public override void LengthRules()
         {
-            RuleFor(m => m.ProvSpecDelMonOccur).Length(1, 1).WithLengthError(RuleNames.FD_ProvSpecDelMonOccur_AL);
-            RuleFor(m => m.ProvSpecDelMon).Length(1, 20).WithLengthError(RuleNames.FD_ProvSpecDelMon_AL);
+            RuleFor(m => m.ProvSpecDelMonOccur).LengthTrim(1, 1).WithLengthError(RuleNames.FD_ProvSpecDelMonOccur_AL);
+            RuleFor(m => m.ProvSpecDelMon).LengthTrim(1, 20).WithLengthError(RuleNames.FD_ProvSpecDelMon_AL);
         }
     }
 }
